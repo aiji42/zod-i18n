@@ -1,0 +1,9 @@
+{
+  "name": "zod-error-i18n",
+  "version": "0.0.0",
+  "description": "A library for localizing zod error messages.",
+  "repository": "git@github.com:aiji42/zod-i18n.git",
+  "author": "aiji42 <aiji42@gmail.com> (https://twitter.com/aiji42_dev)",
+  "license": "MIT",
+  "private": true
+}
