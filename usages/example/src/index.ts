@@ -17,7 +17,7 @@ i18next.init({
 z.setErrorMap(defaultErrorMap);
 
 const main = () => {
-  const mySchema = z.string().email();
+  const mySchema = z.string().endsWith("こんにちは");
   try {
     mySchema.parse("");
   } catch (e) {
