@@ -10,7 +10,8 @@
     "build": "moon run :build",
     "dev": "run-p dev:*",
     "dev:example": "moon run example:dev",
-    "dev:zodi18n": "moon run zodi18n:dev"
+    "dev:zodi18n": "moon run zodi18n:dev",
+    "test": "moon run :test"
   },
   "workspaces": [
     "packages/*",

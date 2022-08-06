@@ -117,6 +117,24 @@ test("date parser error messages", () => {
   ).toEqual(`${new Date("2022-08-01")}以前の日時である必要があります。`);
 });
 
+test("array parser error messages", () => {
+  const schema = z.string().array();
+
+  expect(getErrorMessage(schema.safeParse(""))).toEqual(
+    "配列での入力を期待していますが、文字列が入力されました。"
+  );
+
+  expect(getErrorMessage(schema.min(5).safeParse([""]))).toEqual(
+    "5個以上の要素が必要です。"
+  );
+  expect(getErrorMessage(schema.max(2).safeParse(["", "", ""]))).toEqual(
+    "2個以下の要素である必要があります。"
+  );
+  expect(getErrorMessage(schema.nonempty().safeParse([]))).toEqual(
+    "1個以上の要素が必要です。"
+  );
+});
+
 test("other parser error messages", () => {
   expect(getErrorMessage(z.literal(12).safeParse(""))).toEqual(
     "無効なリテラル値です。12を入力してください。"
@@ -124,7 +142,25 @@ test("other parser error messages", () => {
   expect(getErrorMessage(z.enum(["A", "B", "C"]).safeParse("D"))).toEqual(
     "Dは無効な値です。&#39;A&#39; | &#39;B&#39; | &#39;C&#39;で入力してください。"
   );
-  expect(getErrorMessage(z.object({ dog: z.string() }).safeParse(""))).toEqual(
-    "オブジェクトでの入力を期待していますが、文字列が入力されました。"
-  );
+  expect(
+    getErrorMessage(
+      z
+        .object({ dog: z.string() })
+        .strict()
+        .safeParse({ dog: "", cat: "", rat: "" })
+    )
+  ).toEqual("オブジェクトのキー&#39;cat&#39;, &#39;rat&#39;が識別できません。");
+  expect(
+    getErrorMessage(
+      z
+        .discriminatedUnion("type", [
+          z.object({ type: z.literal("a"), a: z.string() }),
+          z.object({ type: z.literal("b"), b: z.string() }),
+        ])
+        .safeParse({ type: "c", c: "abc" })
+    )
+  ).toEqual("無効な識別子です。&#39;a&#39; | &#39;b&#39;で入力してください。");
+  expect(
+    getErrorMessage(z.union([z.string(), z.number()]).safeParse([true]))
+  ).toEqual("入力形式が間違っています。");
 });
