@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { defaultErrorMap } from "zodi18n";
+import { errorMapping } from "zodi18n";
 import { translation } from "zodi18n/languages/ja";
 
 import i18next from "i18next";
@@ -14,10 +14,10 @@ i18next.init({
   },
 });
 
-z.setErrorMap(defaultErrorMap);
+z.setErrorMap(errorMapping);
 
 const main = () => {
-  const mySchema = z.string().email();
+  const mySchema = z.string().max(2);
   try {
     mySchema.parse("adfea");
   } catch (e) {
