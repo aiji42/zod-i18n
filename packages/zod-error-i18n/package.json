@@ -1,15 +1,14 @@
 {
-  "name": "zod-i18n",
+  "name": "zod-error-i18n",
   "version": "0.0.0",
   "description": "A library for localizing zod error messages.",
+  "main": "dist/index.js",
   "repository": "git@github.com:aiji42/zod-i18n.git",
   "author": "aiji42 <aiji42@gmail.com> (https://twitter.com/aiji42_dev)",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "devDependencies": {
-    "@moonrepo/cli": "^0.9.1"
+    "@tsconfig/node16": "^1.0.3",
+    "typescript": "^4.7.4"
   }
 }
