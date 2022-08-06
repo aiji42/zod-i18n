@@ -1,0 +1,11 @@
+tasks:
+  dev:
+    command: 'tsup'
+    args:
+      - '--watch'
+  build:
+    command: 'tsup'
+    inputs:
+      - 'src/**/*'
+    outputs:
+      - 'dist'

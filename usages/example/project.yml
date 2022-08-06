@@ -1,0 +1,5 @@
+tasks:
+  dev:
+    command: 'ts-node-dev'
+    args:
+      - 'src/index.ts'

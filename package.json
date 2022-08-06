@@ -6,6 +6,10 @@
   "author": "aiji42 <aiji42@gmail.com> (https://twitter.com/aiji42_dev)",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "build": "moon run :build",
+    "dev": "moon run :dev"
+  },
   "workspaces": [
     "packages/*",
     "usages/*"
@@ -13,5 +17,9 @@
   "devDependencies": {
     "@moonrepo/cli": "^0.9.1",
     "prettier": "^2.7.1"
+  },
+  "packageManager": "yarn@3.2.1",
+  "engines": {
+    "node": "16.15.0"
   }
 }

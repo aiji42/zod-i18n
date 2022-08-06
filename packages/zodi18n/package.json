@@ -32,8 +32,6 @@
     }
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
     "clean": "rimraf dist"
   },
   "peerDependencies": {
