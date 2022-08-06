@@ -7,11 +7,11 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "usages/*"
   ],
   "devDependencies": {
     "@moonrepo/cli": "^0.9.1",
-    "@types/node": "^18.6.4",
     "prettier": "^2.7.1"
   }
 }
