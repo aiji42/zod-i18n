@@ -3,9 +3,15 @@ tasks:
     command: 'tsup'
     args:
       - '--watch'
+    inputs:
+      - 'src/**/*'
+      - 'tsup.config.ts'
+    options:
+      runInCI: false
   build:
     command: 'tsup'
     inputs:
       - 'src/**/*'
+      - 'tsup.config.ts'
     outputs:
       - 'dist'

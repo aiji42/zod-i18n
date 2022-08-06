@@ -8,7 +8,9 @@
   "private": true,
   "scripts": {
     "build": "moon run :build",
-    "dev": "moon run :dev"
+    "dev": "run-p dev:*",
+    "dev:example": "moon run example:dev",
+    "dev:zodi18n": "moon run zodi18n:dev"
   },
   "workspaces": [
     "packages/*",
@@ -16,6 +18,7 @@
   ],
   "devDependencies": {
     "@moonrepo/cli": "^0.9.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1"
   },
   "packageManager": "yarn@3.2.1",

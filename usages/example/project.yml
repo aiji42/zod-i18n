@@ -1,5 +1,12 @@
+dependsOn:
+  - 'zodi18n'
 tasks:
   dev:
     command: 'ts-node-dev'
     args:
+      - '--respawn'
       - 'src/index.ts'
+    inputs:
+      - 'src/**/*'
+    options:
+      runInCI: false

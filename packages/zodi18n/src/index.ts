@@ -1,6 +1,6 @@
 import type { ZodIssueOptionalMessage } from "zod";
 import { ZodIssueCode, ZodParsedType } from "zod";
-import { z } from "zod";
+import i18next from "i18next";
 
 const jsonStringifyReplacer = (_: string, value: any): any => {
   if (typeof value === "bigint") {
@@ -18,24 +18,6 @@ function joinValues<T extends any[]>(array: T, separator = " | "): string {
 function assertNever(_x: never): never {
   throw new Error();
 }
-
-import i18next from "i18next";
-i18next.init({
-  lng: "ja",
-  resources: {
-    ja: {
-      translation: {
-        zod: {
-          invalid_type_required: "必須",
-          invalid_type:
-            "{{expected}}での入力を期待していますが、{{received}}で入力されました。",
-
-          // TODO: expected and received type
-        },
-      },
-    },
-  },
-});
 
 type ErrorMapCtx = {
   defaultError: string;
@@ -165,8 +147,3 @@ export const defaultErrorMap = (
   }
   return { message };
 };
-
-z.setErrorMap(defaultErrorMap);
-
-const mySchema = z.string();
-mySchema.parse(null);
