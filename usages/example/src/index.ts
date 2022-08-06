@@ -17,9 +17,9 @@ i18next.init({
 z.setErrorMap(defaultErrorMap);
 
 const main = () => {
-  const mySchema = z.string().endsWith("こんにちは");
+  const mySchema = z.string().max(6);
   try {
-    mySchema.parse("");
+    mySchema.parse("adfewagrwafea");
   } catch (e) {
     console.error(e);
   }

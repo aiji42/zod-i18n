@@ -37,10 +37,9 @@ export const defaultErrorMap = (
         message = i18next.t("zod.invalid_type_required", message);
       } else {
         message = `Expected ${issue.expected}, received ${issue.received}`;
-        // TODO: expected and received type
         message = i18next.t("zod.invalid_type", {
-          expected: issue.expected,
-          received: issue.received,
+          expected: i18next.t(`zod.types.${issue.expected}`, issue.expected),
+          received: i18next.t(`zod.types.${issue.received}`, issue.received),
           defaultValue: message,
         });
       }
@@ -128,6 +127,17 @@ export const defaultErrorMap = (
           issue.inclusive ? `or equal to ` : ``
         }${new Date(issue.minimum)}`;
       else message = "Invalid input";
+
+      message = i18next.t(
+        `zod.too_small.${issue.type}.${
+          issue.inclusive ? "inclusive" : "not_inclusive"
+        }`,
+        {
+          minimum:
+            issue.type === "date" ? new Date(issue.minimum) : issue.minimum,
+          defaultValue: message,
+        }
+      );
       break;
     case ZodIssueCode.too_big:
       if (issue.type === "array")
@@ -147,6 +157,16 @@ export const defaultErrorMap = (
           issue.inclusive ? `or equal to ` : ``
         }${new Date(issue.maximum)}`;
       else message = "Invalid input";
+      message = i18next.t(
+        `zod.too_big.${issue.type}.${
+          issue.inclusive ? "inclusive" : "not_inclusive"
+        }`,
+        {
+          maximum:
+            issue.type === "date" ? new Date(issue.maximum) : issue.maximum,
+          defaultValue: message,
+        }
+      );
       break;
     case ZodIssueCode.custom:
       message = `Invalid input`;
