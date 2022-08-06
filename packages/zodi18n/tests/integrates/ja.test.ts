@@ -1,0 +1,130 @@
+import { test, expect } from "vitest";
+import { SafeParseReturnType, z } from "zod";
+import i18next from "i18next";
+import { translation } from "../../src/languages/ja";
+import { errorMapping } from "../../src";
+
+i18next.init({
+  lng: "ja",
+  resources: {
+    ja: {
+      translation: {
+        ...translation,
+      },
+    },
+  },
+});
+
+z.setErrorMap(errorMapping);
+
+const getErrorMessage = (
+  parsed: SafeParseReturnType<unknown, unknown>
+): string => {
+  if ("error" in parsed) return parsed.error.issues[0].message;
+  throw new Error();
+};
+
+test("string parser error messages", () => {
+  const schema = z.string();
+
+  expect(getErrorMessage(schema.safeParse(undefined))).toEqual("必須");
+  expect(getErrorMessage(schema.safeParse(1))).toEqual(
+    "文字列での入力を期待していますが、数値が入力されました。"
+  );
+  expect(getErrorMessage(schema.safeParse(true))).toEqual(
+    "文字列での入力を期待していますが、真偽値が入力されました。"
+  );
+  expect(getErrorMessage(schema.safeParse(Date))).toEqual(
+    "文字列での入力を期待していますが、関数が入力されました。"
+  );
+  expect(getErrorMessage(schema.safeParse(new Date()))).toEqual(
+    "文字列での入力を期待していますが、日時が入力されました。"
+  );
+  expect(getErrorMessage(schema.email().safeParse(""))).toEqual(
+    "メールアドレスの形式で入力してください。"
+  );
+  expect(getErrorMessage(schema.url().safeParse(""))).toEqual(
+    "URLの形式で入力してください。"
+  );
+  expect(getErrorMessage(schema.regex(/aaa/).safeParse(""))).toEqual(
+    "入力形式が間違っています。"
+  );
+  expect(getErrorMessage(schema.startsWith("foo").safeParse(""))).toEqual(
+    "fooで始まる文字列である必要があります。"
+  );
+  expect(getErrorMessage(schema.endsWith("bar").safeParse(""))).toEqual(
+    "barで終わる文字列である必要があります。"
+  );
+  expect(getErrorMessage(schema.min(5).safeParse("a"))).toEqual(
+    "5文字以上の文字列である必要があります。"
+  );
+  expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
+    "5文字以下の文字列である必要があります。"
+  );
+});
+
+test("number parser error messages", () => {
+  const schema = z.number();
+
+  expect(getErrorMessage(schema.safeParse(undefined))).toEqual("必須");
+  expect(getErrorMessage(schema.safeParse(""))).toEqual(
+    "数値での入力を期待していますが、文字列が入力されました。"
+  );
+  expect(getErrorMessage(schema.safeParse(null))).toEqual(
+    "数値での入力を期待していますが、NULLが入力されました。"
+  );
+  expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
+    "数値での入力を期待していますが、NaNが入力されました。"
+  );
+  expect(getErrorMessage(schema.int().safeParse(0.1))).toEqual(
+    "整数での入力を期待していますが、浮動小数点数が入力されました。"
+  );
+  expect(getErrorMessage(schema.multipleOf(5).safeParse(2))).toEqual(
+    "5の倍数である必要があります。"
+  );
+  expect(getErrorMessage(schema.lt(5).safeParse(10))).toEqual(
+    "5より小さな数値である必要があります。"
+  );
+  expect(getErrorMessage(schema.lte(5).safeParse(10))).toEqual(
+    "5以下の数値である必要があります。"
+  );
+  expect(getErrorMessage(schema.gt(5).safeParse(1))).toEqual(
+    "5より大きな数値である必要があります。"
+  );
+  expect(getErrorMessage(schema.gte(5).safeParse(1))).toEqual(
+    "5以上の数値である必要があります。"
+  );
+  expect(getErrorMessage(schema.positive().safeParse(0))).toEqual(
+    "0より大きな数値である必要があります。"
+  );
+});
+
+test("date parser error messages", () => {
+  const schema = z.date();
+
+  expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
+    "日時での入力を期待していますが、文字列が入力されました。"
+  );
+  expect(
+    getErrorMessage(
+      schema.min(new Date("2022-08-01")).safeParse(new Date("2022-07-29"))
+    )
+  ).toEqual(`${new Date("2022-08-01")}以降の日時である必要があります。`);
+  expect(
+    getErrorMessage(
+      schema.max(new Date("2022-08-01")).safeParse(new Date("2022-08-02"))
+    )
+  ).toEqual(`${new Date("2022-08-01")}以前の日時である必要があります。`);
+});
+
+test("other parser error messages", () => {
+  expect(getErrorMessage(z.literal(12).safeParse(""))).toEqual(
+    "無効なリテラル値です。12を入力してください。"
+  );
+  expect(getErrorMessage(z.enum(["A", "B", "C"]).safeParse("D"))).toEqual(
+    "Dは無効な値です。&#39;A&#39; | &#39;B&#39; | &#39;C&#39;で入力してください。"
+  );
+  expect(getErrorMessage(z.object({ dog: z.string() }).safeParse(""))).toEqual(
+    "オブジェクトでの入力を期待していますが、文字列が入力されました。"
+  );
+});

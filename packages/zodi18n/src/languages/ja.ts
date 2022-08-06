@@ -4,14 +4,13 @@ export const translation = {
       invalid_type:
         "{{expected}}での入力を期待していますが、{{received}}が入力されました。",
       invalid_type_received_undefined: "必須",
-      invalid_literal:
-        "無効なリテラル値です。{{expected}}の形式で入力してください。",
+      invalid_literal: "無効なリテラル値です。{{expected}}を入力してください。",
       unrecognized_keys: "オブジェクトのキー({{keys}})が識別できません。",
       invalid_union: "入力形式が間違っています。",
       invalid_union_discriminator:
         "無効な識別子です。{{options}}を入力してください。",
       invalid_enum_value:
-        "{{received}}は無効な列挙値です。{{options}}を入力してください。",
+        "{{received}}は無効な値です。{{options}}で入力してください。",
       invalid_arguments: "引数が間違っています。",
       invalid_return_type: "返値の型が間違っています。",
       invalid_date: "間違った日時データです。",
@@ -89,8 +88,9 @@ export const translation = {
       integer: "整数",
       float: "浮動小数点数",
       boolean: "真偽値",
-      date: "日付",
+      date: "日時",
       bigint: "Bigint",
+      undefined: "undefined",
       symbol: "シンボル",
       null: "NULL",
       array: "配列",
