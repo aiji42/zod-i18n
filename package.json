@@ -8,7 +8,7 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "langages/*"
+    "languages/*"
   ],
   "devDependencies": {
     "@moonrepo/cli": "^0.9.1",
