@@ -82,32 +82,39 @@ export const defaultErrorMap = (
       if (typeof issue.validation === "object") {
         if ("startsWith" in issue.validation) {
           message = `Invalid input: must start with "${issue.validation.startsWith}"`;
-          message = i18next.t("zod.invalid_string_startsWith", {
-            startsWith: issue.validation.startsWith,
-            defaultValue: message,
-          });
         } else if ("endsWith" in issue.validation) {
           message = `Invalid input: must end with "${issue.validation.endsWith}"`;
-          message = i18next.t("zod.invalid_string_endsWith", {
-            endsWith: issue.validation.endsWith,
-            defaultValue: message,
-          });
         } else {
           assertNever(issue.validation);
         }
       } else if (issue.validation !== "regex") {
         message = `Invalid ${issue.validation}`;
-        message = i18next.t("zod.invalid_string", {
+      } else {
+        message = "Invalid";
+      }
+
+      if (typeof issue.validation === "object") {
+        if ("startsWith" in issue.validation) {
+          message = i18next.t(`zod.invalid_string.startsWith`, {
+            startsWith: issue.validation.startsWith,
+            defaultValue: message,
+          });
+        } else if ("endsWith" in issue.validation) {
+          message = i18next.t(`zod.invalid_string.endsWith`, {
+            endsWith: issue.validation.endsWith,
+            defaultValue: message,
+          });
+        }
+      } else {
+        message = i18next.t(`zod.invalid_string.${issue.validation}`, {
           validation: i18next.t(
             `zod.validations.${issue.validation}`,
             issue.validation
           ),
           defaultValue: message,
         });
-      } else {
-        message = "Invalid";
-        message = i18next.t("zod.invalid_regex", message);
       }
+
       break;
     case ZodIssueCode.too_small:
       if (issue.type === "array")

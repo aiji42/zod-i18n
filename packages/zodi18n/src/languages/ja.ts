@@ -3,13 +3,16 @@ export const translation = {
     invalid_type_required: "必須",
     invalid_type:
       "{{expected}}での入力を期待していますが、{{received}}が入力されました。",
-    invalid_string:
-      "入力形式が間違っています。{{validation}}を入力してください。",
-    invalid_string_regex: "入力形式が間違っています。",
-    invalid_string_startWith:
-      "入力形式が間違っています。{{startWith}}で始まる必要があります。",
-    invalid_string_endsWith:
-      "入力形式が間違っています。{{endsWith}}で終わる必要があります。",
+
+    invalid_string: {
+      email: "{{validation}}の形式で入力してください。",
+      url: "{{validation}}の形式で入力してください。",
+      uuid: "{{validation}}の形式で入力してください。",
+      cuid: "{{validation}}の形式で入力してください。",
+      regex: "入力形式が間違っています。",
+      startsWith: "{{startsWith}}で始まる文字列である必要があります。",
+      endsWith: "{{endsWith}}で終わる文字列である必要があります。",
+    },
 
     too_small: {
       array: {
