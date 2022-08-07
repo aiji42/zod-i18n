@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies 💿
         run: yarn install
       - name: Run Tests 🧪
-        run: yarn test:coverage
+        run: yarn coverage
       - name: Report coverage (client) 📏
         uses: codecov/codecov-action@v2
         with:
