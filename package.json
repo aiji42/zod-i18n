@@ -12,14 +12,24 @@
     "dev:example": "yarn workspace example dev",
     "build": "yarn workspace zodi18n build",
     "coverage": "yarn workspace zodi18n test:coverage",
-    "test": "yarn workspace zodi18n test"
+    "test": "yarn workspace zodi18n test",
+    "prepare": "husky install"
   },
   "workspaces": [
     "packages/*",
     "usages/*"
   ],
   "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "prettier --write"
+    ]
   }
 }
