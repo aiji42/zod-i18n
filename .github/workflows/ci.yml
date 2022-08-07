@@ -26,7 +26,7 @@ jobs:
             .yarn/cache
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies 💿
-        run: yarn install --frozen-lockfile
+        run: yarn install
       - name: Run Tests 🧪
         run: yarn test:coverage
       - name: Report coverage (client) 📏
@@ -53,7 +53,7 @@ jobs:
 #          path: "**/node_modules"
 #          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 #      - name: Install dependencies 💿
-#        run: yarn install --frozen-lockfile
+#        run: yarn install
 #      - name: Publish 🚀
 #        run: yarn run semantic-release
 #        env:
