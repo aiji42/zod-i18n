@@ -8,12 +8,12 @@
   "private": true,
   "scripts": {
     "dev": "run-p dev:*",
-    "dev:core": "yarn workspace zodi18n dev",
+    "dev:core": "yarn workspace zod-i18n-map dev",
     "dev:example": "yarn workspace example dev",
-    "build": "yarn workspace zodi18n build",
-    "coverage": "yarn workspace zodi18n test:coverage",
-    "test": "yarn workspace zodi18n test",
-    "release": "yarn workspace zodi18n release",
+    "build": "yarn workspace zod-i18n-map build",
+    "coverage": "yarn workspace zod-i18n-map test:coverage",
+    "test": "yarn workspace zod-i18n-map test",
+    "release": "yarn workspace zod-i18n-map release",
     "prepare": "husky install"
   },
   "workspaces": [

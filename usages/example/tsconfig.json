@@ -1,8 +1,3 @@
 {
-  "extends": "@tsconfig/node16/tsconfig.json",
-  "references": [
-    {
-      "path": "../../packages/zodi18n"
-    }
-  ]
+  "extends": "@tsconfig/node16/tsconfig.json"
 }

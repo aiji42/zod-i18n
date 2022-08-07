@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { errorMapping } from "zodi18n";
-import { translation } from "zodi18n/languages/ja";
+import { zodI18nMap } from "zod-i18n-map";
+import { translation } from "zod-i18n-map/languages/ja";
 
 import i18next from "i18next";
 i18next.init({
@@ -14,7 +14,7 @@ i18next.init({
   },
 });
 
-z.setErrorMap(errorMapping);
+z.setErrorMap(zodI18nMap);
 
 const main = () => {
   const mySchema = z.string().max(2);

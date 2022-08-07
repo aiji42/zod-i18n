@@ -8,7 +8,7 @@
   "dependencies": {
     "i18next": "^21.8.16",
     "zod": "^3.17.10",
-    "zodi18n": "*"
+    "zod-i18n-map": "*"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",

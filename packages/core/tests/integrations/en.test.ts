@@ -2,7 +2,7 @@ import { test, expect } from "vitest";
 import { SafeParseReturnType, z } from "zod";
 import i18next from "i18next";
 import { translation } from "../../src/languages/en";
-import { errorMapping } from "../../src";
+import { zodI18nMap } from "../../src";
 
 i18next.init({
   lng: "en",
@@ -15,7 +15,7 @@ i18next.init({
   },
 });
 
-z.setErrorMap(errorMapping);
+z.setErrorMap(zodI18nMap);
 
 const getErrorMessage = (
   parsed: SafeParseReturnType<unknown, unknown>

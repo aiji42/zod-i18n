@@ -40,7 +40,7 @@ It is also possible to create and edit translation files. You can use [this Engl
 If you have created a translation file for a language not yet in the repository, please send us a pull request.
 
 ## Contributing
-Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](../../CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](../../LICENSE) file for details

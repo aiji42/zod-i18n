@@ -14,7 +14,7 @@ function joinValues<T extends any[]>(array: T, separator = " | "): string {
     .join(separator);
 }
 
-export const errorMapping: typeof defaultErrorMap = (issue, ctx) => {
+export const zodI18nMap: typeof defaultErrorMap = (issue, ctx) => {
   let message: string;
   message = defaultErrorMap(issue, ctx).message;
 

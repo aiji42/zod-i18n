@@ -1,5 +1,5 @@
 {
-  "name": "zodi18n",
+  "name": "zod-i18n-map",
   "version": "0.0.0",
   "description": "A library for localizing zod error messages.",
   "main": "dist/index.js",
