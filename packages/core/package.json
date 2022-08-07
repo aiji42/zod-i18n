@@ -40,7 +40,8 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "clean": "rimraf dist",
-    "release": "yarn build && yarn semantic-release"
+    "release": "semantic-release",
+    "prepack": "yarn build"
   },
   "peerDependencies": {
     "i18next": ">=21.3.0",
@@ -53,6 +54,7 @@
     "i18next": "^21.8.16",
     "rimraf": "^3.0.2",
     "semantic-release": "^19.0.3",
+    "semantic-release-monorepo": "^7.0.5",
     "tsup": "^6.2.1",
     "typescript": "^4.7.4",
     "vitest": "^0.21.0",
