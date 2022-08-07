@@ -13,6 +13,7 @@
     "build": "yarn workspace zodi18n build",
     "coverage": "yarn workspace zodi18n test:coverage",
     "test": "yarn workspace zodi18n test",
+    "semantic-release": "yarn workspace zodi18n semantic-release",
     "prepare": "husky install"
   },
   "workspaces": [
