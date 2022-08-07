@@ -32,5 +32,8 @@
     "*.{js,ts,jsx,tsx}": [
       "prettier --write"
     ]
+  },
+  "release": {
+    "extends": "semantic-release-monorepo"
   }
 }
