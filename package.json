@@ -8,6 +8,7 @@
   "private": true,
   "scripts": {
     "build": "moon run :build",
+    "coverage": "moon run :coverage",
     "dev": "moon sync && run-p dev:*",
     "dev:example": "moon run example:dev",
     "dev:zodi18n": "moon run zodi18n:dev",

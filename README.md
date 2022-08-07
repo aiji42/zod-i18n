@@ -31,7 +31,7 @@ schema.parse('foo') // メールアドレスの形式で入力してください
 
 ## Translation File
 `zodi18n` contains translation files for several languages. See [here](https://github.com/aiji42/zod-i18n/tree/main/packages/zodi18n/src/languages) if your language is included.
-
+v
 It is also possible to create and edit translation files. You can use [this English translation file](https://github.com/aiji42/zod-i18n/blob/main/packages/zodi18n/src/languages/en.ts) as a basis for rewriting it in your language.
 
 If you have created a translation file for a language not yet in the repository, please send us a pull request.

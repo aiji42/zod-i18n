@@ -22,3 +22,17 @@ tasks:
     inputs:
       - 'src/**/*'
       - 'tests/**/*'
+    deps:
+      - '~:build'
+  coverage:
+    command: 'vitest'
+    args:
+      - 'run'
+      - '--coverage'
+    inputs:
+      - 'src/**/*'
+      - 'tests/**/*'
+    deps:
+      - '~:build'
+    outputs:
+      - 'coverage'
