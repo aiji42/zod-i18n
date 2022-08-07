@@ -2,6 +2,9 @@
   "name": "example",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "dev": "ts-node-dev --respawn src/index.ts"
+  },
   "dependencies": {
     "i18next": "^21.8.16",
     "zod": "^3.17.10",

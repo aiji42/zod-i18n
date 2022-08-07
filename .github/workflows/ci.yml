@@ -16,20 +16,17 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 16.15.0
+          node-version: 16.x
           registry-url: https://registry.npmjs.org
       - uses: actions/cache@v2
         with:
-          path: |
-            **/node_modules
-            .moon/cache
-            .yarn/cache
+          path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies 💿
-        run: yarn install
+        run: yarn install --frozen-lockfile
       - name: Run Tests 🧪
         run: yarn coverage
-      - name: Report coverage (client) 📏
+      - name: Report coverage 📏
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -46,14 +43,14 @@ jobs:
 #      - name: Use Node.js
 #        uses: actions/setup-node@v2
 #        with:
-#          node-version: 16.15.0
+#          node-version: 16.x
 #          registry-url: https://registry.npmjs.org
 #      - uses: actions/cache@v2
 #        with:
 #          path: "**/node_modules"
 #          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 #      - name: Install dependencies 💿
-#        run: yarn install
+#        run: yarn install --frozen-lockfile
 #      - name: Publish 🚀
 #        run: yarn run semantic-release
 #        env:
