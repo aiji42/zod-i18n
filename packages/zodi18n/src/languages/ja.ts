@@ -43,7 +43,6 @@ export const translation = {
           inclusive: "入力形式が間違っています。",
           not_inclusive: "入力形式が間違っています。",
         },
-        // TODO: allow to specify a format of date
         date: {
           inclusive: "{{minimum}}以降の日時である必要があります。",
           not_inclusive: "{{minimum}}よりも後の日時である必要があります。",
@@ -66,7 +65,6 @@ export const translation = {
           inclusive: "入力形式が間違っています。",
           not_inclusive: "入力形式が間違っています。",
         },
-        // TODO: allow to specify a format of date
         date: {
           inclusive: "{{maximum}}以前の日時である必要があります。",
           not_inclusive: "{{maximum}}よりも前の日時である必要があります。",

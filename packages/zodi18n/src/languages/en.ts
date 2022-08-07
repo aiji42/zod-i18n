@@ -42,7 +42,6 @@ export const translation = {
           inclusive: "Invalid input",
           not_inclusive: "Invalid input",
         },
-        // TODO: allow to specify a format of date
         date: {
           inclusive: "Date must be greater than or equal to {{minimum}}",
           not_inclusive: "Date must be greater than {{minimum}}",
@@ -65,7 +64,6 @@ export const translation = {
           inclusive: "Invalid input",
           not_inclusive: "Invalid input",
         },
-        // TODO: allow to specify a format of date
         date: {
           inclusive: "Date must be smaller than or equal to {{maximum}}",
           not_inclusive: "Date must be smaller than {{maximum}}",
