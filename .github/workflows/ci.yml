@@ -30,8 +30,8 @@ jobs:
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          working-directory: ./packages/zodi18n
-          flags: zodi18n
+          working-directory: ./packages/core
+          flags: core
 
 #  Publish:
 #    runs-on: ubuntu-latest
