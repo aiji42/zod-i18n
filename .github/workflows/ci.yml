@@ -52,7 +52,7 @@ jobs:
       - name: Install dependencies 💿
         run: yarn install --frozen-lockfile
       - name: Publish 🚀
-        run: yarn run semantic-release
+        run: yarn run release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

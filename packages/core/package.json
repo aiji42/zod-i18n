@@ -40,8 +40,7 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "clean": "rimraf dist",
-    "semantic-release": "semantic-release",
-    "prepack": "yarn build"
+    "release": "yarn build && yarn semantic-release"
   },
   "peerDependencies": {
     "i18next": ">=21.3.0",
