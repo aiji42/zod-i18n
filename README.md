@@ -17,6 +17,7 @@ This library depends on `i18next`.
 
 ## How to Use
 ```ts
+import i18next from 'i18next'
 import { z } from 'zod'
 import { zodI18nMap } from 'zod-i18n-map'
 // Import your language translation files
