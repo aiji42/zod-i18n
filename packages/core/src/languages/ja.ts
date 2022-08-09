@@ -5,12 +5,12 @@ export const translation = {
         "{{expected}}での入力を期待していますが、{{received}}が入力されました。",
       invalid_type_received_undefined: "必須",
       invalid_literal: "無効なリテラル値です。{{expected}}を入力してください。",
-      unrecognized_keys: "オブジェクトのキー{{keys}}が識別できません。",
+      unrecognized_keys: "オブジェクトのキー{{- keys}}が識別できません。",
       invalid_union: "入力形式が間違っています。",
       invalid_union_discriminator:
-        "無効な識別子です。{{options}}で入力してください。",
+        "無効な識別子です。{{- options}}で入力してください。",
       invalid_enum_value:
-        "{{received}}は無効な値です。{{options}}で入力してください。",
+        "{{received}}は無効な値です。{{- options}}で入力してください。",
       invalid_arguments: "引数が間違っています。",
       invalid_return_type: "返値の型が間違っています。",
       invalid_date: "間違った日時データです。",

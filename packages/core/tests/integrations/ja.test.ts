@@ -140,7 +140,7 @@ test("other parser error messages", () => {
     "無効なリテラル値です。12を入力してください。"
   );
   expect(getErrorMessage(z.enum(["A", "B", "C"]).safeParse("D"))).toEqual(
-    "Dは無効な値です。&#39;A&#39; | &#39;B&#39; | &#39;C&#39;で入力してください。"
+    "Dは無効な値です。'A' | 'B' | 'C'で入力してください。"
   );
   expect(
     getErrorMessage(
@@ -149,7 +149,7 @@ test("other parser error messages", () => {
         .strict()
         .safeParse({ dog: "", cat: "", rat: "" })
     )
-  ).toEqual("オブジェクトのキー&#39;cat&#39;, &#39;rat&#39;が識別できません。");
+  ).toEqual("オブジェクトのキー'cat', 'rat'が識別できません。");
   expect(
     getErrorMessage(
       z
@@ -159,7 +159,7 @@ test("other parser error messages", () => {
         ])
         .safeParse({ type: "c", c: "abc" })
     )
-  ).toEqual("無効な識別子です。&#39;a&#39; | &#39;b&#39;で入力してください。");
+  ).toEqual("無効な識別子です。'a' | 'b'で入力してください。");
   expect(
     getErrorMessage(z.union([z.string(), z.number()]).safeParse([true]))
   ).toEqual("入力形式が間違っています。");

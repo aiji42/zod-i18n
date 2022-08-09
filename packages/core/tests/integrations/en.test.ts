@@ -136,7 +136,7 @@ test("other parser error messages", () => {
     "Invalid literal value, expected 12"
   );
   expect(getErrorMessage(z.enum(["A", "B", "C"]).safeParse("D"))).toEqual(
-    "Invalid enum value. Expected &#39;A&#39; | &#39;B&#39; | &#39;C&#39;, received D"
+    "Invalid enum value. Expected 'A' | 'B' | 'C', received D"
   );
   expect(
     getErrorMessage(
@@ -145,7 +145,7 @@ test("other parser error messages", () => {
         .strict()
         .safeParse({ dog: "", cat: "", rat: "" })
     )
-  ).toEqual("Unrecognized key(s) in object: &#39;cat&#39;, &#39;rat&#39;");
+  ).toEqual("Unrecognized key(s) in object: 'cat', 'rat'");
   expect(
     getErrorMessage(
       z
@@ -155,7 +155,7 @@ test("other parser error messages", () => {
         ])
         .safeParse({ type: "c", c: "abc" })
     )
-  ).toEqual("Invalid discriminator value. Expected &#39;a&#39; | &#39;b&#39;");
+  ).toEqual("Invalid discriminator value. Expected 'a' | 'b'");
   expect(
     getErrorMessage(z.union([z.string(), z.number()]).safeParse([true]))
   ).toEqual("Invalid input");

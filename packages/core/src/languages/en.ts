@@ -4,12 +4,12 @@ export const translation = {
       invalid_type: "Expected {{expected}}, received {{received}}",
       invalid_type_received_undefined: "Required",
       invalid_literal: "Invalid literal value, expected {{expected}}",
-      unrecognized_keys: "Unrecognized key(s) in object: {{keys}}",
+      unrecognized_keys: "Unrecognized key(s) in object: {{- keys}}",
       invalid_union: "Invalid input",
       invalid_union_discriminator:
-        "Invalid discriminator value. Expected {{options}}",
+        "Invalid discriminator value. Expected {{- options}}",
       invalid_enum_value:
-        "Invalid enum value. Expected {{options}}, received {{received}}",
+        "Invalid enum value. Expected {{- options}}, received {{received}}",
       invalid_arguments: "Invalid function arguments",
       invalid_return_type: "Invalid function return type",
       invalid_date: "Invalid date",
