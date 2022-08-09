@@ -43,8 +43,9 @@ export const translation = {
           not_inclusive: "Invalid input",
         },
         date: {
-          inclusive: "Date must be greater than or equal to {{minimum}}",
-          not_inclusive: "Date must be greater than {{minimum}}",
+          inclusive:
+            "Date must be greater than or equal to {{- minimum, datetime}}",
+          not_inclusive: "Date must be greater than {{- minimum, datetime}}",
         },
       },
       too_big: {
@@ -65,8 +66,9 @@ export const translation = {
           not_inclusive: "Invalid input",
         },
         date: {
-          inclusive: "Date must be smaller than or equal to {{maximum}}",
-          not_inclusive: "Date must be smaller than {{maximum}}",
+          inclusive:
+            "Date must be smaller than or equal to {{- maximum, datetime}}",
+          not_inclusive: "Date must be smaller than {{- maximum, datetime}}",
         },
       },
     },

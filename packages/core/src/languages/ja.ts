@@ -44,8 +44,9 @@ export const translation = {
           not_inclusive: "入力形式が間違っています。",
         },
         date: {
-          inclusive: "{{minimum}}以降の日時である必要があります。",
-          not_inclusive: "{{minimum}}よりも後の日時である必要があります。",
+          inclusive: "{{- minimum, datetime}}以降の日時である必要があります。",
+          not_inclusive:
+            "{{- minimum, datetime}}よりも後の日時である必要があります。",
         },
       },
       too_big: {
@@ -66,8 +67,9 @@ export const translation = {
           not_inclusive: "入力形式が間違っています。",
         },
         date: {
-          inclusive: "{{maximum}}以前の日時である必要があります。",
-          not_inclusive: "{{maximum}}よりも前の日時である必要があります。",
+          inclusive: "{{- maximum, datetime}}以前の日時である必要があります。",
+          not_inclusive:
+            "{{- maximum, datetime}}よりも前の日時である必要があります。",
         },
       },
     },

@@ -109,12 +109,12 @@ test("date parser error messages", () => {
     getErrorMessage(
       schema.min(new Date("2022-08-01")).safeParse(new Date("2022-07-29"))
     )
-  ).toEqual(`${new Date("2022-08-01")}以降の日時である必要があります。`);
+  ).toEqual(`2022/8/1以降の日時である必要があります。`);
   expect(
     getErrorMessage(
       schema.max(new Date("2022-08-01")).safeParse(new Date("2022-08-02"))
     )
-  ).toEqual(`${new Date("2022-08-01")}以前の日時である必要があります。`);
+  ).toEqual(`2022/8/1以前の日時である必要があります。`);
 });
 
 test("array parser error messages", () => {

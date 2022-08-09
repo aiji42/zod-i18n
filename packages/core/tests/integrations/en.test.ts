@@ -105,12 +105,12 @@ test("date parser error messages", () => {
     getErrorMessage(
       schema.min(new Date("2022-08-01")).safeParse(new Date("2022-07-29"))
     )
-  ).toEqual(`Date must be greater than or equal to ${new Date("2022-08-01")}`);
+  ).toEqual(`Date must be greater than or equal to 8/1/2022`);
   expect(
     getErrorMessage(
       schema.max(new Date("2022-08-01")).safeParse(new Date("2022-08-02"))
     )
-  ).toEqual(`Date must be smaller than or equal to ${new Date("2022-08-01")}`);
+  ).toEqual(`Date must be smaller than or equal to 8/1/2022`);
 });
 
 test("array parser error messages", () => {
