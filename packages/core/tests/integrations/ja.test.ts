@@ -13,6 +13,9 @@ i18next.init({
       },
     },
   },
+  interpolation: {
+    skipOnVariables: false,
+  },
 });
 
 z.setErrorMap(zodI18nMap);

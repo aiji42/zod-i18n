@@ -26,8 +26,8 @@ export const zodI18nMap: typeof defaultErrorMap = (issue, ctx) => {
         });
       } else {
         message = i18next.t("zod.errors.invalid_type", {
-          expected: i18next.t(`zod.types.${issue.expected}`, issue.expected),
-          received: i18next.t(`zod.types.${issue.received}`, issue.received),
+          expected: `$t(zod.types.${issue.expected})`,
+          received: `$t(zod.types.${issue.received})`,
           defaultValue: message,
         });
       }
@@ -92,10 +92,7 @@ export const zodI18nMap: typeof defaultErrorMap = (issue, ctx) => {
         }
       } else {
         message = i18next.t(`zod.errors.invalid_string.${issue.validation}`, {
-          validation: i18next.t(
-            `zod.validations.${issue.validation}`,
-            issue.validation
-          ),
+          validation: `$t(zod.validations.${issue.validation})`,
           defaultValue: message,
         });
       }
