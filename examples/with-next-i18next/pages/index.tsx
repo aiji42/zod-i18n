@@ -8,7 +8,7 @@ import {
   ButtonGroup,
 } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import z from "zod";
 import { makeZodI18nMap } from "zod-i18n-map";
 import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -18,7 +18,7 @@ import { useRouter } from "next/router";
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale!, ["common", "zod"])),
+      ...(await serverSideTranslations(locale!)),
     },
   };
 };

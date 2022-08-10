@@ -1,36 +1,108 @@
-[//]: # (TODO: how to setup)
+# Example of `zod-i18n-map` with `next-i18next` (on Next.js)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## What is this
 
-## Getting Started
+This is an example of [`zod-i18n-map`](https://github.com/aiji42/zod-i18n) for use with [`next-i18next`](https://github.com/i18next/next-i18next).
 
-First, run the development server:
+## Setup
+
+It is assumed that Next.js (`next`), `next-i18next`, and `zod` are already installed.
+
+Next.js (`next`), `next-i18next`, and `zod` are assumed to be already installed and setup for `next-i18next`.
+This document summarizes the setup specific to `zod-i18n-map`, so please refer to [the document for the setup of next-i18next](https://github.com/i18next/next-i18next).
+
+### 1. Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
+yarn add zod-i18n-map
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Translation content
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Copy the translation files from [here](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales) and place them in the directory for each locale under the name `zod.json`.
+If there is no translation file there for your locale, create one based on `en.json`.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```
+.
+└── public
+    └── locales
+        ├── en
+        |   ├── common.json
+        |   └── zod.json
+        |       ^^^ copy from https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/en/zod.json
+        └── ja
+            ├── common.json
+            └── zod.json
+                ^^^ copy from https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/ja/zod.json
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 3. Project setup
 
-## Learn More
+Update `next-i18next.config.js`.
 
-To learn more about Next.js, take a look at the following resources:
+#### `next-i18next.config.js`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```js
+module.exports = {
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "ja"],
+    interpolation: {
+      // Set `i18n.interpolation.skipOnVariables` to false
+      skipOnVariables: false,
+    },
+  },
+};
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### 4. Page setup
 
-## Deploy on Vercel
+By giving the `t` method from `useTranslation` as an argument to `makeZodI18nMap` and giving it as an argument to `z.setErrorMap`, the zod error messages are automatically translated.
+```ts
+const { t } = useTranslation();
+z.setErrorMap(makeZodI18nMap(t));
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Finally, the page file will be as follows.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```tsx
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import z from "zod";
+import { makeZodI18nMap } from "zod-i18n-map";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+
+export const getServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!)),
+    },
+  };
+};
+
+const schema = z.object({
+  nickname: z.string().min(5),
+});
+
+export default function Page() {
+  const { t } = useTranslation();
+  z.setErrorMap(makeZodI18nMap(t));
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
+  
+  return (
+    <form onSubmit={handleSubmit(console.log)}>
+      <label htmlFor="nickname">Nickname</label>
+      <input id="nickname" {...register("nickname")} />
+      {errors.nickname?.message && <p>{errors.nickname.message}</p>}
+      <button type="submit">submit</button>
+    </form>
+  )
+}
+```
