@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "run-p dev:*",
     "dev:core": "yarn workspace zod-i18n-map dev",
-    "dev:example": "yarn workspace example dev",
+    "dev:with-next-i18next": "yarn workspace with-next-i18next dev",
     "build": "yarn workspace zod-i18n-map build",
     "coverage": "yarn workspace zod-i18n-map test:coverage",
     "test": "yarn workspace zod-i18n-map test",
@@ -18,7 +18,7 @@
   },
   "workspaces": [
     "packages/*",
-    "usages/*"
+    "examples/*"
   ],
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
