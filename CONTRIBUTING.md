@@ -31,7 +31,7 @@ yarn test
 
 ## Create a new translation file
 
-When creating a new translation file, copy `packages/core/src/laguages/en.jaon` and name the file with the locale code.
+When creating a new translation file, copy `packages/core/src/locales/en/zod.jaon` and name the file with the locale code.
 
 After creation and customization is complete, copy `packages/core/tests/integrations/en.test.ts` and create a new test file.
 

@@ -3,7 +3,7 @@ import { SafeParseReturnType, z } from "zod";
 import { zodI18nMap } from "../../src";
 
 export const init = async (lng: string) => {
-  const translation = await import(`../../languages/${lng}.json`);
+  const translation = await import(`../../locales/${lng}/zod.json`);
   i18next.init({
     lng,
     resources: {
