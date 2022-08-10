@@ -1,28 +1,10 @@
-import { test, expect } from "vitest";
-import { SafeParseReturnType, z } from "zod";
-import i18next from "i18next";
-import { translation } from "../../src/languages/en";
-import { zodI18nMap } from "../../src";
+import { test, expect, beforeAll } from "vitest";
+import { z } from "zod";
+import { init, getErrorMessage } from "./helpers";
 
-i18next.init({
-  lng: "en",
-  resources: {
-    en: {
-      translation: {
-        ...translation,
-      },
-    },
-  },
+beforeAll(async () => {
+  await init("en");
 });
-
-z.setErrorMap(zodI18nMap);
-
-const getErrorMessage = (
-  parsed: SafeParseReturnType<unknown, unknown>
-): string => {
-  if ("error" in parsed) return parsed.error.issues[0].message;
-  throw new Error();
-};
 
 test("string parser error messages", () => {
   const schema = z.string();
@@ -105,12 +87,12 @@ test("date parser error messages", () => {
     getErrorMessage(
       schema.min(new Date("2022-08-01")).safeParse(new Date("2022-07-29"))
     )
-  ).toEqual(`Date must be greater than or equal to ${new Date("2022-08-01")}`);
+  ).toEqual(`Date must be greater than or equal to 8/1/2022`);
   expect(
     getErrorMessage(
       schema.max(new Date("2022-08-01")).safeParse(new Date("2022-08-02"))
     )
-  ).toEqual(`Date must be smaller than or equal to ${new Date("2022-08-01")}`);
+  ).toEqual(`Date must be smaller than or equal to 8/1/2022`);
 });
 
 test("array parser error messages", () => {
@@ -136,7 +118,7 @@ test("other parser error messages", () => {
     "Invalid literal value, expected 12"
   );
   expect(getErrorMessage(z.enum(["A", "B", "C"]).safeParse("D"))).toEqual(
-    "Invalid enum value. Expected &#39;A&#39; | &#39;B&#39; | &#39;C&#39;, received D"
+    "Invalid enum value. Expected 'A' | 'B' | 'C', received D"
   );
   expect(
     getErrorMessage(
@@ -145,7 +127,7 @@ test("other parser error messages", () => {
         .strict()
         .safeParse({ dog: "", cat: "", rat: "" })
     )
-  ).toEqual("Unrecognized key(s) in object: &#39;cat&#39;, &#39;rat&#39;");
+  ).toEqual("Unrecognized key(s) in object: 'cat', 'rat'");
   expect(
     getErrorMessage(
       z
@@ -155,7 +137,7 @@ test("other parser error messages", () => {
         ])
         .safeParse({ type: "c", c: "abc" })
     )
-  ).toEqual("Invalid discriminator value. Expected &#39;a&#39; | &#39;b&#39;");
+  ).toEqual("Invalid discriminator value. Expected 'a' | 'b'");
   expect(
     getErrorMessage(z.union([z.string(), z.number()]).safeParse([true]))
   ).toEqual("Invalid input");

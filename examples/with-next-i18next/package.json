@@ -1,5 +1,5 @@
 {
-  "name": "example",
+  "name": "with-next-i18next",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -14,8 +14,8 @@
     "@emotion/styled": "^11.10.0",
     "@hookform/resolvers": "^2.9.7",
     "framer-motion": "^7.0.0",
-    "i18next": "21.8.16",
     "next": "12.2.4",
+    "next-i18next": "^11.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "7.34.0",

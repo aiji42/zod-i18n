@@ -1,28 +1,10 @@
-import { test, expect } from "vitest";
-import { SafeParseReturnType, z } from "zod";
-import i18next from "i18next";
-import { translation } from "../../src/languages/ja";
-import { zodI18nMap } from "../../src";
+import { test, expect, beforeAll } from "vitest";
+import { z } from "zod";
+import { init, getErrorMessage } from "./helpers";
 
-i18next.init({
-  lng: "ja",
-  resources: {
-    ja: {
-      translation: {
-        ...translation,
-      },
-    },
-  },
+beforeAll(async () => {
+  await init("ja");
 });
-
-z.setErrorMap(zodI18nMap);
-
-const getErrorMessage = (
-  parsed: SafeParseReturnType<unknown, unknown>
-): string => {
-  if ("error" in parsed) return parsed.error.issues[0].message;
-  throw new Error();
-};
 
 test("string parser error messages", () => {
   const schema = z.string();
@@ -109,12 +91,12 @@ test("date parser error messages", () => {
     getErrorMessage(
       schema.min(new Date("2022-08-01")).safeParse(new Date("2022-07-29"))
     )
-  ).toEqual(`${new Date("2022-08-01")}以降の日時である必要があります。`);
+  ).toEqual(`2022/8/1以降の日時である必要があります。`);
   expect(
     getErrorMessage(
       schema.max(new Date("2022-08-01")).safeParse(new Date("2022-08-02"))
     )
-  ).toEqual(`${new Date("2022-08-01")}以前の日時である必要があります。`);
+  ).toEqual(`2022/8/1以前の日時である必要があります。`);
 });
 
 test("array parser error messages", () => {
@@ -140,7 +122,7 @@ test("other parser error messages", () => {
     "無効なリテラル値です。12を入力してください。"
   );
   expect(getErrorMessage(z.enum(["A", "B", "C"]).safeParse("D"))).toEqual(
-    "Dは無効な値です。&#39;A&#39; | &#39;B&#39; | &#39;C&#39;で入力してください。"
+    "Dは無効な値です。'A' | 'B' | 'C'で入力してください。"
   );
   expect(
     getErrorMessage(
@@ -149,7 +131,7 @@ test("other parser error messages", () => {
         .strict()
         .safeParse({ dog: "", cat: "", rat: "" })
     )
-  ).toEqual("オブジェクトのキー&#39;cat&#39;, &#39;rat&#39;が識別できません。");
+  ).toEqual("オブジェクトのキー'cat', 'rat'が識別できません。");
   expect(
     getErrorMessage(
       z
@@ -159,7 +141,7 @@ test("other parser error messages", () => {
         ])
         .safeParse({ type: "c", c: "abc" })
     )
-  ).toEqual("無効な識別子です。&#39;a&#39; | &#39;b&#39;で入力してください。");
+  ).toEqual("無効な識別子です。'a' | 'b'で入力してください。");
   expect(
     getErrorMessage(z.union([z.string(), z.number()]).safeParse([true]))
   ).toEqual("入力形式が間違っています。");
