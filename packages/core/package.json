@@ -6,33 +6,12 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "languages"
   ],
   "repository": "git@github.com:aiji42/zod-i18n.git",
   "author": "aiji42 <aiji42@gmail.com> (https://twitter.com/aiji42_dev)",
   "license": "MIT",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/index.d.ts"
-      ],
-      "languages/ja": [
-        "./dist/languages/ja.d.ts"
-      ]
-    }
-  },
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./languages/*": {
-      "types": "./dist/languages/*.d.ts",
-      "import": "./dist/languages/*.mjs",
-      "require": "./dist/languages/*.js"
-    }
-  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",

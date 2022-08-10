@@ -1,31 +1,10 @@
-import { test, expect } from "vitest";
-import { SafeParseReturnType, z } from "zod";
-import i18next from "i18next";
-import { translation } from "../../src/languages/en";
-import { zodI18nMap } from "../../src";
+import { test, expect, beforeAll } from "vitest";
+import { z } from "zod";
+import { init, getErrorMessage } from "./helpers";
 
-i18next.init({
-  lng: "en",
-  resources: {
-    en: {
-      translation: {
-        ...translation,
-      },
-    },
-  },
-  interpolation: {
-    skipOnVariables: false,
-  },
+beforeAll(async () => {
+  await init("en");
 });
-
-z.setErrorMap(zodI18nMap);
-
-const getErrorMessage = (
-  parsed: SafeParseReturnType<unknown, unknown>
-): string => {
-  if ("error" in parsed) return parsed.error.issues[0].message;
-  throw new Error();
-};
 
 test("string parser error messages", () => {
   const schema = z.string();
