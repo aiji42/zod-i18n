@@ -55,7 +55,7 @@ module.exports = {
 };
 ```
 
-#### 4. Page setup
+### 4. Page setup
 
 By giving the `t` method from `useTranslation` as an argument to `makeZodI18nMap` and giving it as an argument to `z.setErrorMap`, the zod error messages are automatically translated.
 ```ts
