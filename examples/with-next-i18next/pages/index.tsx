@@ -14,6 +14,8 @@ import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
 import { useRouter } from "next/router";
+import { parseCookies, setCookie, destroyCookie } from "nookies";
+import { MouseEventHandler, useCallback } from "react";
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
@@ -42,20 +44,31 @@ export default function HookForm() {
     resolver: zodResolver(schema),
   });
 
+  const changeLocale = useCallback<MouseEventHandler<HTMLButtonElement>>(
+    (e) => {
+      const locale = e.currentTarget.value;
+      setCookie(null, "NEXT_LOCALEt", locale);
+      router.replace(`/${locale}`, `/${locale}`, { locale });
+    },
+    [router.replace]
+  );
+
   return (
     <>
       <ButtonGroup gap={2} mb={4}>
         <Button
           variant={router.locale === "en" ? "outline" : "ghost"}
           colorScheme="teal"
-          onClick={() => router.replace("/", "/", { locale: "en" })}
+          value="en"
+          onClick={changeLocale}
         >
           English
         </Button>
         <Button
           variant={router.locale === "ja" ? "outline" : "ghost"}
           colorScheme="teal"
-          onClick={() => router.replace("/", "/", { locale: "ja" })}
+          value="ja"
+          onClick={changeLocale}
         >
           日本語
         </Button>
