@@ -48,9 +48,11 @@ export default function HookForm() {
     (e) => {
       const locale = e.currentTarget.value;
       setCookie(null, "NEXT_LOCALE", locale);
-      router.replace("/", "/", { locale });
+      router.replace("/", "/", { locale }).then(() => {
+        router.reload();
+      });
     },
-    [router.replace]
+    [router.replace, router.reload]
   );
 
   return (
