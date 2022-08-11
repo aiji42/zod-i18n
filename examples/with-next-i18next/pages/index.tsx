@@ -14,13 +14,13 @@ import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
 import { useRouter } from "next/router";
-import { parseCookies, setCookie, destroyCookie } from "nookies";
+import { setCookie } from "nookies";
 import { MouseEventHandler, useCallback } from "react";
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale!)),
+      ...(await serverSideTranslations(locale!, ["common", "zod"])),
     },
   };
 };
@@ -47,8 +47,8 @@ export default function HookForm() {
   const changeLocale = useCallback<MouseEventHandler<HTMLButtonElement>>(
     (e) => {
       const locale = e.currentTarget.value;
-      setCookie(null, "NEXT_LOCALEt", locale);
-      router.replace(`/${locale}`, `/${locale}`, { locale });
+      setCookie(null, "NEXT_LOCALE", locale);
+      router.replace("/", "/", { locale });
     },
     [router.replace]
   );
