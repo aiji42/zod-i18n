@@ -26,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
 };
 
 const schema = z.object({
-  nickname: z.string().min(5),
+  username: z.string().min(5),
   email: z.string().email(),
   favoriteNumber: z.number().max(10).min(1),
 });
@@ -76,17 +76,17 @@ export default function HookForm() {
         </Button>
       </ButtonGroup>
       <form onSubmit={handleSubmit(console.log)}>
-        <FormControl isInvalid={!!errors.nickname} mb={4}>
-          <FormLabel htmlFor="nickname">
-            <Trans>Nickname</Trans>
+        <FormControl isInvalid={!!errors.username} mb={4}>
+          <FormLabel htmlFor="username">
+            <Trans>User name</Trans>
           </FormLabel>
           <Input
-            id="nickname"
+            id="username"
             placeholder={t("John Doe")}
-            {...register("nickname")}
+            {...register("username")}
           />
           <FormErrorMessage>
-            {(errors.nickname?.message ?? "") as string}
+            {(errors.username?.message ?? "") as string}
           </FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={!!errors.email} mb={4}>
