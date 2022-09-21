@@ -1,0 +1,100 @@
+{
+    "errors": {
+      "invalid_type": "Le type attendu est {{expected}}, mais {{received}} a été reçu",
+      "invalid_type_received_undefined": "Obligatoire",
+      "invalid_literal": "Valeur doit être {{expected}}",
+      "unrecognized_keys": "Une ou plusieurs clé(s) non reconnue(s) dans l'objet: {{- keys}}",
+      "invalid_union": "Champ invalide",
+      "invalid_union_discriminator": "La valeur du discriminateur est invalide. Options attendus: {{- options}}",
+      "invalid_enum_value": "Valeur d'énumerateur invalide. Attendu(s) {{- options}}, reçu {{received}}",
+      "invalid_arguments": "Fonction a reçu des arguments invalides",
+      "invalid_return_type": "Fonction a retourné un type invalide",
+      "invalid_date": "Date invalide",
+      "custom": "Champ invalide",
+      "invalid_intersection_types": "Les résultats d'intersection n'ont pas pu être fusionnés",
+      "not_multiple_of": "Nombre doit être multiple de {{multipleOf}}",
+      "invalid_string": {
+        "email": "{{validation}} invalide",
+        "url": "{{validation}} invalide",
+        "uuid": "{{validation}} invalide",
+        "cuid": "{{validation}} invalide",
+        "regex": "{{validation}} invalide",
+        "startsWith": "Champ invalide: doit commencer par {{startsWith}}",
+        "endsWith": "Champ invalide: doit se terminer par {{endsWith}}"
+      },
+      "too_small": {
+        "array": {
+          "inclusive": "Liste doit contenir au moins {{minimum}} élément(s)",
+          "not_inclusive": "Liste doit contenir plus de {{minimum}} élément(s)"
+        },
+        "string": {
+          "inclusive": "Champ de text doit contenir au moins {{minimum}} caractère(s)",
+          "not_inclusive": "Champ de text doit centenir plus de {{minimum}} caractère(s)"
+        },
+        "number": {
+          "inclusive": "Nombre doit être supérieur ou égale à {{minimum}}",
+          "not_inclusive": "Nombre doit être supérieur à {{minimum}}"
+        },
+        "set": {
+          "inclusive": "Champ invalide",
+          "not_inclusive": "Champ invalide"
+        },
+        "date": {
+          "inclusive": "Date doit être supérieure ou égale à {{- minimum, datetime}}",
+          "not_inclusive": "Date doit être supérieure à {{- minimum, datetime}}"
+        }
+      },
+      "too_big": {
+        "array": {
+          "inclusive": "Liste doit contenir au plus {{maximum}} élément(s)",
+          "not_inclusive": "Liste doit contenir moins de {{maximum}} élément(s)"
+        },
+        "string": {
+          "inclusive": "Champ de text doit contenir au plus {{maximum}} caractère(s)",
+          "not_inclusive": "Champ de text doit contenir moins de {{maximum}} caractère(s)"
+        },
+        "number": {
+          "inclusive": "Nombre doit être inférieur ou égale à {{maximum}}",
+          "not_inclusive": "Nombre doit être inférieur à {{maximum}}"
+        },
+        "set": {
+          "inclusive": "Champ invalide",
+          "not_inclusive": "Champ invalide"
+        },
+        "date": {
+          "inclusive": "Date doit être inférieure ou égale à {{- maximum, datetime}}",
+          "not_inclusive": "Date doit être inférieure à {{- maximum, datetime}}"
+        }
+      }
+    },
+    "validations": {
+      "email": "e-mail",
+      "url": "lien",
+      "uuid": "UUID",
+      "cuid": "CUID",
+      "regex": "expression régulière"
+    },
+    "types": {
+      "function": "fonction",
+      "number": "nombre",
+      "string": "chaîne de caractères",
+      "nan": "NaN",
+      "integer": "entier",
+      "float": "décimal",
+      "boolean": "booléen",
+      "date": "date",
+      "bigint": "grand entier",
+      "undefined": "undefined",
+      "symbol": "symbole",
+      "null": "null",
+      "array": "liste",
+      "object": "objet",
+      "unknown": "inconnu",
+      "promise": "promise",
+      "void": "void",
+      "never": "never",
+      "map": "map",
+      "set": "ensemble"
+    }
+  }
+  

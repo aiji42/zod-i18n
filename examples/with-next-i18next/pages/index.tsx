@@ -67,6 +67,14 @@ export default function HookForm() {
           English
         </Button>
         <Button
+          variant={router.locale === "fr" ? "outline" : "ghost"}
+          colorScheme="teal"
+          value="fr"
+          onClick={changeLocale}
+        >
+          Français
+        </Button>
+        <Button
           variant={router.locale === "ja" ? "outline" : "ghost"}
           colorScheme="teal"
           value="ja"
