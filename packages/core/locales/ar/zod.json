@@ -1,0 +1,99 @@
+{
+  "errors": {
+    "invalid_type": "المتوقع {{expected}}, المستلم {{received}}",
+    "invalid_type_received_undefined": "مطلوب",
+    "invalid_literal": "قيمة حرفية غير صالحة، المتوقع {{expected}}",
+    "unrecognized_keys": "عنصر (عناصر) غير معروف في الكائن: {{- keys}}",
+    "invalid_union": "ادخال غير صالح",
+    "invalid_union_discriminator": "قيمة مميزة غير صالحة، المتوقع {{- options}}",
+    "invalid_enum_value": "قيمية تعداد غير صالحة. المتوقع {{- options}}, المستلم {{received}}",
+    "invalid_arguments": "معاملات الدالة غير صالحة",
+    "invalid_return_type": "نوع إرجاع دالة غير صالح",
+    "invalid_date": "تاريخ غير صالح",
+    "custom": "مدخل غير صالح",
+    "invalid_intersection_types": "تعذر دمج نتائج التقاطع",
+    "not_multiple_of": "يجب أن يكون الرقم من مضاعفات {{multipleOf}}",
+    "invalid_string": {
+      "email": "غير صالح {{validation}}",
+      "url": "غير صالح {{validation}}",
+      "uuid": "غير صالح {{validation}}",
+      "cuid": "غير صالح {{validation}}",
+      "regex": "غير صالح",
+      "startsWith": "إدخال غير صالح: يجب أن يبدأ بـ {{startsWith}}",
+      "endsWith": "إدخال غير صالح: يجب أن ينتهي بـ {{endsWith}}"
+    },
+    "too_small": {
+      "array": {
+        "inclusive": "يجب أن تحتوي المصفوفة على الأقل على {{minimum}} عنصر (عناصر)",
+        "not_inclusive": "يجب أن تحتوي المصفوفة على أكثر من {{minimum}} عنصر (عناصر)"
+      },
+      "string": {
+        "inclusive": "يجب أن تحتوي السلسلة على {{minimum}} حرف (أحرف) على الأقل",
+        "not_inclusive": "يجب أن تحتوي السلسلة على أكثر من {{minimum}} حرف (أحرف)"
+      },
+      "number": {
+        "inclusive": "يجب أن يكون الرقم أكبر من أو يساوي {{minimum}}",
+        "not_inclusive": "يجب أن يكون الرقم أكبر من {{minimum}}"
+      },
+      "set": {
+        "inclusive": "مدخل غير صالح",
+        "not_inclusive": "مدخل غير صالح"
+      },
+      "date": {
+        "inclusive": "يجب أن يكون التاريخ أكبر من أو يساوي {{- minimum, datetime}}",
+        "not_inclusive": "يجب أن يكون التاريخ أكبر من {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "array": {
+        "inclusive": "يجب أن تحتوي المصفوفة على {{maximum} عنصر (عناصر) كحد أقصى",
+        "not_inclusive": "يجب أن تحتوي المصفوفة على أقل من {{maximum}} عنصر (عناصر)"
+      },
+      "string": {
+        "inclusive": "يجب أن تحتوي السلسلة على {{maximum}} حرف (أحرف) كحد أقصى",
+        "not_inclusive": "يجب أن تحتوي السلسلة على أقل من {{maximum}} حرف (أحرف)"
+      },
+      "number": {
+        "inclusive": "يجب أن يكون الرقم أقل من أو يساوي {{maximum}}",
+        "not_inclusive": "يجب أن يكون الرقم أقل من {{maximum}}"
+      },
+      "set": {
+        "inclusive": "مدخل غير صالح",
+        "not_inclusive": "مدخل غير صالح"
+      },
+      "date": {
+        "inclusive": "يجب أن يكون التاريخ أصغر من أو يساوي {{- maximum, datetime}}",
+        "not_inclusive": "يجب أن يكون التاريخ أصغر من {{- maximum, datetime}}"
+      }
+    }
+  },
+  "validations": {
+    "email": "البريد الإلكتروني",
+    "url": "عنوان url",
+    "uuid": "uuid",
+    "cuid": "cuid",
+    "regex": "التعبير النمطي"
+  },
+  "types": {
+    "function": "دالة",
+    "number": "رقم",
+    "string": "سلسلة",
+    "nan": "نان",
+    "integer": "عدد صحيح",
+    "float": "عدد عشري",
+    "boolean": "قيمة منطقية",
+    "date": "تاريخ",
+    "bigint": "عدد صحيح كبير",
+    "undefined": "غير معرف",
+    "symbol": "رمز",
+    "null": "لا شيء",
+    "array": "مصفوفة",
+    "object": "كائن",
+    "unknown": "غير معروف",
+    "promise": "برومس",
+    "void": "بدون قيمة",
+    "never": "ابدا",
+    "map": "ماب",
+    "set": "مجموعة"
+  }
+}
