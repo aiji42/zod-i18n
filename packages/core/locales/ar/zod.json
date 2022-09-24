@@ -1,12 +1,12 @@
 {
   "errors": {
-    "invalid_type": "المتوقع {{expected}}, المستلم {{received}}",
+    "invalid_type": "المتوقع {{expected}}، المستلم {{received}}",
     "invalid_type_received_undefined": "مطلوب",
     "invalid_literal": "قيمة حرفية غير صالحة، المتوقع {{expected}}",
     "unrecognized_keys": "عنصر (عناصر) غير معروف في الكائن: {{- keys}}",
-    "invalid_union": "ادخال غير صالح",
-    "invalid_union_discriminator": "قيمة مميزة غير صالحة، المتوقع {{- options}}",
-    "invalid_enum_value": "قيمية تعداد غير صالحة. المتوقع {{- options}}, المستلم {{received}}",
+    "invalid_union": "مدخل غير صالح",
+    "invalid_union_discriminator": "قيمة مميزة غير صالحة. المتوقع {{- options}}",
+    "invalid_enum_value": "قيمة تعداد غير صالحة. المتوقع {{- options}}، المستلم {{received}}",
     "invalid_arguments": "معاملات الدالة غير صالحة",
     "invalid_return_type": "نوع إرجاع دالة غير صالح",
     "invalid_date": "تاريخ غير صالح",
@@ -24,7 +24,7 @@
     },
     "too_small": {
       "array": {
-        "inclusive": "يجب أن تحتوي المصفوفة على الأقل على {{minimum}} عنصر (عناصر)",
+        "inclusive": "يجب أن تحتوي المصفوفة على {{minimum}} عنصر (عناصر) على الأقل",
         "not_inclusive": "يجب أن تحتوي المصفوفة على أكثر من {{minimum}} عنصر (عناصر)"
       },
       "string": {
@@ -46,7 +46,7 @@
     },
     "too_big": {
       "array": {
-        "inclusive": "يجب أن تحتوي المصفوفة على {{maximum} عنصر (عناصر) كحد أقصى",
+        "inclusive": "يجب أن تحتوي المصفوفة على {{maximum}} عنصر (عناصر) كحد أقصى",
         "not_inclusive": "يجب أن تحتوي المصفوفة على أقل من {{maximum}} عنصر (عناصر)"
       },
       "string": {
