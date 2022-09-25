@@ -82,6 +82,14 @@ export default function HookForm() {
         >
           日本語
         </Button>
+        <Button
+          variant={router.locale === "ar" ? "outline" : "ghost"}
+          colorScheme="teal"
+          value="ar"
+          onClick={changeLocale}
+        >
+          العربية
+        </Button>
       </ButtonGroup>
       <form onSubmit={handleSubmit(console.log)}>
         <FormControl isInvalid={!!errors.username} mb={4}>
