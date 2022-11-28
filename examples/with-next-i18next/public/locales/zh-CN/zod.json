@@ -1,0 +1,99 @@
+{
+  "errors": {
+    "invalid_type": "期望输入的是{{expected}}, 而输入的是{{received}}",
+    "invalid_type_received_undefined": "必填项",
+    "invalid_literal": "无效的输入, 请输入 {{expected}}",
+    "unrecognized_keys": "无法识别对象的键: {{- keys}}",
+    "invalid_union": "输入格式错误",
+    "invalid_union_discriminator": "无效的标识符。请输入 {{- options}}",
+    "invalid_enum_value": "无效的 {{received}} 值。请输入 {{- options}}",
+    "invalid_arguments": "参数错误",
+    "invalid_return_type": "错误的返回值类型",
+    "invalid_date": "错误的日期",
+    "custom": "格式错误",
+    "invalid_intersection_types": "交集类型无法合并",
+    "not_multiple_of": "必须是 {{multipleOf}} 的倍数",
+    "invalid_string": {
+      "email": "{{validation}}格式错误",
+      "url": "{{validation}} 格式错误",
+      "uuid": "{{validation}} 格式错误",
+      "cuid": "{{validation}} 格式错误",
+      "regex": "格式错误",
+      "startsWith": "必须以 {{startsWith}} 起始",
+      "endsWith": "必须以 {{endsWith}} 结尾"
+    },
+    "too_small": {
+      "array": {
+        "inclusive": "至少需要包含 {{minimum}} 个元素",
+        "not_inclusive": "必须包含多于 {{minimum}} 个元素"
+      },
+      "string": {
+        "inclusive": "至少需要包含 {{minimum}} 个字符",
+        "not_inclusive": "必须包含多于 {{minimum}} 个字符"
+      },
+      "number": {
+        "inclusive": "必须大于或等于 {{minimum}}",
+        "not_inclusive": "必须大于 {{minimum}}"
+      },
+      "set": {
+        "inclusive": "无效输入",
+        "not_inclusive": "无效输入"
+      },
+      "date": {
+        "inclusive": "日期必须晚于或等于 {{- minimum, datetime}}",
+        "not_inclusive": "日期必须晚于 {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "array": {
+        "inclusive": "最多只能包含 {{maximum}} 个元素",
+        "not_inclusive": "必须少于 {{maximum}} 个元素"
+      },
+      "string": {
+        "inclusive": "最多只能包含 {{maximum}} 个字符",
+        "not_inclusive": "必须少于 {{maximum}} 个字符"
+      },
+      "number": {
+        "inclusive": "必须小于或等于 {{maximum}}",
+        "not_inclusive": "必须小于 {{maximum}}"
+      },
+      "set": {
+        "inclusive": "无效输入",
+        "not_inclusive": "无效输入"
+      },
+      "date": {
+        "inclusive": "日期必须早于或等于 {{- maximum, datetime}}",
+        "not_inclusive": "日期必须早于 {{- maximum, datetime}}"
+      }
+    }
+  },
+  "validations": {
+    "email": "邮件",
+    "url": "url",
+    "uuid": "uuid",
+    "cuid": "cuid",
+    "regex": "正则表达式"
+  },
+  "types": {
+    "function": "函数",
+    "number": "数字",
+    "string": "字符串",
+    "nan": "NaN",
+    "integer": "整数",
+    "float": "浮点数",
+    "boolean": "布尔值",
+    "date": "日期",
+    "bigint": "Bigint",
+    "undefined": "undefined",
+    "symbol": "Symbol",
+    "null": "null",
+    "array": "数组",
+    "object": "对象",
+    "unknown": "unknown",
+    "promise": "Promise",
+    "void": "void",
+    "never": "never",
+    "map": "Map",
+    "set": "Set"
+  }
+}
