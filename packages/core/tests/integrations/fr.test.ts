@@ -85,16 +85,19 @@ test("date parser error messages", () => {
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
     "Type invalide: date doit être fourni(e), mais chaîne de caractères a été reçu(e)"
   );
+
+  const testDate = new Date("2022-08-01");
+
   expect(
-    getErrorMessage(
-      schema.min(new Date("2022-08-01")).safeParse(new Date("2022-07-29"))
-    )
-  ).toEqual(`Date doit être supérieure ou égale à 01/08/2022`);
+    getErrorMessage(schema.min(testDate).safeParse(new Date("2022-07-29")))
+  ).toEqual(
+    `Date doit être supérieure ou égale à ${testDate.toLocaleDateString("fr")}`
+  );
   expect(
-    getErrorMessage(
-      schema.max(new Date("2022-08-01")).safeParse(new Date("2022-08-02"))
-    )
-  ).toEqual(`Date doit être inférieure ou égale à 01/08/2022`);
+    getErrorMessage(schema.max(testDate).safeParse(new Date("2022-08-02")))
+  ).toEqual(
+    `Date doit être inférieure ou égale à ${testDate.toLocaleDateString("fr")}`
+  );
 });
 
 test("array parser error messages", () => {
