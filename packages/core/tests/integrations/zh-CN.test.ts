@@ -69,6 +69,10 @@ test("number parser error messages", () => {
     "必须大于或等于 5"
   );
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual("必须大于 0");
+  // FIXME
+  expect(getErrorMessage(schema.finite().safeParse(Infinity))).toEqual(
+    "Number must be finite"
+  );
 });
 
 test("date parser error messages", () => {
