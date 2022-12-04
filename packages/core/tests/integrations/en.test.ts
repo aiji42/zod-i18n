@@ -75,6 +75,9 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual(
     "Number must be greater than 0"
   );
+  expect(getErrorMessage(schema.finite().safeParse(Infinity))).toEqual(
+    "Number must be finite"
+  );
 });
 
 test("date parser error messages", () => {

@@ -16,6 +16,7 @@
     "custom": "入力形式が間違っています。",
     "invalid_intersection_types": "交差型のマージができませんでした。",
     "not_multiple_of": "{{multipleOf}}の倍数である必要があります。",
+    "not_finite": "有限数である必要があります。",
     "invalid_string": {
       "email": "{{validation}}の形式で入力してください。",
       "url": "{{validation}}の形式で入力してください。",
