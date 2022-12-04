@@ -1,4 +1,4 @@
-import { ZodIssueCode, ZodParsedType, defaultErrorMap } from "zod";
+import { ZodIssueCode, ZodParsedType, defaultErrorMap, ZodErrorMap } from "zod";
 import i18next, { i18n } from "i18next";
 
 const jsonStringifyReplacer = (_: string, value: any): any => {
@@ -15,7 +15,7 @@ function joinValues<T extends any[]>(array: T, separator = " | "): string {
 }
 
 export const makeZodI18nMap =
-  (t: i18n["t"] = i18next.t): typeof defaultErrorMap =>
+  (t: i18n["t"] = i18next.t): ZodErrorMap =>
   (issue, ctx) => {
     let message: string;
     message = defaultErrorMap(issue, ctx).message;
