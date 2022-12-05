@@ -88,16 +88,19 @@ test("date parser error messages", () => {
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
     "O dado deve ser do tipo date, porém foi enviado string"
   );
+
+  const testDate = new Date("2022-08-01");
+
   expect(
-    getErrorMessage(
-      schema.min(new Date("2022-08-01")).safeParse(new Date("2022-07-29"))
-    )
-  ).toEqual(`Data precisa ser maior ou igual a 01/08/2022`);
+    getErrorMessage(schema.min(testDate).safeParse(new Date("2022-07-29")))
+  ).toEqual(
+    `Data precisa ser maior ou igual a ${testDate.toLocaleDateString("pt")}`
+  );
   expect(
-    getErrorMessage(
-      schema.max(new Date("2022-08-01")).safeParse(new Date("2022-08-02"))
-    )
-  ).toEqual(`A data precisa ser menor ou igual a 01/08/2022`);
+    getErrorMessage(schema.max(testDate).safeParse(new Date("2022-08-02")))
+  ).toEqual(
+    `A data precisa ser menor ou igual a ${testDate.toLocaleDateString("pt")}`
+  );
 });
 
 test("array parser error messages", () => {

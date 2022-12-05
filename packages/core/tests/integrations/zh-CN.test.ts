@@ -80,16 +80,19 @@ test("date parser error messages", () => {
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
     "期望输入的是日期, 而输入的是字符串"
   );
+
+  const testDate = new Date("2022-08-01");
+
   expect(
     getErrorMessage(
       schema.min(new Date("2022-08-01")).safeParse(new Date("2022-07-29"))
     )
-  ).toEqual(`日期必须晚于或等于 2022/8/1`);
+  ).toEqual(`日期必须晚于或等于 ${testDate.toLocaleDateString("zh-CN")}`);
   expect(
     getErrorMessage(
       schema.max(new Date("2022-08-01")).safeParse(new Date("2022-08-02"))
     )
-  ).toEqual(`日期必须早于或等于 2022/8/1`);
+  ).toEqual(`日期必须早于或等于 ${testDate.toLocaleDateString("zh-CN")}`);
 });
 
 test("array parser error messages", () => {

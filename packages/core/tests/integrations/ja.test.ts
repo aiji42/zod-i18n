@@ -90,16 +90,19 @@ test("date parser error messages", () => {
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
     "日時での入力を期待していますが、文字列が入力されました。"
   );
+
+  const testDate = new Date("2022-08-01");
+
   expect(
-    getErrorMessage(
-      schema.min(new Date("2022-08-01")).safeParse(new Date("2022-07-29"))
-    )
-  ).toEqual(`2022/8/1以降の日時である必要があります。`);
+    getErrorMessage(schema.min(testDate).safeParse(new Date("2022-07-29")))
+  ).toEqual(
+    `${testDate.toLocaleDateString("ja")}以降の日時である必要があります。`
+  );
   expect(
-    getErrorMessage(
-      schema.max(new Date("2022-08-01")).safeParse(new Date("2022-08-02"))
-    )
-  ).toEqual(`2022/8/1以前の日時である必要があります。`);
+    getErrorMessage(schema.max(testDate).safeParse(new Date("2022-08-02")))
+  ).toEqual(
+    `${testDate.toLocaleDateString("ja")}以前の日時である必要があります。`
+  );
 });
 
 test("array parser error messages", () => {
