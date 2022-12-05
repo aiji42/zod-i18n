@@ -6,9 +6,9 @@ This is an example of [`zod-i18n-map`](https://github.com/aiji42/zod-i18n) for u
 
 ## Setup
 
-It is assumed that Next.js (`next`), `next-i18next`, and `zod` are already installed.
+It is assumed that Next.js (`next`), `next-i18next`, `react-i18next`, `i18next` and `zod` are already installed.
 
-Next.js (`next`), `next-i18next`, and `zod` are assumed to be already installed and setup for `next-i18next`.
+Next.js (`next`), `next-i18next`, `react-i18next`, `i18next` and `zod` are assumed to be already installed and setup for `next-i18next`.
 This document summarizes the setup specific to `zod-i18n-map`, so please refer to [the document for the setup of next-i18next](https://github.com/i18next/next-i18next).
 
 ### 1. Installation
@@ -46,11 +46,7 @@ Update `next-i18next.config.js`.
 module.exports = {
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "ja"],
-    interpolation: {
-      // Set `i18n.interpolation.skipOnVariables` to false
-      skipOnVariables: false,
-    },
+    locales: ["en", "ja", "and more..."],
   },
 };
 ```
