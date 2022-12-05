@@ -77,9 +77,8 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual(
     "O número precisa ser maior que 0"
   );
-  // FIXME
   expect(getErrorMessage(schema.finite().safeParse(Infinity))).toEqual(
-    "Number must be finite"
+    "Número não pode ser infinito"
   );
 });
 

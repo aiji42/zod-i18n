@@ -79,9 +79,8 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual(
     "يجب أن يكون الرقم أكبر من 0"
   );
-  // FIXME
   expect(getErrorMessage(schema.finite().safeParse(Infinity))).toEqual(
-    "Number must be finite"
+    "يجب ان يكون العدد محدود"
   );
 });
 
