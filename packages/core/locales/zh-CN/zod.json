@@ -13,7 +13,7 @@
     "custom": "格式错误",
     "invalid_intersection_types": "交集类型无法合并",
     "not_multiple_of": "必须是 {{multipleOf}} 的倍数",
-    "not_finite": "Number must be finite",
+    "not_finite": "不能为无限值",
     "invalid_string": {
       "email": "{{validation}}格式错误",
       "url": "{{validation}} 格式错误",
