@@ -19,6 +19,7 @@
       "uuid": "Invalid {{validation}}",
       "cuid": "Invalid {{validation}}",
       "regex": "Invalid",
+      "datetime": "Invalid {{validation}}",
       "startsWith": "Invalid input: must start with {{startsWith}}",
       "endsWith": "Invalid input: must end with {{endsWith}}"
     },
@@ -72,7 +73,8 @@
     "url": "url",
     "uuid": "uuid",
     "cuid": "cuid",
-    "regex": "regex"
+    "regex": "regex",
+    "datetime": "datetime"
   },
   "types": {
     "function": "function",

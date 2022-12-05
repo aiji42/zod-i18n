@@ -19,6 +19,7 @@
       "uuid": "غير صالح {{validation}}",
       "cuid": "غير صالح {{validation}}",
       "regex": "غير صالح",
+      "datetime": "غير صالح {{validation}}",
       "startsWith": "إدخال غير صالح: يجب أن يبدأ بـ {{startsWith}}",
       "endsWith": "إدخال غير صالح: يجب أن ينتهي بـ {{endsWith}}"
     },
@@ -72,7 +73,8 @@
     "url": "عنوان url",
     "uuid": "uuid",
     "cuid": "cuid",
-    "regex": "التعبير النمطي"
+    "regex": "التعبير النمطي",
+    "datetime": "datetime"
   },
   "types": {
     "function": "دالة",

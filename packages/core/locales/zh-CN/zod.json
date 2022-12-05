@@ -19,6 +19,7 @@
       "uuid": "{{validation}} 格式错误",
       "cuid": "{{validation}} 格式错误",
       "regex": "格式错误",
+      "datetime": "{{validation}} 格式错误",
       "startsWith": "必须以 {{startsWith}} 起始",
       "endsWith": "必须以 {{endsWith}} 结尾"
     },
@@ -72,7 +73,8 @@
     "url": "url",
     "uuid": "uuid",
     "cuid": "cuid",
-    "regex": "正则表达式"
+    "regex": "正则表达式",
+    "datetime": "datetime"
   },
   "types": {
     "function": "函数",
