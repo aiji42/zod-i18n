@@ -114,7 +114,7 @@ export default function HookForm() {
           </FormLabel>
           <Input
             id="username"
-            placeholder={t("John Doe")}
+            placeholder={t("John Doe") ?? undefined}
             {...register("username")}
           />
           <FormErrorMessage>
