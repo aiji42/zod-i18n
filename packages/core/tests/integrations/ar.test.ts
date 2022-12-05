@@ -87,16 +87,19 @@ test("date parser error messages", () => {
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
     "المتوقع تاريخ، المستلم سلسلة"
   );
+
+  const testDate = new Date("2022-08-01");
+
   expect(
-    getErrorMessage(
-      schema.min(new Date("2022-08-01")).safeParse(new Date("2022-07-29"))
-    )
-  ).toEqual("يجب أن يكون التاريخ أكبر من أو يساوي ١‏/٨‏/٢٠٢٢");
+    getErrorMessage(schema.min(testDate).safeParse(new Date("2022-07-29")))
+  ).toEqual(
+    `يجب أن يكون التاريخ أكبر من أو يساوي ${testDate.toLocaleDateString("ar")}`
+  );
   expect(
-    getErrorMessage(
-      schema.max(new Date("2022-08-01")).safeParse(new Date("2022-08-02"))
-    )
-  ).toEqual(`يجب أن يكون التاريخ أصغر من أو يساوي ١‏/٨‏/٢٠٢٢`);
+    getErrorMessage(schema.max(testDate).safeParse(new Date("2022-08-02")))
+  ).toEqual(
+    `يجب أن يكون التاريخ أصغر من أو يساوي ${testDate.toLocaleDateString("ar")}`
+  );
 });
 
 test("array parser error messages", () => {
