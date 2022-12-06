@@ -43,7 +43,7 @@ test("string parser error messages", () => {
   );
   expect(
     getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
-  ).toEqual("datetime invalide");
+  ).toEqual("horodate invalide");
 });
 
 test("number parser error messages", () => {

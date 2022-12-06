@@ -45,7 +45,7 @@ test("string parser error messages", () => {
   );
   expect(
     getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
-  ).toEqual("غير صالح datetime");
+  ).toEqual("غير صالح التاريخ والوقت");
 });
 
 test("number parser error messages", () => {

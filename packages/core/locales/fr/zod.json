@@ -74,7 +74,7 @@
       "uuid": "UUID",
       "cuid": "CUID",
       "regex": "expression régulière",
-      "datetime": "datetime"
+      "datetime": "horodate"
     },
     "types": {
       "function": "fonction",

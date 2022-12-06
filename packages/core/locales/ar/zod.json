@@ -74,7 +74,7 @@
     "uuid": "uuid",
     "cuid": "cuid",
     "regex": "التعبير النمطي",
-    "datetime": "datetime"
+    "datetime": "التاريخ والوقت"
   },
   "types": {
     "function": "دالة",
