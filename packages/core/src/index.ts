@@ -1,14 +1,14 @@
 import { ZodIssueCode, ZodParsedType, defaultErrorMap, ZodErrorMap } from "zod";
 import i18next, { i18n } from "i18next";
 
-const jsonStringifyReplacer = (_: string, value: any): any => {
+const jsonStringifyReplacer = <T>(_: string, value: T) => {
   if (typeof value === "bigint") {
     return value.toString();
   }
   return value;
 };
 
-function joinValues<T extends any[]>(array: T, separator = " | "): string {
+function joinValues<T extends unknown[]>(array: T, separator = " | "): string {
   return array
     .map((val) => (typeof val === "string" ? `'${val}'` : val))
     .join(separator);
