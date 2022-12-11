@@ -48,6 +48,10 @@ module.exports = {
     defaultLocale: "en",
     locales: ["en", "ja", "and more..."],
   },
+  interpolation: {
+    // https://www.i18next.com/translation-function/nesting#passing-nesting-to-interpolated
+    skipOnVariables: false,
+  },
 };
 ```
 
