@@ -57,6 +57,16 @@
         "translation",
         "test"
       ]
+    },
+    {
+      "login": "hrafnkellbaldurs",
+      "name": "Hrafnkell Baldursson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5609118?v=4",
+      "profile": "https://hrafnkellbaldurs.com/",
+      "contributions": [
+        "translation",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
