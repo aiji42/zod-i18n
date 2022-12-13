@@ -13,12 +13,14 @@
     "custom": "مدخل غير صالح",
     "invalid_intersection_types": "تعذر دمج نتائج التقاطع",
     "not_multiple_of": "يجب أن يكون الرقم من مضاعفات {{multipleOf}}",
+    "not_finite": "يجب ان يكون العدد محدود",
     "invalid_string": {
       "email": "غير صالح {{validation}}",
       "url": "غير صالح {{validation}}",
       "uuid": "غير صالح {{validation}}",
       "cuid": "غير صالح {{validation}}",
       "regex": "غير صالح",
+      "datetime": "غير صالح {{validation}}",
       "startsWith": "إدخال غير صالح: يجب أن يبدأ بـ {{startsWith}}",
       "endsWith": "إدخال غير صالح: يجب أن ينتهي بـ {{endsWith}}"
     },
@@ -72,7 +74,8 @@
     "url": "عنوان url",
     "uuid": "uuid",
     "cuid": "cuid",
-    "regex": "التعبير النمطي"
+    "regex": "التعبير النمطي",
+    "datetime": "التاريخ والوقت"
   },
   "types": {
     "function": "دالة",

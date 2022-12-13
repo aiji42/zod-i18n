@@ -13,12 +13,14 @@
     "custom": "格式错误",
     "invalid_intersection_types": "交集类型无法合并",
     "not_multiple_of": "必须是 {{multipleOf}} 的倍数",
+    "not_finite": "不能为无限值",
     "invalid_string": {
       "email": "{{validation}}格式错误",
       "url": "{{validation}} 格式错误",
       "uuid": "{{validation}} 格式错误",
       "cuid": "{{validation}} 格式错误",
       "regex": "格式错误",
+      "datetime": "{{validation}} 格式错误",
       "startsWith": "必须以 {{startsWith}} 起始",
       "endsWith": "必须以 {{endsWith}} 结尾"
     },
@@ -72,7 +74,8 @@
     "url": "url",
     "uuid": "uuid",
     "cuid": "cuid",
-    "regex": "正则表达式"
+    "regex": "正则表达式",
+    "datetime": "datetime"
   },
   "types": {
     "function": "函数",

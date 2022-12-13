@@ -139,6 +139,11 @@ export const makeZodI18nMap =
           defaultValue: message,
         });
         break;
+      case ZodIssueCode.not_finite:
+        message = t("zod:errors.not_finite", {
+          defaultValue: message,
+        });
+        break;
       default:
     }
 

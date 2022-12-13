@@ -39,6 +39,9 @@ test("string parser error messages", () => {
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
     "String must contain at most 5 character(s)"
   );
+  expect(
+    getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
+  ).toEqual("Invalid datetime");
 });
 
 test("number parser error messages", () => {
@@ -74,6 +77,9 @@ test("number parser error messages", () => {
   );
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual(
     "Number must be greater than 0"
+  );
+  expect(getErrorMessage(schema.finite().safeParse(Infinity))).toEqual(
+    "Number must be finite"
   );
 });
 

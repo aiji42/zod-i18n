@@ -13,12 +13,14 @@
     "custom": "Entrada inválida",
     "invalid_intersection_types": "Valores de interseção não poderam ser mesclados",
     "not_multiple_of": "O número deverá ser múltiplo de {{multipleOf}}",
+    "not_finite": "Número não pode ser infinito",
     "invalid_string": {
       "email": "E-mail inválido",
       "url": "URL inválida",
       "uuid": "UUID inválido",
       "cuid": "CUID inválido",
       "regex": "Combinação inválida",
+      "datetime": "datetime inválido",
       "startsWith": "Entrada inválida: precisa iniciar com {{startsWith}}",
       "endsWith": "Entrada inválida: precisa terminar com {{endsWith}}"
     },
@@ -72,7 +74,8 @@
     "url": "url",
     "uuid": "uuid",
     "cuid": "cuid",
-    "regex": "regex"
+    "regex": "regex",
+    "datetime": "datetime"
   },
   "types": {
     "function": "function",

@@ -16,12 +16,14 @@
     "custom": "入力形式が間違っています。",
     "invalid_intersection_types": "交差型のマージができませんでした。",
     "not_multiple_of": "{{multipleOf}}の倍数である必要があります。",
+    "not_finite": "有限数である必要があります。",
     "invalid_string": {
       "email": "{{validation}}の形式で入力してください。",
       "url": "{{validation}}の形式で入力してください。",
       "uuid": "{{validation}}の形式で入力してください。",
       "cuid": "{{validation}}の形式で入力してください。",
       "regex": "入力形式が間違っています。",
+      "datetime": "{{validation}}の形式で入力してください。",
       "startsWith": "{{startsWith}}で始まる文字列である必要があります。",
       "endsWith": "{{endsWith}}で終わる文字列である必要があります。"
     },
@@ -77,7 +79,8 @@
     "url": "URL",
     "uuid": "UUID",
     "cuid": "CUID",
-    "regex": "正規表現"
+    "regex": "正規表現",
+    "datetime": "日時"
   },
   "types": {
     "function": "関数",
