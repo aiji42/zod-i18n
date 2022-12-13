@@ -60,7 +60,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -72,6 +72,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tbody>
     <tr>
       <td align="center"><a href="https://github.com/aiji42"><img src="https://avatars.githubusercontent.com/u/6711766?v=4?s=100" width="100px;" alt="Aiji Uejima"/><br /><sub><b>Aiji Uejima</b></sub></a><br /><a href="https://github.com/aiji42/zod-i18n/commits?author=aiji42" title="Code">💻</a> <a href="#translation-aiji42" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=aiji42" title="Tests">⚠️</a> <a href="#ideas-aiji42" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center"><a href="https://github.com/ismailajizou"><img src="https://avatars.githubusercontent.com/u/64745987?v=4?s=100" width="100px;" alt="Ismail Ajizou"/><br /><sub><b>Ismail Ajizou</b></sub></a><br /><a href="#translation-ismailajizou" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=ismailajizou" title="Tests">⚠️</a></td>
+      <td align="center"><a href="http://maher.app"><img src="https://avatars.githubusercontent.com/u/10340702?v=4?s=100" width="100px;" alt="Mohammed Maher"/><br /><sub><b>Mohammed Maher</b></sub></a><br /><a href="#translation-maherapp" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=maherapp" title="Tests">⚠️</a></td>
+      <td align="center"><a href="https://github.com/montedonioluiz"><img src="https://avatars.githubusercontent.com/u/36773088?v=4?s=100" width="100px;" alt="Luiz Oliveira Montedonio"/><br /><sub><b>Luiz Oliveira Montedonio</b></sub></a><br /><a href="#translation-montedonioluiz" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=montedonioluiz" title="Tests">⚠️</a></td>
     </tr>
   </tbody>
 </table>

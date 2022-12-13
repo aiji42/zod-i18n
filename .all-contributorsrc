@@ -17,6 +17,36 @@
         "test",
         "ideas"
       ]
+    },
+    {
+      "login": "ismailajizou",
+      "name": "Ismail Ajizou",
+      "avatar_url": "https://avatars.githubusercontent.com/u/64745987?v=4",
+      "profile": "https://github.com/ismailajizou",
+      "contributions": [
+        "translation",
+        "test"
+      ]
+    },
+    {
+      "login": "maherapp",
+      "name": "Mohammed Maher",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10340702?v=4",
+      "profile": "http://maher.app",
+      "contributions": [
+        "translation",
+        "test"
+      ]
+    },
+    {
+      "login": "montedonioluiz",
+      "name": "Luiz Oliveira Montedonio",
+      "avatar_url": "https://avatars.githubusercontent.com/u/36773088?v=4",
+      "profile": "https://github.com/montedonioluiz",
+      "contributions": [
+        "translation",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
