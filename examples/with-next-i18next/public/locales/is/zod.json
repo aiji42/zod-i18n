@@ -20,7 +20,7 @@
       "uuid": "Ógilt {{validation}}",
       "cuid": "Ógilt {{validation}}",
       "regex": "Ógilt",
-      "datetime": "Ógilt {{validation}}",
+      "datetime": "Ógild {{validation}}",
       "startsWith": "Ógilt inntak: þarf að byrja á {{startsWith}}",
       "endsWith": "Ógilt inntak: þarf að enda á {{endsWith}}"
     },

@@ -39,6 +39,9 @@ test("string parser error messages", () => {
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
     "Strengur getur ekki verið lengri en 5 stafir"
   );
+  expect(
+    getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
+  ).toEqual("Ógild dagsetning og tími");
 });
 
 test("number parser error messages", () => {
@@ -74,6 +77,9 @@ test("number parser error messages", () => {
   );
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual(
     "Tala verður að vera stærri en 0"
+  );
+  expect(getErrorMessage(schema.finite().safeParse(Infinity))).toEqual(
+    "Tala þarf að vera endanleg"
   );
 });
 
