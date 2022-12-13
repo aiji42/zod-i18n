@@ -13,12 +13,14 @@
       "custom": "Champ invalide",
       "invalid_intersection_types": "Les résultats d'intersection n'ont pas pu être fusionnés",
       "not_multiple_of": "Nombre doit être multiple de {{multipleOf}}",
+      "not_finite": "Nombre doit être fini",
       "invalid_string": {
         "email": "{{validation}} invalide",
         "url": "{{validation}} invalide",
         "uuid": "{{validation}} invalide",
         "cuid": "{{validation}} invalide",
         "regex": "{{validation}} invalide",
+        "datetime": "{{validation}} invalide",
         "startsWith": "Champ invalide: doit commencer par {{startsWith}}",
         "endsWith": "Champ invalide: doit se terminer par {{endsWith}}"
       },
@@ -72,7 +74,8 @@
       "url": "lien",
       "uuid": "UUID",
       "cuid": "CUID",
-      "regex": "expression régulière"
+      "regex": "expression régulière",
+      "datetime": "horodate"
     },
     "types": {
       "function": "fonction",
@@ -97,4 +100,3 @@
       "set": "ensemble"
     }
   }
-  
