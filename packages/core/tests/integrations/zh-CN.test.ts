@@ -39,6 +39,10 @@ test("string parser error messages", () => {
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
     "最多只能包含 5 个字符"
   );
+  // TODO: translation `datetime` (zod:validations.datetime)
+  expect(
+    getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
+  ).toEqual("datetime 格式错误");
 });
 
 test("number parser error messages", () => {
@@ -69,6 +73,9 @@ test("number parser error messages", () => {
     "必须大于或等于 5"
   );
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual("必须大于 0");
+  expect(getErrorMessage(schema.finite().safeParse(Infinity))).toEqual(
+    "不能为无限值"
+  );
 });
 
 test("date parser error messages", () => {

@@ -43,6 +43,9 @@ test("string parser error messages", () => {
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
     "يجب أن تحتوي السلسلة على 5 حرف (أحرف) كحد أقصى"
   );
+  expect(
+    getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
+  ).toEqual("غير صالح التاريخ والوقت");
 });
 
 test("number parser error messages", () => {
@@ -78,6 +81,9 @@ test("number parser error messages", () => {
   );
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual(
     "يجب أن يكون الرقم أكبر من 0"
+  );
+  expect(getErrorMessage(schema.finite().safeParse(Infinity))).toEqual(
+    "يجب ان يكون العدد محدود"
   );
 });
 
