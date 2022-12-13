@@ -13,12 +13,14 @@
     "custom": "Ógilt inntak",
     "invalid_intersection_types": "Ekki var hægt að sameina niðurstöður",
     "not_multiple_of": "Tala þarf að vera margfeldi af {{multipleOf}}",
+    "not_finite": "Tala þarf að vera endanleg",
     "invalid_string": {
       "email": "Ógilt {{validation}}",
       "url": "Ógild {{validation}}",
       "uuid": "Ógilt {{validation}}",
       "cuid": "Ógilt {{validation}}",
       "regex": "Ógilt",
+      "datetime": "Ógilt {{validation}}",
       "startsWith": "Ógilt inntak: þarf að byrja á {{startsWith}}",
       "endsWith": "Ógilt inntak: þarf að enda á {{endsWith}}"
     },
@@ -72,7 +74,8 @@
     "url": "slóð",
     "uuid": "uuid",
     "cuid": "cuid",
-    "regex": "regluleg segð"
+    "regex": "regluleg segð",
+    "datetime": "dagsetning og tími"
   },
   "types": {
     "function": "fall",
