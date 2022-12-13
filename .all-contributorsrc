@@ -15,6 +15,16 @@
         "code",
         "translation"
       ]
+    },
+    {
+      "login": "ismailajizou",
+      "name": "Ismail Ajizou",
+      "avatar_url": "https://avatars.githubusercontent.com/u/64745987?v=4",
+      "profile": "https://github.com/ismailajizou",
+      "contributions": [
+        "translation",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
