@@ -13,6 +13,7 @@
     "custom": "Entrada inválida",
     "invalid_intersection_types": "Valores de interseção não poderam ser mesclados",
     "not_multiple_of": "O número deverá ser múltiplo de {{multipleOf}}",
+    "not_finite": "Número não pode ser infinito",
     "invalid_string": {
       "email": "E-mail inválido",
       "url": "URL inválida",

@@ -13,6 +13,7 @@
       "custom": "Champ invalide",
       "invalid_intersection_types": "Les résultats d'intersection n'ont pas pu être fusionnés",
       "not_multiple_of": "Nombre doit être multiple de {{multipleOf}}",
+      "not_finite": "Nombre doit être fini",
       "invalid_string": {
         "email": "{{validation}} invalide",
         "url": "{{validation}} invalide",
@@ -97,4 +98,3 @@
       "set": "ensemble"
     }
   }
-  
