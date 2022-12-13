@@ -41,6 +41,9 @@ test("string parser error messages", () => {
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
     "Champ de text doit contenir au plus 5 caractère(s)"
   );
+  expect(
+    getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
+  ).toEqual("horodate invalide");
 });
 
 test("number parser error messages", () => {

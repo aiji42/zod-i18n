@@ -41,6 +41,9 @@ test("string parser error messages", () => {
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
     "A string pode conter no máximo 5 caracter(es)"
   );
+  expect(
+    getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
+  ).toEqual("datetime inválido");
 });
 
 test("number parser error messages", () => {

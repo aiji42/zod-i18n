@@ -20,6 +20,7 @@
         "uuid": "{{validation}} invalide",
         "cuid": "{{validation}} invalide",
         "regex": "{{validation}} invalide",
+        "datetime": "{{validation}} invalide",
         "startsWith": "Champ invalide: doit commencer par {{startsWith}}",
         "endsWith": "Champ invalide: doit se terminer par {{endsWith}}"
       },
@@ -73,7 +74,8 @@
       "url": "lien",
       "uuid": "UUID",
       "cuid": "CUID",
-      "regex": "expression régulière"
+      "regex": "expression régulière",
+      "datetime": "horodate"
     },
     "types": {
       "function": "fonction",

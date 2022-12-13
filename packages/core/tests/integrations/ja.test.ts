@@ -43,6 +43,9 @@ test("string parser error messages", () => {
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
     "5文字以下の文字列である必要があります。"
   );
+  expect(
+    getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
+  ).toEqual("日時の形式で入力してください。");
 });
 
 test("number parser error messages", () => {
