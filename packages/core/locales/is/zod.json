@@ -15,7 +15,7 @@
     "not_multiple_of": "Tala þarf að vera margfeldi af {{multipleOf}}",
     "invalid_string": {
       "email": "Ógilt {{validation}}",
-      "url": "Ógilt {{validation}}",
+      "url": "Ógild {{validation}}",
       "uuid": "Ógilt {{validation}}",
       "cuid": "Ógilt {{validation}}",
       "regex": "Ógilt",
@@ -25,7 +25,7 @@
     "too_small": {
       "array": {
         "inclusive": "Fylki verður að innihalda að minnsta kosti {{minimum}} stök",
-        "not_inclusive": "Fylki verður að innihalda meira en {{minimum}} stök"
+        "not_inclusive": "Fylki verður að innihalda fleiri en {{minimum}} stök"
       },
       "string": {
         "inclusive": "Strengur verður að innihalda að minnsta kosti {{minimum}} stafi",
@@ -33,7 +33,7 @@
       },
       "number": {
         "inclusive": "Tala verður að vera stærri en eða jöfn {{minimum}}",
-        "not_inclusive": "Tala þarf að vera stærri en {{minimum}}"
+        "not_inclusive": "Tala verður að vera stærri en {{minimum}}"
       },
       "set": {
         "inclusive": "Ógilt inntak",
@@ -46,7 +46,7 @@
     },
     "too_big": {
       "array": {
-        "inclusive": "Fylki má ekki innihalda fleiri en {{maximum}} stök",
+        "inclusive": "Fylki verður að innihalda að hámarki {{maximum}} stök",
         "not_inclusive": "Fylki verður að innihalda færri en {{maximum}} stök"
       },
       "string": {
@@ -75,20 +75,20 @@
     "regex": "regluleg segð"
   },
   "types": {
-    "function": "function",
-    "number": "number",
-    "string": "string",
+    "function": "fall",
+    "number": "tölu",
+    "string": "streng",
     "nan": "nan",
-    "integer": "integer",
-    "float": "float",
+    "integer": "heiltölu",
+    "float": "kommutölu",
     "boolean": "boolean",
-    "date": "date",
-    "bigint": "bigint",
+    "date": "dagsetningu",
+    "bigint": "stórri heiltölu",
     "undefined": "undefined",
     "symbol": "symbol",
     "null": "null",
-    "array": "array",
-    "object": "object",
+    "array": "fylki",
+    "object": "hlut",
     "unknown": "unknown",
     "promise": "promise",
     "void": "void",
