@@ -1,0 +1,102 @@
+{
+  "errors": {
+    "invalid_type": "Bjóst við {{expected}}, fékk {{received}}",
+    "invalid_type_received_undefined": "Nauðsynlegt",
+    "invalid_literal": "Ógilt bókstaflegt gildi, bjóst við {{expected}}",
+    "unrecognized_keys": "Óþekktir lyklar í hlut: {{- keys}}",
+    "invalid_union": "Ógilt inntak",
+    "invalid_union_discriminator": "Ógilt mismununargildi. Bjóst við {{- options}}",
+    "invalid_enum_value": "Ógilt upptalningargildi. Bjóst við {{- options}}, fékk {{received}}",
+    "invalid_arguments": "Ógildar aðgerðarbreytur",
+    "invalid_return_type": "Ógild skilategund á falli",
+    "invalid_date": "Ógild dagsetning",
+    "custom": "Ógilt inntak",
+    "invalid_intersection_types": "Ekki var hægt að sameina niðurstöður",
+    "not_multiple_of": "Tala þarf að vera margfeldi af {{multipleOf}}",
+    "not_finite": "Tala þarf að vera endanleg",
+    "invalid_string": {
+      "email": "Ógilt {{validation}}",
+      "url": "Ógild {{validation}}",
+      "uuid": "Ógilt {{validation}}",
+      "cuid": "Ógilt {{validation}}",
+      "regex": "Ógilt",
+      "datetime": "Ógild {{validation}}",
+      "startsWith": "Ógilt inntak: þarf að byrja á {{startsWith}}",
+      "endsWith": "Ógilt inntak: þarf að enda á {{endsWith}}"
+    },
+    "too_small": {
+      "array": {
+        "inclusive": "Fylki verður að innihalda að minnsta kosti {{minimum}} stök",
+        "not_inclusive": "Fylki verður að innihalda fleiri en {{minimum}} stök"
+      },
+      "string": {
+        "inclusive": "Strengur verður að innihalda að minnsta kosti {{minimum}} stafi",
+        "not_inclusive": "Strengur verður að innihalda meira en {{minimum}} stafi"
+      },
+      "number": {
+        "inclusive": "Tala verður að vera stærri en eða jöfn {{minimum}}",
+        "not_inclusive": "Tala verður að vera stærri en {{minimum}}"
+      },
+      "set": {
+        "inclusive": "Ógilt inntak",
+        "not_inclusive": "Ógilt inntak"
+      },
+      "date": {
+        "inclusive": "Dagsetning verður að vera á eftir eða sama og {{- minimum, datetime}}",
+        "not_inclusive": "Dagsetning verður að vera á eftir {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "array": {
+        "inclusive": "Fylki verður að innihalda að hámarki {{maximum}} stök",
+        "not_inclusive": "Fylki verður að innihalda færri en {{maximum}} stök"
+      },
+      "string": {
+        "inclusive": "Strengur getur ekki verið lengri en {{maximum}} stafir",
+        "not_inclusive": "Strengur verður að innihalda færri en {{maximum}} stafi"
+      },
+      "number": {
+        "inclusive": "Tala verður að vera minni en eða jöfn {{maximum}}",
+        "not_inclusive": "Tala verður að vera minni en {{maximum}}"
+      },
+      "set": {
+        "inclusive": "Ógilt inntak",
+        "not_inclusive": "Ógilt inntak"
+      },
+      "date": {
+        "inclusive": "Dagsetning verður að vera fyrr en eða sama og {{- maximum, datetime}}",
+        "not_inclusive": "Dagsetning verður að vera fyrr en {{- maximum, datetime}}"
+      }
+    }
+  },
+  "validations": {
+    "email": "netfang",
+    "url": "slóð",
+    "uuid": "uuid",
+    "cuid": "cuid",
+    "regex": "regluleg segð",
+    "datetime": "dagsetning og tími"
+  },
+  "types": {
+    "function": "fall",
+    "number": "tölu",
+    "string": "streng",
+    "nan": "nan",
+    "integer": "heiltölu",
+    "float": "kommutölu",
+    "boolean": "boolean",
+    "date": "dagsetningu",
+    "bigint": "stórri heiltölu",
+    "undefined": "undefined",
+    "symbol": "symbol",
+    "null": "null",
+    "array": "fylki",
+    "object": "hlut",
+    "unknown": "unknown",
+    "promise": "promise",
+    "void": "void",
+    "never": "never",
+    "map": "map",
+    "set": "set"
+  }
+}
