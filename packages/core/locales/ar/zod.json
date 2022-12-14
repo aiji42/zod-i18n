@@ -6,7 +6,7 @@
     "unrecognized_keys": "عنصر (عناصر) غير معروف في الكائن: {{- keys}}",
     "invalid_union": "مدخل غير صالح",
     "invalid_union_discriminator": "قيمة مميزة غير صالحة. المتوقع {{- options}}",
-    "invalid_enum_value": "قيمة تعداد غير صالحة. المتوقع {{- options}}، المستلم {{received}}",
+    "invalid_enum_value": "قيمة تعداد غير صالحة. المتوقع {{- options}}، المستلم '{{received}}'",
     "invalid_arguments": "معاملات الدالة غير صالحة",
     "invalid_return_type": "نوع إرجاع دالة غير صالح",
     "invalid_date": "تاريخ غير صالح",
@@ -38,6 +38,7 @@
         "not_inclusive": "يجب أن يكون الرقم أكبر من {{minimum}}"
       },
       "set": {
+        "exact": "مدخل غير صالح",
         "inclusive": "مدخل غير صالح",
         "not_inclusive": "مدخل غير صالح"
       },
@@ -60,6 +61,7 @@
         "not_inclusive": "يجب أن يكون الرقم أقل من {{maximum}}"
       },
       "set": {
+        "exact": "مدخل غير صالح",
         "inclusive": "مدخل غير صالح",
         "not_inclusive": "مدخل غير صالح"
       },

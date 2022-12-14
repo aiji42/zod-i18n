@@ -1,6 +1,6 @@
 import { test, expect, beforeAll } from "vitest";
 import { z } from "zod";
-import { init, getErrorMessage } from "./helpers";
+import { init, getErrorMessage, getErrorMessageFromZodError } from "./helpers";
 
 beforeAll(async () => {
   await init("ar");
@@ -43,6 +43,10 @@ test("string parser error messages", () => {
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
     "يجب أن تحتوي السلسلة على 5 حرف (أحرف) كحد أقصى"
   );
+  // TODO: add `zod:errors.(too_small|too_big).string.exact`
+  expect(getErrorMessage(schema.length(5).safeParse("abcdef"))).toEqual(
+    "String must contain exactly 5 character(s)"
+  );
   expect(
     getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
   ).toEqual("غير صالح التاريخ والوقت");
@@ -67,6 +71,9 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.multipleOf(5).safeParse(2))).toEqual(
     "يجب أن يكون الرقم من مضاعفات 5"
   );
+  expect(getErrorMessage(schema.step(0.1).safeParse(0.0001))).toEqual(
+    "يجب أن يكون الرقم من مضاعفات 0.1"
+  );
   expect(getErrorMessage(schema.lt(5).safeParse(10))).toEqual(
     "يجب أن يكون الرقم أقل من 5"
   );
@@ -79,6 +86,15 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.gte(5).safeParse(1))).toEqual(
     "يجب أن يكون الرقم أكبر من أو يساوي 5"
   );
+  expect(getErrorMessage(schema.nonnegative().safeParse(-1))).toEqual(
+    "يجب أن يكون الرقم أكبر من أو يساوي 0"
+  );
+  expect(getErrorMessage(schema.nonpositive().safeParse(1))).toEqual(
+    "يجب أن يكون الرقم أقل من أو يساوي 0"
+  );
+  expect(getErrorMessage(schema.negative().safeParse(1))).toEqual(
+    "يجب أن يكون الرقم أقل من 0"
+  );
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual(
     "يجب أن يكون الرقم أكبر من 0"
   );
@@ -87,7 +103,7 @@ test("number parser error messages", () => {
   );
 });
 
-test("date parser error messages", () => {
+test("date parser error messages", async () => {
   const schema = z.date();
 
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
@@ -106,6 +122,11 @@ test("date parser error messages", () => {
   ).toEqual(
     `يجب أن يكون التاريخ أصغر من أو يساوي ${testDate.toLocaleDateString("ar")}`
   );
+  try {
+    await schema.parseAsync(new Date("invalid"));
+  } catch (err) {
+    expect((err as z.ZodError).issues[0].message).toEqual("تاريخ غير صالح");
+  }
 });
 
 test("array parser error messages", () => {
@@ -124,14 +145,37 @@ test("array parser error messages", () => {
   expect(getErrorMessage(schema.nonempty().safeParse([]))).toEqual(
     "يجب أن تحتوي المصفوفة على 1 عنصر (عناصر) على الأقل"
   );
+  // TODO: add `zod:errors.(too_small|too_big).array.exact`
+  expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
+    "Array must contain exactly 2 element(s)"
+  );
 });
 
 test("other parser error messages", () => {
+  const functionParse = z
+    .function(z.tuple([z.string()]), z.number())
+    .parse((a: any) => a);
+  expect(getErrorMessageFromZodError(() => functionParse(""))).toEqual(
+    "نوع إرجاع دالة غير صالح"
+  );
+  expect(getErrorMessageFromZodError(() => functionParse(1 as any))).toEqual(
+    "معاملات الدالة غير صالحة"
+  );
+  expect(
+    getErrorMessage(
+      z
+        .intersection(
+          z.number(),
+          z.number().transform((x) => x + 1)
+        )
+        .safeParse(1234)
+    )
+  ).toEqual("تعذر دمج نتائج التقاطع");
   expect(getErrorMessage(z.literal(12).safeParse(""))).toEqual(
     "قيمة حرفية غير صالحة، المتوقع 12"
   );
   expect(getErrorMessage(z.enum(["A", "B", "C"]).safeParse("D"))).toEqual(
-    "قيمة تعداد غير صالحة. المتوقع 'A' | 'B' | 'C'، المستلم D"
+    "قيمة تعداد غير صالحة. المتوقع 'A' | 'B' | 'C'، المستلم 'D'"
   );
   expect(
     getErrorMessage(
