@@ -1,6 +1,6 @@
 import { test, expect, beforeAll } from "vitest";
 import { z } from "zod";
-import { init, getErrorMessage } from "./helpers";
+import { init, getErrorMessage, getErrorMessageFromZodError } from "./helpers";
 
 beforeAll(async () => {
   await init("en");
@@ -28,16 +28,19 @@ test("string parser error messages", () => {
   expect(getErrorMessage(schema.url().safeParse(""))).toEqual("Invalid url");
   expect(getErrorMessage(schema.regex(/aaa/).safeParse(""))).toEqual("Invalid");
   expect(getErrorMessage(schema.startsWith("foo").safeParse(""))).toEqual(
-    "Invalid input: must start with foo"
+    'Invalid input: must start with "foo"'
   );
   expect(getErrorMessage(schema.endsWith("bar").safeParse(""))).toEqual(
-    "Invalid input: must end with bar"
+    'Invalid input: must end with "bar"'
   );
   expect(getErrorMessage(schema.min(5).safeParse("a"))).toEqual(
     "String must contain at least 5 character(s)"
   );
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
     "String must contain at most 5 character(s)"
+  );
+  expect(getErrorMessage(schema.length(5).safeParse("abcdef"))).toEqual(
+    "String must contain exactly 5 character(s)"
   );
   expect(
     getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
@@ -63,6 +66,9 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.multipleOf(5).safeParse(2))).toEqual(
     "Number must be a multiple of 5"
   );
+  expect(getErrorMessage(schema.step(0.1).safeParse(0.0001))).toEqual(
+    "Number must be a multiple of 0.1"
+  );
   expect(getErrorMessage(schema.lt(5).safeParse(10))).toEqual(
     "Number must be less than 5"
   );
@@ -75,6 +81,15 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.gte(5).safeParse(1))).toEqual(
     "Number must be greater than or equal to 5"
   );
+  expect(getErrorMessage(schema.nonnegative().safeParse(-1))).toEqual(
+    "Number must be greater than or equal to 0"
+  );
+  expect(getErrorMessage(schema.nonpositive().safeParse(1))).toEqual(
+    "Number must be less than or equal to 0"
+  );
+  expect(getErrorMessage(schema.negative().safeParse(1))).toEqual(
+    "Number must be less than 0"
+  );
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual(
     "Number must be greater than 0"
   );
@@ -83,7 +98,7 @@ test("number parser error messages", () => {
   );
 });
 
-test("date parser error messages", () => {
+test("date parser error messages", async () => {
   const schema = z.date();
 
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
@@ -102,6 +117,11 @@ test("date parser error messages", () => {
   ).toEqual(
     `Date must be smaller than or equal to ${testDate.toLocaleDateString("en")}`
   );
+  try {
+    await schema.parseAsync(new Date("invalid"));
+  } catch (err) {
+    expect((err as z.ZodError).issues[0].message).toEqual("Invalid date");
+  }
 });
 
 test("array parser error messages", () => {
@@ -120,14 +140,36 @@ test("array parser error messages", () => {
   expect(getErrorMessage(schema.nonempty().safeParse([]))).toEqual(
     "Array must contain at least 1 element(s)"
   );
+  expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
+    "Array must contain exactly 2 element(s)"
+  );
 });
 
 test("other parser error messages", () => {
+  const functionParse = z
+    .function(z.tuple([z.string()]), z.number())
+    .parse((a: any) => a);
+  expect(getErrorMessageFromZodError(() => functionParse(""))).toEqual(
+    "Invalid function return type"
+  );
+  expect(getErrorMessageFromZodError(() => functionParse(1 as any))).toEqual(
+    "Invalid function arguments"
+  );
+  expect(
+    getErrorMessage(
+      z
+        .intersection(
+          z.number(),
+          z.number().transform((x) => x + 1)
+        )
+        .safeParse(1234)
+    )
+  ).toEqual("Intersection results could not be merged");
   expect(getErrorMessage(z.literal(12).safeParse(""))).toEqual(
     "Invalid literal value, expected 12"
   );
   expect(getErrorMessage(z.enum(["A", "B", "C"]).safeParse("D"))).toEqual(
-    "Invalid enum value. Expected 'A' | 'B' | 'C', received D"
+    "Invalid enum value. Expected 'A' | 'B' | 'C', received 'D'"
   );
   expect(
     getErrorMessage(
