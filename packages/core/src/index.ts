@@ -102,7 +102,11 @@ export const makeZodI18nMap =
       case ZodIssueCode.too_small:
         message = t(
           `zod:errors.too_small.${issue.type}.${
-            issue.inclusive ? "inclusive" : "not_inclusive"
+            issue.exact
+              ? "exact"
+              : issue.inclusive
+              ? "inclusive"
+              : "not_inclusive"
           }`,
           {
             minimum:
@@ -114,7 +118,11 @@ export const makeZodI18nMap =
       case ZodIssueCode.too_big:
         message = t(
           `zod:errors.too_big.${issue.type}.${
-            issue.inclusive ? "inclusive" : "not_inclusive"
+            issue.exact
+              ? "exact"
+              : issue.inclusive
+              ? "inclusive"
+              : "not_inclusive"
           }`,
           {
             maximum:
