@@ -6,7 +6,7 @@
     "unrecognized_keys": "Chave(s) não reconhecida(s) no objeto: {{- keys}}",
     "invalid_union": "Entrada inválida",
     "invalid_union_discriminator": "Valor discriminador inválido. Foi esperado {{- options}}",
-    "invalid_enum_value": "Enum no formato inválido. Foi esperado {{- options}}, porém foi recebido {{received}}",
+    "invalid_enum_value": "Enum no formato inválido. Foi esperado {{- options}}, porém foi recebido '{{received}}'",
     "invalid_arguments": "Argumento de função inválido",
     "invalid_return_type": "Tipo de retorno de função inválido",
     "invalid_date": "Data inválida",
@@ -21,8 +21,8 @@
       "cuid": "CUID inválido",
       "regex": "Combinação inválida",
       "datetime": "datetime inválido",
-      "startsWith": "Entrada inválida: precisa iniciar com {{startsWith}}",
-      "endsWith": "Entrada inválida: precisa terminar com {{endsWith}}"
+      "startsWith": "Entrada inválida: precisa iniciar com \"{{startsWith}}\"",
+      "endsWith": "Entrada inválida: precisa terminar com \"{{endsWith}}\""
     },
     "too_small": {
       "array": {
@@ -38,6 +38,7 @@
         "not_inclusive": "O número precisa ser maior que {{minimum}}"
       },
       "set": {
+        "exact": "Entrada inválida",
         "inclusive": "Entrada inválida",
         "not_inclusive": "Entrada inválida"
       },
@@ -60,6 +61,7 @@
         "not_inclusive": "Número deve ser menor que {{maximum}}"
       },
       "set": {
+        "exact": "Entrada inválida",
         "inclusive": "Entrada inválida",
         "not_inclusive": "Entrada inválida"
       },

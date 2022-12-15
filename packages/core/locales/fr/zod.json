@@ -6,7 +6,7 @@
       "unrecognized_keys": "Une ou plusieurs clé(s) non reconnue(s) dans l'objet: {{- keys}}",
       "invalid_union": "Champ invalide",
       "invalid_union_discriminator": "La valeur du discriminateur est invalide. Options attendus: {{- options}}",
-      "invalid_enum_value": "Valeur {{received}} n'existe pas dans les options: {{- options}}",
+      "invalid_enum_value": "Valeur '{{received}}' n'existe pas dans les options: {{- options}}",
       "invalid_arguments": "Fonction a reçu des arguments invalides",
       "invalid_return_type": "Fonction a retourné un type invalide",
       "invalid_date": "Date invalide",
@@ -21,8 +21,8 @@
         "cuid": "{{validation}} invalide",
         "regex": "{{validation}} invalide",
         "datetime": "{{validation}} invalide",
-        "startsWith": "Champ invalide: doit commencer par {{startsWith}}",
-        "endsWith": "Champ invalide: doit se terminer par {{endsWith}}"
+        "startsWith": "Champ invalide: doit commencer par \"{{startsWith}}\"",
+        "endsWith": "Champ invalide: doit se terminer par \"{{endsWith}}\""
       },
       "too_small": {
         "array": {
@@ -38,6 +38,7 @@
           "not_inclusive": "Nombre doit être supérieur à {{minimum}}"
         },
         "set": {
+          "exact": "Champ invalide",
           "inclusive": "Champ invalide",
           "not_inclusive": "Champ invalide"
         },
@@ -60,6 +61,7 @@
           "not_inclusive": "Nombre doit être inférieur à {{maximum}}"
         },
         "set": {
+          "exact": "Champ invalide",
           "inclusive": "Champ invalide",
           "not_inclusive": "Champ invalide"
         },
