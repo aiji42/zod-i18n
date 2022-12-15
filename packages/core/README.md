@@ -41,7 +41,7 @@ schema.parse('foo') // メールアドレスの形式で入力してください
 ```
 
 ## Translation Files
-`zod-i18n-map` contains translation files for several locals. See [here](https://github.com/aiji42/zod-i18n/tree/main/packages/core/locales) if your language is included.
+`zod-i18n-map` contains translation files for several locales. See [here](https://github.com/aiji42/zod-i18n/tree/main/packages/core/locales) if your language is included.
 
 It is also possible to create and edit translation files. You can use [this English translation file](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/en/zod.json) as a basis for rewriting it in your language.
 
