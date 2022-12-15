@@ -2,8 +2,10 @@ import { test, expect, beforeAll } from "vitest";
 import { z } from "zod";
 import { init, getErrorMessage, getErrorMessageFromZodError } from "./helpers";
 
+const LOCALE = "zh-CN";
+
 beforeAll(async () => {
-  await init("zh-CN");
+  await init(LOCALE);
 });
 
 test("string parser error messages", () => {
@@ -93,24 +95,22 @@ test("number parser error messages", () => {
 });
 
 test("date parser error messages", async () => {
+  const testDate = new Date("2022-08-01");
   const schema = z.date();
 
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
     "期望输入的是日期, 而输入的是字符串"
   );
-
-  const testDate = new Date("2022-08-01");
-
   expect(
     getErrorMessage(
       schema.min(new Date("2022-08-01")).safeParse(new Date("2022-07-29"))
     )
-  ).toEqual(`日期必须晚于或等于 ${testDate.toLocaleDateString("zh-CN")}`);
+  ).toEqual(`日期必须晚于或等于 ${testDate.toLocaleDateString(LOCALE)}`);
   expect(
     getErrorMessage(
       schema.max(new Date("2022-08-01")).safeParse(new Date("2022-08-02"))
     )
-  ).toEqual(`日期必须早于或等于 ${testDate.toLocaleDateString("zh-CN")}`);
+  ).toEqual(`日期必须早于或等于 ${testDate.toLocaleDateString(LOCALE)}`);
   try {
     await schema.parseAsync(new Date("invalid"));
   } catch (err) {
@@ -139,7 +139,7 @@ test("array parser error messages", () => {
   );
 });
 
-test("other parser error messages", () => {
+test("function parser error messages", () => {
   const functionParse = z
     .function(z.tuple([z.string()]), z.number())
     .parse((a: any) => a);
@@ -149,6 +149,9 @@ test("other parser error messages", () => {
   expect(getErrorMessageFromZodError(() => functionParse(1 as any))).toEqual(
     "参数错误"
   );
+});
+
+test("other parser error messages", () => {
   expect(
     getErrorMessage(
       z

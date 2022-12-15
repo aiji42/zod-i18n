@@ -2,8 +2,10 @@ import { test, expect, beforeAll } from "vitest";
 import { z } from "zod";
 import { init, getErrorMessage, getErrorMessageFromZodError } from "./helpers";
 
+const LOCALE = "ja";
+
 beforeAll(async () => {
-  await init("ja");
+  await init(LOCALE);
 });
 
 test("string parser error messages", () => {
@@ -103,23 +105,21 @@ test("number parser error messages", () => {
 });
 
 test("date parser error messages", async () => {
+  const testDate = new Date("2022-08-01");
   const schema = z.date();
 
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
     "日時での入力を期待していますが、文字列が入力されました。"
   );
-
-  const testDate = new Date("2022-08-01");
-
   expect(
     getErrorMessage(schema.min(testDate).safeParse(new Date("2022-07-29")))
   ).toEqual(
-    `${testDate.toLocaleDateString("ja")}以降の日時である必要があります。`
+    `${testDate.toLocaleDateString(LOCALE)}以降の日時である必要があります。`
   );
   expect(
     getErrorMessage(schema.max(testDate).safeParse(new Date("2022-08-02")))
   ).toEqual(
-    `${testDate.toLocaleDateString("ja")}以前の日時である必要があります。`
+    `${testDate.toLocaleDateString(LOCALE)}以前の日時である必要があります。`
   );
   try {
     await schema.parseAsync(new Date("invalid"));
@@ -150,7 +150,7 @@ test("array parser error messages", () => {
   );
 });
 
-test("other parser error messages", () => {
+test("function parser error messages", () => {
   const functionParse = z
     .function(z.tuple([z.string()]), z.number())
     .parse((a: any) => a);
@@ -160,6 +160,9 @@ test("other parser error messages", () => {
   expect(getErrorMessageFromZodError(() => functionParse(1 as any))).toEqual(
     "引数が間違っています。"
   );
+});
+
+test("other parser error messages", () => {
   expect(
     getErrorMessage(
       z

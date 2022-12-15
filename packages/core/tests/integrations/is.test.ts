@@ -2,8 +2,10 @@ import { test, expect, beforeAll } from "vitest";
 import { z } from "zod";
 import { init, getErrorMessage, getErrorMessageFromZodError } from "./helpers";
 
+const LOCALE = "is";
+
 beforeAll(async () => {
-  await init("is");
+  await init(LOCALE);
 });
 
 test("string parser error messages", () => {
@@ -100,26 +102,24 @@ test("number parser error messages", () => {
 });
 
 test("date parser error messages", async () => {
+  const testDate = new Date("2022-08-01");
   const schema = z.date();
 
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
     "Bjóst við dagsetningu, fékk streng"
   );
-
-  const testDate = new Date("2022-08-01");
-
   expect(
     getErrorMessage(schema.min(testDate).safeParse(new Date("2022-07-29")))
   ).toEqual(
     `Dagsetning verður að vera á eftir eða sama og ${testDate.toLocaleDateString(
-      "is"
+      LOCALE
     )}`
   );
   expect(
     getErrorMessage(schema.max(testDate).safeParse(new Date("2022-08-02")))
   ).toEqual(
     `Dagsetning verður að vera fyrr en eða sama og ${testDate.toLocaleDateString(
-      "is"
+      LOCALE
     )}`
   );
   try {
@@ -150,7 +150,7 @@ test("array parser error messages", () => {
   );
 });
 
-test("other parser error messages", () => {
+test("function parser error messages", () => {
   const functionParse = z
     .function(z.tuple([z.string()]), z.number())
     .parse((a: any) => a);
@@ -160,6 +160,9 @@ test("other parser error messages", () => {
   expect(getErrorMessageFromZodError(() => functionParse(1 as any))).toEqual(
     "Ógildar aðgerðarbreytur"
   );
+});
+
+test("other parser error messages", () => {
   expect(
     getErrorMessage(
       z
