@@ -1,6 +1,6 @@
 import { test, expect, beforeAll } from "vitest";
 import { z } from "zod";
-import { init, getErrorMessage } from "./helpers";
+import { init, getErrorMessage, getErrorMessageFromZodError } from "./helpers";
 
 beforeAll(async () => {
   await init("fr");
@@ -30,16 +30,20 @@ test("string parser error messages", () => {
     "expression régulière invalide"
   );
   expect(getErrorMessage(schema.startsWith("foo").safeParse(""))).toEqual(
-    "Champ invalide: doit commencer par foo"
+    'Champ invalide: doit commencer par "foo"'
   );
   expect(getErrorMessage(schema.endsWith("bar").safeParse(""))).toEqual(
-    "Champ invalide: doit se terminer par bar"
+    'Champ invalide: doit se terminer par "bar"'
   );
   expect(getErrorMessage(schema.min(5).safeParse("a"))).toEqual(
     "Champ de text doit contenir au moins 5 caractère(s)"
   );
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
     "Champ de text doit contenir au plus 5 caractère(s)"
+  );
+  // TODO: add `zod:errors.(too_small|too_big).string.exact`
+  expect(getErrorMessage(schema.length(5).safeParse("abcdef"))).toEqual(
+    "String must contain exactly 5 character(s)"
   );
   expect(
     getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
@@ -65,6 +69,9 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.multipleOf(5).safeParse(2))).toEqual(
     "Nombre doit être multiple de 5"
   );
+  expect(getErrorMessage(schema.step(0.1).safeParse(0.0001))).toEqual(
+    "Nombre doit être multiple de 0.1"
+  );
   expect(getErrorMessage(schema.lt(5).safeParse(10))).toEqual(
     "Nombre doit être inférieur à 5"
   );
@@ -77,6 +84,15 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.gte(5).safeParse(1))).toEqual(
     "Nombre doit être supérieur ou égale à 5"
   );
+  expect(getErrorMessage(schema.nonnegative().safeParse(-1))).toEqual(
+    "Nombre doit être supérieur ou égale à 0"
+  );
+  expect(getErrorMessage(schema.nonpositive().safeParse(1))).toEqual(
+    "Nombre doit être inférieur ou égale à 0"
+  );
+  expect(getErrorMessage(schema.negative().safeParse(1))).toEqual(
+    "Nombre doit être inférieur à 0"
+  );
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual(
     "Nombre doit être supérieur à 0"
   );
@@ -85,7 +101,7 @@ test("number parser error messages", () => {
   );
 });
 
-test("date parser error messages", () => {
+test("date parser error messages", async () => {
   const schema = z.date();
 
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
@@ -104,6 +120,11 @@ test("date parser error messages", () => {
   ).toEqual(
     `Date doit être inférieure ou égale à ${testDate.toLocaleDateString("fr")}`
   );
+  try {
+    await schema.parseAsync(new Date("invalid"));
+  } catch (err) {
+    expect((err as z.ZodError).issues[0].message).toEqual("Date invalide");
+  }
 });
 
 test("array parser error messages", () => {
@@ -112,7 +133,6 @@ test("array parser error messages", () => {
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Type invalide: liste doit être fourni(e), mais chaîne de caractères a été reçu(e)"
   );
-
   expect(getErrorMessage(schema.min(5).safeParse([""]))).toEqual(
     "Liste doit contenir au moins 5 élément(s)"
   );
@@ -122,14 +142,37 @@ test("array parser error messages", () => {
   expect(getErrorMessage(schema.nonempty().safeParse([]))).toEqual(
     "Liste doit contenir au moins 1 élément(s)"
   );
+  // TODO: add `zod:errors.(too_small|too_big).array.exact`
+  expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
+    "Array must contain exactly 2 element(s)"
+  );
 });
 
 test("other parser error messages", () => {
+  const functionParse = z
+    .function(z.tuple([z.string()]), z.number())
+    .parse((a: any) => a);
+  expect(getErrorMessageFromZodError(() => functionParse(""))).toEqual(
+    "Fonction a retourné un type invalide"
+  );
+  expect(getErrorMessageFromZodError(() => functionParse(1 as any))).toEqual(
+    "Fonction a reçu des arguments invalides"
+  );
+  expect(
+    getErrorMessage(
+      z
+        .intersection(
+          z.number(),
+          z.number().transform((x) => x + 1)
+        )
+        .safeParse(1234)
+    )
+  ).toEqual("Les résultats d'intersection n'ont pas pu être fusionnés");
   expect(getErrorMessage(z.literal(12).safeParse(""))).toEqual(
     "Valeur doit être 12"
   );
   expect(getErrorMessage(z.enum(["A", "B", "C"]).safeParse("D"))).toEqual(
-    "Valeur D n'existe pas dans les options: 'A' | 'B' | 'C'"
+    "Valeur 'D' n'existe pas dans les options: 'A' | 'B' | 'C'"
   );
   expect(
     getErrorMessage(

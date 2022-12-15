@@ -135,7 +135,6 @@ test("array parser error messages", () => {
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "المتوقع مصفوفة، المستلم سلسلة"
   );
-
   expect(getErrorMessage(schema.min(5).safeParse([""]))).toEqual(
     "يجب أن تحتوي المصفوفة على 5 عنصر (عناصر) على الأقل"
   );

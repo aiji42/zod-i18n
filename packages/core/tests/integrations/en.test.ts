@@ -130,7 +130,6 @@ test("array parser error messages", () => {
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Expected array, received string"
   );
-
   expect(getErrorMessage(schema.min(5).safeParse([""]))).toEqual(
     "Array must contain at least 5 element(s)"
   );
