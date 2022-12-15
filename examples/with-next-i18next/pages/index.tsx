@@ -5,7 +5,9 @@ import {
   FormControl,
   Input,
   Button,
-  ButtonGroup,
+  Select,
+  InputGroup,
+  InputLeftAddon,
 } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod";
@@ -15,7 +17,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
 import { useRouter } from "next/router";
 import { setCookie } from "nookies";
-import { MouseEventHandler, useCallback } from "react";
+import { ChangeEventHandler, useCallback } from "react";
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
@@ -44,7 +46,7 @@ export default function HookForm() {
     resolver: zodResolver(schema),
   });
 
-  const changeLocale = useCallback<MouseEventHandler<HTMLButtonElement>>(
+  const changeLocale = useCallback<ChangeEventHandler<HTMLSelectElement>>(
     (e) => {
       const locale = e.currentTarget.value;
       setCookie(null, "NEXT_LOCALE", locale);
@@ -57,64 +59,23 @@ export default function HookForm() {
 
   return (
     <>
-      <ButtonGroup gap={2} mb={4}>
-        <Button
-          variant={router.locale === "en" ? "outline" : "ghost"}
-          colorScheme="teal"
-          value="en"
-          onClick={changeLocale}
+      <InputGroup>
+        <InputLeftAddon children="🌐" />
+        <Select
+          defaultValue={router.locale}
+          onChange={changeLocale}
+          mb={8}
+          borderLeftRadius={0}
         >
-          English
-        </Button>
-        <Button
-          variant={router.locale === "fr" ? "outline" : "ghost"}
-          colorScheme="teal"
-          value="fr"
-          onClick={changeLocale}
-        >
-          Français
-        </Button>
-        <Button
-          variant={router.locale === "ja" ? "outline" : "ghost"}
-          colorScheme="teal"
-          value="ja"
-          onClick={changeLocale}
-        >
-          日本語
-        </Button>
-        <Button
-          variant={router.locale === "ar" ? "outline" : "ghost"}
-          colorScheme="teal"
-          value="ar"
-          onClick={changeLocale}
-        >
-          العربية
-        </Button>
-        <Button
-          variant={router.locale === "pt" ? "outline" : "ghost"}
-          colorScheme="teal"
-          value="pt"
-          onClick={changeLocale}
-        >
-          Português
-        </Button>
-        <Button
-          variant={router.locale === "zh-CN" ? "outline" : "ghost"}
-          colorScheme="teal"
-          value="zh-CN"
-          onClick={changeLocale}
-        >
-          简体中文
-        </Button>
-        <Button
-          variant={router.locale === "is" ? "outline" : "ghost"}
-          colorScheme="teal"
-          value="is"
-          onClick={changeLocale}
-        >
-          Icelandic
-        </Button>
-      </ButtonGroup>
+          <option value="ar">العربية</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="is">Icelandic</option>
+          <option value="ja">日本語</option>
+          <option value="pt">Português</option>
+          <option value="zh-CN">简体中文</option>
+        </Select>
+      </InputGroup>
       <form onSubmit={handleSubmit(console.log)}>
         <FormControl isInvalid={!!errors.username} mb={4}>
           <FormLabel htmlFor="username">
