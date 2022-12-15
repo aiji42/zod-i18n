@@ -8,6 +8,10 @@ import {
   Select,
   InputGroup,
   InputLeftAddon,
+  Container,
+  Flex,
+  Heading,
+  Spacer,
 } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod";
@@ -58,24 +62,30 @@ export default function HookForm() {
   );
 
   return (
-    <>
-      <InputGroup>
-        <InputLeftAddon children="🌐" />
-        <Select
-          defaultValue={router.locale}
-          onChange={changeLocale}
-          mb={8}
-          borderLeftRadius={0}
-        >
-          <option value="ar">العربية</option>
-          <option value="en">English</option>
-          <option value="fr">Français</option>
-          <option value="is">Icelandic</option>
-          <option value="ja">日本語</option>
-          <option value="pt">Português</option>
-          <option value="zh-CN">简体中文</option>
-        </Select>
-      </InputGroup>
+    <Container maxW="container.xl">
+      <Flex as="header" py="4" justifyContent="space-between">
+        <a href="https://github.com/aiji42/zod-i18n" rel="noopener noreferrer">
+          <Heading as="h1" fontSize="xl" color="gray.600">
+            zod-i18n-map
+          </Heading>
+        </a>
+        <InputGroup maxW="3xs">
+          <InputLeftAddon>🌐</InputLeftAddon>
+          <Select
+            defaultValue={router.locale}
+            onChange={changeLocale}
+            borderLeftRadius={0}
+          >
+            <option value="ar">العربية</option>
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="is">Icelandic</option>
+            <option value="ja">日本語</option>
+            <option value="pt">Português</option>
+            <option value="zh-CN">简体中文</option>
+          </Select>
+        </InputGroup>
+      </Flex>
       <form onSubmit={handleSubmit(console.log)}>
         <FormControl isInvalid={!!errors.username} mb={4}>
           <FormLabel htmlFor="username">
@@ -124,6 +134,6 @@ export default function HookForm() {
           <Trans>Submit</Trans>
         </Button>
       </form>
-    </>
+    </Container>
   );
 }
