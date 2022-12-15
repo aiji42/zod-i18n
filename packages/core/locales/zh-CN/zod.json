@@ -6,7 +6,7 @@
     "unrecognized_keys": "无法识别对象的键: {{- keys}}",
     "invalid_union": "输入格式错误",
     "invalid_union_discriminator": "无效的标识符。请输入 {{- options}}",
-    "invalid_enum_value": "无效的 {{received}} 值。请输入 {{- options}}",
+    "invalid_enum_value": "无效的 '{{received}}' 值。请输入 {{- options}}",
     "invalid_arguments": "参数错误",
     "invalid_return_type": "错误的返回值类型",
     "invalid_date": "错误的日期",
@@ -21,8 +21,8 @@
       "cuid": "{{validation}} 格式错误",
       "regex": "格式错误",
       "datetime": "{{validation}} 格式错误",
-      "startsWith": "必须以 {{startsWith}} 起始",
-      "endsWith": "必须以 {{endsWith}} 结尾"
+      "startsWith": "必须以 \"{{startsWith}}\" 起始",
+      "endsWith": "必须以 \"{{endsWith}}\" 结尾"
     },
     "too_small": {
       "array": {
@@ -38,6 +38,7 @@
         "not_inclusive": "必须大于 {{minimum}}"
       },
       "set": {
+        "exact": "无效输入",
         "inclusive": "无效输入",
         "not_inclusive": "无效输入"
       },
@@ -60,6 +61,7 @@
         "not_inclusive": "必须小于 {{maximum}}"
       },
       "set": {
+        "exact": "无效输入",
         "inclusive": "无效输入",
         "not_inclusive": "无效输入"
       },

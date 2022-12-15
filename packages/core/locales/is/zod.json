@@ -6,7 +6,7 @@
     "unrecognized_keys": "Óþekktir lyklar í hlut: {{- keys}}",
     "invalid_union": "Ógilt inntak",
     "invalid_union_discriminator": "Ógilt mismununargildi. Bjóst við {{- options}}",
-    "invalid_enum_value": "Ógilt upptalningargildi. Bjóst við {{- options}}, fékk {{received}}",
+    "invalid_enum_value": "Ógilt upptalningargildi. Bjóst við {{- options}}, fékk '{{received}}'",
     "invalid_arguments": "Ógildar aðgerðarbreytur",
     "invalid_return_type": "Ógild skilategund á falli",
     "invalid_date": "Ógild dagsetning",
@@ -21,8 +21,8 @@
       "cuid": "Ógilt {{validation}}",
       "regex": "Ógilt",
       "datetime": "Ógild {{validation}}",
-      "startsWith": "Ógilt inntak: þarf að byrja á {{startsWith}}",
-      "endsWith": "Ógilt inntak: þarf að enda á {{endsWith}}"
+      "startsWith": "Ógilt inntak: þarf að byrja á \"{{startsWith}}\"",
+      "endsWith": "Ógilt inntak: þarf að enda á \"{{endsWith}}\""
     },
     "too_small": {
       "array": {
@@ -38,6 +38,7 @@
         "not_inclusive": "Tala verður að vera stærri en {{minimum}}"
       },
       "set": {
+        "exact": "Ógilt inntak",
         "inclusive": "Ógilt inntak",
         "not_inclusive": "Ógilt inntak"
       },
@@ -60,6 +61,7 @@
         "not_inclusive": "Tala verður að vera minni en {{maximum}}"
       },
       "set": {
+        "exact": "Ógilt inntak",
         "inclusive": "Ógilt inntak",
         "not_inclusive": "Ógilt inntak"
       },

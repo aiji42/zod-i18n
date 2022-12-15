@@ -1,6 +1,6 @@
 import { test, expect, beforeAll } from "vitest";
 import { z } from "zod";
-import { init, getErrorMessage } from "./helpers";
+import { init, getErrorMessage, getErrorMessageFromZodError } from "./helpers";
 
 beforeAll(async () => {
   await init("zh-CN");
@@ -28,16 +28,20 @@ test("string parser error messages", () => {
     "格式错误"
   );
   expect(getErrorMessage(schema.startsWith("foo").safeParse(""))).toEqual(
-    "必须以 foo 起始"
+    '必须以 "foo" 起始'
   );
   expect(getErrorMessage(schema.endsWith("bar").safeParse(""))).toEqual(
-    "必须以 bar 结尾"
+    '必须以 "bar" 结尾'
   );
   expect(getErrorMessage(schema.min(5).safeParse("a"))).toEqual(
     "至少需要包含 5 个字符"
   );
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
     "最多只能包含 5 个字符"
+  );
+  // TODO: add `zod:errors.(too_small|too_big).string.exact`
+  expect(getErrorMessage(schema.length(5).safeParse("abcdef"))).toEqual(
+    "String must contain exactly 5 character(s)"
   );
   // TODO: translation `datetime` (zod:validations.datetime)
   expect(
@@ -64,6 +68,9 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.multipleOf(5).safeParse(2))).toEqual(
     "必须是 5 的倍数"
   );
+  expect(getErrorMessage(schema.step(0.1).safeParse(0.0001))).toEqual(
+    "必须是 0.1 的倍数"
+  );
   expect(getErrorMessage(schema.lt(5).safeParse(10))).toEqual("必须小于 5");
   expect(getErrorMessage(schema.lte(5).safeParse(10))).toEqual(
     "必须小于或等于 5"
@@ -72,13 +79,20 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.gte(5).safeParse(1))).toEqual(
     "必须大于或等于 5"
   );
+  expect(getErrorMessage(schema.nonnegative().safeParse(-1))).toEqual(
+    "必须大于或等于 0"
+  );
+  expect(getErrorMessage(schema.nonpositive().safeParse(1))).toEqual(
+    "必须小于或等于 0"
+  );
+  expect(getErrorMessage(schema.negative().safeParse(1))).toEqual("必须小于 0");
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual("必须大于 0");
   expect(getErrorMessage(schema.finite().safeParse(Infinity))).toEqual(
     "不能为无限值"
   );
 });
 
-test("date parser error messages", () => {
+test("date parser error messages", async () => {
   const schema = z.date();
 
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
@@ -97,6 +111,11 @@ test("date parser error messages", () => {
       schema.max(new Date("2022-08-01")).safeParse(new Date("2022-08-02"))
     )
   ).toEqual(`日期必须早于或等于 ${testDate.toLocaleDateString("zh-CN")}`);
+  try {
+    await schema.parseAsync(new Date("invalid"));
+  } catch (err) {
+    expect((err as z.ZodError).issues[0].message).toEqual("错误的日期");
+  }
 });
 
 test("array parser error messages", () => {
@@ -105,7 +124,6 @@ test("array parser error messages", () => {
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "期望输入的是数组, 而输入的是字符串"
   );
-
   expect(getErrorMessage(schema.min(5).safeParse([""]))).toEqual(
     "至少需要包含 5 个元素"
   );
@@ -115,14 +133,37 @@ test("array parser error messages", () => {
   expect(getErrorMessage(schema.nonempty().safeParse([]))).toEqual(
     "至少需要包含 1 个元素"
   );
+  // TODO: add `zod:errors.(too_small|too_big).array.exact`
+  expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
+    "Array must contain exactly 2 element(s)"
+  );
 });
 
 test("other parser error messages", () => {
+  const functionParse = z
+    .function(z.tuple([z.string()]), z.number())
+    .parse((a: any) => a);
+  expect(getErrorMessageFromZodError(() => functionParse(""))).toEqual(
+    "错误的返回值类型"
+  );
+  expect(getErrorMessageFromZodError(() => functionParse(1 as any))).toEqual(
+    "参数错误"
+  );
+  expect(
+    getErrorMessage(
+      z
+        .intersection(
+          z.number(),
+          z.number().transform((x) => x + 1)
+        )
+        .safeParse(1234)
+    )
+  ).toEqual("交集类型无法合并");
   expect(getErrorMessage(z.literal(12).safeParse(""))).toEqual(
     "无效的输入, 请输入 12"
   );
   expect(getErrorMessage(z.enum(["A", "B", "C"]).safeParse("D"))).toEqual(
-    "无效的 D 值。请输入 'A' | 'B' | 'C'"
+    "无效的 'D' 值。请输入 'A' | 'B' | 'C'"
   );
   expect(
     getErrorMessage(

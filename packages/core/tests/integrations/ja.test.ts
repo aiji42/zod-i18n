@@ -1,6 +1,6 @@
 import { test, expect, beforeAll } from "vitest";
 import { z } from "zod";
-import { init, getErrorMessage } from "./helpers";
+import { init, getErrorMessage, getErrorMessageFromZodError } from "./helpers";
 
 beforeAll(async () => {
   await init("ja");
@@ -32,16 +32,19 @@ test("string parser error messages", () => {
     "入力形式が間違っています。"
   );
   expect(getErrorMessage(schema.startsWith("foo").safeParse(""))).toEqual(
-    "fooで始まる文字列である必要があります。"
+    '"foo"で始まる文字列である必要があります。'
   );
   expect(getErrorMessage(schema.endsWith("bar").safeParse(""))).toEqual(
-    "barで終わる文字列である必要があります。"
+    '"bar"で終わる文字列である必要があります。'
   );
   expect(getErrorMessage(schema.min(5).safeParse("a"))).toEqual(
     "5文字以上の文字列である必要があります。"
   );
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
     "5文字以下の文字列である必要があります。"
+  );
+  expect(getErrorMessage(schema.length(5).safeParse("abcdef"))).toEqual(
+    "5文字の文字列である必要があります。"
   );
   expect(
     getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
@@ -67,6 +70,9 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.multipleOf(5).safeParse(2))).toEqual(
     "5の倍数である必要があります。"
   );
+  expect(getErrorMessage(schema.step(0.1).safeParse(0.0001))).toEqual(
+    "0.1の倍数である必要があります。"
+  );
   expect(getErrorMessage(schema.lt(5).safeParse(10))).toEqual(
     "5より小さな数値である必要があります。"
   );
@@ -79,6 +85,15 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.gte(5).safeParse(1))).toEqual(
     "5以上の数値である必要があります。"
   );
+  expect(getErrorMessage(schema.nonnegative().safeParse(-1))).toEqual(
+    "0以上の数値である必要があります。"
+  );
+  expect(getErrorMessage(schema.nonpositive().safeParse(1))).toEqual(
+    "0以下の数値である必要があります。"
+  );
+  expect(getErrorMessage(schema.negative().safeParse(1))).toEqual(
+    "0より小さな数値である必要があります。"
+  );
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual(
     "0より大きな数値である必要があります。"
   );
@@ -87,7 +102,7 @@ test("number parser error messages", () => {
   );
 });
 
-test("date parser error messages", () => {
+test("date parser error messages", async () => {
   const schema = z.date();
 
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
@@ -106,6 +121,13 @@ test("date parser error messages", () => {
   ).toEqual(
     `${testDate.toLocaleDateString("ja")}以前の日時である必要があります。`
   );
+  try {
+    await schema.parseAsync(new Date("invalid"));
+  } catch (err) {
+    expect((err as z.ZodError).issues[0].message).toEqual(
+      "間違った日時データです。"
+    );
+  }
 });
 
 test("array parser error messages", () => {
@@ -114,7 +136,6 @@ test("array parser error messages", () => {
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "配列での入力を期待していますが、文字列が入力されました。"
   );
-
   expect(getErrorMessage(schema.min(5).safeParse([""]))).toEqual(
     "5個以上の要素が必要です。"
   );
@@ -124,14 +145,36 @@ test("array parser error messages", () => {
   expect(getErrorMessage(schema.nonempty().safeParse([]))).toEqual(
     "1個以上の要素が必要です。"
   );
+  expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
+    "2個の要素が必要です。"
+  );
 });
 
 test("other parser error messages", () => {
+  const functionParse = z
+    .function(z.tuple([z.string()]), z.number())
+    .parse((a: any) => a);
+  expect(getErrorMessageFromZodError(() => functionParse(""))).toEqual(
+    "返値の型が間違っています。"
+  );
+  expect(getErrorMessageFromZodError(() => functionParse(1 as any))).toEqual(
+    "引数が間違っています。"
+  );
+  expect(
+    getErrorMessage(
+      z
+        .intersection(
+          z.number(),
+          z.number().transform((x) => x + 1)
+        )
+        .safeParse(1234)
+    )
+  ).toEqual("交差型のマージができませんでした。");
   expect(getErrorMessage(z.literal(12).safeParse(""))).toEqual(
     "無効なリテラル値です。12を入力してください。"
   );
   expect(getErrorMessage(z.enum(["A", "B", "C"]).safeParse("D"))).toEqual(
-    "Dは無効な値です。'A' | 'B' | 'C'で入力してください。"
+    "'D'は無効な値です。'A' | 'B' | 'C'で入力してください。"
   );
   expect(
     getErrorMessage(
