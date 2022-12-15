@@ -26,14 +26,17 @@
       },
       "too_small": {
         "array": {
+          "exact": "Liste doit contenir exactement {{minimum}} élément(s)",
           "inclusive": "Liste doit contenir au moins {{minimum}} élément(s)",
           "not_inclusive": "Liste doit contenir plus de {{minimum}} élément(s)"
         },
         "string": {
+          "exact": "Champ de text doit contenir exactement {{minimum}} caractère(s)",
           "inclusive": "Champ de text doit contenir au moins {{minimum}} caractère(s)",
           "not_inclusive": "Champ de text doit centenir plus de {{minimum}} caractère(s)"
         },
         "number": {
+          "exact": "Nombre doit être égale à {{minimum}}",
           "inclusive": "Nombre doit être supérieur ou égale à {{minimum}}",
           "not_inclusive": "Nombre doit être supérieur à {{minimum}}"
         },
@@ -43,20 +46,24 @@
           "not_inclusive": "Champ invalide"
         },
         "date": {
+          "exact": "Date doit être égale à {{- minimum, datetime}}",
           "inclusive": "Date doit être supérieure ou égale à {{- minimum, datetime}}",
           "not_inclusive": "Date doit être supérieure à {{- minimum, datetime}}"
         }
       },
       "too_big": {
         "array": {
+          "exact": "Liste doit contenir exactement {{maximum}} élément(s)",
           "inclusive": "Liste doit contenir au plus {{maximum}} élément(s)",
           "not_inclusive": "Liste doit contenir moins de {{maximum}} élément(s)"
         },
         "string": {
+          "exact": "Champ de text doit contenir exactement {{maximum}} caractère(s)",
           "inclusive": "Champ de text doit contenir au plus {{maximum}} caractère(s)",
           "not_inclusive": "Champ de text doit contenir moins de {{maximum}} caractère(s)"
         },
         "number": {
+          "exact": "Nombre doit être égale à {{maximum}}",
           "inclusive": "Nombre doit être inférieur ou égale à {{maximum}}",
           "not_inclusive": "Nombre doit être inférieur à {{maximum}}"
         },
@@ -66,6 +73,7 @@
           "not_inclusive": "Champ invalide"
         },
         "date": {
+          "exact": "Date doit être égale à {{- maximum, datetime}}",
           "inclusive": "Date doit être inférieure ou égale à {{- maximum, datetime}}",
           "not_inclusive": "Date doit être inférieure à {{- maximum, datetime}}"
         }
