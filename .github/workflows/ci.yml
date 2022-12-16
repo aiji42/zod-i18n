@@ -23,7 +23,7 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies 💿
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Run Tests 🧪
         run: yarn coverage
       - name: Report coverage 📏
@@ -50,7 +50,7 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies 💿
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Publish 🚀
         run: yarn run release
         env:
