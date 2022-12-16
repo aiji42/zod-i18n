@@ -43,9 +43,8 @@ test("string parser error messages", () => {
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
     "Champ de text doit contenir au plus 5 caractère(s)"
   );
-  // TODO: add `zod:errors.(too_small|too_big).string.exact`
   expect(getErrorMessage(schema.length(5).safeParse("abcdef"))).toEqual(
-    "String must contain exactly 5 character(s)"
+    "Champ de text doit contenir exactement 5 caractère(s)"
   );
   expect(
     getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
@@ -146,9 +145,8 @@ test("array parser error messages", () => {
   expect(getErrorMessage(schema.nonempty().safeParse([]))).toEqual(
     "Liste doit contenir au moins 1 élément(s)"
   );
-  // TODO: add `zod:errors.(too_small|too_big).array.exact`
   expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
-    "Array must contain exactly 2 element(s)"
+    "Liste doit contenir exactement 2 élément(s)"
   );
 });
 
