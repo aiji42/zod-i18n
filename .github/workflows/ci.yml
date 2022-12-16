@@ -12,22 +12,24 @@ jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16.x
           registry-url: https://registry.npmjs.org
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          path: |
+            **/node_modules
+            .yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies 💿
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Run Tests 🧪
         run: yarn coverage
       - name: Report coverage 📏
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           working-directory: ./packages/core
@@ -39,18 +41,20 @@ jobs:
       - Test
     if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16.x
           registry-url: https://registry.npmjs.org
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          path: |
+            **/node_modules
+            .yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies 💿
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Publish 🚀
         run: yarn run release
         env:
