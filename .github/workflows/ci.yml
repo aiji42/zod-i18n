@@ -20,12 +20,10 @@ jobs:
           registry-url: https://registry.npmjs.org
       - uses: actions/cache@v3
         with:
-          path: |
-            **/node_modules
-            .yarn/cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies 💿
-        run: yarn install --immutable
+        run: yarn install --frozen-lockfile
       - name: Run Tests 🧪
         run: yarn coverage
       - name: Report coverage 📏
@@ -49,12 +47,10 @@ jobs:
           registry-url: https://registry.npmjs.org
       - uses: actions/cache@v3
         with:
-          path: |
-            **/node_modules
-            .yarn/cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies 💿
-        run: yarn install --immutable
+        run: yarn install --frozen-lockfile
       - name: Publish 🚀
         run: yarn run release
         env:
