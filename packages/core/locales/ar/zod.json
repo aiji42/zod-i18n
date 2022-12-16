@@ -26,14 +26,17 @@
     },
     "too_small": {
       "array": {
+        "exact": "يجب أن تحتوي المصفوفة على {{minimum}} عنصر (عناصر)",
         "inclusive": "يجب أن تحتوي المصفوفة على {{minimum}} عنصر (عناصر) على الأقل",
         "not_inclusive": "يجب أن تحتوي المصفوفة على أكثر من {{minimum}} عنصر (عناصر)"
       },
       "string": {
+        "exact": "يجب أن تحتوي السلسلة على {{minimum}} حرف (أحرف)",
         "inclusive": "يجب أن تحتوي السلسلة على {{minimum}} حرف (أحرف) على الأقل",
         "not_inclusive": "يجب أن تحتوي السلسلة على أكثر من {{minimum}} حرف (أحرف)"
       },
       "number": {
+        "exact": "يجب أن يكون الرقم {{minimum}}",
         "inclusive": "يجب أن يكون الرقم أكبر من أو يساوي {{minimum}}",
         "not_inclusive": "يجب أن يكون الرقم أكبر من {{minimum}}"
       },
@@ -43,20 +46,24 @@
         "not_inclusive": "مدخل غير صالح"
       },
       "date": {
+        "exact": "يجب أن يكون التاريخ {{- minimum, datetime}}",
         "inclusive": "يجب أن يكون التاريخ أكبر من أو يساوي {{- minimum, datetime}}",
         "not_inclusive": "يجب أن يكون التاريخ أكبر من {{- minimum, datetime}}"
       }
     },
     "too_big": {
       "array": {
+        "exact": "يجب أن تحتوي المصفوفة على {{maximum}} عنصر (عناصر)",
         "inclusive": "يجب أن تحتوي المصفوفة على {{maximum}} عنصر (عناصر) كحد أقصى",
         "not_inclusive": "يجب أن تحتوي المصفوفة على أقل من {{maximum}} عنصر (عناصر)"
       },
       "string": {
+        "exact": "يجب أن تحتوي السلسلة على {{maximum}} حرف (أحرف)",
         "inclusive": "يجب أن تحتوي السلسلة على {{maximum}} حرف (أحرف) كحد أقصى",
         "not_inclusive": "يجب أن تحتوي السلسلة على أقل من {{maximum}} حرف (أحرف)"
       },
       "number": {
+        "exact": "يجب أن يكون الرقم {{maximum}}",
         "inclusive": "يجب أن يكون الرقم أقل من أو يساوي {{maximum}}",
         "not_inclusive": "يجب أن يكون الرقم أقل من {{maximum}}"
       },
@@ -66,6 +73,7 @@
         "not_inclusive": "مدخل غير صالح"
       },
       "date": {
+        "exact": "يجب أن يكون التاريخ {{- maximum, datetime}}",
         "inclusive": "يجب أن يكون التاريخ أصغر من أو يساوي {{- maximum, datetime}}",
         "not_inclusive": "يجب أن يكون التاريخ أصغر من {{- maximum, datetime}}"
       }
@@ -73,7 +81,7 @@
   },
   "validations": {
     "email": "البريد الإلكتروني",
-    "url": "عنوان url",
+    "url": "الرابط",
     "uuid": "uuid",
     "cuid": "cuid",
     "regex": "التعبير النمطي",
@@ -83,7 +91,7 @@
     "function": "دالة",
     "number": "رقم",
     "string": "سلسلة",
-    "nan": "نان",
+    "nan": "مدخل غير رقمي",
     "integer": "عدد صحيح",
     "float": "عدد عشري",
     "boolean": "قيمة منطقية",

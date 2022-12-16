@@ -28,7 +28,7 @@ test("string parser error messages", () => {
     "غير صالح البريد الإلكتروني"
   );
   expect(getErrorMessage(schema.url().safeParse(""))).toEqual(
-    "غير صالح عنوان url"
+    "غير صالح الرابط"
   );
   expect(getErrorMessage(schema.regex(/aaa/).safeParse(""))).toEqual(
     "غير صالح"
@@ -45,9 +45,8 @@ test("string parser error messages", () => {
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
     "يجب أن تحتوي السلسلة على 5 حرف (أحرف) كحد أقصى"
   );
-  // TODO: add `zod:errors.(too_small|too_big).string.exact`
   expect(getErrorMessage(schema.length(5).safeParse("abcdef"))).toEqual(
-    "String must contain exactly 5 character(s)"
+    "يجب أن تحتوي السلسلة على 5 حرف (أحرف)"
   );
   expect(
     getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
@@ -65,7 +64,7 @@ test("number parser error messages", () => {
     "المتوقع رقم، المستلم لا شيء"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
-    "المتوقع رقم، المستلم نان"
+    "المتوقع رقم، المستلم مدخل غير رقمي"
   );
   expect(getErrorMessage(schema.int().safeParse(0.1))).toEqual(
     "المتوقع عدد صحيح، المستلم عدد عشري"
@@ -148,9 +147,8 @@ test("array parser error messages", () => {
   expect(getErrorMessage(schema.nonempty().safeParse([]))).toEqual(
     "يجب أن تحتوي المصفوفة على 1 عنصر (عناصر) على الأقل"
   );
-  // TODO: add `zod:errors.(too_small|too_big).array.exact`
   expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
-    "Array must contain exactly 2 element(s)"
+    "يجب أن تحتوي المصفوفة على 2 عنصر (عناصر)"
   );
 });
 
