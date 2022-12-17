@@ -25,9 +25,9 @@ test("string parser error messages", () => {
     "Esperado string, recibido date"
   );
   expect(getErrorMessage(schema.email().safeParse(""))).toEqual(
-    "Inválido correo"
+    "correo inválido"
   );
-  expect(getErrorMessage(schema.url().safeParse(""))).toEqual("Inválido url");
+  expect(getErrorMessage(schema.url().safeParse(""))).toEqual("url inválida");
   expect(getErrorMessage(schema.regex(/aaa/).safeParse(""))).toEqual(
     "Inválido"
   );
@@ -38,17 +38,17 @@ test("string parser error messages", () => {
     'Entrada inválida: debe finalizar con "bar"'
   );
   expect(getErrorMessage(schema.min(5).safeParse("a"))).toEqual(
-    "El string debe contener al menos 5 carácter(es)"
+    "El texto debe contener al menos 5 carácter(es)"
   );
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
-    "El string debe contener como máximo 5 carácter(es)"
+    "El texto debe contener como máximo 5 carácter(es)"
   );
   expect(getErrorMessage(schema.length(5).safeParse("abcdef"))).toEqual(
-    "El string debe contener exactamente 5 carácter(es)"
+    "El texto debe contener exactamente 5 carácter(es)"
   );
   expect(
     getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
-  ).toEqual("Inválido datetime");
+  ).toEqual("datetime inválido");
 });
 
 test("number parser error messages", () => {
