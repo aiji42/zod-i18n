@@ -12,8 +12,8 @@
     "invalid_date": "Fecha inválida",
     "custom": "Entrada inválida",
     "invalid_intersection_types": "Valores de intersección no pudieron ser mezclados",
-    "not_multiple_of": "Numero debe ser multiplo de {{multipleOf}}",
-    "not_finite": "Numero no puede ser infinito",
+    "not_multiple_of": "Número debe ser multiplo de {{multipleOf}}",
+    "not_finite": "Número no puede ser infinito",
     "invalid_string": {
       "email": "Inválido {{validation}}",
       "url": "Inválido {{validation}}",
