@@ -67,6 +67,16 @@
         "translation",
         "test"
       ]
+    },
+    {
+      "login": "Arturo-Lopez",
+      "name": "Arturo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/35613775?v=4",
+      "profile": "http://arturolopez.co",
+      "contributions": [
+        "translation",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,

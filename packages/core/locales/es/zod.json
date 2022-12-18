@@ -1,0 +1,112 @@
+{
+  "errors": {
+    "invalid_type": "Esperado {{expected}}, recibido {{received}}",
+    "invalid_type_received_undefined": "Requerido",
+    "invalid_literal": "Valor literal inválido, era esperado {{expected}}",
+    "unrecognized_keys": "Llave(s) no reconocida(s) en el objeto: {{- keys}}",
+    "invalid_union": "Entrada inválida",
+    "invalid_union_discriminator": "Valor discriminador inválido. Era esperado {{- options}}",
+    "invalid_enum_value": "Valor de enum inválido. Era esperado {{- options}}, fue recibido '{{received}}'",
+    "invalid_arguments": "Argumentos de función inválido",
+    "invalid_return_type": "Tipo de retorno de función inválido",
+    "invalid_date": "Fecha inválida",
+    "custom": "Entrada inválida",
+    "invalid_intersection_types": "Valores de intersección no pudieron ser mezclados",
+    "not_multiple_of": "Número debe ser multiplo de {{multipleOf}}",
+    "not_finite": "Número no puede ser infinito",
+    "invalid_string": {
+      "email": "{{validation}} inválido",
+      "url": "{{validation}} inválida",
+      "uuid": "{{validation}} inválido",
+      "cuid": "{{validation}} inválido",
+      "regex": "Inválido",
+      "datetime": "{{validation}} inválido",
+      "startsWith": "Entrada inválida: debe comenzar con \"{{startsWith}}\"",
+      "endsWith": "Entrada inválida: debe finalizar con \"{{endsWith}}\""
+    },
+    "too_small": {
+      "array": {
+        "exact": "El array debe contener exactamente {{minimum}} elemento(s)",
+        "inclusive": "El array debe contener al menos {{minimum}} elemento(s)",
+        "not_inclusive": "El array debe contener más de {{minimum}} elemento(s)"
+      },
+      "string": {
+        "exact": "El texto debe contener exactamente {{minimum}} carácter(es)",
+        "inclusive": "El texto debe contener al menos {{minimum}} carácter(es)",
+        "not_inclusive": "El texto debe contener más de {{minimum}} carácter(es)"
+      },
+      "number": {
+        "exact": "El número debe ser exactamente {{minimum}}",
+        "inclusive": "El número debe ser mayor o igual a {{minimum}}",
+        "not_inclusive": "El número debe ser mayor a {{minimum}}"
+      },
+      "set": {
+        "exact": "Entrada inválida",
+        "inclusive": "Entrada inválida",
+        "not_inclusive": "Entrada inválida"
+      },
+      "date": {
+        "exact": "La fecha debe ser exactamente {{- minimum, datetime}}",
+        "inclusive": "La fecha debe ser mayor o igual a {{- minimum, datetime}}",
+        "not_inclusive": "La fecha debe ser mayor a {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "array": {
+        "exact": "El array debe contener exactamente {{maximum}} elemento(s)",
+        "inclusive": "El array debe contener como máximo {{maximum}} elemento(s)",
+        "not_inclusive": "El array debe contener menos que {{maximum}} elemento(s)"
+      },
+      "string": {
+        "exact": "El texto debe contener exactamente {{maximum}} carácter(es)",
+        "inclusive": "El texto debe contener como máximo {{maximum}} carácter(es)",
+        "not_inclusive": "El texto debe contener menos que {{maximum}} carácter(es)"
+      },
+      "number": {
+        "exact": "El número debe ser exactamente {{maximum}}",
+        "inclusive": "El número debe ser menor o igual a {{maximum}}",
+        "not_inclusive": "El número debe ser menor a {{maximum}}"
+      },
+      "set": {
+        "exact": "Entrada inválida",
+        "inclusive": "Entrada inválida",
+        "not_inclusive": "Entrada inválida"
+      },
+      "date": {
+        "exact": "La fecha debe ser exactamente {{- maximum, datetime}}",
+        "inclusive": "La fecha debe ser menor o igual a {{- maximum, datetime}}",
+        "not_inclusive": "La fecha debe ser menor a {{- maximum, datetime}}"
+      }
+    }
+  },
+  "validations": {
+    "email": "correo",
+    "url": "url",
+    "uuid": "uuid",
+    "cuid": "cuid",
+    "regex": "expresión regular",
+    "datetime": "datetime"
+  },
+  "types": {
+    "function": "function",
+    "number": "number",
+    "string": "string",
+    "nan": "nan",
+    "integer": "integer",
+    "float": "float",
+    "boolean": "boolean",
+    "date": "date",
+    "bigint": "bigint",
+    "undefined": "undefined",
+    "symbol": "symbol",
+    "null": "null",
+    "array": "array",
+    "object": "object",
+    "unknown": "unknown",
+    "promise": "promise",
+    "void": "void",
+    "never": "never",
+    "map": "map",
+    "set": "set"
+  }
+}
