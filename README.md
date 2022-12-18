@@ -41,11 +41,20 @@ schema.parse('foo') // メールアドレスの形式で入力してください
 ```
 
 ## Translation Files
-`zod-i18n-map` contains translation files for several locales. See [here](https://github.com/aiji42/zod-i18n/tree/main/packages/core/locales) if your language is included.
+`zod-i18n-map` contains translation files for several locales.
+
+- [Arabic(ar)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/ar/zod.json) 
+- [English(en)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/en/zod.json)
+- [Spanish(es)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/es/zod.json)
+- [French(fr)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/fr/zod.json)
+- [Icelandic(is)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/is/zod.json)
+- [Japanese(ja)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/ja/zod.json)
+- [Portuguese(pt)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/pt/zod.json)
+- [Chinese Simplified Chinese(zh-CN)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/zh-CN/zod.json)
 
 It is also possible to create and edit translation files. You can use [this English translation file](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/en/zod.json) as a basis for rewriting it in your language.
 
-If you have created a translation file for a language not yet in the repository, please send us a pull request.
+**If you have created a translation file for a language not yet in the repository, please send us a pull request.**
 
 ## Use with `next-i18next`
 
