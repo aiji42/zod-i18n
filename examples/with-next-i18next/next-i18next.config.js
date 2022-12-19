@@ -8,8 +8,5 @@ module.exports = {
     locales: ["en", "ja", "fr", "ar", "pt", "zh-CN", "is", "es"],
   },
   localePath: path.resolve("./public/locales"),
-  interpolation: {
-    skipOnVariables: false,
-  },
   reloadOnPrerender: true,
 };
