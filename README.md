@@ -29,10 +29,6 @@ i18next.init({
   resources: {
     ja: { zod: translation },
   },
-  interpolation: {
-    // https://www.i18next.com/translation-function/nesting#passing-nesting-to-interpolated
-    skipOnVariables: false
-  }
 });
 z.setErrorMap(zodI18nMap)
 
