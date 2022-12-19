@@ -54,10 +54,6 @@ module.exports = {
   },
   // https://github.com/i18next/next-i18next#notes
   localePath: path.resolve("./public/locales"),
-  interpolation: {
-    // https://www.i18next.com/translation-function/nesting#passing-nesting-to-interpolated
-    skipOnVariables: false,
-  },
 };
 ```
 

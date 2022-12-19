@@ -4,13 +4,10 @@ import { zodI18nMap } from "../../src";
 
 export const init = async (lng: string) => {
   const translation = await import(`../../locales/${lng}/zod.json`);
-  i18next.init({
+  await i18next.init({
     lng,
     resources: {
       [lng]: { zod: translation },
-    },
-    interpolation: {
-      skipOnVariables: false,
     },
   });
   z.setErrorMap(zodI18nMap);

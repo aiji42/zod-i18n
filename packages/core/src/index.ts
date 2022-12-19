@@ -31,6 +31,9 @@ export const makeZodI18nMap =
             expected: `$t(zod:types.${issue.expected})`,
             received: `$t(zod:types.${issue.received})`,
             defaultValue: message,
+            interpolation: {
+              skipOnVariables: false,
+            },
           });
         }
         break;
@@ -96,6 +99,9 @@ export const makeZodI18nMap =
           message = t(`zod:errors.invalid_string.${issue.validation}`, {
             validation: `$t(zod:validations.${issue.validation})`,
             defaultValue: message,
+            interpolation: {
+              skipOnVariables: false,
+            },
           });
         }
         break;
