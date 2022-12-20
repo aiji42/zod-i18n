@@ -1,7 +1,7 @@
 {
-  "User name": "اسم المستخدم",
-  "John Doe": "محمد ماهر",
-  "Email": "البريد الالكتروني",
-  "Favorite number": "الرقم المفضل",
-  "Submit": "ارسال"
+  "username": "اسم المستخدم",
+  "username_placeholder": "محمد ماهر",
+  "email": "البريد الالكتروني",
+  "favoriteNumber": "الرقم المفضل",
+  "submit": "ارسال"
 }

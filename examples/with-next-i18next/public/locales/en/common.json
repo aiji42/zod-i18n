@@ -1,1 +1,7 @@
-{}
+{
+  "username": "User name",
+  "username_placeholder": "John Doe",
+  "email": "Email",
+  "favoriteNumber": "Favorite number",
+  "submit": "Submit"
+}

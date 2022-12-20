@@ -1,7 +1,7 @@
 {
-  "User name": "ユーザー名",
-  "John Doe": "山田太郎",
-  "Email": "メールアドレス",
-  "Favorite number": "好きな数字",
-  "Submit": "送信"
+  "username": "ユーザー名",
+  "username_placeholder": "山田太郎",
+  "email": "メールアドレス",
+  "favoriteNumber": "好きな数字",
+  "submit": "送信"
 }

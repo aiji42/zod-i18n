@@ -1,6 +1,7 @@
 {
   "errors": {
     "invalid_type": "Expected {{expected}}, received {{received}}",
+    "invalid_type_with_path": "{{path}} is expected {{expected}}, but received {{received}}",
     "invalid_type_received_undefined": "Required",
     "invalid_literal": "Invalid literal value, expected {{expected}}",
     "unrecognized_keys": "Unrecognized key(s) in object: {{- keys}}",
@@ -31,11 +32,15 @@
       },
       "string": {
         "inclusive": "String must contain at least {{minimum}} character(s)",
-        "not_inclusive": "String must contain over {{minimum}} character(s)"
+        "inclusive_with_path": "{{path}} must contain at least {{minimum}} character(s)",
+        "not_inclusive": "String must contain over {{minimum}} character(s)",
+        "not_inclusive_with_path": "{{path}} must contain over {{minimum}} character(s)"
       },
       "number": {
         "inclusive": "Number must be greater than or equal to {{minimum}}",
-        "not_inclusive": "Number must be greater than {{minimum}}"
+        "inclusive_with_path": "{{path}} must be greater than or equal to {{minimum}}",
+        "not_inclusive": "Number must be greater than {{minimum}}",
+        "not_inclusive_with_path": "{{path}} must be greater than {{minimum}}"
       },
       "set": {
         "inclusive": "Invalid input",
@@ -53,11 +58,15 @@
       },
       "string": {
         "inclusive": "String must contain at most {{maximum}} character(s)",
-        "not_inclusive": "String must contain under {{maximum}} character(s)"
+        "inclusive_with_path": "{{path}} must contain at most {{maximum}} character(s)",
+        "not_inclusive": "String must contain under {{maximum}} character(s)",
+        "not_inclusive_with_path": "{{path}} must contain under {{maximum}} character(s)"
       },
       "number": {
         "inclusive": "Number must be less than or equal to {{maximum}}",
-        "not_inclusive": "Number must be less than {{maximum}}"
+        "inclusive_with_path": "{{path}} must be less than or equal to {{maximum}}",
+        "not_inclusive": "Number must be less than {{maximum}}",
+        "not_inclusive_with_path": "{{path}} must be less than {{maximum}}"
       },
       "set": {
         "inclusive": "Invalid input",

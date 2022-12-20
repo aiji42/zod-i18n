@@ -1,8 +1,8 @@
 {
-  "User name": "用户名",
-  "John Doe": "李华",
-  "Email": "邮箱",
-  "Favorite number": "喜欢的数字",
-  "Submit": "提交"
+  "username": "用户名",
+  "username_placeholder": "李华",
+  "email": "邮箱",
+  "favoriteNumber": "喜欢的数字",
+  "submit": "提交"
 }
 

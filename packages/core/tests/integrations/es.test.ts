@@ -196,4 +196,14 @@ test("other parser error messages", () => {
   expect(
     getErrorMessage(z.union([z.string(), z.number()]).safeParse([true]))
   ).toEqual("Entrada inválida");
+  expect(
+    getErrorMessage(
+      z
+        .string()
+        .refine(() => {
+          return false;
+        })
+        .safeParse("")
+    )
+  ).toEqual("Entrada inválida");
 });
