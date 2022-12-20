@@ -131,8 +131,8 @@ If there is no message key with `_with_path`, fall back to the normal error mess
 The suffix can be changed by specifying `handlePath.context`.
 
 Object schema keys can be handled in the message with `{{path}}`.  
-By preparing the translated data for the same key as the key in the object schema, the translated value will be output in `{{path}}`, otherwise the key will be output as is.
-You can also separate namespaces for translation data for `{{path}}` by specifying `handlePath.ns`. Furthermore, it is possible to access nested translation data by specifying `handlePath.keyPrefix`.
+By preparing the translated data for the same key as the key in the object schema, the translated value will be output in `{{path}}`, otherwise the key will be output as is.  
+You can specify `handlePath.ns` to separate the namespace of translation data for `{{path}}`. Furthermore, it is possible to access nested translation data by specifying `handlePath.keyPrefix`.
 
 ```ts
 i18next.init({
