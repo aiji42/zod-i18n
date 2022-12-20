@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type":
     "{{expected}}での入力を期待していますが、{{received}}が入力されました。",
+    "invalid_type_with_path": "{{path}}は{{expected}}で入力してください。",
     "invalid_type_received_undefined": "必須",
     "invalid_literal": "無効なリテラル値です。{{expected}}を入力してください。",
     "unrecognized_keys": "オブジェクトのキー{{- keys}}が識別できません。",
@@ -34,11 +35,15 @@
       },
       "string": {
         "inclusive": "{{minimum}}文字以上の文字列である必要があります。",
-        "not_inclusive": "{{minimum}}文字より長い文字列である必要があります。"
+        "inclusive_with_path": "{{path}}は{{minimum}}文字以上の文字列である必要があります。",
+        "not_inclusive": "{{minimum}}文字より長い文字列である必要があります。",
+        "not_inclusive_with_path": "{{path}}は{{minimum}}文字より長い文字列である必要があります。"
       },
       "number": {
         "inclusive": "{{minimum}}以上の数値である必要があります。",
-        "not_inclusive": "{{minimum}}より大きな数値である必要があります。"
+        "inclusive_with_path": "{{path}}は{{minimum}}以上の数値である必要があります。",
+        "not_inclusive": "{{minimum}}より大きな数値である必要があります。",
+        "not_inclusive_with_path": "{{path}}は{{minimum}}より大きな数値である必要があります。"
       },
       "set": {
         "inclusive": "入力形式が間違っています。",
@@ -57,11 +62,15 @@
       },
       "string": {
         "inclusive": "{{maximum}}文字以下の文字列である必要があります。",
-        "not_inclusive": "{{maximum}}文字より短い文字列である必要があります。"
+        "inclusive_with_path": "{{path}}は{{maximum}}文字以下の文字列である必要があります。",
+        "not_inclusive": "{{maximum}}文字より短い文字列である必要があります。",
+        "not_inclusive_with_path": "{{path}}は{{maximum}}文字より短い文字列である必要があります。"
       },
       "number": {
         "inclusive": "{{maximum}}以下の数値である必要があります。",
-        "not_inclusive": "{{maximum}}より小さな数値である必要があります。"
+        "inclusive_with_path": "{{path}}は{{maximum}}以下の数値である必要があります。",
+        "not_inclusive": "{{maximum}}より小さな数値である必要があります。",
+        "not_inclusive_with_path": "{{path}}は{{maximum}}より小さな数値である必要があります。"
       },
       "set": {
         "inclusive": "入力形式が間違っています。",

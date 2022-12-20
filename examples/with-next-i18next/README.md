@@ -62,7 +62,7 @@ module.exports = {
 By giving the `t` method from `useTranslation` as an argument to `makeZodI18nMap` and giving it as an argument to `z.setErrorMap`, the zod error messages are automatically translated.
 ```ts
 const { t } = useTranslation();
-z.setErrorMap(makeZodI18nMap(t));
+z.setErrorMap(makeZodI18nMap({ t }));
 ```
 
 Finally, the page file will be as follows.
@@ -89,7 +89,7 @@ const schema = z.object({
 
 export default function Page() {
   const { t } = useTranslation();
-  z.setErrorMap(makeZodI18nMap(t));
+  z.setErrorMap(makeZodI18nMap({ t }));
   const {
     register,
     handleSubmit,

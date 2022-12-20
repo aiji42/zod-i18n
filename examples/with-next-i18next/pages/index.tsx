@@ -39,7 +39,7 @@ const schema = z.object({
 
 export default function HookForm() {
   const { t } = useTranslation();
-  z.setErrorMap(makeZodI18nMap({ t }));
+  z.setErrorMap(makeZodI18nMap({ t, handlePath: { ns: ["common", "zod"] } }));
   const router = useRouter();
 
   const {
@@ -90,11 +90,11 @@ export default function HookForm() {
       <form onSubmit={handleSubmit(console.log)}>
         <FormControl isInvalid={!!errors.username} mb={4}>
           <FormLabel htmlFor="username">
-            <Trans>User name</Trans>
+            <Trans>username</Trans>
           </FormLabel>
           <Input
             id="username"
-            placeholder={t("John Doe") ?? undefined}
+            placeholder={t("username_placeholder") ?? undefined}
             {...register("username")}
           />
           <FormErrorMessage>
@@ -103,7 +103,7 @@ export default function HookForm() {
         </FormControl>
         <FormControl isInvalid={!!errors.email} mb={4}>
           <FormLabel htmlFor="email">
-            <Trans>Email</Trans>
+            <Trans>email</Trans>
           </FormLabel>
           <Input
             id="email"
@@ -116,7 +116,7 @@ export default function HookForm() {
         </FormControl>
         <FormControl isInvalid={!!errors.favoriteNumber} mb={4}>
           <FormLabel htmlFor="favoriteNumber">
-            <Trans>Favorite number</Trans>
+            <Trans>favoriteNumber</Trans>
           </FormLabel>
           <Input
             id="favoriteNumber"
@@ -132,7 +132,7 @@ export default function HookForm() {
           isLoading={isSubmitting}
           type="submit"
         >
-          <Trans>Submit</Trans>
+          <Trans>submit</Trans>
         </Button>
       </form>
     </Container>

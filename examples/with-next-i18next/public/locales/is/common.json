@@ -1,7 +1,7 @@
 {
-  "User name": "Notendanafn",
-  "John Doe": "Jón Jónsson",
-  "Email": "Netfang",
-  "Favorite number": "Uppáhalds tala",
-  "Submit": "Senda"
+  "username": "Notendanafn",
+  "username_placeholder": "Jón Jónsson",
+  "email": "Netfang",
+  "favoriteNumber": "Uppáhalds tala",
+  "submit": "Senda"
 }

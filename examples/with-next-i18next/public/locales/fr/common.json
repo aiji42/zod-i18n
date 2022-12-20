@@ -1,7 +1,7 @@
 {
-  "User name": "Nom d'utilisateur",
-  "John Doe": "John Doe",
-  "Email": "E-mail",
-  "Favorite number": "Nombre favori",
-  "Submit": "Soumettre"
+  "username": "Nom d'utilisateur",
+  "username_placeholder": "John Doe",
+  "email": "E-mail",
+  "favoriteNumber": "Nombre favori",
+  "submit": "Soumettre"
 }
