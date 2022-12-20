@@ -39,7 +39,7 @@ const schema = z.object({
 
 export default function HookForm() {
   const { t } = useTranslation();
-  z.setErrorMap(makeZodI18nMap(t));
+  z.setErrorMap(makeZodI18nMap({ t }));
   const router = useRouter();
 
   const {
