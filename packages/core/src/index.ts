@@ -16,6 +16,7 @@ function joinValues<T extends any[]>(array: T, separator = " | "): string {
 
 type ZodI18nMapOption = {
   t?: i18n["t"];
+  ns?: string | readonly string[];
   handlePath?: HandlePathOption;
 };
 
@@ -30,12 +31,13 @@ const defaultNs = "zod";
 export const makeZodI18nMap =
   (option?: ZodI18nMapOption): ZodErrorMap =>
   (issue, ctx) => {
-    const { t, handlePath } = {
+    const { t, ns, handlePath } = {
       t: i18next.t,
+      ns: defaultNs,
       ...option,
       handlePath: {
         context: "with_path",
-        ns: defaultNs,
+        ns: option?.ns ?? defaultNs,
         keyPrefix: undefined,
         ...option?.handlePath,
       },
@@ -64,7 +66,7 @@ export const makeZodI18nMap =
       case ZodIssueCode.invalid_type:
         if (issue.received === ZodParsedType.undefined) {
           message = t("errors.invalid_type_received_undefined", {
-            ns: defaultNs,
+            ns,
             defaultValue: message,
             ...path,
           });
@@ -72,13 +74,13 @@ export const makeZodI18nMap =
           message = t("errors.invalid_type", {
             expected: t(`types.${issue.expected}`, {
               defaultValue: issue.expected,
-              ns: defaultNs,
+              ns,
             }),
             received: t(`types.${issue.received}`, {
               defaultValue: issue.received,
-              ns: defaultNs,
+              ns,
             }),
-            ns: defaultNs,
+            ns,
             defaultValue: message,
             ...path,
           });
@@ -87,7 +89,7 @@ export const makeZodI18nMap =
       case ZodIssueCode.invalid_literal:
         message = t("errors.invalid_literal", {
           expected: JSON.stringify(issue.expected, jsonStringifyReplacer),
-          ns: defaultNs,
+          ns,
           defaultValue: message,
           ...path,
         });
@@ -95,14 +97,14 @@ export const makeZodI18nMap =
       case ZodIssueCode.unrecognized_keys:
         message = t("errors.unrecognized_keys", {
           keys: joinValues(issue.keys, ", "),
-          ns: defaultNs,
+          ns,
           defaultValue: message,
           ...path,
         });
         break;
       case ZodIssueCode.invalid_union:
         message = t("errors.invalid_union", {
-          ns: defaultNs,
+          ns,
           defaultValue: message,
           ...path,
         });
@@ -110,7 +112,7 @@ export const makeZodI18nMap =
       case ZodIssueCode.invalid_union_discriminator:
         message = t("errors.invalid_union_discriminator", {
           options: joinValues(issue.options),
-          ns: defaultNs,
+          ns,
           defaultValue: message,
           ...path,
         });
@@ -119,28 +121,28 @@ export const makeZodI18nMap =
         message = t("errors.invalid_enum_value", {
           options: joinValues(issue.options),
           received: issue.received,
-          ns: defaultNs,
+          ns,
           defaultValue: message,
           ...path,
         });
         break;
       case ZodIssueCode.invalid_arguments:
         message = t("errors.invalid_arguments", {
-          ns: defaultNs,
+          ns,
           defaultValue: message,
           ...path,
         });
         break;
       case ZodIssueCode.invalid_return_type:
         message = t("errors.invalid_return_type", {
-          ns: defaultNs,
+          ns,
           defaultValue: message,
           ...path,
         });
         break;
       case ZodIssueCode.invalid_date:
         message = t("errors.invalid_date", {
-          ns: defaultNs,
+          ns,
           defaultValue: message,
           ...path,
         });
@@ -150,14 +152,14 @@ export const makeZodI18nMap =
           if ("startsWith" in issue.validation) {
             message = t(`errors.invalid_string.startsWith`, {
               startsWith: issue.validation.startsWith,
-              ns: defaultNs,
+              ns,
               defaultValue: message,
               ...path,
             });
           } else if ("endsWith" in issue.validation) {
             message = t(`errors.invalid_string.endsWith`, {
               endsWith: issue.validation.endsWith,
-              ns: defaultNs,
+              ns,
               defaultValue: message,
               ...path,
             });
@@ -166,9 +168,9 @@ export const makeZodI18nMap =
           message = t(`errors.invalid_string.${issue.validation}`, {
             validation: t(`validations.${issue.validation}`, {
               defaultValue: issue.validation,
-              ns: defaultNs,
+              ns,
             }),
-            ns: defaultNs,
+            ns,
             defaultValue: message,
             ...path,
           });
@@ -186,7 +188,7 @@ export const makeZodI18nMap =
           {
             minimum:
               issue.type === "date" ? new Date(issue.minimum) : issue.minimum,
-            ns: defaultNs,
+            ns,
             defaultValue: message,
             ...path,
           }
@@ -204,7 +206,7 @@ export const makeZodI18nMap =
           {
             maximum:
               issue.type === "date" ? new Date(issue.maximum) : issue.maximum,
-            ns: defaultNs,
+            ns,
             defaultValue: message,
             ...path,
           }
@@ -212,14 +214,14 @@ export const makeZodI18nMap =
         break;
       case ZodIssueCode.custom:
         message = t("errors.custom", {
-          ns: defaultNs,
+          ns,
           defaultValue: message,
           ...path,
         });
         break;
       case ZodIssueCode.invalid_intersection_types:
         message = t("errors.invalid_intersection_types", {
-          ns: defaultNs,
+          ns,
           defaultValue: message,
           ...path,
         });
@@ -227,14 +229,14 @@ export const makeZodI18nMap =
       case ZodIssueCode.not_multiple_of:
         message = t("errors.not_multiple_of", {
           multipleOf: issue.multipleOf,
-          ns: defaultNs,
+          ns,
           defaultValue: message,
           ...path,
         });
         break;
       case ZodIssueCode.not_finite:
         message = t("errors.not_finite", {
-          ns: defaultNs,
+          ns,
           defaultValue: message,
           ...path,
         });

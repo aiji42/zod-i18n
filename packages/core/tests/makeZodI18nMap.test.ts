@@ -4,6 +4,40 @@ import { makeZodI18nMap } from "../src";
 import * as i18next from "i18next";
 import { getErrorMessage } from "./helpers";
 
+describe("ns", () => {
+  test("changeable ns", async () => {
+    await i18next.init({
+      lng: "en",
+      resources: {
+        en: {
+          zod: {
+            errors: {
+              invalid_type: "Expected {{expected}}, received {{received}}",
+            },
+          },
+          zod2: {
+            errors: {
+              invalid_type:
+                "Error: it is expected to provide {{expected}} but you provided {{received}}",
+            },
+          },
+        },
+      },
+    });
+    z.setErrorMap(makeZodI18nMap());
+
+    expect(getErrorMessage(z.string().safeParse(5))).toEqual(
+      "Expected string, received number"
+    );
+
+    z.setErrorMap(makeZodI18nMap({ ns: "zod2" }));
+
+    expect(getErrorMessage(z.string().safeParse(5))).toEqual(
+      "Error: it is expected to provide string but you provided number"
+    );
+  });
+});
+
 describe("Handling key of object schema", () => {
   test("default context, ns, and keyPrefix", async () => {
     await i18next.init({
