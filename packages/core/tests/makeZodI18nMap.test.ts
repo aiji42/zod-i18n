@@ -171,3 +171,11 @@ describe("Handling key of object schema", () => {
     );
   });
 });
+
+describe("jsonStringifyReplacer", () => {
+  test("include bigint", async () => {
+    expect(
+      getErrorMessage(z.literal(BigInt(9007199254740991)).safeParse(""))
+    ).toEqual('Invalid literal value, expected "9007199254740991"');
+  });
+});

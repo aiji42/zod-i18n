@@ -202,4 +202,14 @@ test("other parser error messages", () => {
   expect(
     getErrorMessage(z.union([z.string(), z.number()]).safeParse([true]))
   ).toEqual("مدخل غير صالح");
+  expect(
+    getErrorMessage(
+      z
+        .string()
+        .refine(() => {
+          return false;
+        })
+        .safeParse("")
+    )
+  ).toEqual("مدخل غير صالح");
 });

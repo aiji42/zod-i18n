@@ -200,4 +200,14 @@ test("other parser error messages", () => {
   expect(
     getErrorMessage(z.union([z.string(), z.number()]).safeParse([true]))
   ).toEqual("入力形式が間違っています。");
+  expect(
+    getErrorMessage(
+      z
+        .string()
+        .refine(() => {
+          return false;
+        })
+        .safeParse("")
+    )
+  ).toEqual("入力形式が間違っています。");
 });

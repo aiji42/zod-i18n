@@ -204,4 +204,14 @@ test("other parser error messages", () => {
   expect(
     getErrorMessage(z.union([z.string(), z.number()]).safeParse([true]))
   ).toEqual("Champ invalide");
+  expect(
+    getErrorMessage(
+      z
+        .string()
+        .refine(() => {
+          return false;
+        })
+        .safeParse("")
+    )
+  ).toEqual("Champ invalide");
 });
