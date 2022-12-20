@@ -71,10 +71,10 @@ i18next.init({
   lng: 'en',
   resources: {
     en: { 
-      zod: {
+      zod: { // default namespace
         invalid_type: "Error: expected {{expected}}, received {{received}}"
       },
-      formValidation: {
+      formValidation: { // custom namespace
         invalid_type: "it is expected to provide {{expected}} but you provided {{received}}"
       },
     },
@@ -85,7 +85,7 @@ i18next.init({
 z.setErrorMap(makeZodI18nMap())
 z.string().parse(1) // => Error: expected string, received number
 
-// select formValidation namespace
+// select custom namespace
 z.setErrorMap(makeZodI18nMap({ ns: 'formValidation' }))
 z.string().parse(1) // => it is expected to provide string but you provided number
 ```
@@ -110,7 +110,7 @@ i18next.init({
           invalid_type_with_path:
             "{{path}} is expected {{expected}}, received {{received}}",
         },
-        userName: "user's name",
+        userName: "User's name",
       },
     },
   },
@@ -123,14 +123,14 @@ z.string().parse(1) // => Expected string, received number
 const schema = z.object({
   userName: z.string(),
 });
-schema.parse({ userName: 1 }) // => user's name is expected string, received number
+schema.parse({ userName: 1 }) // => User's name is expected string, received number
 ```
 
 If `_with_path` is suffixed to the key of the message, that message will be adopted in the case of an object type schema.  
 If there is no message key with `_with_path`, fall back to the normal error message.  
 The suffix can be changed by specifying `handlePath.context`.
 
-Path information can be handled in the message with `{{path}}`.  
+Object schema keys can be handled in the message with `{{path}}`.  
 By preparing the translated data for the same key as the key in the object schema, the translated value will be output in `{{path}}`, otherwise the key will be output as is.
 You can also separate namespaces for translation data for `{{path}}` by specifying `handlePath.ns`. Furthermore, it is possible to access nested translation data by specifying `handlePath.keyPrefix`.
 
@@ -148,7 +148,7 @@ i18next.init({
       },
       form: {
         group: {
-          userName: "user's name",
+          userName: "User's name",
         }
       }
     },
