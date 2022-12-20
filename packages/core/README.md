@@ -21,20 +21,149 @@ import i18next from 'i18next'
 import { z } from 'zod'
 import { zodI18nMap } from 'zod-i18n-map'
 // Import your language translation files
-import translation from 'zod-i18n-map/locales/ja/zod.json'
+import translation from 'zod-i18n-map/locales/es/zod.json'
 
 // lng and resources key depend on your locale.
 i18next.init({
-  lng: 'ja',
+  lng: 'es',
   resources: {
-    ja: { zod: translation },
+    es: { zod: translation },
   },
 });
 z.setErrorMap(zodI18nMap)
 
 const schema = z.string().email()
-schema.parse('foo') // メールアドレスの形式で入力してください。
+// Translated into Spanish (es)
+schema.parse('foo') // => correo inválido
 ```
+
+## `makeZodI18nMap`
+
+Detailed customization is possible by using `makeZodI18nMap` and option values.
+
+```ts
+export type MakeZodI18nMap = (option?: ZodI18nMapOption) => ZodErrorMap;
+
+export type ZodI18nMapOption = {
+  t?: i18n["t"];
+  ns?: string | readonly string[]; // See: `Namespace`
+  handlePath?: { // See: `Handling object schema keys`
+    context?: string;
+    ns?: string | readonly string[];
+    keyPrefix?: string;
+  }; 
+};
+```
+
+### Namespace (`ns`)
+
+You can switch between translation files by specifying a namespace.  
+This is useful in cases where the application handles validation messages for different purposes, e.g., validation messages for forms are for end users, while input value checks for API schemas are for developers.
+
+The default namespace is `zod`.
+
+```ts
+import i18next from 'i18next'
+import { z } from 'zod'
+import { makeZodI18nMap } from "zod-i18n-map";
+
+i18next.init({
+  lng: 'en',
+  resources: {
+    en: { 
+      zod: {
+        invalid_type: "Error: expected {{expected}}, received {{received}}"
+      },
+      formValidation: {
+        invalid_type: "it is expected to provide {{expected}} but you provided {{received}}"
+      },
+    },
+  },
+});
+
+// use default namespace
+z.setErrorMap(makeZodI18nMap())
+z.string().parse(1) // => Error: expected string, received number
+
+// select formValidation namespace
+z.setErrorMap(makeZodI18nMap({ ns: 'formValidation' }))
+z.string().parse(1) // => it is expected to provide string but you provided number
+```
+
+### Handling object schema keys (`handlePath`)
+
+When dealing with structured data, such as when using Zod as a validator for form input values, it is common to generate a schema with `z.object`.  
+You can handle the object's key in the message by preparing messages with the key in the `with_path` context.
+
+```ts
+import i18next from 'i18next'
+import { z } from 'zod'
+import { zodI18nMap } from "zod-i18n-map";
+
+i18next.init({
+  lng: "en",
+  resources: {
+    en: {
+      zod: {
+        errors: {
+          invalid_type: "Expected {{expected}}, received {{received}}",
+          invalid_type_with_path:
+            "{{path}} is expected {{expected}}, received {{received}}",
+        },
+        userName: "user's name",
+      },
+    },
+  },
+});
+
+z.setErrorMap(zodI18nMap);
+
+z.string().parse(1) // => Expected string, received number
+
+const schema = z.object({
+  userName: z.string(),
+});
+schema.parse({ userName: 1 }) // => user's name is expected string, received number
+```
+
+If `_with_path` is suffixed to the key of the message, that message will be adopted in the case of an object type schema.  
+If there is no message key with `_with_path`, fall back to the normal error message.  
+The suffix can be changed by specifying `handlePath.context`.
+
+Path information can be handled in the message with `{{path}}`.  
+By preparing the translated data for the same key as the key in the object schema, the translated value will be output in `{{path}}`, otherwise the key will be output as is.
+You can also separate namespaces for translation data for `{{path}}` by specifying `handlePath.ns`. Furthermore, it is possible to access nested translation data by specifying `handlePath.keyPrefix`.
+
+```ts
+i18next.init({
+  lng: "en",
+  resources: {
+    en: {
+      zod: {
+        errors: {
+          invalid_type: "Expected {{expected}}, received {{received}}",
+          invalid_type_with_path:
+            "{{- path}} is expected {{expected}}, received {{received}}",
+        },
+      },
+      form: {
+        group: {
+          userName: "user's name",
+        }
+      }
+    },
+  },
+});
+
+z.setErrorMap(zodI18nMap({ 
+  handlePath: {
+    ns: "form",
+    keyPrefix: "group"
+  }
+}));
+```
+
+
 
 ## Translation Files
 `zod-i18n-map` contains translation files for several locales.
