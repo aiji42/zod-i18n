@@ -194,7 +194,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -212,6 +212,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://github.com/izayoi-hibiki"><img src="https://avatars.githubusercontent.com/u/23469365?v=4?s=100" width="100px;" alt="Izayoi Hibiki"/><br /><sub><b>Izayoi Hibiki</b></sub></a><br /><a href="#translation-izayoi-hibiki" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=izayoi-hibiki" title="Tests">⚠️</a></td>
       <td align="center"><a href="https://hrafnkellbaldurs.com/"><img src="https://avatars.githubusercontent.com/u/5609118?v=4?s=100" width="100px;" alt="Hrafnkell Baldursson"/><br /><sub><b>Hrafnkell Baldursson</b></sub></a><br /><a href="#translation-hrafnkellbaldurs" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=hrafnkellbaldurs" title="Tests">⚠️</a></td>
       <td align="center"><a href="http://arturolopez.co"><img src="https://avatars.githubusercontent.com/u/35613775?v=4?s=100" width="100px;" alt="Arturo"/><br /><sub><b>Arturo</b></sub></a><br /><a href="#translation-Arturo-Lopez" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=Arturo-Lopez" title="Tests">⚠️</a></td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/nicksulkers"><img src="https://avatars.githubusercontent.com/u/13705408?v=4?s=100" width="100px;" alt="Nick Sulkers"/><br /><sub><b>Nick Sulkers</b></sub></a><br /><a href="#translation-nicksulkers" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=nicksulkers" title="Tests">⚠️</a></td>
     </tr>
   </tbody>
 </table>
