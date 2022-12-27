@@ -77,16 +77,6 @@
         "translation",
         "test"
       ]
-    },
-    {
-      "login": "nicksulkers",
-      "name": "Nick Sulkers",
-      "avatar_url": "https://avatars.githubusercontent.com/u/13705408?v=4",
-      "profile": "https://github.com/nicksulkers",
-      "contributions": [
-        "translation",
-        "test"
-      ]
     }
   ],
   "contributorsPerLine": 7,
