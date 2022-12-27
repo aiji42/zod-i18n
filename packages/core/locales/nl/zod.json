@@ -1,0 +1,112 @@
+{
+	"errors": {
+		"invalid_type": "Ongeldig type: {{received}}. Type {{expected}} vereist",
+		"invalid_type_received_undefined": "Vereist",
+		"invalid_literal": "Ongeldige letterlijke waarde, vereist {{expected}}",
+		"unrecognized_keys": "Onbekende sleutel(s) in object: {{- keys}}",
+		"invalid_union": "Ongeldige invoer",
+		"invalid_union_discriminator": "Ongeldige discriminatorwaarde. vereist {{- options}}",
+		"invalid_enum_value": "Waarde '{{received}}' is ongeldig. Antwoordmogelijkheden zijn: {{- options}}",
+		"invalid_arguments": "Ongeldige functieargumenten",
+		"invalid_return_type": "Ongeldig functietype teruggegeven waarde",
+		"invalid_date": "Ongeldige datum",
+		"custom": "Ongeldige invoer",
+		"invalid_intersection_types": "Types konden niet worden samengevoegd",
+		"not_multiple_of": "Getal moet een veelvoud zijn van {{multipleOf}}",
+		"not_finite": "Getal moet finiet zijn",
+		"invalid_string": {
+			"email": "Ongeldige {{validation}}",
+			"url": "Ongeldige {{validation}}",
+			"uuid": "Ongeldige {{validation}}",
+			"cuid": "Ongeldige {{validation}}",
+			"regex": "Ongeldig",
+			"datetime": "Ongeldige {{validation}}",
+			"startsWith": "Ongeldige invoer: moet beginnen met \"{{startsWith}}\"",
+			"endsWith": "Ongeldige invoer: moet eindigen met \"{{endsWith}}\""
+		},
+		"too_small": {
+			"array": {
+				"exact": "Array moet precies {{minimum}} element(en) bevatten",
+				"inclusive": "Array moet minstens {{minimum}} element(en) bevatten",
+				"not_inclusive": "Array moet meer dan {{minimum}} element(en) bevatten"
+			},
+			"string": {
+				"exact": "Tekst moet precies {{minimum}} karakter(s) bevatten",
+				"inclusive": "Tekst moet minstens {{minimum}} karakter(s) bevatten",
+				"not_inclusive": "Tekst moet meer dan {{minimum}} karakter(s) bevatten"
+			},
+			"number": {
+				"exact": "Getal moet precies {{minimum}} zijn",
+				"inclusive": "Getal moet {{minimum}} of groter zijn",
+				"not_inclusive": "Getal moet groter zijn dan {{minimum}}"
+			},
+			"set": {
+				"exact": "Ongeldige invoer",
+				"inclusive": "Ongeldige invoer",
+				"not_inclusive": "Ongeldige invoer"
+			},
+			"date": {
+				"exact": "Datum moet precies {{- minimum, datetime}} zijn",
+				"inclusive": "Datum moet op of later dan {{- minimum, datetime}} zijn",
+				"not_inclusive": "Datum moet later dan {{- minimum, datetime}} zijn"
+			}
+		},
+		"too_big": {
+			"array": {
+				"exact": "Array moet precies {{maximum}} element(en) bevatten",
+				"inclusive": "Array mag niet meer dan {{maximum}} element(en) bevatten",
+				"not_inclusive": "Array moet minder dan {{maximum}} element(en) bevatten"
+			},
+			"string": {
+				"exact": "Tekst moet precies {{maximum}} karakter(s) bevatten",
+				"inclusive": "Tekst mag niet meer dan {{maximum}} karakter(s) bevatten",
+				"not_inclusive": "Tekst moet minder dan {{maximum}} karakter(s) bevatten"
+			},
+			"number": {
+				"exact": "Getal moet precies {{maximum}} zijn",
+				"inclusive": "Getal moet {{maximum}} of kleiner zijn",
+				"not_inclusive": "Getal moet kleiner zijn dan {{maximum}}"
+			},
+			"set": {
+				"exact": "Ongeldige invoer",
+				"inclusive": "Ongeldige invoer",
+				"not_inclusive": "Ongeldige invoer"
+			},
+			"date": {
+				"exact": "Datum moet precies {{- maximum, datetime}} zijn",
+				"inclusive": "Datum moet op of eerder dan {{- maximum, datetime}} zijn",
+				"not_inclusive": "Datum moet eerder dan {{- maximum, datetime}} zijn"
+			}
+		}
+	},
+	"validations": {
+		"email": "e-mail",
+		"url": "url",
+		"uuid": "uuid",
+		"cuid": "cuid",
+		"regex": "regex",
+		"datetime": "datumtijd"
+	},
+	"types": {
+		"function": "functie",
+		"number": "nummer",
+		"string": "tekst",
+		"nan": "nan",
+		"integer": "geheel getal",
+		"float": "kommagetal",
+		"boolean": "boolean",
+		"date": "datum",
+		"bigint": "bigint",
+		"undefined": "ondefinieerd",
+		"symbol": "symbool",
+		"null": "null",
+		"array": "array",
+		"object": "object",
+		"unknown": "onbekend",
+		"promise": "promise",
+		"void": "void",
+		"never": "never",
+		"map": "map",
+		"set": "set"
+	}
+}
