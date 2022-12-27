@@ -11,7 +11,6 @@ import {
   Container,
   Flex,
   Heading,
-  Spacer,
 } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod";
@@ -77,12 +76,12 @@ export default function HookForm() {
             borderLeftRadius={0}
           >
             <option value="ar">العربية</option>
-            <option value="es">Spanish</option>
             <option value="en">English</option>
-            <option value="nl">Dutch</option>
+            <option value="es">español</option>
             <option value="fr">Français</option>
-            <option value="is">Icelandic</option>
+            <option value="is">íslenskur</option>
             <option value="ja">日本語</option>
+            <option value="nl">Nederlands</option>
             <option value="pt">Português</option>
             <option value="zh-CN">简体中文</option>
           </Select>
