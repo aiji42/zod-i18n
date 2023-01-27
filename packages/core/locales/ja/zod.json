@@ -34,7 +34,7 @@
         "not_inclusive": "{{minimum}}個より多くの要素が必要です。"
       },
       "string": {
-        "exact": "{{minimum}}文字の文字列である必要があります。。",
+        "exact": "{{minimum}}文字の文字列である必要があります。",
         "inclusive": "{{minimum}}文字以上の文字列である必要があります。",
         "not_inclusive": "{{minimum}}文字より長い文字列である必要があります。"
       },
