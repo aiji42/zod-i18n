@@ -97,6 +97,16 @@
         "translation",
         "test"
       ]
+    },
+    {
+      "login": "yodakaEngineer",
+      "name": "yodaka",
+      "avatar_url": "https://avatars.githubusercontent.com/u/44350989?v=4",
+      "profile": "https://www.yodaka-star.com/profile",
+      "contributions": [
+        "translation",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
