@@ -90,6 +90,38 @@ z.setErrorMap(makeZodI18nMap({ ns: 'formValidation' }))
 z.string().parse(1) // => it is expected to provide string but you provided number
 ```
 
+
+### Custom errors 
+
+You can translate also custom errors, for example errors from refine.
+
+Create a key for the custom error in a namespace and add i18nKey to the refine second arg(see example)
+
+```ts
+import i18next from 'i18next'
+import { z } from 'zod'
+import { makeZodI18nMap } from "zod-i18n-map";
+
+i18next.init({
+  lng: 'en',
+  resources: {
+    en: { 
+      my_custom_error_namespace: { // give the namespace a name
+        my_error_key: "Something terrible"
+      }
+    },
+  },
+});
+
+// use global error map
+z.setErrorMap(makeZodI18nMap({ns: 'my_custom_error_namespace'}))
+z.string().refine(() => false, { params: { i18n: 'my_error_key' } }).safeParse('')// => Something terrible
+
+// you can use local error map
+z.string().refine(() => false, { params: { i18n: 'my_error_key' } })
+.safeParse('', {errorMap: makeZodI18nMap({ns: 'my_custom_error_namespace'})})// => Something terrible
+```
+
 ### Handling object schema keys (`handlePath`)
 
 When dealing with structured data, such as when using Zod as a validator for form input values, it is common to generate a schema with `z.object`.  
@@ -196,7 +228,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -218,6 +250,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/nicksulkers"><img src="https://avatars.githubusercontent.com/u/13705408?v=4?s=100" width="100px;" alt="Nick Sulkers"/><br /><sub><b>Nick Sulkers</b></sub></a><br /><a href="#translation-nicksulkers" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=nicksulkers" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/irrelevation"><img src="https://avatars.githubusercontent.com/u/5075175?v=4?s=100" width="100px;" alt="Lukas"/><br /><sub><b>Lukas</b></sub></a><br /><a href="#translation-irrelevation" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=irrelevation" title="Tests">⚠️</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.yodaka-star.com/profile"><img src="https://avatars.githubusercontent.com/u/44350989?v=4?s=100" width="100px;" alt="yodaka"/><br /><sub><b>yodaka</b></sub></a><br /><a href="#translation-yodakaEngineer" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/issues?q=author%3AyodakaEngineer" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>

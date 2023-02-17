@@ -90,6 +90,38 @@ z.setErrorMap(makeZodI18nMap({ ns: 'formValidation' }))
 z.string().parse(1) // => it is expected to provide string but you provided number
 ```
 
+
+### Custom errors 
+
+You can translate also custom errors, for example errors from refine.
+
+Create a key for the custom error in a namespace and add i18nKey to the refine second arg(see example)
+
+```ts
+import i18next from 'i18next'
+import { z } from 'zod'
+import { makeZodI18nMap } from "zod-i18n-map";
+
+i18next.init({
+  lng: 'en',
+  resources: {
+    en: { 
+      my_custom_error_namespace: { // give the namespace a name
+        my_error_key: "Something terrible"
+      }
+    },
+  },
+});
+
+// use global error map
+z.setErrorMap(makeZodI18nMap({ns: 'my_custom_error_namespace'}))
+z.string().refine(() => false, { params: { i18n: 'my_error_key' } }).safeParse('')// => Something terrible
+
+// you can use local error map
+z.string().refine(() => false, { params: { i18n: 'my_error_key' } })
+.safeParse('', {errorMap: makeZodI18nMap({ns: 'my_custom_error_namespace'})})// => Something terrible
+```
+
 ### Handling object schema keys (`handlePath`)
 
 When dealing with structured data, such as when using Zod as a validator for form input values, it is common to generate a schema with `z.object`.  
