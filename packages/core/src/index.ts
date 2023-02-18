@@ -213,7 +213,7 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
       );
       break;
     case ZodIssueCode.custom:
-      message = t("errors.custom", {
+      message = t(issue.params?.i18n ?? "errors.custom", {
         ns,
         defaultValue: message,
         ...path,

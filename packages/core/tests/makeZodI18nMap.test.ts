@@ -179,3 +179,29 @@ describe("jsonStringifyReplacer", () => {
     ).toEqual('Invalid literal value, expected "9007199254740991"');
   });
 });
+
+describe("custom error message", () => {
+  test("custom error with refine", async () => {
+    await i18next.init({
+      lng: "en",
+      resources: {
+        en: {
+          zod_custom: {
+            test_custom_key: "custom error message",
+          },
+        },
+      },
+    });
+
+    z.setErrorMap(makeZodI18nMap({ ns: "zod_custom" }));
+
+    expect(
+      getErrorMessage(
+        z
+          .string()
+          .refine(() => false, { params: { i18n: "test_custom_key" } })
+          .safeParse("")
+      )
+    ).toEqual("custom error message");
+  });
+});
