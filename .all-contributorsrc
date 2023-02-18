@@ -107,6 +107,16 @@
         "translation",
         "bug"
       ]
+    },
+    {
+      "login": "tomer-yechiel",
+      "name": "Tomer Yechiel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/32360493?v=4",
+      "profile": "https://tomer.fly.dev/",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
