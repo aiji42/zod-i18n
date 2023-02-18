@@ -20,15 +20,15 @@
       "uuid": "{{validation}} non valido",
       "cuid": "{{validation}} non valido",
       "regex": "Non valida",
-      "datetime": "{{validation}} non valido",
+      "datetime": "{{validation}} non valida",
       "startsWith": "Input non valido: deve iniziare con \"{{startsWith}}\"",
       "endsWith": "Input non valido: deve finire con \"{{endsWith}}\""
     },
     "too_small": {
       "array": {
         "exact": "L'array deve contenere esattamente {{minimum}} elementi",
-        "inclusive": "L'array deve contenere almeno {{minimum}} elementi",
-        "not_inclusive": "L'array deve contenere più di {{minimum}} elementi"
+        "inclusive": "L'array deve contenere almeno {{minimum}} element(s)",
+        "not_inclusive": "L'array deve contenere più di {{minimum}} element(s)"
       },
       "string": {
         "exact": "La stringa deve contenere esattamente {{minimum}} caratteri",
@@ -38,7 +38,7 @@
       "number": {
         "exact": "Il numero deve essere esattamente {{minimum}}",
         "inclusive": "Il numero deve essere maggiore o uguale a {{minimum}}",
-        "not_inclusive": "Il numero deve essere maggiore di {{minimum}}"
+        "not_inclusive": "Il numero deve essere maggiore {{minimum}}"
       },
       "set": {
         "exact": "Input non valido",
@@ -47,25 +47,25 @@
       },
       "date": {
         "exact": "La data deve essere esattamente {{- minimum, datetime}}",
-        "inclusive": "La data deve essere maggiore di o uguale a {{- minimum, datetime}}",
+        "inclusive": "La data deve essere maggiore o uguale a {{- minimum, datetime}}",
         "not_inclusive": "La data deve essere maggiore {{- minimum, datetime}}"
       }
     },
     "too_big": {
       "array": {
-        "exact": "L'array deve contenere esattamente {{maximum}} elementi",
-        "inclusive": "L'array deve contenere al massimo {{maximum}} elementi",
-        "not_inclusive": "L'array deve contenere meno di {{maximum}} elementi"
+        "exact": "L'array deve contenere esattamente {{maximum}} element(s)",
+        "inclusive": "L'array deve contenere al massimo {{maximum}} element(s)",
+        "not_inclusive": "L'array deve contenere meno di {{maximum}} element(s)"
       },
       "string": {
-        "exact": "La stringa deve contenere esattamente {{maximum}} caratteri",
-        "inclusive": "La stringa deve contenere al massimo {{maximum}} caratteri",
-        "not_inclusive": "La stringa deve contenere meno di {{maximum}} caratteri"
+        "exact": "La stringa deve contenere esattamente {{maximum}} elementi",
+        "inclusive": "La stringa deve contenere al massimo {{maximum}} elementi",
+        "not_inclusive": "La stringa deve contenere meno di {{maximum}} elementi"
       },
       "number": {
         "exact": "Il numero deve essere esattamente {{maximum}}",
-        "inclusive": "Il numero deve essere minore di o uguale a {{maximum}}",
-        "not_inclusive": "Il numero deve essere minore di {{maximum}}"
+        "inclusive": "Il numero deve essere meno di o uguale a {{maximum}}",
+        "not_inclusive": "Il numero deve essere meno di {{maximum}}"
       },
       "set": {
         "exact": "Input non valido",
