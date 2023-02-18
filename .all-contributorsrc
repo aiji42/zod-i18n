@@ -117,6 +117,16 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "Balastrong",
+      "name": "Leonardo Montini",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7253929?v=4",
+      "profile": "https://leonardomontini.dev/",
+      "contributions": [
+        "translation",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
