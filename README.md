@@ -196,7 +196,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -219,6 +219,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/nicksulkers"><img src="https://avatars.githubusercontent.com/u/13705408?v=4?s=100" width="100px;" alt="Nick Sulkers"/><br /><sub><b>Nick Sulkers</b></sub></a><br /><a href="#translation-nicksulkers" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=nicksulkers" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/irrelevation"><img src="https://avatars.githubusercontent.com/u/5075175?v=4?s=100" width="100px;" alt="Lukas"/><br /><sub><b>Lukas</b></sub></a><br /><a href="#translation-irrelevation" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=irrelevation" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://www.yodaka-star.com/profile"><img src="https://avatars.githubusercontent.com/u/44350989?v=4?s=100" width="100px;" alt="yodaka"/><br /><sub><b>yodaka</b></sub></a><br /><a href="#translation-yodakaEngineer" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/issues?q=author%3AyodakaEngineer" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://tomer.fly.dev/"><img src="https://avatars.githubusercontent.com/u/32360493?v=4?s=100" width="100px;" alt="Tomer Yechiel"/><br /><sub><b>Tomer Yechiel</b></sub></a><br /><a href="https://github.com/aiji42/zod-i18n/commits?author=tomer-yechiel" title="Code">💻</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=tomer-yechiel" title="Tests">⚠️</a></td>
     </tr>
   </tbody>
 </table>
