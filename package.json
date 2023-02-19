@@ -35,6 +35,9 @@
       "prettier --write"
     ]
   },
+  "engines": {
+    "node": ">=18"
+  },
   "release": {
     "extends": "semantic-release-monorepo",
     "branches": [
