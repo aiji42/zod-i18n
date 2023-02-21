@@ -36,7 +36,9 @@
     ]
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=18",
+    "npm": "please_use_yarn_instead",
+    "yarn": ">=1.22"
   },
   "release": {
     "extends": "semantic-release-monorepo",

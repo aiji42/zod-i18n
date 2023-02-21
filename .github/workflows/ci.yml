@@ -51,6 +51,8 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies 💿
         run: yarn install --frozen-lockfile
+      - name: Copy README.md
+        run: cp ./README.md ./packages/core/README.md
       - name: Publish 🚀
         run: yarn run release
         env:
