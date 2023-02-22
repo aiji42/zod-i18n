@@ -86,6 +86,7 @@ export default function HookForm() {
             <option value="nl">Nederlands</option>
             <option value="pt">Português</option>
             <option value="zh-CN">简体中文</option>
+            <option value="tr">Türkçe</option>
           </Select>
         </InputGroup>
       </Flex>
