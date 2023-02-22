@@ -3,8 +3,8 @@
     "invalid_type": "Beklenen {{expected}}, alınan {{received}}",
     "invalid_type_received_undefined": "Zorunlu",
     "invalid_literal": "Geçersiz ilkel veri, beklenen {{expected}}",
-    "unrecognized_keys": "Unrecognized key(s) in object: {{- keys}}",
-    "invalid_union": "Geçersiz veri",
+    "unrecognized_keys": "Nesne içinde bilinmeyen anahtar(lar): {{- keys}}",
+    "invalid_union": "Geçersiz tip birleşimi",
     "invalid_union_discriminator": "Geçersiz ayırıcı değer. Beklenen {{- options}}",
     "invalid_enum_value": "Geçersiz enum değeri. Beklenen {{- options}}, alınan '{{received}}'",
     "invalid_arguments": "Geçersiz fonksiyon argümanları",
@@ -12,7 +12,7 @@
     "invalid_date": "Geçersiz tarih",
     "custom": "Geçersiz girdi",
     "invalid_intersection_types": "Kesişim sonuçları birleştirilemedi",
-    "not_multiple_of": "Sayı katı olmalı {{multipleOf}}",
+    "not_multiple_of": "{{multipleOf}} ve katları olmalı",
     "not_finite": "Sayı sonlu olmalıdır",
     "invalid_string": {
       "email": "Geçersiz {{validation}}",
@@ -53,8 +53,8 @@
     },
     "too_big": {
       "array": {
-        "exact": "Dizi tam olarak {{maximum}} veri içermeli",
-        "inclusive": "Dizi en fazla {{maximum}} veri içermeli",
+        "exact": "Dizi tam olarak {{maximum}} adet veri içermeli",
+        "inclusive": "Dizi en fazla {{maximum}} adet veri içermeli",
         "not_inclusive": "Dizi {{maximum}} den daha az veri içermeli"
       },
       "string": {
@@ -91,10 +91,10 @@
     "function": "fonksiyon",
     "number": "sayı",
     "string": "metin",
-    "nan": "geçersiz",
+    "nan": "NaN",
     "integer": "tam sayı",
     "float": "noktalı sayı",
-    "boolean": "doğru - yanlış",
+    "boolean": "boolean",
     "date": "tarih",
     "bigint": "büyük tam sayı",
     "undefined": "tanımlanmamış",
