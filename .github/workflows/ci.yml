@@ -51,10 +51,11 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies 💿
         run: yarn install --frozen-lockfile
-      - name: Copy README.md
-        run: cp ./README.md ./packages/core/README.md
       - name: Publish 🚀
-        run: yarn run release
+        run: |
+          rm .npmrc
+          cp ./README.md ./packages/core/README.md
+          yarn run release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
