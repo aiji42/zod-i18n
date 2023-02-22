@@ -85,6 +85,7 @@ export default function HookForm() {
             <option value="ja">日本語</option>
             <option value="nl">Nederlands</option>
             <option value="pt">Português</option>
+            <option value="tr">Türkçe</option>
             <option value="zh-CN">简体中文</option>
           </Select>
         </InputGroup>
