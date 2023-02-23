@@ -18,6 +18,7 @@ module.exports = {
       "de",
       "it",
       "tr",
+      "pl",
     ],
   },
   localePath: path.resolve("./public/locales"),
