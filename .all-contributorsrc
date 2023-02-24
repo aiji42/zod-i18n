@@ -137,6 +137,16 @@
         "translation",
         "test"
       ]
+    },
+    {
+      "login": "TeraWattHour",
+      "name": "TeraWattHour",
+      "avatar_url": "https://avatars.githubusercontent.com/u/65347730?v=4",
+      "profile": "https://terawatthour.dev",
+      "contributions": [
+        "translation",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
