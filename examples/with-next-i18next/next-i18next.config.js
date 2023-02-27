@@ -12,6 +12,7 @@ module.exports = {
       "ar",
       "pt",
       "zh-CN",
+      "zh-TW",
       "is",
       "es",
       "nl",
