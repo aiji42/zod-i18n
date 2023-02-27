@@ -65,7 +65,7 @@ export default function HookForm() {
       <Flex as="header" py="4" justifyContent="space-between">
         <a href="https://github.com/aiji42/zod-i18n" rel="noopener noreferrer">
           <Heading as="h1" fontSize="xl" color="gray.600">
-            zod-i18n-map
+            zod-i18n
           </Heading>
         </a>
         <InputGroup maxW="3xs">
