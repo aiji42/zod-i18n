@@ -1,9 +1,7 @@
 {
-    "username": "使用者名稱",
-    "username_placeholder": "小明",
-    "email": "電子郵件",
-    "favoriteNumber": "喜歡的數字",
-    "submit": "送出"
-  }
-  
-  
+  "username": "使用者名稱",
+  "username_placeholder": "小明",
+  "email": "電子郵件",
+  "favoriteNumber": "喜歡的數字",
+  "submit": "送出"
+}

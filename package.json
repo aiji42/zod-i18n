@@ -31,7 +31,7 @@
     "semantic-release-monorepo": "^7.0.5"
   },
   "lint-staged": {
-    "*.{js,ts,jsx,tsx}": [
+    "*.{js,ts,jsx,tsx,json}": [
       "prettier --write"
     ]
   },
