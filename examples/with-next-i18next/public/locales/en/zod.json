@@ -5,6 +5,8 @@
     "invalid_type_received_undefined": "Required",
     "invalid_literal": "Invalid literal value, expected {{expected}}",
     "unrecognized_keys": "Unrecognized key(s) in object: {{- keys}}",
+    "unrecognized_keys_one": "Unrecognized key in object: {{- keys}}",
+    "unrecognized_keys_other": "Unrecognized keys in object: {{- keys}}",
     "invalid_union": "Invalid input",
     "invalid_union_discriminator": "Invalid discriminator value. Expected {{- options}}",
     "invalid_enum_value": "Invalid enum value. Expected {{- options}}, received {{received}}",
@@ -28,13 +30,25 @@
     "too_small": {
       "array": {
         "inclusive": "Array must contain at least {{minimum}} element(s)",
-        "not_inclusive": "Array must contain more than {{minimum}} element(s)"
+        "inclusive_one": "Array must contain at least {{minimum}} element",
+        "inclusive_other": "Array must contain at least {{minimum}} elements",
+        "not_inclusive": "Array must contain more than {{minimum}} element(s)",
+        "not_inclusive_one": "Array must contain more than {{minimum}} element",
+        "not_inclusive_other": "Array must contain more than {{minimum}} elements"
       },
       "string": {
         "inclusive": "String must contain at least {{minimum}} character(s)",
+        "inclusive_one": "String must contain at least {{minimum}} character",
+        "inclusive_other": "String must contain at least {{minimum}} characters",
         "inclusive_with_path": "{{path}} must contain at least {{minimum}} character(s)",
+        "inclusive_with_path_one": "{{path}} must contain at least {{minimum}} character",
+        "inclusive_with_path_other": "{{path}} must contain at least {{minimum}} characters",
         "not_inclusive": "String must contain over {{minimum}} character(s)",
-        "not_inclusive_with_path": "{{path}} must contain over {{minimum}} character(s)"
+        "not_inclusive_one": "String must contain over {{minimum}} character",
+        "not_inclusive_other": "String must contain over {{minimum}} characters",
+        "not_inclusive_with_path": "{{path}} must contain over {{minimum}} character(s)",
+        "not_inclusive_with_path_one": "{{path}} must contain over {{minimum}} character",
+        "not_inclusive_with_path_other": "{{path}} must contain over {{minimum}} characters"
       },
       "number": {
         "inclusive": "Number must be greater than or equal to {{minimum}}",
@@ -54,13 +68,25 @@
     "too_big": {
       "array": {
         "inclusive": "Array must contain at most {{maximum}} element(s)",
-        "not_inclusive": "Array must contain less than {{maximum}} element(s)"
+        "inclusive_one": "Array must contain at most {{maximum}} element",
+        "inclusive_other": "Array must contain at most {{maximum}} elements",
+        "not_inclusive": "Array must contain less than {{maximum}} element(s)",
+        "not_inclusive_one": "Array must contain less than {{maximum}} element",
+        "not_inclusive_other": "Array must contain less than {{maximum}} elements"
       },
       "string": {
         "inclusive": "String must contain at most {{maximum}} character(s)",
+        "inclusive_one": "String must contain at most {{maximum}} character",
+        "inclusive_other": "String must contain at most {{maximum}} characters",
         "inclusive_with_path": "{{path}} must contain at most {{maximum}} character(s)",
+        "inclusive_with_path_one": "{{path}} must contain at most {{maximum}} character",
+        "inclusive_with_path_other": "{{path}} must contain at most {{maximum}} characters",
         "not_inclusive": "String must contain under {{maximum}} character(s)",
-        "not_inclusive_with_path": "{{path}} must contain under {{maximum}} character(s)"
+        "not_inclusive_one": "String must contain under {{maximum}} character",
+        "not_inclusive_other": "String must contain under {{maximum}} characters",
+        "not_inclusive_with_path": "{{path}} must contain under {{maximum}} character(s)",
+        "not_inclusive_with_path_one": "{{path}} must contain under {{maximum}} character",
+        "not_inclusive_with_path_other": "{{path}} must contain under {{maximum}} characters"
       },
       "number": {
         "inclusive": "Number must be less than or equal to {{maximum}}",
