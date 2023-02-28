@@ -177,6 +177,8 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
       }
       break;
     case ZodIssueCode.too_small:
+      const minimum =
+        issue.type === "date" ? new Date(issue.minimum) : issue.minimum;
       message = t(
         `errors.too_small.${issue.type}.${
           issue.exact
@@ -186,8 +188,8 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
             : "not_inclusive"
         }`,
         {
-          minimum:
-            issue.type === "date" ? new Date(issue.minimum) : issue.minimum,
+          minimum,
+          count: typeof minimum === "number" ? minimum : undefined,
           ns,
           defaultValue: message,
           ...path,
@@ -195,6 +197,8 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
       );
       break;
     case ZodIssueCode.too_big:
+      const maximum =
+        issue.type === "date" ? new Date(issue.maximum) : issue.maximum;
       message = t(
         `errors.too_big.${issue.type}.${
           issue.exact
@@ -204,8 +208,8 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
             : "not_inclusive"
         }`,
         {
-          maximum:
-            issue.type === "date" ? new Date(issue.maximum) : issue.maximum,
+          maximum,
+          count: typeof maximum === "number" ? maximum : undefined,
           ns,
           defaultValue: message,
           ...path,

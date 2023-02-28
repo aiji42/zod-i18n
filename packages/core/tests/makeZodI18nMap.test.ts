@@ -172,6 +172,37 @@ describe("Handling key of object schema", () => {
   });
 });
 
+describe("plurals", () => {
+  test("separate messages for singular and plural", async () => {
+    await i18next.init({
+      lng: "en",
+      resources: {
+        en: {
+          zod: {
+            errors: {
+              too_big: {
+                string: {
+                  exact_one:
+                    "String must contain exactly {{maximum}} character",
+                  exact_other:
+                    "String must contain exactly {{maximum}} characters",
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+    z.setErrorMap(makeZodI18nMap());
+    expect(getErrorMessage(z.string().length(1).safeParse("abc"))).toEqual(
+      "String must contain exactly 1 character"
+    );
+    expect(getErrorMessage(z.string().length(5).safeParse("abcdefgh"))).toEqual(
+      "String must contain exactly 5 characters"
+    );
+  });
+});
+
 describe("jsonStringifyReplacer", () => {
   test("include bigint", async () => {
     expect(

@@ -48,8 +48,6 @@ export type ZodI18nMapOption = {
   t?: i18n["t"];
   ns?: string | readonly string[]; // See: `Namespace`
   handlePath?: { // See: `Handling object schema keys`
-    context?: string;
-    ns?: string | readonly string[];
     keyPrefix?: string;
   }; 
 };
@@ -90,36 +88,81 @@ z.setErrorMap(makeZodI18nMap({ ns: 'formValidation' }))
 z.string().parse(1) // => it is expected to provide string but you provided number
 ```
 
+📝 **You can also specify multiple namespaces in an array.**
+
+### Plurals
+
+Messages using `{{maximum}}` and `{{minimum}}` can be converted to the plural form.
+
+Keys are i18next compliant. (https://www.i18next.com/translation-function/plurals)
+```json
+{
+  "exact_one": "String must contain exactly {{minimum}} character",
+  "exact_other": "String must contain exactly {{minimum}} characters",
+}
+```
+
+```ts
+import i18next from 'i18next'
+import { z } from 'zod'
+import { zodI18nMap } from "zod-i18n-map";
+
+i18next.init({
+  lng: "en",
+  resources: {
+    en: {
+      zod: {
+        errors: {
+          too_big: {
+            string: {
+              exact_one:
+                "String must contain exactly {{maximum}} character",
+              exact_other:
+                "String must contain exactly {{maximum}} characters",
+            },
+          },
+        },
+      },
+    },
+  },
+});
+
+z.setErrorMap(zodI18nMap);
+
+z.string().length(1).safeParse("abc"); // => String must contain exactly 1 character
+
+z.string().length(5).safeParse("abcdefgh"); // => String must contain exactly 5 characters
+```
 
 ### Custom errors 
 
-You can translate also custom errors, for example errors from refine.
+You can translate also custom errors, for example errors from `refine`.
 
-Create a key for the custom error in a namespace and add i18nKey to the refine second arg(see example)
+Create a key for the custom error in a namespace and add `i18n` to the refine second arg(see example)
 
 ```ts
 import i18next from 'i18next'
 import { z } from 'zod'
 import { makeZodI18nMap } from "zod-i18n-map";
+import translation from 'zod-i18n-map/locales/en/zod.json'
 
 i18next.init({
   lng: 'en',
   resources: {
     en: { 
-      my_custom_error_namespace: { // give the namespace a name
+      zod: translation,
+      custom: {
         my_error_key: "Something terrible"
       }
     },
   },
 });
 
-// use global error map
-z.setErrorMap(makeZodI18nMap({ns: 'my_custom_error_namespace'}))
-z.string().refine(() => false, { params: { i18n: 'my_error_key' } }).safeParse('')// => Something terrible
+z.setErrorMap(makeZodI18nMap({ ns: ["zod", "custom"] }));
 
-// you can use local error map
-z.string().refine(() => false, { params: { i18n: 'my_error_key' } })
-.safeParse('', {errorMap: makeZodI18nMap({ns: 'my_custom_error_namespace'})})// => Something terrible
+z.string()
+  .refine(() => false, { params: { i18n: "my_error_key" } })
+  .safeParse(""); // => Something terrible
 ```
 
 ### Handling object schema keys (`handlePath`)
@@ -159,12 +202,11 @@ schema.parse({ userName: 1 }) // => User's name is expected string, received num
 ```
 
 If `_with_path` is suffixed to the key of the message, that message will be adopted in the case of an object type schema.  
-If there is no message key with `_with_path`, fall back to the normal error message.  
-The suffix can be changed by specifying `handlePath.context`.
+If there is no message key with `_with_path`, fall back to the normal error message.
 
 Object schema keys can be handled in the message with `{{path}}`.  
 By preparing the translated data for the same key as the key in the object schema, the translated value will be output in `{{path}}`, otherwise the key will be output as is.  
-You can specify `handlePath.ns` to separate the namespace of translation data for `{{path}}`. Furthermore, it is possible to access nested translation data by specifying `handlePath.keyPrefix`.
+It is possible to access nested translation data by specifying `handlePath.keyPrefix`.
 
 ```ts
 i18next.init({
@@ -179,7 +221,7 @@ i18next.init({
         },
       },
       form: {
-        group: {
+        paths: {
           userName: "User's name",
         }
       }
@@ -188,14 +230,12 @@ i18next.init({
 });
 
 z.setErrorMap(zodI18nMap({ 
+  ns: ["zod", "form"],
   handlePath: {
-    ns: "form",
-    keyPrefix: "group"
+    keyPrefix: "paths"
   }
 }));
 ```
-
-
 
 ## Translation Files
 `zod-i18n-map` contains translation files for several locales.
