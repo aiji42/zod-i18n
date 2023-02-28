@@ -97,6 +97,7 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
     case ZodIssueCode.unrecognized_keys:
       message = t("errors.unrecognized_keys", {
         keys: joinValues(issue.keys, ", "),
+        count: issue.keys.length,
         ns,
         defaultValue: message,
         ...path,
