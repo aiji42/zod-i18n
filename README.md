@@ -92,7 +92,7 @@ z.string().parse(1) // => it is expected to provide string but you provided numb
 
 ### Plurals
 
-Messages using `{{maximum}}` and `{{minimum}}` can be converted to the plural form.
+Messages using `{{maximum}}`, `{{minimum}}` or `{{keys}}` can be converted to the plural form.
 
 Keys are i18next compliant. (https://www.i18next.com/translation-function/plurals)
 ```json
