@@ -157,6 +157,16 @@
         "translation",
         "test"
       ]
+    },
+    {
+      "login": "fcrozatier",
+      "name": "fcrozatier",
+      "avatar_url": "https://avatars.githubusercontent.com/u/48696601?v=4",
+      "profile": "https://github.com/fcrozatier",
+      "contributions": [
+        "translation",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
