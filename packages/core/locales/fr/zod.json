@@ -31,9 +31,9 @@
         "not_inclusive": "Liste doit contenir plus de {{minimum}} élément(s)"
       },
       "string": {
-        "exact": "Champ de text doit contenir exactement {{minimum}} caractère(s)",
-        "inclusive": "Champ de text doit contenir au moins {{minimum}} caractère(s)",
-        "not_inclusive": "Champ de text doit centenir plus de {{minimum}} caractère(s)"
+        "exact": "Champ de texte doit contenir exactement {{minimum}} caractère(s)",
+        "inclusive": "Champ de texte doit contenir au moins {{minimum}} caractère(s)",
+        "not_inclusive": "Champ de texte doit centenir plus de {{minimum}} caractère(s)"
       },
       "number": {
         "exact": "Nombre doit être égale à {{minimum}}",
@@ -58,9 +58,9 @@
         "not_inclusive": "Liste doit contenir moins de {{maximum}} élément(s)"
       },
       "string": {
-        "exact": "Champ de text doit contenir exactement {{maximum}} caractère(s)",
-        "inclusive": "Champ de text doit contenir au plus {{maximum}} caractère(s)",
-        "not_inclusive": "Champ de text doit contenir moins de {{maximum}} caractère(s)"
+        "exact": "Champ de texte doit contenir exactement {{maximum}} caractère(s)",
+        "inclusive": "Champ de texte doit contenir au plus {{maximum}} caractère(s)",
+        "not_inclusive": "Champ de texte doit contenir moins de {{maximum}} caractère(s)"
       },
       "number": {
         "exact": "Nombre doit être égale à {{maximum}}",

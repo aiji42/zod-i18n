@@ -38,13 +38,13 @@ test("string parser error messages", () => {
     'Champ invalide: doit se terminer par "bar"'
   );
   expect(getErrorMessage(schema.min(5).safeParse("a"))).toEqual(
-    "Champ de text doit contenir au moins 5 caractère(s)"
+    "Champ de texte doit contenir au moins 5 caractère(s)"
   );
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
-    "Champ de text doit contenir au plus 5 caractère(s)"
+    "Champ de texte doit contenir au plus 5 caractère(s)"
   );
   expect(getErrorMessage(schema.length(5).safeParse("abcdef"))).toEqual(
-    "Champ de text doit contenir exactement 5 caractère(s)"
+    "Champ de texte doit contenir exactement 5 caractère(s)"
   );
   expect(
     getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
