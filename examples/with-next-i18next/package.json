@@ -9,28 +9,28 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.4.9",
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@hookform/resolvers": "^2.9.10",
-    "framer-motion": "^8.5.2",
+    "@chakra-ui/react": "^2.5.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@hookform/resolvers": "^2.9.11",
+    "framer-motion": "^10.5.0",
     "i18next": "^22.4.9",
-    "next": "13.1.5",
-    "next-i18next": "^13.0.3",
+    "next": "13.2.4",
+    "next-i18next": "^13.2.2",
     "nookies": "^2.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "7.42.1",
-    "react-i18next": "^12.1.4",
-    "zod": "3.20.2",
+    "react-hook-form": "7.43.6",
+    "react-i18next": "^12.2.0",
+    "zod": "3.21.4",
     "zod-i18n-map": "*"
   },
   "devDependencies": {
-    "@types/node": "18.11.18",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
-    "eslint": "8.32.0",
-    "eslint-config-next": "13.1.5",
-    "typescript": "4.9.4"
+    "@types/node": "18.15.3",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
+    "typescript": "5.0.2"
   }
 }
