@@ -5,7 +5,7 @@
     "invalid_literal": "Ugyldig bogstavelig værdi, forventede {{expected}}",
     "unrecognized_keys": "Ugenkendelig(e) nøgle(r) i objektet: {{- keys}}",
     "invalid_union": "Ugyldig værdi",
-    "invalid_union_discriminator": "Invalid discriminator value. Expected {{- options}}",
+    "invalid_union_discriminator": "Ugyldig diskriminator værdi. Forventede {{- options}}",
     "invalid_enum_value": "Ugyldig enum-værdi. Forventede {{- options}}, modtog '{{received}}'",
     "invalid_arguments": "Ugyldige funktionsargumenter",
     "invalid_return_type": "Ugyldig returtype for funktionen",
@@ -90,7 +90,7 @@
   "types": {
     "function": "funktion",
     "number": "tal",
-    "string": "stren",
+    "string": "streng",
     "nan": "NaN",
     "integer": "heltal",
     "float": "decimal",
