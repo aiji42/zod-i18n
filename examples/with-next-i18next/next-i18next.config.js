@@ -16,6 +16,7 @@ module.exports = {
       "is",
       "es",
       "nl",
+      "nb",
       "de",
       "it",
       "tr",

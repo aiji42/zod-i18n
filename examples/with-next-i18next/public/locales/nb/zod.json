@@ -1,0 +1,112 @@
+{
+  "errors": {
+    "invalid_type": "Forventet {{expected}}, mottok {{received}}",
+    "invalid_type_received_undefined": "Må ikke være tom",
+    "invalid_literal": "Ugyldig bokstavlig verdi, forventet {{expected}}",
+    "unrecognized_keys": "Ukjent nøkkel i objektet: {{- keys}}",
+    "invalid_union": "Ugyldig inndata",
+    "invalid_union_discriminator": "Ugyldig diskriminatorverdi, forventet {{- options}}",
+    "invalid_enum_value": "Ugyldig enum-verdi. Forventet {{- options}}, mottatt '{{received}}'",
+    "invalid_arguments": "Ugyldige funksjonsargumenter",
+    "invalid_return_type": "Ugyldig returtype",
+    "invalid_date": "Ugyldig dato",
+    "custom": "Ugyldig inndata",
+    "invalid_intersection_types": "Kryssresultater kunne ikke slås sammen",
+    "not_multiple_of": "Tallet må være et multiplum av {{multipleOf}}",
+    "not_finite": "Tallet må være endelig",
+    "invalid_string": {
+      "email": "Ugyldig {{validation}}",
+      "url": "Ugyldig {{validation}}",
+      "uuid": "Ugyldig {{validation}}",
+      "cuid": "Ugyldig {{validation}}",
+      "regex": "Ugyldig",
+      "datetime": "Ugyldig {{validation}}",
+      "startsWith": "Ugyldig inndata: må starte med \"{{startsWith}}\"",
+      "endsWith": "Ugyldig inndata: må slutte med \"{{endsWith}}\""
+    },
+    "too_small": {
+      "array": {
+        "exact": "Array må inneholde nøyaktig {{minimum}} element(er)",
+        "inclusive": "Array må inneholde minst {{minimum}} element(er)",
+        "not_inclusive": "Array må inneholde mer enn {{minimum}} element(er)"
+      },
+      "string": {
+        "exact": "Strengen må inneholde nøyaktig {{minimum}} bokstav(er)",
+        "inclusive": "Strengen må inneholde minst {{minimum}} bokstav(er)",
+        "not_inclusive": "Strengen må inneholde over {{minimum}} bokstav(er)"
+      },
+      "number": {
+        "exact": "Tallet må være nøyaktig {{minimum}}",
+        "inclusive": "Tallet må være større enn eller lik {{minimum}}",
+        "not_inclusive": "Tallet må være større enn {{minimum}}"
+      },
+      "set": {
+        "exact": "Ugyldig inndata",
+        "inclusive": "Ugyldig inndata",
+        "not_inclusive": "Ugyldig inndata"
+      },
+      "date": {
+        "exact": "Datoen må være nøyaktig {{- minimum, datetime}}",
+        "inclusive": "Datoen må være større enn eller lik {{- minimum, datetime}}",
+        "not_inclusive": "Datoen må være større enn {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "array": {
+        "exact": "Array må inneholde nøyaktig {{maximum}} element(er)",
+        "inclusive": "Array må inneholde maksimalt {{maximum}} element(er)",
+        "not_inclusive": "Array må inneholde mindre enn {{maximum}} element(er)"
+      },
+      "string": {
+        "exact": "Strengen må inneholde nøyaktig {{maximum}} tegn",
+        "inclusive": "Strengen må være mindre eller lik {{maximum}} tegn",
+        "not_inclusive": "Strengen må inneholde under {{maximum}} tegn"
+      },
+      "number": {
+        "exact": "Tallet må være nøyaktig {{maximum}}",
+        "inclusive": "Tallet må være mindre enn eller lik {{maximum}}",
+        "not_inclusive": "Tallet må være mindre enn {{maximum}}"
+      },
+      "set": {
+        "exact": "Ugyldig inndata",
+        "inclusive": "Ugyldig inndata",
+        "not_inclusive": "Ugyldig inndata"
+      },
+      "date": {
+        "exact": "Datoen må være nøyaktig {{- maximum, datetime}}",
+        "inclusive": "Datoen må være mindre enn eller lik {{- maximum, datetime}}",
+        "not_inclusive": "Datoen må være mindre enn {{- maximum, datetime}}"
+      }
+    }
+  },
+  "validations": {
+    "email": "Epost adresse",
+    "url": "URL",
+    "uuid": "UUID",
+    "cuid": "CUID",
+    "regex": "Eegex",
+    "datetime": "Dato og klokkeslett"
+  },
+  "types": {
+    "function": "Funksjon",
+    "number": "Nummer",
+    "string": "String",
+    "nan": "NaN",
+    "integer": "Heltall",
+    "float": "Flyttall",
+    "boolean": "Boolean",
+    "date": "Dato",
+    "bigint": "Bigint",
+    "undefined": "Undefined",
+    "symbol": "Symbol",
+    "null": "Null",
+    "array": "Array",
+    "object": "Objekt",
+    "unknown": "Unknown",
+    "promise": "Promise",
+    "void": "Void",
+    "never": "Never",
+    "map": "Map",
+    "set": "Set"
+  }
+}
