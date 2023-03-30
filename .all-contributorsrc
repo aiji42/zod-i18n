@@ -167,6 +167,16 @@
         "translation",
         "bug"
       ]
+    },
+    {
+      "login": "trondal",
+      "name": "Trond Albinussen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1000199?v=4",
+      "profile": "https://github.com/trondal",
+      "contributions": [
+        "translation",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
