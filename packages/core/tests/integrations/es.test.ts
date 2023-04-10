@@ -13,21 +13,23 @@ test("string parser error messages", () => {
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Requerido");
   expect(getErrorMessage(schema.safeParse(1))).toEqual(
-    "Esperado string, recibido number"
+    "Se esperaba texto, se recibió número"
   );
   expect(getErrorMessage(schema.safeParse(true))).toEqual(
-    "Esperado string, recibido boolean"
+    "Se esperaba texto, se recibió booleano"
   );
   expect(getErrorMessage(schema.safeParse(Date))).toEqual(
-    "Esperado string, recibido function"
+    "Se esperaba texto, se recibió función"
   );
   expect(getErrorMessage(schema.safeParse(new Date()))).toEqual(
-    "Esperado string, recibido date"
+    "Se esperaba texto, se recibió fecha"
   );
   expect(getErrorMessage(schema.email().safeParse(""))).toEqual(
     "correo inválido"
   );
-  expect(getErrorMessage(schema.url().safeParse(""))).toEqual("url inválida");
+  expect(getErrorMessage(schema.url().safeParse(""))).toEqual(
+    "enlace inválido"
+  );
   expect(getErrorMessage(schema.regex(/aaa/).safeParse(""))).toEqual(
     "Inválido"
   );
@@ -48,7 +50,7 @@ test("string parser error messages", () => {
   );
   expect(
     getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
-  ).toEqual("datetime inválido");
+  ).toEqual("fecha inválida");
 });
 
 test("number parser error messages", () => {
@@ -56,31 +58,31 @@ test("number parser error messages", () => {
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Requerido");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
-    "Esperado number, recibido string"
+    "Se esperaba número, se recibió texto"
   );
   expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Esperado number, recibido null"
+    "Se esperaba número, se recibió nulo"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
-    "Esperado number, recibido nan"
+    "Se esperaba número, se recibió valor no númerico"
   );
   expect(getErrorMessage(schema.int().safeParse(0.1))).toEqual(
-    "Esperado integer, recibido float"
+    "Se esperaba entero, se recibió decimal"
   );
   expect(getErrorMessage(schema.multipleOf(5).safeParse(2))).toEqual(
-    "Número debe ser multiplo de 5"
+    "Número debe ser múltiplo de 5"
   );
   expect(getErrorMessage(schema.step(0.1).safeParse(0.0001))).toEqual(
-    "Número debe ser multiplo de 0.1"
+    "Número debe ser múltiplo de 0.1"
   );
   expect(getErrorMessage(schema.lt(5).safeParse(10))).toEqual(
-    "El número debe ser menor a 5"
+    "El número debe ser menor que 5"
   );
   expect(getErrorMessage(schema.lte(5).safeParse(10))).toEqual(
     "El número debe ser menor o igual a 5"
   );
   expect(getErrorMessage(schema.gt(5).safeParse(1))).toEqual(
-    "El número debe ser mayor a 5"
+    "El número debe ser mayor que 5"
   );
   expect(getErrorMessage(schema.gte(5).safeParse(1))).toEqual(
     "El número debe ser mayor o igual a 5"
@@ -92,10 +94,10 @@ test("number parser error messages", () => {
     "El número debe ser menor o igual a 0"
   );
   expect(getErrorMessage(schema.negative().safeParse(1))).toEqual(
-    "El número debe ser menor a 0"
+    "El número debe ser menor que 0"
   );
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual(
-    "El número debe ser mayor a 0"
+    "El número debe ser mayor que 0"
   );
   expect(getErrorMessage(schema.finite().safeParse(Infinity))).toEqual(
     "Número no puede ser infinito"
@@ -107,17 +109,17 @@ test("date parser error messages", async () => {
   const schema = z.date();
 
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
-    "Esperado date, recibido string"
+    "Se esperaba fecha, se recibió texto"
   );
   expect(
     getErrorMessage(schema.min(testDate).safeParse(new Date("2022-07-29")))
   ).toEqual(
-    `La fecha debe ser mayor o igual a ${testDate.toLocaleDateString(LOCALE)}`
+    `La fecha debe ser mayor o igual al ${testDate.toLocaleDateString(LOCALE)}`
   );
   expect(
     getErrorMessage(schema.max(testDate).safeParse(new Date("2022-08-02")))
   ).toEqual(
-    `La fecha debe ser menor o igual a ${testDate.toLocaleDateString(LOCALE)}`
+    `La fecha debe ser menor o igual al ${testDate.toLocaleDateString(LOCALE)}`
   );
   try {
     await schema.parseAsync(new Date("invalid"));
@@ -130,19 +132,19 @@ test("array parser error messages", () => {
   const schema = z.string().array();
 
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
-    "Esperado array, recibido string"
+    "Se esperaba lista, se recibió texto"
   );
   expect(getErrorMessage(schema.min(5).safeParse([""]))).toEqual(
-    "El array debe contener al menos 5 elemento(s)"
+    "La lista debe contener al menos 5 elemento(s)"
   );
   expect(getErrorMessage(schema.max(2).safeParse(["", "", ""]))).toEqual(
-    "El array debe contener como máximo 2 elemento(s)"
+    "La lista debe contener como máximo 2 elemento(s)"
   );
   expect(getErrorMessage(schema.nonempty().safeParse([]))).toEqual(
-    "El array debe contener al menos 1 elemento(s)"
+    "La lista debe contener al menos 1 elemento(s)"
   );
   expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
-    "El array debe contener exactamente 2 elemento(s)"
+    "La lista debe contener exactamente 2 elemento(s)"
   );
 });
 
@@ -154,7 +156,7 @@ test("function parser error messages", () => {
     "Tipo de retorno de función inválido"
   );
   expect(getErrorMessageFromZodError(() => functionParse(1 as any))).toEqual(
-    "Argumentos de función inválido"
+    "Argumentos de función inválidos"
   );
 });
 
@@ -170,10 +172,10 @@ test("other parser error messages", () => {
     )
   ).toEqual("Valores de intersección no pudieron ser mezclados");
   expect(getErrorMessage(z.literal(12).safeParse(""))).toEqual(
-    "Valor literal inválido, era esperado 12"
+    "Valor literal inválido, se esperaba 12"
   );
   expect(getErrorMessage(z.enum(["A", "B", "C"]).safeParse("D"))).toEqual(
-    "Valor de enum inválido. Era esperado 'A' | 'B' | 'C', fue recibido 'D'"
+    "Valor inválido. Se esperaba 'A' | 'B' | 'C', se recibió 'D'"
   );
   expect(
     getErrorMessage(
@@ -192,7 +194,7 @@ test("other parser error messages", () => {
         ])
         .safeParse({ type: "c", c: "abc" })
     )
-  ).toEqual("Valor discriminador inválido. Era esperado 'a' | 'b'");
+  ).toEqual("Valor discriminador inválido. Se esperaba 'a' | 'b'");
   expect(
     getErrorMessage(z.union([z.string(), z.number()]).safeParse([true]))
   ).toEqual("Entrada inválida");
