@@ -1,34 +1,34 @@
 {
   "errors": {
-    "invalid_type": "Esperado {{expected}}, recibido {{received}}",
+    "invalid_type": "Se esperaba {{expected}}, se recibió {{received}}",
     "invalid_type_received_undefined": "Requerido",
-    "invalid_literal": "Valor literal inválido, era esperado {{expected}}",
+    "invalid_literal": "Valor literal inválido, se esperaba {{expected}}",
     "unrecognized_keys": "Llave(s) no reconocida(s) en el objeto: {{- keys}}",
     "invalid_union": "Entrada inválida",
-    "invalid_union_discriminator": "Valor discriminador inválido. Era esperado {{- options}}",
-    "invalid_enum_value": "Valor de enum inválido. Era esperado {{- options}}, fue recibido '{{received}}'",
-    "invalid_arguments": "Argumentos de función inválido",
+    "invalid_union_discriminator": "Valor discriminador inválido. Se esperaba {{- options}}",
+    "invalid_enum_value": "Valor inválido. Se esperaba {{- options}}, se recibió '{{received}}'",
+    "invalid_arguments": "Argumentos de función inválidos",
     "invalid_return_type": "Tipo de retorno de función inválido",
     "invalid_date": "Fecha inválida",
     "custom": "Entrada inválida",
     "invalid_intersection_types": "Valores de intersección no pudieron ser mezclados",
-    "not_multiple_of": "Número debe ser multiplo de {{multipleOf}}",
+    "not_multiple_of": "Número debe ser múltiplo de {{multipleOf}}",
     "not_finite": "Número no puede ser infinito",
     "invalid_string": {
       "email": "{{validation}} inválido",
-      "url": "{{validation}} inválida",
+      "url": "{{validation}} inválido",
       "uuid": "{{validation}} inválido",
       "cuid": "{{validation}} inválido",
       "regex": "Inválido",
-      "datetime": "{{validation}} inválido",
+      "datetime": "{{validation}} inválida",
       "startsWith": "Entrada inválida: debe comenzar con \"{{startsWith}}\"",
       "endsWith": "Entrada inválida: debe finalizar con \"{{endsWith}}\""
     },
     "too_small": {
       "array": {
-        "exact": "El array debe contener exactamente {{minimum}} elemento(s)",
-        "inclusive": "El array debe contener al menos {{minimum}} elemento(s)",
-        "not_inclusive": "El array debe contener más de {{minimum}} elemento(s)"
+        "exact": "La lista debe contener exactamente {{minimum}} elemento(s)",
+        "inclusive": "La lista debe contener al menos {{minimum}} elemento(s)",
+        "not_inclusive": "La lista debe contener más de {{minimum}} elemento(s)"
       },
       "string": {
         "exact": "El texto debe contener exactamente {{minimum}} carácter(es)",
@@ -38,7 +38,7 @@
       "number": {
         "exact": "El número debe ser exactamente {{minimum}}",
         "inclusive": "El número debe ser mayor o igual a {{minimum}}",
-        "not_inclusive": "El número debe ser mayor a {{minimum}}"
+        "not_inclusive": "El número debe ser mayor que {{minimum}}"
       },
       "set": {
         "exact": "Entrada inválida",
@@ -47,25 +47,25 @@
       },
       "date": {
         "exact": "La fecha debe ser exactamente {{- minimum, datetime}}",
-        "inclusive": "La fecha debe ser mayor o igual a {{- minimum, datetime}}",
-        "not_inclusive": "La fecha debe ser mayor a {{- minimum, datetime}}"
+        "inclusive": "La fecha debe ser mayor o igual al {{- minimum, datetime}}",
+        "not_inclusive": "La fecha debe ser mayor que el {{- minimum, datetime}}"
       }
     },
     "too_big": {
       "array": {
-        "exact": "El array debe contener exactamente {{maximum}} elemento(s)",
-        "inclusive": "El array debe contener como máximo {{maximum}} elemento(s)",
-        "not_inclusive": "El array debe contener menos que {{maximum}} elemento(s)"
+        "exact": "La lista debe contener exactamente {{maximum}} elemento(s)",
+        "inclusive": "La lista debe contener como máximo {{maximum}} elemento(s)",
+        "not_inclusive": "La lista debe contener menos que {{maximum}} elemento(s)"
       },
       "string": {
         "exact": "El texto debe contener exactamente {{maximum}} carácter(es)",
         "inclusive": "El texto debe contener como máximo {{maximum}} carácter(es)",
-        "not_inclusive": "El texto debe contener menos que {{maximum}} carácter(es)"
+        "not_inclusive": "El texto debe contener menos de {{maximum}} carácter(es)"
       },
       "number": {
         "exact": "El número debe ser exactamente {{maximum}}",
         "inclusive": "El número debe ser menor o igual a {{maximum}}",
-        "not_inclusive": "El número debe ser menor a {{maximum}}"
+        "not_inclusive": "El número debe ser menor que {{maximum}}"
       },
       "set": {
         "exact": "Entrada inválida",
@@ -74,39 +74,39 @@
       },
       "date": {
         "exact": "La fecha debe ser exactamente {{- maximum, datetime}}",
-        "inclusive": "La fecha debe ser menor o igual a {{- maximum, datetime}}",
-        "not_inclusive": "La fecha debe ser menor a {{- maximum, datetime}}"
+        "inclusive": "La fecha debe ser menor o igual al {{- maximum, datetime}}",
+        "not_inclusive": "La fecha debe ser menor que el {{- maximum, datetime}}"
       }
     }
   },
   "validations": {
     "email": "correo",
-    "url": "url",
+    "url": "enlace",
     "uuid": "uuid",
     "cuid": "cuid",
     "regex": "expresión regular",
-    "datetime": "datetime"
+    "datetime": "fecha"
   },
   "types": {
-    "function": "function",
-    "number": "number",
-    "string": "string",
-    "nan": "nan",
-    "integer": "integer",
-    "float": "float",
-    "boolean": "boolean",
-    "date": "date",
-    "bigint": "bigint",
-    "undefined": "undefined",
-    "symbol": "symbol",
-    "null": "null",
-    "array": "array",
-    "object": "object",
-    "unknown": "unknown",
-    "promise": "promise",
+    "function": "función",
+    "number": "número",
+    "string": "texto",
+    "nan": "valor no númerico",
+    "integer": "entero",
+    "float": "decimal",
+    "boolean": "booleano",
+    "date": "fecha",
+    "bigint": "entero grande",
+    "undefined": "indefinido",
+    "symbol": "símbolo",
+    "null": "nulo",
+    "array": "lista",
+    "object": "objeto",
+    "unknown": "desconocido",
+    "promise": "promesa",
     "void": "void",
-    "never": "never",
-    "map": "map",
-    "set": "set"
+    "never": "nunca",
+    "map": "mapa",
+    "set": "conjunto"
   }
 }
