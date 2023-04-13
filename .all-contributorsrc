@@ -177,6 +177,16 @@
         "translation",
         "test"
       ]
+    },
+    {
+      "login": "ChrisGV04",
+      "name": "Christian Gil",
+      "avatar_url": "https://avatars.githubusercontent.com/u/47041342?v=4",
+      "profile": "https://chrisgvdev.com",
+      "contributions": [
+        "translation",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
