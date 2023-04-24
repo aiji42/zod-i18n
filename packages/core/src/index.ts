@@ -222,7 +222,23 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
       );
       break;
     case ZodIssueCode.custom:
-      message = t(issue.params?.i18n ?? "errors.custom", {
+      const defaultKey = "errors.custom";
+      const i18nParam = issue.params?.i18n;
+      const { key, values } =
+        typeof i18nParam === "string"
+          ? { key: issue.params?.i18n, values: {} }
+          : typeof i18nParam === "object"
+          ? {
+              key: i18nParam?.key ?? defaultKey,
+              values:
+                typeof i18nParam?.values === "object"
+                  ? (i18nParam?.values as object)
+                  : {},
+            }
+          : { key: "errors.custom", values: {} };
+
+      message = t(key, {
+        ...values,
         ns,
         defaultValue: message,
         ...path,
