@@ -295,9 +295,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-19-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -330,6 +328,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/fcrozatier"><img src="https://avatars.githubusercontent.com/u/48696601?v=4?s=100" width="100px;" alt="fcrozatier"/><br /><sub><b>fcrozatier</b></sub></a><br /><a href="#translation-fcrozatier" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/issues?q=author%3Afcrozatier" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/trondal"><img src="https://avatars.githubusercontent.com/u/1000199?v=4?s=100" width="100px;" alt="Trond Albinussen"/><br /><sub><b>Trond Albinussen</b></sub></a><br /><a href="#translation-trondal" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=trondal" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://chrisgvdev.com"><img src="https://avatars.githubusercontent.com/u/47041342?v=4?s=100" width="100px;" alt="Christian Gil"/><br /><sub><b>Christian Gil</b></sub></a><br /><a href="#translation-ChrisGV04" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/issues?q=author%3AChrisGV04" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://manchenkoff.me"><img src="https://avatars.githubusercontent.com/u/6690063?v=4?s=100" width="100px;" alt="Artem Manchenkov"/><br /><sub><b>Artem Manchenkov</b></sub></a><br /><a href="#translation-manchenkoff" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=manchenkoff" title="Tests">⚠️</a></td>
     </tr>
   </tbody>
 </table>
