@@ -271,5 +271,44 @@ describe("custom error message", () => {
           .safeParse("")
       )
     ).toEqual("custom error message with value 42069");
+
+    expect(
+      getErrorMessage(
+        z
+          .string()
+          .refine(() => false, {
+            params: {
+              i18n: { key: "test_custom_key" },
+            },
+          })
+          .safeParse("")
+      )
+    ).toEqual("custom error message with value {{myVal}}");
+
+    expect(
+      getErrorMessage(
+        z
+          .string()
+          .refine(() => false, {
+            params: {
+              i18n: { key: "test_custom_key", values: null },
+            },
+          })
+          .safeParse("")
+      )
+    ).toEqual("custom error message with value {{myVal}}");
+
+    expect(
+      getErrorMessage(
+        z
+          .string()
+          .refine(() => false, {
+            params: {
+              i18n: { key: "test_custom_key", values: 123 },
+            },
+          })
+          .safeParse("")
+      )
+    ).toEqual("custom error message with value {{myVal}}");
   });
 });
