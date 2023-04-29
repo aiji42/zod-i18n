@@ -13,28 +13,30 @@ This library is used to translate Zod's default error messages.
 ```bash
 yarn add zod-i18n-map i18next
 ```
+
 This library depends on `i18next`.
 
 ## How to Use
+
 ```ts
-import i18next from 'i18next'
-import { z } from 'zod'
-import { zodI18nMap } from 'zod-i18n-map'
+import i18next from "i18next";
+import { z } from "zod";
+import { zodI18nMap } from "zod-i18n-map";
 // Import your language translation files
-import translation from 'zod-i18n-map/locales/es/zod.json'
+import translation from "zod-i18n-map/locales/es/zod.json";
 
 // lng and resources key depend on your locale.
 i18next.init({
-  lng: 'es',
+  lng: "es",
   resources: {
     es: { zod: translation },
   },
 });
-z.setErrorMap(zodI18nMap)
+z.setErrorMap(zodI18nMap);
 
-const schema = z.string().email()
+const schema = z.string().email();
 // Translated into Spanish (es)
-schema.parse('foo') // => correo inválido
+schema.parse("foo"); // => correo inválido
 ```
 
 ## `makeZodI18nMap`
@@ -47,9 +49,10 @@ export type MakeZodI18nMap = (option?: ZodI18nMapOption) => ZodErrorMap;
 export type ZodI18nMapOption = {
   t?: i18n["t"];
   ns?: string | readonly string[]; // See: `Namespace`
-  handlePath?: { // See: `Handling object schema keys`
+  handlePath?: {
+    // See: `Handling object schema keys`
     keyPrefix?: string;
-  }; 
+  };
 };
 ```
 
@@ -61,31 +64,34 @@ This is useful in cases where the application handles validation messages for di
 The default namespace is `zod`.
 
 ```ts
-import i18next from 'i18next'
-import { z } from 'zod'
+import i18next from "i18next";
+import { z } from "zod";
 import { makeZodI18nMap } from "zod-i18n-map";
 
 i18next.init({
-  lng: 'en',
+  lng: "en",
   resources: {
-    en: { 
-      zod: { // default namespace
-        invalid_type: "Error: expected {{expected}}, received {{received}}"
+    en: {
+      zod: {
+        // default namespace
+        invalid_type: "Error: expected {{expected}}, received {{received}}",
       },
-      formValidation: { // custom namespace
-        invalid_type: "it is expected to provide {{expected}} but you provided {{received}}"
+      formValidation: {
+        // custom namespace
+        invalid_type:
+          "it is expected to provide {{expected}} but you provided {{received}}",
       },
     },
   },
 });
 
 // use default namespace
-z.setErrorMap(makeZodI18nMap())
-z.string().parse(1) // => Error: expected string, received number
+z.setErrorMap(makeZodI18nMap());
+z.string().parse(1); // => Error: expected string, received number
 
 // select custom namespace
-z.setErrorMap(makeZodI18nMap({ ns: 'formValidation' }))
-z.string().parse(1) // => it is expected to provide string but you provided number
+z.setErrorMap(makeZodI18nMap({ ns: "formValidation" }));
+z.string().parse(1); // => it is expected to provide string but you provided number
 ```
 
 📝 **You can also specify multiple namespaces in an array.**
@@ -95,16 +101,17 @@ z.string().parse(1) // => it is expected to provide string but you provided numb
 Messages using `{{maximum}}`, `{{minimum}}` or `{{keys}}` can be converted to the plural form.
 
 Keys are i18next compliant. (https://www.i18next.com/translation-function/plurals)
+
 ```json
 {
   "exact_one": "String must contain exactly {{minimum}} character",
-  "exact_other": "String must contain exactly {{minimum}} characters",
+  "exact_other": "String must contain exactly {{minimum}} characters"
 }
 ```
 
 ```ts
-import i18next from 'i18next'
-import { z } from 'zod'
+import i18next from "i18next";
+import { z } from "zod";
 import { zodI18nMap } from "zod-i18n-map";
 
 i18next.init({
@@ -115,10 +122,8 @@ i18next.init({
         errors: {
           too_big: {
             string: {
-              exact_one:
-                "String must contain exactly {{maximum}} character",
-              exact_other:
-                "String must contain exactly {{maximum}} characters",
+              exact_one: "String must contain exactly {{maximum}} character",
+              exact_other: "String must contain exactly {{maximum}} characters",
             },
           },
         },
@@ -134,26 +139,27 @@ z.string().length(1).safeParse("abc"); // => String must contain exactly 1 chara
 z.string().length(5).safeParse("abcdefgh"); // => String must contain exactly 5 characters
 ```
 
-### Custom errors 
+### Custom errors
 
 You can translate also custom errors, for example errors from `refine`.
 
 Create a key for the custom error in a namespace and add `i18n` to the refine second arg(see example)
 
 ```ts
-import i18next from 'i18next'
-import { z } from 'zod'
+import i18next from "i18next";
+import { z } from "zod";
 import { makeZodI18nMap } from "zod-i18n-map";
-import translation from 'zod-i18n-map/locales/en/zod.json'
+import translation from "zod-i18n-map/locales/en/zod.json";
 
 i18next.init({
-  lng: 'en',
+  lng: "en",
   resources: {
-    en: { 
+    en: {
       zod: translation,
       custom: {
-        my_error_key: "Something terrible"
-      }
+        my_error_key: "Something terrible",
+        my_error_key_with_value: "Something terrible {{msg}}",
+      },
     },
   },
 });
@@ -163,6 +169,16 @@ z.setErrorMap(makeZodI18nMap({ ns: ["zod", "custom"] }));
 z.string()
   .refine(() => false, { params: { i18n: "my_error_key" } })
   .safeParse(""); // => Something terrible
+
+// Or
+
+z.string()
+  .refine(() => false, {
+    params: {
+      i18n: { key: "my_error_key_with_value", values: { msg: "happened" } },
+    },
+  })
+  .safeParse(""); // => Something terrible happened
 ```
 
 ### Handling object schema keys (`handlePath`)
@@ -171,8 +187,8 @@ When dealing with structured data, such as when using Zod as a validator for for
 You can handle the object's key in the message by preparing messages with the key in the `with_path` context.
 
 ```ts
-import i18next from 'i18next'
-import { z } from 'zod'
+import i18next from "i18next";
+import { z } from "zod";
 import { zodI18nMap } from "zod-i18n-map";
 
 i18next.init({
@@ -193,12 +209,12 @@ i18next.init({
 
 z.setErrorMap(zodI18nMap);
 
-z.string().parse(1) // => Expected string, received number
+z.string().parse(1); // => Expected string, received number
 
 const schema = z.object({
   userName: z.string(),
 });
-schema.parse({ userName: 1 }) // => User's name is expected string, received number
+schema.parse({ userName: 1 }); // => User's name is expected string, received number
 ```
 
 If `_with_path` is suffixed to the key of the message, that message will be adopted in the case of an object type schema.  
@@ -223,21 +239,24 @@ i18next.init({
       form: {
         paths: {
           userName: "User's name",
-        }
-      }
+        },
+      },
     },
   },
 });
 
-z.setErrorMap(zodI18nMap({ 
-  ns: ["zod", "form"],
-  handlePath: {
-    keyPrefix: "paths"
-  }
-}));
+z.setErrorMap(
+  zodI18nMap({
+    ns: ["zod", "form"],
+    handlePath: {
+      keyPrefix: "paths",
+    },
+  })
+);
 ```
 
 ## Translation Files
+
 `zod-i18n-map` contains translation files for several locales.
 
 - [Arabic(ar)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/ar/zod.json)
@@ -254,8 +273,8 @@ z.setErrorMap(zodI18nMap({
 - [Portuguese(pt)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/pt/zod.json)
 - [Turkish(tr)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/tr/zod.json)
 - Chinese
-    - [Simplified Chinese(zh-CN)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/zh-CN/zod.json)
-    - [Traditional Chinese(zh-TW)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/zh-TW/zod.json)
+  - [Simplified Chinese(zh-CN)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/zh-CN/zod.json)
+  - [Traditional Chinese(zh-TW)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/zh-TW/zod.json)
 
 It is also possible to create and edit translation files. You can use [this English translation file](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/en/zod.json) as a basis for rewriting it in your language.
 
@@ -266,9 +285,11 @@ It is also possible to create and edit translation files. You can use [this Engl
 Many users will want to use it with `next-i18next` (i.e. on Next.js). [This example](https://github.com/aiji42/zod-i18n/tree/main/examples/with-next-i18next) summarizes how to use with it.
 
 ## Contributing
+
 Please read [CONTRIBUTING.md](https://github.com/aiji42/zod-i18n/tree/main/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## License
+
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/aiji42/zod-i18n/tree/main/CONTRIBUTING.md) file for details
 
 ## Contributors ✨

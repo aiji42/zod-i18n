@@ -234,5 +234,81 @@ describe("custom error message", () => {
           .safeParse("")
       )
     ).toEqual("custom error message");
+
+    expect(
+      getErrorMessage(
+        z
+          .string()
+          .refine(() => false, { params: { i18n: { key: "test_custom_key" } } })
+          .safeParse("")
+      )
+    ).toEqual("custom error message");
+  });
+
+  test("custom error with refine and values", async () => {
+    await i18next.init({
+      lng: "en",
+      resources: {
+        en: {
+          zod_custom: {
+            test_custom_key: "custom error message with value {{myVal}}",
+          },
+        },
+      },
+    });
+
+    z.setErrorMap(makeZodI18nMap({ ns: "zod_custom" }));
+
+    expect(
+      getErrorMessage(
+        z
+          .string()
+          .refine(() => false, {
+            params: {
+              i18n: { key: "test_custom_key", values: { myVal: "42069" } },
+            },
+          })
+          .safeParse("")
+      )
+    ).toEqual("custom error message with value 42069");
+
+    expect(
+      getErrorMessage(
+        z
+          .string()
+          .refine(() => false, {
+            params: {
+              i18n: { key: "test_custom_key" },
+            },
+          })
+          .safeParse("")
+      )
+    ).toEqual("custom error message with value {{myVal}}");
+
+    expect(
+      getErrorMessage(
+        z
+          .string()
+          .refine(() => false, {
+            params: {
+              i18n: { key: "test_custom_key", values: null },
+            },
+          })
+          .safeParse("")
+      )
+    ).toEqual("custom error message with value {{myVal}}");
+
+    expect(
+      getErrorMessage(
+        z
+          .string()
+          .refine(() => false, {
+            params: {
+              i18n: { key: "test_custom_key", values: 123 },
+            },
+          })
+          .safeParse("")
+      )
+    ).toEqual("custom error message with value {{myVal}}");
   });
 });

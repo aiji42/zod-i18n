@@ -14,6 +14,36 @@ function joinValues<T extends any[]>(array: T, separator = " | "): string {
     .join(separator);
 }
 
+const isRecord = (value: unknown): value is Record<string, unknown> => {
+  if (typeof value !== "object" || value === null) return false;
+
+  for (const key in value) {
+    if (!Object.prototype.hasOwnProperty.call(value, key)) return false;
+  }
+
+  return true;
+};
+
+const getKeyAndValues = (
+  param: unknown,
+  defaultKey: string
+): {
+  values: Record<string, unknown>;
+  key: string;
+} => {
+  if (typeof param === "string") return { key: param, values: {} };
+
+  if (isRecord(param)) {
+    const key =
+      "key" in param && typeof param.key === "string" ? param.key : defaultKey;
+    const values =
+      "values" in param && isRecord(param.values) ? param.values : {};
+    return { key, values };
+  }
+
+  return { key: defaultKey, values: {} };
+};
+
 export type MakeZodI18nMap = (option?: ZodI18nMapOption) => ZodErrorMap;
 
 export type ZodI18nMapOption = {
@@ -222,7 +252,13 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
       );
       break;
     case ZodIssueCode.custom:
-      message = t(issue.params?.i18n ?? "errors.custom", {
+      const { key, values } = getKeyAndValues(
+        issue.params?.i18n,
+        "errors.custom"
+      );
+
+      message = t(key, {
+        ...values,
         ns,
         defaultValue: message,
         ...path,
