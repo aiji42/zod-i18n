@@ -206,6 +206,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "wjsymagic",
+      "name": "Willem Jan Weitering",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25776648?v=4",
+      "profile": "https://github.com/wjsymagic",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
