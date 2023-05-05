@@ -97,7 +97,7 @@
     "boolean": "boolean",
     "date": "datum",
     "bigint": "bigint",
-    "undefined": "ondefinieerd",
+    "undefined": "ongedefinieerd",
     "symbol": "symbool",
     "null": "null",
     "array": "array",
