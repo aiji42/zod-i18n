@@ -215,6 +215,16 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "MendyLanda",
+      "name": "Mendy Landa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54242706?v=4",
+      "profile": "https://github.com/MendyLanda",
+      "contributions": [
+        "translation",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
