@@ -78,6 +78,7 @@ export default function HookForm() {
             <option value="ar">العربية</option>
             <option value="de">Deutsch</option>
             <option value="en">English</option>
+            <option value="he">עברית</option>
             <option value="es">español</option>
             <option value="it">italiano</option>
             <option value="fr">Français</option>
