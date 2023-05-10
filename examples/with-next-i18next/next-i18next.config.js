@@ -7,6 +7,7 @@ module.exports = {
     defaultLocale: "en",
     locales: [
       "en",
+      "he",
       "ja",
       "fr",
       "ar",
