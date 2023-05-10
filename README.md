@@ -295,7 +295,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-22-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -331,6 +331,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://manchenkoff.me"><img src="https://avatars.githubusercontent.com/u/6690063?v=4?s=100" width="100px;" alt="Artem Manchenkov"/><br /><sub><b>Artem Manchenkov</b></sub></a><br /><a href="#translation-manchenkoff" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=manchenkoff" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://greener.bio"><img src="https://avatars.githubusercontent.com/u/41754896?v=4?s=100" width="100px;" alt="Teodoro Villanueva"/><br /><sub><b>Teodoro Villanueva</b></sub></a><br /><a href="https://github.com/aiji42/zod-i18n/commits?author=teovillanueva" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/wjsymagic"><img src="https://avatars.githubusercontent.com/u/25776648?v=4?s=100" width="100px;" alt="Willem Jan Weitering"/><br /><sub><b>Willem Jan Weitering</b></sub></a><br /><a href="#translation-wjsymagic" title="Translation">🌍</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/MendyLanda"><img src="https://avatars.githubusercontent.com/u/54242706?v=4?s=100" width="100px;" alt="Mendy Landa"/><br /><sub><b>Mendy Landa</b></sub></a><br /><a href="#translation-MendyLanda" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=MendyLanda" title="Tests">⚠️</a></td>
     </tr>
   </tbody>
 </table>
