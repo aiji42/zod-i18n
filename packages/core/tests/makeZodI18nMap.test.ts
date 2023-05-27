@@ -66,6 +66,33 @@ describe("Handling key of object schema", () => {
     );
   });
 
+  test("be able to opt out handling key", async () => {
+    await i18next.init({
+      lng: "en",
+      resources: {
+        en: {
+          zod: {
+            errors: {
+              invalid_type: "Expected {{expected}}, received {{received}}",
+              invalid_type_with_path:
+                "{{- path}} is expected {{expected}}, received {{received}}",
+            },
+            userName: "user's name",
+          },
+        },
+      },
+    });
+    z.setErrorMap(makeZodI18nMap({ handlePath: false }));
+
+    const schema = z.object({
+      userName: z.string(),
+    });
+
+    expect(getErrorMessage(schema.safeParse({ userName: 5 }))).toEqual(
+      "Expected string, received number"
+    );
+  });
+
   test("custom context", async () => {
     await i18next.init({
       lng: "en",

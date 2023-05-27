@@ -49,7 +49,7 @@ export type MakeZodI18nMap = (option?: ZodI18nMapOption) => ZodErrorMap;
 export type ZodI18nMapOption = {
   t?: i18n["t"];
   ns?: string | readonly string[];
-  handlePath?: HandlePathOption;
+  handlePath?: HandlePathOption | false;
 };
 
 export type HandlePathOption = {
@@ -65,19 +65,22 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
     t: i18next.t,
     ns: defaultNs,
     ...option,
-    handlePath: {
-      context: "with_path",
-      ns: option?.ns ?? defaultNs,
-      keyPrefix: undefined,
-      ...option?.handlePath,
-    },
+    handlePath:
+      option?.handlePath !== false
+        ? {
+            context: "with_path",
+            ns: option?.ns ?? defaultNs,
+            keyPrefix: undefined,
+            ...option?.handlePath,
+          }
+        : null,
   };
 
   let message: string;
   message = defaultErrorMap(issue, ctx).message;
 
   const path =
-    issue.path.length > 0
+    issue.path.length > 0 && !!handlePath
       ? {
           context: handlePath.context,
           path: t(
