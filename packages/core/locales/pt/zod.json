@@ -21,21 +21,24 @@
       "cuid": "CUID inválido",
       "regex": "Combinação inválida",
       "datetime": "datetime inválido",
-      "startsWith": "Entrada inválida: precisa iniciar com \"{{startsWith}}\"",
-      "endsWith": "Entrada inválida: precisa terminar com \"{{endsWith}}\""
+      "startsWith": "Entrada inválida: deve iniciar com \"{{startsWith}}\"",
+      "endsWith": "Entrada inválida: deve terminar com \"{{endsWith}}\""
     },
     "too_small": {
       "array": {
-        "inclusive": "O array deve conter no mínimo {{minimum}} elemento(s)",
-        "not_inclusive": "O array deve conter mais de {{minimum}} elemento(s)"
+        "exact": "Array deve conter exatamente {{minimum}} elemento(s)",
+        "inclusive": "Array deve conter no mínimo {{minimum}} elemento(s)",
+        "not_inclusive": "Array deve conter mais de {{minimum}} elemento(s)"
       },
       "string": {
-        "inclusive": "A string precisa conter pelo menos {{minimum}} caracter(es)",
-        "not_inclusive": "A string precisa conter mais de {{minimum}} caracter(es)"
+        "exact": "String deve conter exatamente {{minimum}} elemento(s)",
+        "inclusive": "String deve conter pelo menos {{minimum}} caracter(es)",
+        "not_inclusive": "String deve conter mais de {{minimum}} caracter(es)"
       },
       "number": {
-        "inclusive": "O número precisa ser maior ou igual a {{minimum}}",
-        "not_inclusive": "O número precisa ser maior que {{minimum}}"
+        "exact": "Número deve conter exatamente {{minimum}} caracter(es)",
+        "inclusive": "Número deve ser maior ou igual a {{minimum}}",
+        "not_inclusive": "Número deve ser maior que {{minimum}}"
       },
       "set": {
         "exact": "Entrada inválida",
@@ -43,20 +46,24 @@
         "not_inclusive": "Entrada inválida"
       },
       "date": {
-        "inclusive": "Data precisa ser maior ou igual a {{- minimum, datetime}}",
-        "not_inclusive": "Data precisa ser maior que {{- minimum, datetime}}"
+        "exact": "Data deve ser exatamente {{- maximum, datetime}}",
+        "inclusive": "Data deve ser maior ou igual a {{- minimum, datetime}}",
+        "not_inclusive": "Data deve ser maior que {{- minimum, datetime}}"
       }
     },
     "too_big": {
       "array": {
-        "inclusive": "O array deve conter no máximo {{maximum}} elemento(s)",
-        "not_inclusive": "O array deve conter menos de {{maximum}} elemento(s)"
+        "exact": "Array deve conter exatamente {{maximum}} elemento(s)",
+        "inclusive": "Array deve conter no máximo {{maximum}} elemento(s)",
+        "not_inclusive": "Array deve conter menos de {{maximum}} elemento(s)"
       },
       "string": {
-        "inclusive": "A string pode conter no máximo {{maximum}} caracter(es)",
-        "not_inclusive": "A string deve conter menos que {{maximum}} caracter(es)"
+        "exact": "String deve conter exatamente {{maximum}} caracter(es)",
+        "inclusive": "String pode conter no máximo {{maximum}} caracter(es)",
+        "not_inclusive": "String deve conter menos que {{maximum}} caracter(es)"
       },
       "number": {
+        "exact": "Número deve conter exatamente {{maximum}} caracter(es)",
         "inclusive": "Número deve ser menor ou igual a {{maximum}}",
         "not_inclusive": "Número deve ser menor que {{maximum}}"
       },
@@ -66,8 +73,9 @@
         "not_inclusive": "Entrada inválida"
       },
       "date": {
-        "inclusive": "A data precisa ser menor ou igual a {{- maximum, datetime}}",
-        "not_inclusive": "A data precisa ser menor que {{- maximum, datetime}}"
+        "exact": "Data deve ser exatamente {{- maximum, datetime}}",
+        "inclusive": "Data deve ser menor ou igual a {{- maximum, datetime}}",
+        "not_inclusive": "Data deve ser menor que {{- maximum, datetime}}"
       }
     }
   },
