@@ -31,7 +31,7 @@
         "not_inclusive": "Array deve conter mais de {{minimum}} elemento(s)"
       },
       "string": {
-        "exact": "String deve conter exatamente {{minimum}} elemento(s)",
+        "exact": "String deve conter exatamente {{minimum}} caracter(es)",
         "inclusive": "String deve conter pelo menos {{minimum}} caracter(es)",
         "not_inclusive": "String deve conter mais de {{minimum}} caracter(es)"
       },
