@@ -32,20 +32,19 @@ test("string parser error messages", () => {
     "Combinação inválida"
   );
   expect(getErrorMessage(schema.startsWith("foo").safeParse(""))).toEqual(
-    'Entrada inválida: precisa iniciar com "foo"'
+    'Entrada inválida: deve iniciar com "foo"'
   );
   expect(getErrorMessage(schema.endsWith("bar").safeParse(""))).toEqual(
-    'Entrada inválida: precisa terminar com "bar"'
+    'Entrada inválida: deve terminar com "bar"'
+  );
+  expect(getErrorMessage(schema.length(5).safeParse("abcdef"))).toEqual(
+    "String deve conter exatamente 5 caracter(es)"
   );
   expect(getErrorMessage(schema.min(5).safeParse("a"))).toEqual(
-    "A string precisa conter pelo menos 5 caracter(es)"
+    "String deve conter pelo menos 5 caracter(es)"
   );
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
-    "A string pode conter no máximo 5 caracter(es)"
-  );
-  // TODO: add `zod:errors.(too_small|too_big).string.exact`
-  expect(getErrorMessage(schema.length(5).safeParse("abcdef"))).toEqual(
-    "String must contain exactly 5 character(s)"
+    "String pode conter no máximo 5 caracter(es)"
   );
   // TODO: translation `datetime` (zod:validations.datetime and zod:errors.invalid_string.datetime)
   expect(
@@ -82,13 +81,13 @@ test("number parser error messages", () => {
     "Número deve ser menor ou igual a 5"
   );
   expect(getErrorMessage(schema.gt(5).safeParse(1))).toEqual(
-    "O número precisa ser maior que 5"
+    "Número deve ser maior que 5"
   );
   expect(getErrorMessage(schema.gte(5).safeParse(1))).toEqual(
-    "O número precisa ser maior ou igual a 5"
+    "Número deve ser maior ou igual a 5"
   );
   expect(getErrorMessage(schema.nonnegative().safeParse(-1))).toEqual(
-    "O número precisa ser maior ou igual a 0"
+    "Número deve ser maior ou igual a 0"
   );
   expect(getErrorMessage(schema.nonpositive().safeParse(1))).toEqual(
     "Número deve ser menor ou igual a 0"
@@ -97,7 +96,7 @@ test("number parser error messages", () => {
     "Número deve ser menor que 0"
   );
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual(
-    "O número precisa ser maior que 0"
+    "Número deve ser maior que 0"
   );
   expect(getErrorMessage(schema.finite().safeParse(Infinity))).toEqual(
     "Número não pode ser infinito"
@@ -114,12 +113,12 @@ test("date parser error messages", async () => {
   expect(
     getErrorMessage(schema.min(testDate).safeParse(new Date("2022-07-29")))
   ).toEqual(
-    `Data precisa ser maior ou igual a ${testDate.toLocaleDateString(LOCALE)}`
+    `Data deve ser maior ou igual a ${testDate.toLocaleDateString(LOCALE)}`
   );
   expect(
     getErrorMessage(schema.max(testDate).safeParse(new Date("2022-08-02")))
   ).toEqual(
-    `A data precisa ser menor ou igual a ${testDate.toLocaleDateString(LOCALE)}`
+    `Data deve ser menor ou igual a ${testDate.toLocaleDateString(LOCALE)}`
   );
   try {
     await schema.parseAsync(new Date("invalid"));
@@ -134,18 +133,17 @@ test("array parser error messages", () => {
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "O dado deve ser do tipo array, porém foi enviado string"
   );
+  expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
+    "Array deve conter exatamente 2 elemento(s)"
+  );
   expect(getErrorMessage(schema.min(5).safeParse([""]))).toEqual(
-    "O array deve conter no mínimo 5 elemento(s)"
+    "Array deve conter no mínimo 5 elemento(s)"
   );
   expect(getErrorMessage(schema.max(2).safeParse(["", "", ""]))).toEqual(
-    "O array deve conter no máximo 2 elemento(s)"
+    "Array deve conter no máximo 2 elemento(s)"
   );
   expect(getErrorMessage(schema.nonempty().safeParse([]))).toEqual(
-    "O array deve conter no mínimo 1 elemento(s)"
-  );
-  // TODO: add `zod:errors.(too_small|too_big).array.exact`
-  expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
-    "Array must contain exactly 2 element(s)"
+    "Array deve conter no mínimo 1 elemento(s)"
   );
 });
 
