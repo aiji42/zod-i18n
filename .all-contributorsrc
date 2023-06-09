@@ -225,6 +225,15 @@
         "translation",
         "test"
       ]
+    },
+    {
+      "login": "itispx",
+      "name": "Px (Guilherme Ciota)",
+      "avatar_url": "https://avatars.githubusercontent.com/u/44107896?v=4",
+      "profile": "https://github.com/itispx",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -232,5 +241,6 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "projectName": "zod-i18n",
-  "projectOwner": "aiji42"
+  "projectOwner": "aiji42",
+  "commitType": "docs"
 }
