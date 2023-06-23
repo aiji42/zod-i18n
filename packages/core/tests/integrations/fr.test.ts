@@ -13,42 +13,44 @@ test("string parser error messages", () => {
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Obligatoire");
   expect(getErrorMessage(schema.safeParse(1))).toEqual(
-    "Type invalide: chaîne de caractères doit être fourni(e), mais nombre a été reçu(e)"
+    "Le type « chaîne de caractères » est attendu mais « nombre » a été reçu"
   );
   expect(getErrorMessage(schema.safeParse(true))).toEqual(
-    "Type invalide: chaîne de caractères doit être fourni(e), mais booléen a été reçu(e)"
+    "Le type « chaîne de caractères » est attendu mais « booléen » a été reçu"
   );
   expect(getErrorMessage(schema.safeParse(Date))).toEqual(
-    "Type invalide: chaîne de caractères doit être fourni(e), mais fonction a été reçu(e)"
+    "Le type « chaîne de caractères » est attendu mais « fonction » a été reçu"
   );
   expect(getErrorMessage(schema.safeParse(new Date()))).toEqual(
-    "Type invalide: chaîne de caractères doit être fourni(e), mais date a été reçu(e)"
+    "Le type « chaîne de caractères » est attendu mais « date » a été reçu"
   );
   expect(getErrorMessage(schema.email().safeParse(""))).toEqual(
-    "e-mail invalide"
+    "e-mail non valide"
   );
-  expect(getErrorMessage(schema.url().safeParse(""))).toEqual("lien invalide");
+  expect(getErrorMessage(schema.url().safeParse(""))).toEqual(
+    "lien non valide"
+  );
   expect(getErrorMessage(schema.regex(/aaa/).safeParse(""))).toEqual(
-    "expression régulière invalide"
+    "expression régulière non valide"
   );
   expect(getErrorMessage(schema.startsWith("foo").safeParse(""))).toEqual(
-    'Champ invalide: doit commencer par "foo"'
+    "Le champ doit commencer par « foo »"
   );
   expect(getErrorMessage(schema.endsWith("bar").safeParse(""))).toEqual(
-    'Champ invalide: doit se terminer par "bar"'
+    "Le champ doit se terminer par « bar »"
   );
   expect(getErrorMessage(schema.min(5).safeParse("a"))).toEqual(
-    "Champ de texte doit contenir au moins 5 caractère(s)"
+    "La chaîne doit contenir au moins 5 caractère(s)"
   );
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
-    "Champ de texte doit contenir au plus 5 caractère(s)"
+    "La chaîne doit contenir au plus 5 caractère(s)"
   );
   expect(getErrorMessage(schema.length(5).safeParse("abcdef"))).toEqual(
-    "Champ de texte doit contenir exactement 5 caractère(s)"
+    "La chaîne doit contenir exactement 5 caractère(s)"
   );
   expect(
     getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
-  ).toEqual("horodate invalide");
+  ).toEqual("horodate non valide");
 });
 
 test("number parser error messages", () => {
@@ -56,49 +58,49 @@ test("number parser error messages", () => {
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Obligatoire");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
-    "Type invalide: nombre doit être fourni(e), mais chaîne de caractères a été reçu(e)"
+    "Le type « nombre » est attendu mais « chaîne de caractères » a été reçu"
   );
   expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Type invalide: nombre doit être fourni(e), mais null a été reçu(e)"
+    "Le type « nombre » est attendu mais « null » a été reçu"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
-    "Type invalide: nombre doit être fourni(e), mais NaN a été reçu(e)"
+    "Le type « nombre » est attendu mais « NaN » a été reçu"
   );
   expect(getErrorMessage(schema.int().safeParse(0.1))).toEqual(
-    "Type invalide: entier doit être fourni(e), mais décimal a été reçu(e)"
+    "Le type « entier » est attendu mais « décimal » a été reçu"
   );
   expect(getErrorMessage(schema.multipleOf(5).safeParse(2))).toEqual(
-    "Nombre doit être multiple de 5"
+    "Le nombre doit être un multiple de 5"
   );
   expect(getErrorMessage(schema.step(0.1).safeParse(0.0001))).toEqual(
-    "Nombre doit être multiple de 0.1"
+    "Le nombre doit être un multiple de 0.1"
   );
   expect(getErrorMessage(schema.lt(5).safeParse(10))).toEqual(
-    "Nombre doit être inférieur à 5"
+    "Le nombre doit être inférieur à 5"
   );
   expect(getErrorMessage(schema.lte(5).safeParse(10))).toEqual(
-    "Nombre doit être inférieur ou égale à 5"
+    "Le nombre doit être inférieur ou égal à 5"
   );
   expect(getErrorMessage(schema.gt(5).safeParse(1))).toEqual(
-    "Nombre doit être supérieur à 5"
+    "Le nombre doit être supérieur à 5"
   );
   expect(getErrorMessage(schema.gte(5).safeParse(1))).toEqual(
-    "Nombre doit être supérieur ou égale à 5"
+    "Le nombre doit être supérieur ou égal à 5"
   );
   expect(getErrorMessage(schema.nonnegative().safeParse(-1))).toEqual(
-    "Nombre doit être supérieur ou égale à 0"
+    "Le nombre doit être supérieur ou égal à 0"
   );
   expect(getErrorMessage(schema.nonpositive().safeParse(1))).toEqual(
-    "Nombre doit être inférieur ou égale à 0"
+    "Le nombre doit être inférieur ou égal à 0"
   );
   expect(getErrorMessage(schema.negative().safeParse(1))).toEqual(
-    "Nombre doit être inférieur à 0"
+    "Le nombre doit être inférieur à 0"
   );
   expect(getErrorMessage(schema.positive().safeParse(0))).toEqual(
-    "Nombre doit être supérieur à 0"
+    "Le nombre doit être supérieur à 0"
   );
   expect(getErrorMessage(schema.finite().safeParse(Infinity))).toEqual(
-    "Nombre doit être fini"
+    "Le nombre doit être fini"
   );
 });
 
@@ -107,26 +109,28 @@ test("date parser error messages", async () => {
   const schema = z.date();
 
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
-    "Type invalide: date doit être fourni(e), mais chaîne de caractères a été reçu(e)"
+    "Le type « date » est attendu mais « chaîne de caractères » a été reçu"
   );
   expect(
     getErrorMessage(schema.min(testDate).safeParse(new Date("2022-07-29")))
   ).toEqual(
-    `Date doit être supérieure ou égale à ${testDate.toLocaleDateString(
+    `La date doit être ultérieure ou égale au ${testDate.toLocaleDateString(
       LOCALE
     )}`
   );
   expect(
     getErrorMessage(schema.max(testDate).safeParse(new Date("2022-08-02")))
   ).toEqual(
-    `Date doit être inférieure ou égale à ${testDate.toLocaleDateString(
+    `La date doit être antérieure ou égale au ${testDate.toLocaleDateString(
       LOCALE
     )}`
   );
   try {
     await schema.parseAsync(new Date("invalid"));
   } catch (err) {
-    expect((err as z.ZodError).issues[0].message).toEqual("Date invalide");
+    expect((err as z.ZodError).issues[0].message).toEqual(
+      "La date est non valide"
+    );
   }
 });
 
@@ -134,19 +138,19 @@ test("array parser error messages", () => {
   const schema = z.string().array();
 
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
-    "Type invalide: liste doit être fourni(e), mais chaîne de caractères a été reçu(e)"
+    "Le type « liste » est attendu mais « chaîne de caractères » a été reçu"
   );
   expect(getErrorMessage(schema.min(5).safeParse([""]))).toEqual(
-    "Liste doit contenir au moins 5 élément(s)"
+    "La liste doit contenir au moins 5 élément(s)"
   );
   expect(getErrorMessage(schema.max(2).safeParse(["", "", ""]))).toEqual(
-    "Liste doit contenir au plus 2 élément(s)"
+    "La liste doit contenir au plus 2 élément(s)"
   );
   expect(getErrorMessage(schema.nonempty().safeParse([]))).toEqual(
-    "Liste doit contenir au moins 1 élément(s)"
+    "La liste doit contenir au moins 1 élément(s)"
   );
   expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
-    "Liste doit contenir exactement 2 élément(s)"
+    "La liste doit contenir exactement 2 élément(s)"
   );
 });
 
@@ -155,10 +159,10 @@ test("function parser error messages", () => {
     .function(z.tuple([z.string()]), z.number())
     .parse((a: any) => a);
   expect(getErrorMessageFromZodError(() => functionParse(""))).toEqual(
-    "Fonction a retourné un type invalide"
+    "Le type de retour de la fonction n'est pas valide"
   );
   expect(getErrorMessageFromZodError(() => functionParse(1 as any))).toEqual(
-    "Fonction a reçu des arguments invalides"
+    "Les arguments de la fonction sont non valides"
   );
 });
 
@@ -174,10 +178,10 @@ test("other parser error messages", () => {
     )
   ).toEqual("Les résultats d'intersection n'ont pas pu être fusionnés");
   expect(getErrorMessage(z.literal(12).safeParse(""))).toEqual(
-    "Valeur doit être 12"
+    "La valeur doit être 12"
   );
   expect(getErrorMessage(z.enum(["A", "B", "C"]).safeParse("D"))).toEqual(
-    "Valeur 'D' n'existe pas dans les options: 'A' | 'B' | 'C'"
+    "La valeur « D » n'existe pas dans les options : 'A' | 'B' | 'C'"
   );
   expect(
     getErrorMessage(
@@ -187,7 +191,7 @@ test("other parser error messages", () => {
         .safeParse({ dog: "", cat: "", rat: "" })
     )
   ).toEqual(
-    "Une ou plusieurs clé(s) non reconnue(s) dans l'objet: 'cat', 'rat'"
+    "Une ou plusieurs clé(s) non reconnue(s) dans l'objet : 'cat', 'rat'"
   );
   expect(
     getErrorMessage(
@@ -199,11 +203,11 @@ test("other parser error messages", () => {
         .safeParse({ type: "c", c: "abc" })
     )
   ).toEqual(
-    "La valeur du discriminateur est invalide. Options attendus: 'a' | 'b'"
+    "La valeur du discriminateur est non valide. Options attendues : 'a' | 'b'"
   );
   expect(
     getErrorMessage(z.union([z.string(), z.number()]).safeParse([true]))
-  ).toEqual("Champ invalide");
+  ).toEqual("Champ non valide");
   expect(
     getErrorMessage(
       z
@@ -213,5 +217,5 @@ test("other parser error messages", () => {
         })
         .safeParse("")
     )
-  ).toEqual("Champ invalide");
+  ).toEqual("Champ non valide");
 });

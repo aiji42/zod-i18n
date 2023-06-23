@@ -1,81 +1,81 @@
 {
   "errors": {
-    "invalid_type": "Type invalide: {{expected}} doit être fourni(e), mais {{received}} a été reçu(e)",
+    "invalid_type": "Le type « {{expected}} » est attendu mais « {{received}} » a été reçu",
     "invalid_type_received_undefined": "Obligatoire",
-    "invalid_literal": "Valeur doit être {{expected}}",
-    "unrecognized_keys": "Une ou plusieurs clé(s) non reconnue(s) dans l'objet: {{- keys}}",
-    "invalid_union": "Champ invalide",
-    "invalid_union_discriminator": "La valeur du discriminateur est invalide. Options attendus: {{- options}}",
-    "invalid_enum_value": "Valeur '{{received}}' n'existe pas dans les options: {{- options}}",
-    "invalid_arguments": "Fonction a reçu des arguments invalides",
-    "invalid_return_type": "Fonction a retourné un type invalide",
-    "invalid_date": "Date invalide",
-    "custom": "Champ invalide",
+    "invalid_literal": "La valeur doit être {{expected}}",
+    "unrecognized_keys": "Une ou plusieurs clé(s) non reconnue(s) dans l'objet : {{- keys}}",
+    "invalid_union": "Champ non valide",
+    "invalid_union_discriminator": "La valeur du discriminateur est non valide. Options attendues : {{- options}}",
+    "invalid_enum_value": "La valeur « {{received}} » n'existe pas dans les options : {{- options}}",
+    "invalid_arguments": "Les arguments de la fonction sont non valides",
+    "invalid_return_type": "Le type de retour de la fonction n'est pas valide",
+    "invalid_date": "La date est non valide",
+    "custom": "Champ non valide",
     "invalid_intersection_types": "Les résultats d'intersection n'ont pas pu être fusionnés",
-    "not_multiple_of": "Nombre doit être multiple de {{multipleOf}}",
-    "not_finite": "Nombre doit être fini",
+    "not_multiple_of": "Le nombre doit être un multiple de {{multipleOf}}",
+    "not_finite": "Le nombre doit être fini",
     "invalid_string": {
-      "email": "{{validation}} invalide",
-      "url": "{{validation}} invalide",
-      "uuid": "{{validation}} invalide",
-      "cuid": "{{validation}} invalide",
-      "regex": "{{validation}} invalide",
-      "datetime": "{{validation}} invalide",
-      "startsWith": "Champ invalide: doit commencer par \"{{startsWith}}\"",
-      "endsWith": "Champ invalide: doit se terminer par \"{{endsWith}}\""
+      "email": "{{validation}} non valide",
+      "url": "{{validation}} non valide",
+      "uuid": "{{validation}} non valide",
+      "cuid": "{{validation}} non valide",
+      "regex": "{{validation}} non valide",
+      "datetime": "{{validation}} non valide",
+      "startsWith": "Le champ doit commencer par « {{startsWith}} »",
+      "endsWith": "Le champ doit se terminer par « {{endsWith}} »"
     },
     "too_small": {
       "array": {
-        "exact": "Liste doit contenir exactement {{minimum}} élément(s)",
-        "inclusive": "Liste doit contenir au moins {{minimum}} élément(s)",
-        "not_inclusive": "Liste doit contenir plus de {{minimum}} élément(s)"
+        "exact": "La liste doit contenir exactement {{minimum}} élément(s)",
+        "inclusive": "La liste doit contenir au moins {{minimum}} élément(s)",
+        "not_inclusive": "La liste doit contenir plus de {{minimum}} élément(s)"
       },
       "string": {
-        "exact": "Champ de texte doit contenir exactement {{minimum}} caractère(s)",
-        "inclusive": "Champ de texte doit contenir au moins {{minimum}} caractère(s)",
-        "not_inclusive": "Champ de texte doit centenir plus de {{minimum}} caractère(s)"
+        "exact": "La chaîne doit contenir exactement {{minimum}} caractère(s)",
+        "inclusive": "La chaîne doit contenir au moins {{minimum}} caractère(s)",
+        "not_inclusive": "La chaîne doit contenir plus de {{minimum}} caractère(s)"
       },
       "number": {
-        "exact": "Nombre doit être égale à {{minimum}}",
-        "inclusive": "Nombre doit être supérieur ou égale à {{minimum}}",
-        "not_inclusive": "Nombre doit être supérieur à {{minimum}}"
+        "exact": "Le nombre doit être égal à {{minimum}}",
+        "inclusive": "Le nombre doit être supérieur ou égal à {{minimum}}",
+        "not_inclusive": "Le nombre doit être supérieur à {{minimum}}"
       },
       "set": {
-        "exact": "Champ invalide",
-        "inclusive": "Champ invalide",
-        "not_inclusive": "Champ invalide"
+        "exact": "Champ non valide",
+        "inclusive": "Champ non valide",
+        "not_inclusive": "Champ non valide"
       },
       "date": {
-        "exact": "Date doit être égale à {{- minimum, datetime}}",
-        "inclusive": "Date doit être supérieure ou égale à {{- minimum, datetime}}",
-        "not_inclusive": "Date doit être supérieure à {{- minimum, datetime}}"
+        "exact": "La date doit être égale au {{- minimum, datetime}}",
+        "inclusive": "La date doit être ultérieure ou égale au {{- minimum, datetime}}",
+        "not_inclusive": "La date doit être ultérieure au {{- minimum, datetime}}"
       }
     },
     "too_big": {
       "array": {
-        "exact": "Liste doit contenir exactement {{maximum}} élément(s)",
-        "inclusive": "Liste doit contenir au plus {{maximum}} élément(s)",
-        "not_inclusive": "Liste doit contenir moins de {{maximum}} élément(s)"
+        "exact": "La liste doit contenir exactement {{maximum}} élément(s)",
+        "inclusive": "La liste doit contenir au plus {{maximum}} élément(s)",
+        "not_inclusive": "La liste doit contenir moins de {{maximum}} élément(s)"
       },
       "string": {
-        "exact": "Champ de texte doit contenir exactement {{maximum}} caractère(s)",
-        "inclusive": "Champ de texte doit contenir au plus {{maximum}} caractère(s)",
-        "not_inclusive": "Champ de texte doit contenir moins de {{maximum}} caractère(s)"
+        "exact": "La chaîne doit contenir exactement {{maximum}} caractère(s)",
+        "inclusive": "La chaîne doit contenir au plus {{maximum}} caractère(s)",
+        "not_inclusive": "La chaîne doit contenir moins de {{maximum}} caractère(s)"
       },
       "number": {
-        "exact": "Nombre doit être égale à {{maximum}}",
-        "inclusive": "Nombre doit être inférieur ou égale à {{maximum}}",
-        "not_inclusive": "Nombre doit être inférieur à {{maximum}}"
+        "exact": "Le nombre doit être égal à {{maximum}}",
+        "inclusive": "Le nombre doit être inférieur ou égal à {{maximum}}",
+        "not_inclusive": "Le nombre doit être inférieur à {{maximum}}"
       },
       "set": {
-        "exact": "Champ invalide",
-        "inclusive": "Champ invalide",
-        "not_inclusive": "Champ invalide"
+        "exact": "Champ non valide",
+        "inclusive": "Champ non valide",
+        "not_inclusive": "Champ non valide"
       },
       "date": {
-        "exact": "Date doit être égale à {{- maximum, datetime}}",
-        "inclusive": "Date doit être inférieure ou égale à {{- maximum, datetime}}",
-        "not_inclusive": "Date doit être inférieure à {{- maximum, datetime}}"
+        "exact": "La date doit être égale au {{- maximum, datetime}}",
+        "inclusive": "La date doit être antérieure ou égale au {{- maximum, datetime}}",
+        "not_inclusive": "La date doit être antérieure au {{- maximum, datetime}}"
       }
     }
   },
