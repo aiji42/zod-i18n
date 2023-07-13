@@ -297,7 +297,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-24-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -337,6 +337,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/MendyLanda"><img src="https://avatars.githubusercontent.com/u/54242706?v=4?s=100" width="100px;" alt="Mendy Landa"/><br /><sub><b>Mendy Landa</b></sub></a><br /><a href="#translation-MendyLanda" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=MendyLanda" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/itispx"><img src="https://avatars.githubusercontent.com/u/44107896?v=4?s=100" width="100px;" alt="Px (Guilherme Ciota)"/><br /><sub><b>Px (Guilherme Ciota)</b></sub></a><br /><a href="#translation-itispx" title="Translation">🌍</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://sralab.com"><img src="https://avatars.githubusercontent.com/u/1815?v=4?s=100" width="100px;" alt="Stéphane Raimbault"/><br /><sub><b>Stéphane Raimbault</b></sub></a><br /><a href="#translation-stephane" title="Translation">🌍</a></td>
     </tr>
   </tbody>
 </table>
