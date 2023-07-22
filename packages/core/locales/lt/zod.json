@@ -1,14 +1,14 @@
 {
   "errors": {
-    "invalid_type": "Tikėtasi {{expected}}, gauta {{received}}",
+    "invalid_type": "Tikėtasi {{expected}}, gauta(s) {{received}}",
     "invalid_type_received_undefined": "Šis laukas yra privalomas",
-    "invalid_literal": "Netinkama literalo reikšmė, tikėtasi {{expected}}",
-    "unrecognized_keys": "Neatpažintas raktas(ai) objekte: {{- keys}}",
+    "invalid_literal": "Klaidinga literalo reikšmė, tikėtasi {{expected}}",
+    "unrecognized_keys": "Neatpažintas(i) raktas(ai) objekte: {{- keys}}",
     "invalid_union": "Klaidinga įvestis",
     "invalid_union_discriminator": "Netinkama diksriminanto reikšmė. Tikėtasi {{- options}}",
-    "invalid_enum_value": "Netinkama enum reikmšė. Tikėtasi {{- options}}, gauta '{{received}}'",
+    "invalid_enum_value": "Klaidinga reikšmė. Tikėtasi {{- options}}, gauta '{{received}}'",
     "invalid_arguments": "Klaidingi funkcijos argumentai",
-    "invalid_return_type": "Klaidinga funkcijos gražinamos reikšmės tipas",
+    "invalid_return_type": "Klaidingas funkcijos gražinamos reikšmės tipas",
     "invalid_date": "Klaidinga data",
     "custom": "Klaidinga įvestis",
     "invalid_intersection_types": "Negalima sujungti sankirtos rezultatų",
@@ -19,10 +19,10 @@
       "url": "Klaidinga {{validation}}",
       "uuid": "Klaidingas {{validation}}",
       "cuid": "Klaidingas {{validation}}",
-      "regex": "Klaidingas",
+      "regex": "Klaidingas {{validation}}",
       "datetime": "Klaidinga {{validation}}",
       "startsWith": "Klaidinga įvestis: privaloma pradžia \"{{startsWith}}\"",
-      "endsWith": "Klaidinga įvestis: privaloma baigtis \"{{endsWith}}\""
+      "endsWith": "Klaidinga įvestis: privaloma pabaiga \"{{endsWith}}\""
     },
     "too_small": {
       "array": {
@@ -54,7 +54,7 @@
     "too_big": {
       "array": {
         "exact": "Masyvas privalo turėti {{maximum}} elementą(us)",
-        "inclusive": "Masyvas negali turėti daugiau nei {{maximum}} elementą(us)",
+        "inclusive": "Masyvas negali turėti daugiau, nei {{maximum}} elementą(us)",
         "not_inclusive": "Masyvas privalo turėti mažiau, nei {{maximum}} elementą(us)"
       },
       "string": {
