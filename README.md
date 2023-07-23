@@ -58,7 +58,7 @@ export type ZodI18nMapOption = {
 
 ### Namespace (`ns`)
 
-You can switch between translation files by specifying a namespace.  
+You can switch between translation files by specifying a namespace.
 This is useful in cases where the application handles validation messages for different purposes, e.g., validation messages for forms are for end users, while input value checks for API schemas are for developers.
 
 The default namespace is `zod`.
@@ -183,7 +183,7 @@ z.string()
 
 ### Handling object schema keys (`handlePath`)
 
-When dealing with structured data, such as when using Zod as a validator for form input values, it is common to generate a schema with `z.object`.  
+When dealing with structured data, such as when using Zod as a validator for form input values, it is common to generate a schema with `z.object`.
 You can handle the object's key in the message by preparing messages with the key in the `with_path` context.
 
 ```ts
@@ -217,11 +217,11 @@ const schema = z.object({
 schema.parse({ userName: 1 }); // => User's name is expected string, received number
 ```
 
-If `_with_path` is suffixed to the key of the message, that message will be adopted in the case of an object type schema.  
+If `_with_path` is suffixed to the key of the message, that message will be adopted in the case of an object type schema.
 If there is no message key with `_with_path`, fall back to the normal error message.
 
-Object schema keys can be handled in the message with `{{path}}`.  
-By preparing the translated data for the same key as the key in the object schema, the translated value will be output in `{{path}}`, otherwise the key will be output as is.  
+Object schema keys can be handled in the message with `{{path}}`.
+By preparing the translated data for the same key as the key in the object schema, the translated value will be output in `{{path}}`, otherwise the key will be output as is.
 It is possible to access nested translation data by specifying `handlePath.keyPrefix`.
 
 ```ts
@@ -268,11 +268,14 @@ z.setErrorMap(
 - [Icelandic(is)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/is/zod.json)
 - [Italian(it)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/it/zod.json)
 - [Japanese(ja)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/ja/zod.json)
+- [Lithuanian(lt)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/lt/zod.json)
 - [Norwegian(nb)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/nb/zod.json)
 - [Dutch(nl)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/nl/zod.json)
 - [Polish(pl)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/pl/zod.json)
 - [Portuguese(pt)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/pt/zod.json)
 - [Russian(ru)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/ru/zod.json)
+- [Romanian(ro)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/ro/zod.json)
+- [Swedish(sv)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/sv/zod.json)
 - [Turkish(tr)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/tr/zod.json)
 - Chinese
   - [Simplified Chinese(zh-CN)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/zh-CN/zod.json)

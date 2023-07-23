@@ -1,0 +1,112 @@
+{
+  "errors": {
+    "invalid_type": "Tikėtasi {{expected}}, gauta(s) {{received}}",
+    "invalid_type_received_undefined": "Šis laukas yra privalomas",
+    "invalid_literal": "Klaidinga literalo reikšmė, tikėtasi {{expected}}",
+    "unrecognized_keys": "Neatpažintas(i) raktas(ai) objekte: {{- keys}}",
+    "invalid_union": "Klaidinga įvestis",
+    "invalid_union_discriminator": "Netinkama diksriminanto reikšmė. Tikėtasi {{- options}}",
+    "invalid_enum_value": "Klaidinga reikšmė. Tikėtasi {{- options}}, gauta '{{received}}'",
+    "invalid_arguments": "Klaidingi funkcijos argumentai",
+    "invalid_return_type": "Klaidingas funkcijos gražinamos reikšmės tipas",
+    "invalid_date": "Klaidinga data",
+    "custom": "Klaidinga įvestis",
+    "invalid_intersection_types": "Negalima sujungti sankirtos rezultatų",
+    "not_multiple_of": "Skaičius privalo būti {{multipleOf}} kartotinis",
+    "not_finite": "Skaičius privalo būti baigtinis",
+    "invalid_string": {
+      "email": "Klaidingas {{validation}}",
+      "url": "Klaidinga {{validation}}",
+      "uuid": "Klaidingas {{validation}}",
+      "cuid": "Klaidingas {{validation}}",
+      "regex": "Klaidingas {{validation}}",
+      "datetime": "Klaidinga {{validation}}",
+      "startsWith": "Klaidinga įvestis: privaloma pradžia \"{{startsWith}}\"",
+      "endsWith": "Klaidinga įvestis: privaloma pabaiga \"{{endsWith}}\""
+    },
+    "too_small": {
+      "array": {
+        "exact": "Masyvas privalo turėti {{minimum}} elementą(us)",
+        "inclusive": "Masyvas privalo turėti bent {{minimum}} elementą(us)",
+        "not_inclusive": "Masyvas privalo turėti daugiau, nei {{minimum}} elementą(us)"
+      },
+      "string": {
+        "exact": "Tekstas privalo būti sudarytas iš {{minimum}} simbolio(ių)",
+        "inclusive": "Tekstas privalo būti sudarytas, bent iš {{minimum}} simbolio(ių)",
+        "not_inclusive": "Tekstas privalo būti ilgesnis, nei {{minimum}} simbolis(iai)"
+      },
+      "number": {
+        "exact": "Skaičius privalo būti {{minimum}}",
+        "inclusive": "Skaičius privalo būti didesnis arba lygus {{minimum}}",
+        "not_inclusive": "Skaičius privalo būti didesnis, nei {{minimum}}"
+      },
+      "set": {
+        "exact": "Klaidinga įvestis",
+        "inclusive": "Klaidinga įvestis",
+        "not_inclusive": "Klaidinga įvestis"
+      },
+      "date": {
+        "exact": "Data privalo būti {{- minimum, datetime}}",
+        "inclusive": "Data privalo būti vėlesnė arba lygi {{- minimum, datetime}}",
+        "not_inclusive": "Data privalo būti vėlesnė, nei {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "array": {
+        "exact": "Masyvas privalo turėti {{maximum}} elementą(us)",
+        "inclusive": "Masyvas negali turėti daugiau, nei {{maximum}} elementą(us)",
+        "not_inclusive": "Masyvas privalo turėti mažiau, nei {{maximum}} elementą(us)"
+      },
+      "string": {
+        "exact": "Tekstas privalo būti sudarytas iš {{maximum}} simbolio(ių)",
+        "inclusive": "Tekstas negali būti sudarytas iš daugiau, nei {{maximum}} simbolio(ių)",
+        "not_inclusive": "Tekstas privalo būti trumpesnis, nei {{maximum}} simbolis(iai)"
+      },
+      "number": {
+        "exact": "Skaičius privalo būti {{maximum}}",
+        "inclusive": "Skaičius privalo būti mažesnis arba lygus {{maximum}}",
+        "not_inclusive": "Skaičius privalo būti mažesnis, nei {{maximum}}"
+      },
+      "set": {
+        "exact": "Klaidinga įvestis",
+        "inclusive": "Klaidinga įvestis",
+        "not_inclusive": "Klaidinga įvestis"
+      },
+      "date": {
+        "exact": "Data privalo būti {{- maximum, datetime}}",
+        "inclusive": "Data privalo būti ankstesnė arba lygi {{- maximum, datetime}}",
+        "not_inclusive": "Data privalo būti ankstesnė, nei {{- maximum, datetime}}"
+      }
+    }
+  },
+  "validations": {
+    "email": "el. paštas",
+    "url": "nuoroda",
+    "uuid": "uuid",
+    "cuid": "cuid",
+    "regex": "reguliarus išraiškos šablonas",
+    "datetime": "datos ir laiko reikšmė"
+  },
+  "types": {
+    "function": "funkcija",
+    "number": "skaičius",
+    "string": "tekstas",
+    "nan": "nan",
+    "integer": "sveikasis skaičius",
+    "float": "slankusis kablelis",
+    "boolean": "loginė reikšmė",
+    "date": "data",
+    "bigint": "didelis sveikasis skaičius",
+    "undefined": "neapibrėžtas",
+    "symbol": "simbolis",
+    "null": "null",
+    "array": "masyvas",
+    "object": "objektas",
+    "unknown": "nežinomas",
+    "promise": "pažadas",
+    "void": "tuščias",
+    "never": "niekada",
+    "map": "rakto-reikšmių sąrašas",
+    "set": "rinkinys"
+  }
+}

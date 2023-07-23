@@ -1,0 +1,112 @@
+{
+  "errors": {
+    "invalid_type": "Tipul de date așteptat era {{expected}}, s-a primit {{received}}",
+    "invalid_type_received_undefined": "Obligatoriu",
+    "invalid_literal": "Valoare literală nevalidă, valoarea așteptată era {{expected}}",
+    "unrecognized_keys": "Chei/e nerecunoscută/e în obiect: {{- keys}}",
+    "invalid_union": "Intrare nevalidă",
+    "invalid_union_discriminator": "Valoare nevalidă pentru discriminant. Valori așteptate: {{- options}}",
+    "invalid_enum_value": "Valoare nevalidă pentru enum. Valori așteptate: {{- options}}, s-a primit: '{{received}}'",
+    "invalid_arguments": "Parametri nevalizi pentru funcție",
+    "invalid_return_type": "Tip de date returnat de funcție nevalid",
+    "invalid_date": "Dată nevalidă",
+    "custom": "Intrare nevalidă",
+    "invalid_intersection_types": "Rezultatele intersecției nu s-au putut îmbina",
+    "not_multiple_of": "Numărul trebuie să fie multiplu de {{multipleOf}}",
+    "not_finite": "Numărul trebuie să fie finit",
+    "invalid_string": {
+      "email": "{{validation}} nevalid",
+      "url": "{{validation}} nevalid",
+      "uuid": "{{validation}} nevalid",
+      "cuid": "{{validation}} nevalid",
+      "regex": "Nevalid",
+      "datetime": "{{validation}} nevalid",
+      "startsWith": "Intrare nevalidă: trebuie să înceapă cu \"{{startsWith}}\"",
+      "endsWith": "Intrare nevalidă: trebuie să se termine cu \"{{endsWith}}\""
+    },
+    "too_small": {
+      "array": {
+        "exact": "Lista trebuie să conțină exact {{minimum}} element(e)",
+        "inclusive": "Lista trebuie să conțină cel puțin {{minimum}} element(e)",
+        "not_inclusive": "Lista trebuie să conțină mai mult decât {{minimum}} element(e)"
+      },
+      "string": {
+        "exact": "Șirul trebuie să conțină exact {{minimum}} caracter(e)",
+        "inclusive": "Șirul trebuie să conțină cel puțin {{minimum}} caracter(e)",
+        "not_inclusive": "Șirul trebuie să conțină peste {{minimum}} caracter(e)"
+      },
+      "number": {
+        "exact": "Numărul trebuie să fie exact {{minimum}}",
+        "inclusive": "Numărul trebuie să fie mai mare sau egal cu {{minimum}}",
+        "not_inclusive": "Numărul trebuie să fie strict mai mare decât {{minimum}}"
+      },
+      "set": {
+        "exact": "Intrare nevalidă",
+        "inclusive": "Intrare nevalidă",
+        "not_inclusive": "Intrare nevalidă"
+      },
+      "date": {
+        "exact": "Data trebuie să fie exact {{- minimum, datetime}}",
+        "inclusive": "Data trebuie să fie mai mare sau egală cu {{- minimum, datetime}}",
+        "not_inclusive": "Data trebuie să fie strict mai mare decât {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "array": {
+        "exact": "Lista trebuie să conțină exact {{maximum}} element(e)",
+        "inclusive": "Lista trebuie să conțină cel mult {{maximum}} element(e)",
+        "not_inclusive": "Lista trebuie să conțină mai puțin de {{maximum}} element(e)"
+      },
+      "string": {
+        "exact": "Șirul trebuie să conțină exact {{maximum}} caracter(e)",
+        "inclusive": "Șirul trebuie să conțină cel mult {{maximum}} caracter(e)",
+        "not_inclusive": "Șirul trebuie să conțină mai puțin de {{maximum}} caracter(e)"
+      },
+      "number": {
+        "exact": "Numărul trebuie să fie exact {{maximum}}",
+        "inclusive": "Numărul trebuie să fie mai mic sau egal cu {{maximum}}",
+        "not_inclusive": "Numărul trebuie să fie strict mai mic decât {{maximum}}"
+      },
+      "set": {
+        "exact": "Intrare nevalidă",
+        "inclusive": "Intrare nevalidă",
+        "not_inclusive": "Intrare nevalidă"
+      },
+      "date": {
+        "exact": "Data trebuie să fie exact {{- maximum, datetime}}",
+        "inclusive": "Data trebuie să fie mai mică sau egală cu {{- maximum, datetime}}",
+        "not_inclusive": "Data trebuie să fie strict mai mică decât {{- maximum, datetime}}"
+      }
+    }
+  },
+  "validations": {
+    "email": "E-mail",
+    "url": "URL",
+    "uuid": "UUID",
+    "cuid": "CUID",
+    "regex": "Regex",
+    "datetime": "Dată și timp"
+  },
+  "types": {
+    "function": "funcție",
+    "number": "număr",
+    "string": "șir de caractere",
+    "nan": "NaN",
+    "integer": "număr întreg",
+    "float": "număr zecimal",
+    "boolean": "boolean",
+    "date": "dată",
+    "bigint": "număr întreg mare",
+    "undefined": "nedefinit",
+    "symbol": "simbol",
+    "null": "nul",
+    "array": "listă",
+    "object": "obiect",
+    "unknown": "necunoscut",
+    "promise": "promisiune",
+    "void": "vid",
+    "never": "never",
+    "map": "map",
+    "set": "mulțime"
+  }
+}
