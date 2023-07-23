@@ -261,6 +261,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "Kudze",
+      "name": "Karolis Kraujelis",
+      "avatar_url": "https://avatars.githubusercontent.com/u/14080617?v=4",
+      "profile": "https://kudze.lt",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
