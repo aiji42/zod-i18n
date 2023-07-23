@@ -1,0 +1,112 @@
+{
+  "errors": {
+    "invalid_type": "Förväntade {{expected}}, fick {{received}}",
+    "invalid_type_received_undefined": "Obligatoriskt",
+    "invalid_literal": "Ogiltigt literalvärde, förväntade {{expected}}",
+    "unrecognized_keys": "Okänd(a) nyckel(ar) i objektet: {{- keys}}",
+    "invalid_union": "Ogiltig inmatning",
+    "invalid_union_discriminator": "Ogiltigt diskriminatorsvärde. Förväntade {{- options}}",
+    "invalid_enum_value": "Ogiltigt enumvärde. Förväntade {{- options}}, fick '{{received}}'",
+    "invalid_arguments": "Ogiltiga funktionsargument",
+    "invalid_return_type": "Ogiltig returtyp för funktionen",
+    "invalid_date": "Ogiltigt datum",
+    "custom": "Ogiltig inmatning",
+    "invalid_intersection_types": "Sammansättningsresultaten kunde inte slås samman",
+    "not_multiple_of": "Numret måste vara ett multipel av {{multipleOf}}",
+    "not_finite": "Numret måste vara ändligt",
+    "invalid_string": {
+      "email": "Ogiltig {{validation}}",
+      "url": "Ogiltig {{validation}}",
+      "uuid": "Ogiltig {{validation}}",
+      "cuid": "Ogiltig {{validation}}",
+      "regex": "Ogiltigt",
+      "datetime": "Ogiltig {{validation}}",
+      "startsWith": "Ogiltig inmatning: måste börja med \"{{startsWith}}\"",
+      "endsWith": "Ogiltig inmatning: måste sluta med \"{{endsWith}}\""
+    },
+    "too_small": {
+      "array": {
+        "exact": "Arrayen måste innehålla exakt {{minimum}} element",
+        "inclusive": "Arrayen måste innehålla minst {{minimum}} element",
+        "not_inclusive": "Arrayen måste innehålla fler än {{minimum}} element"
+      },
+      "string": {
+        "exact": "Strängen måste innehålla exakt {{minimum}} tecken",
+        "inclusive": "Strängen måste innehålla minst {{minimum}} tecken",
+        "not_inclusive": "Strängen måste innehålla fle {{minimum}} tecken"
+      },
+      "number": {
+        "exact": "Numret måste vara exakt {{minimum}}",
+        "inclusive": "Numret måste vara större än eller lika med {{minimum}}",
+        "not_inclusive": "Numret måste vara större än {{minimum}}"
+      },
+      "set": {
+        "exact": "Ogiltig inmatning",
+        "inclusive": "Ogiltig inmatning",
+        "not_inclusive": "Ogiltig inmatning"
+      },
+      "date": {
+        "exact": "Datumet måste vara exakt {{- minimum, datetime}}",
+        "inclusive": "Datumet måste vara större än eller lika med {{- minimum, datetime}}",
+        "not_inclusive": "Datumet måste vara större än {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "array": {
+        "exact": "Arrayen måste innehålla exakt {{maximum}} element",
+        "inclusive": "Arrayen måste innehålla högst {{maximum}} element",
+        "not_inclusive": "Arrayen måste innehålla färre än {{maximum}} element"
+      },
+      "string": {
+        "exact": "Strängen måste innehålla exakt {{maximum}} tecken",
+        "inclusive": "Strängen måste innehålla högst {{maximum}} tecken",
+        "not_inclusive": "Strängen måste innehålla färre än {{maximum}} tecken"
+      },
+      "number": {
+        "exact": "Numret måste vara exakt {{maximum}}",
+        "inclusive": "Numret måste vara högst {{maximum}}",
+        "not_inclusive": "Numret måste vara mindre än {{maximum}}"
+      },
+      "set": {
+        "exact": "Ogiltig inmatning",
+        "inclusive": "Ogiltig inmatning",
+        "not_inclusive": "Ogiltig inmatning"
+      },
+      "date": {
+        "exact": "Datumet måste vara exakt {{- maximum, datetime}}",
+        "inclusive": "Datumet måste vara mindre än eller lika med {{- maximum, datetime}}",
+        "not_inclusive": "Datumet måste vara mindre än {{- maximum, datetime}}"
+      }
+    }
+  },
+  "validations": {
+    "email": "e-post",
+    "url": "webbadress",
+    "uuid": "UUID",
+    "cuid": "CUID",
+    "regex": "regex",
+    "datetime": "datumtid"
+  },
+  "types": {
+    "function": "funktion",
+    "number": "nummer",
+    "string": "sträng",
+    "nan": "NaN",
+    "integer": "heltal",
+    "float": "flyttal",
+    "boolean": "boolesk",
+    "date": "datum",
+    "bigint": "bigint",
+    "undefined": "obestämd",
+    "symbol": "symbol",
+    "null": "null",
+    "array": "array",
+    "object": "objekt",
+    "unknown": "okänd",
+    "promise": "promise",
+    "void": "void",
+    "never": "aldrig",
+    "map": "map",
+    "set": "set"
+  }
+}
