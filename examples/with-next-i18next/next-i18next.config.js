@@ -23,6 +23,7 @@ module.exports = {
       "it",
       "tr",
       "pl",
+      "lt",
       "ru",
       "ro",
     ],
