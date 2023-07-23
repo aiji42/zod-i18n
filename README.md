@@ -275,6 +275,7 @@ z.setErrorMap(
 - [Portuguese(pt)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/pt/zod.json)
 - [Russian(ru)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/ru/zod.json)
 - [Romanian(ro)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/ro/zod.json)
+- [Swedish(sv)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/sv/zod.json)
 - [Turkish(tr)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/tr/zod.json)
 - Chinese
   - [Simplified Chinese(zh-CN)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/zh-CN/zod.json)
