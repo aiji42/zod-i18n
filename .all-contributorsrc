@@ -273,6 +273,16 @@
         "translation",
         "test"
       ]
+    },
+    {
+      "login": "demptd13",
+      "name": "Ihor",
+      "avatar_url": "https://avatars.githubusercontent.com/u/103131906?v=4",
+      "profile": "https://github.com/demptd13",
+      "contributions": [
+        "translation",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
