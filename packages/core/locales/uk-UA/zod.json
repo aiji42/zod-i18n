@@ -1,0 +1,112 @@
+{
+  "errors": {
+    "invalid_type": "Очікувався тип {{expected}}, отримано {{received}}",
+    "invalid_type_received_undefined": "Обов'язковe поле",
+    "invalid_literal": "Невірне літеральне значення, очікувалось {{expected}}",
+    "unrecognized_keys": "Нерозпізнані ключі в об'єкті: {{- keys}}",
+    "invalid_union": "Невірне введення",
+    "invalid_union_discriminator": "Неправильне значення дискримінатора. Очікувалось {{- options}}",
+    "invalid_enum_value": "Невірне значення enum. Очікувалося {{- options}}, отримано '{{received}}'",
+    "invalid_arguments": "Невірні аргументи функції",
+    "invalid_return_type": "Невірний тип значення, що повертається функцією",
+    "invalid_date": "Невірний формат дати",
+    "custom": "Невірне введення",
+    "invalid_intersection_types": "Результати перетину не вдалося об'єднати",
+    "not_multiple_of": "Число повинно бути кратним {{multipleOf}}",
+    "not_finite": "Число повинно бути скінченним",
+    "invalid_string": {
+      "email": "Невірний {{validation}}",
+      "url": "Невірний {{validation}}",
+      "uuid": "Невірне введення {{validation}}",
+      "cuid": "Невірне введення {{validation}}",
+      "regex": "Невдала валідація",
+      "datetime": "Невірний формат {{validation}}",
+      "startsWith": "Невірне введення: повинно починатись з \"{{startsWith}}\"",
+      "endsWith": "Невірне введення: повинно закінчуватись на \"{{endsWith}}\""
+    },
+    "too_small": {
+      "array": {
+        "exact": "Масив повинен містити рівно {{minimum}} елемента(-ів)",
+        "inclusive": "Масив повинен містити щонайменше {{minimum}} елемента(-ів)",
+        "not_inclusive": "Масив повинен містити більше {{minimum}} елемента(-ів)"
+      },
+      "string": {
+        "exact": "Рядок повинен містити рівно {{minimum}} символа(-ів)",
+        "inclusive": "Рядок повинен містити щонайменше {{minimum}} символа(-ів)",
+        "not_inclusive": "Рядок повинен містити більше {{minimum}} символа(-ів)"
+      },
+      "number": {
+        "exact": "Число повинно бути рівне {{minimum}}",
+        "inclusive": "Число повинно бути більше або дорівнювати {{minimum}}",
+        "not_inclusive": "Число повинно бути більше {{minimum}}"
+      },
+      "set": {
+        "exact": "Невірний ввід",
+        "inclusive": "Невірний ввід",
+        "not_inclusive": "Невірний ввід"
+      },
+      "date": {
+        "exact": "Дата повинно бути точно {{- minimum, datetime}}",
+        "inclusive": "Дата повинно бути більшою або рівною {{- minimum, datetime}}",
+        "not_inclusive": "Дата повинно бути більшою ніж {{-minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "array": {
+        "exact": "Масив повинен містити рівно {{maximum}} елемента(-ів)",
+        "inclusive": "Масив повинен містити не більше {{maximum}} елемента(-ів)",
+        "not_inclusive": "Масив повинен містити менше {{maximum}} елемента(-ів)"
+      },
+      "string": {
+        "exact": "Рядок повинен містити рівно {{maximum}} символа(-ів)",
+        "inclusive": "Рядок повинен містити не більше {{maximum}} символа(-ів)",
+        "not_inclusive": "Рядок повинен містити менше {{maximum}} символа(-ів)"
+      },
+      "number": {
+        "exact": "Число повинно бути рівно {{maximum}}",
+        "inclusive": "Число повинно бути менше або дорівнювати {{maximum}}",
+        "not_inclusive": "Число повинно бути менше {{maximum}}"
+      },
+      "set": {
+        "exact": "Неправильний ввід",
+        "inclusive": "Невірне введення",
+        "not_inclusive": "Невірний ввід"
+      },
+      "date": {
+        "exact": "Дата повинна бути точно {{- maximum, datetime}}",
+        "inclusive": "Дата повинна бути меншою або дорівнювати {{- maximum, datetime}}",
+        "not_inclusive": "Дата повинно бути меншою ніж {{- maximum, datetime}}"
+      }
+    }
+  },
+  "validations": {
+    "email": "email",
+    "url": "url",
+    "uuid": "uuid",
+    "cuid": "cuid",
+    "regex": "regex",
+    "datetime": "datetime"
+  },
+  "types": {
+    "function": "function",
+    "number": "number",
+    "string": "string",
+    "nan": "NaN",
+    "integer": "integer",
+    "float": "float",
+    "boolean": "boolean",
+    "date": "date",
+    "bigint": "bigint",
+    "undefined": "undefined",
+    "symbol": "symbol",
+    "null": "null",
+    "array": "array",
+    "object": "object",
+    "unknown": "unknown",
+    "promise": "promise",
+    "void": "void",
+    "never": "never",
+    "map": "map",
+    "set": "set"
+  }
+}
