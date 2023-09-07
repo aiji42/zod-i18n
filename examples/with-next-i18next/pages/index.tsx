@@ -92,6 +92,7 @@ export default function HookForm() {
             <option value="pl">polski</option>
             <option value="ru">Русский</option>
             <option value="uk-UA">Українська</option>
+            <option value="uz">O‘zbekcha</option>
             <option value="ro">Română</option>
             <option value="tr">Türkçe</option>
             <option value="zh-CN">简体中文</option>
