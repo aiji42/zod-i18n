@@ -283,6 +283,16 @@
         "translation",
         "test"
       ]
+    },
+    {
+      "login": "umidullo",
+      "name": "Umidullo Suyunov",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55104231?v=4",
+      "profile": "https://github.com/umidullo",
+      "contributions": [
+        "translation",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
