@@ -8,6 +8,7 @@ module.exports = {
     locales: [
       "en",
       "he",
+      "ko",
       "ja",
       "fr",
       "ar",
