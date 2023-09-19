@@ -301,7 +301,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-29-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-30-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -349,6 +349,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/umidullo"><img src="https://avatars.githubusercontent.com/u/55104231?v=4?s=100" width="100px;" alt="Umidullo Suyunov"/><br /><sub><b>Umidullo Suyunov</b></sub></a><br /><a href="#translation-umidullo" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=umidullo" title="Tests">⚠️</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://lkoiescg2031.netlify.com"><img src="https://avatars.githubusercontent.com/u/42562726?v=4?s=100" width="100px;" alt="lkoiescg2031"/><br /><sub><b>lkoiescg2031</b></sub></a><br /><a href="#translation-lkoiescg2031" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=lkoiescg2031" title="Tests">⚠️</a></td>
     </tr>
   </tbody>
 </table>
