@@ -313,6 +313,16 @@
         "translation",
         "test"
       ]
+    },
+    {
+      "login": "martinovicdev",
+      "name": "Boris Martinovic",
+      "avatar_url": "https://avatars.githubusercontent.com/u/46416972?v=4",
+      "profile": "https://martinovic.dev",
+      "contributions": [
+        "translation",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
