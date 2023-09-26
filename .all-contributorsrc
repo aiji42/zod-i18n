@@ -303,6 +303,16 @@
         "translation",
         "test"
       ]
+    },
+    {
+      "login": "xypine",
+      "name": "Elias Eskelinen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/29503504?v=4",
+      "profile": "http://eliaseskelinen.fi",
+      "contributions": [
+        "translation",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
