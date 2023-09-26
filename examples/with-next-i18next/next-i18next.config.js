@@ -30,6 +30,7 @@ module.exports = {
       "uk-UA",
       "uz",
       "hr-HR",
+      "fi",
     ],
   },
   localePath: path.resolve("./public/locales"),
