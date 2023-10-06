@@ -31,6 +31,7 @@ module.exports = {
       "uz",
       "hr-HR",
       "fi",
+      "cs",
     ],
   },
   localePath: path.resolve("./public/locales"),
