@@ -333,6 +333,15 @@
         "translation",
         "test"
       ]
+    },
+    {
+      "login": "andersonba",
+      "name": "Anderson Dourado",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1501013?v=4",
+      "profile": "http://dourado.me",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
