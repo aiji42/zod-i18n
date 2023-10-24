@@ -38,13 +38,13 @@ test("string parser error messages", () => {
     'Entrada inválida: deve terminar com "bar"'
   );
   expect(getErrorMessage(schema.length(5).safeParse("abcdef"))).toEqual(
-    "String deve conter exatamente 5 caracter(es)"
+    "Texto deve conter exatamente 5 caracter(es)"
   );
   expect(getErrorMessage(schema.min(5).safeParse("a"))).toEqual(
-    "String deve conter pelo menos 5 caracter(es)"
+    "Texto deve conter pelo menos 5 caracter(es)"
   );
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
-    "String pode conter no máximo 5 caracter(es)"
+    "Texto pode conter no máximo 5 caracter(es)"
   );
   // TODO: translation `datetime` (zod:validations.datetime and zod:errors.invalid_string.datetime)
   expect(
@@ -134,16 +134,16 @@ test("array parser error messages", () => {
     "O dado deve ser do tipo array, porém foi enviado string"
   );
   expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
-    "Array deve conter exatamente 2 elemento(s)"
+    "Lista deve conter exatamente 2 elemento(s)"
   );
   expect(getErrorMessage(schema.min(5).safeParse([""]))).toEqual(
-    "Array deve conter no mínimo 5 elemento(s)"
+    "Lista deve conter no mínimo 5 elemento(s)"
   );
   expect(getErrorMessage(schema.max(2).safeParse(["", "", ""]))).toEqual(
-    "Array deve conter no máximo 2 elemento(s)"
+    "Lista deve conter no máximo 2 elemento(s)"
   );
   expect(getErrorMessage(schema.nonempty().safeParse([]))).toEqual(
-    "Array deve conter no mínimo 1 elemento(s)"
+    "Lista deve conter no mínimo 1 elemento(s)"
   );
 });
 
