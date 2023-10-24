@@ -302,7 +302,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-33-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-34-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -354,6 +354,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://eliaseskelinen.fi"><img src="https://avatars.githubusercontent.com/u/29503504?v=4?s=100" width="100px;" alt="Elias Eskelinen"/><br /><sub><b>Elias Eskelinen</b></sub></a><br /><a href="#translation-xypine" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=xypine" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://martinovic.dev"><img src="https://avatars.githubusercontent.com/u/46416972?v=4?s=100" width="100px;" alt="Boris Martinovic"/><br /><sub><b>Boris Martinovic</b></sub></a><br /><a href="#translation-martinovicdev" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=martinovicdev" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/jblxo"><img src="https://avatars.githubusercontent.com/u/27725378?v=4?s=100" width="100px;" alt="Ondřej Hliba"/><br /><sub><b>Ondřej Hliba</b></sub></a><br /><a href="#translation-jblxo" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=jblxo" title="Tests">⚠️</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://dourado.me"><img src="https://avatars.githubusercontent.com/u/1501013?v=4?s=100" width="100px;" alt="Anderson Dourado"/><br /><sub><b>Anderson Dourado</b></sub></a><br /><a href="#translation-andersonba" title="Translation">🌍</a></td>
     </tr>
   </tbody>
 </table>
