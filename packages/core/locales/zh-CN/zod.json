@@ -47,7 +47,7 @@
       },
       "date": {
         "exact": "日期必须为 {{- minimum, datetime}}",
-        "inclusive": "日期必须晚于或等于 {{- minimum, datetime}}",
+        "inclusive": "日期不得晚于 {{- minimum, datetime}}",
         "not_inclusive": "日期必须早于 {{- minimum, datetime}}"
       }
     },
