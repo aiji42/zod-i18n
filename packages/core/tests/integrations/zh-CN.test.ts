@@ -107,16 +107,16 @@ test("date parser error messages", async () => {
     getErrorMessage(
       schema.min(new Date("2022-08-01")).safeParse(new Date("2022-07-29"))
     )
-  ).toEqual(`日期必须晚于或等于 ${testDate.toLocaleDateString(LOCALE)}`);
+  ).toEqual(`日期不得晚于 ${testDate.toLocaleDateString(LOCALE)}`);
   expect(
     getErrorMessage(
       schema.max(new Date("2022-08-01")).safeParse(new Date("2022-08-02"))
     )
-  ).toEqual(`日期必须早于或等于 ${testDate.toLocaleDateString(LOCALE)}`);
+  ).toEqual(`日期不得早于 ${testDate.toLocaleDateString(LOCALE)}`);
   try {
     await schema.parseAsync(new Date("invalid"));
   } catch (err) {
-    expect((err as z.ZodError).issues[0].message).toEqual("错误的日期");
+    expect((err as z.ZodError).issues[0].message).toEqual("错误的日期格式");
   }
 });
 
@@ -127,17 +127,16 @@ test("array parser error messages", () => {
     "预期输入为数组，而输入为字符串"
   );
   expect(getErrorMessage(schema.min(5).safeParse([""]))).toEqual(
-    "至少需要包含 5 个元素"
+    "数组元素不得少于 5 个"
   );
   expect(getErrorMessage(schema.max(2).safeParse(["", "", ""]))).toEqual(
-    "最多只能包含 2 个元素"
+    "数组元素不得多于 2 个"
   );
   expect(getErrorMessage(schema.nonempty().safeParse([]))).toEqual(
-    "至少需要包含 1 个元素"
+    "数组元素不得少于 1 个"
   );
-  // TODO: add `zod:errors.(too_small|too_big).array.exact`
   expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
-    "Array must contain exactly 2 element(s)"
+    "数组元素必须为 2 个"
   );
 });
 
@@ -146,10 +145,10 @@ test("function parser error messages", () => {
     .function(z.tuple([z.string()]), z.number())
     .parse((a: any) => a);
   expect(getErrorMessageFromZodError(() => functionParse(""))).toEqual(
-    "错误的返回值类型"
+    "错误的函数返回值格式"
   );
   expect(getErrorMessageFromZodError(() => functionParse(1 as any))).toEqual(
-    "参数错误"
+    "错误的函数参数格式"
   );
 });
 
@@ -163,12 +162,12 @@ test("other parser error messages", () => {
         )
         .safeParse(1234)
     )
-  ).toEqual("交集类型无法合并");
+  ).toEqual("交叉类型结果无法被合并");
   expect(getErrorMessage(z.literal(12).safeParse(""))).toEqual(
-    "无效的输入, 请输入 12"
+    "错误的字面量值，请输入 12"
   );
   expect(getErrorMessage(z.enum(["A", "B", "C"]).safeParse("D"))).toEqual(
-    "无效的 'D' 值。请输入 'A' | 'B' | 'C'"
+    "错误的枚举值 'D'。请输入 'A' | 'B' | 'C'"
   );
   expect(
     getErrorMessage(
@@ -177,7 +176,7 @@ test("other parser error messages", () => {
         .strict()
         .safeParse({ dog: "", cat: "", rat: "" })
     )
-  ).toEqual("无法识别对象的键: 'cat', 'rat'");
+  ).toEqual("对象中的键无法识别: 'cat', 'rat'");
   expect(
     getErrorMessage(
       z
@@ -187,10 +186,10 @@ test("other parser error messages", () => {
         ])
         .safeParse({ type: "c", c: "abc" })
     )
-  ).toEqual("无效的标识符。请输入 'a' | 'b'");
+  ).toEqual("标识值无法被区分。请输入 'a' | 'b'");
   expect(
     getErrorMessage(z.union([z.string(), z.number()]).safeParse([true]))
-  ).toEqual("输入格式错误");
+  ).toEqual("不满足联合类型中的选项");
   expect(
     getErrorMessage(
       z
@@ -200,5 +199,5 @@ test("other parser error messages", () => {
         })
         .safeParse("")
     )
-  ).toEqual("格式错误");
+  ).toEqual("错误的输入格式");
 });
