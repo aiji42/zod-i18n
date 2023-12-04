@@ -1,102 +1,112 @@
 {
   "errors": {
-    "invalid_type": "期望输入的是{{expected}}, 而输入的是{{received}}",
-    "invalid_type_received_undefined": "必填项",
-    "invalid_literal": "无效的输入, 请输入 {{expected}}",
-    "unrecognized_keys": "无法识别对象的键: {{- keys}}",
-    "invalid_union": "输入格式错误",
-    "invalid_union_discriminator": "无效的标识符。请输入 {{- options}}",
-    "invalid_enum_value": "无效的 {{received}} 值。请输入 {{- options}}",
-    "invalid_arguments": "参数错误",
-    "invalid_return_type": "错误的返回值类型",
-    "invalid_date": "错误的日期",
-    "custom": "格式错误",
-    "invalid_intersection_types": "交集类型无法合并",
-    "not_multiple_of": "必须是 {{multipleOf}} 的倍数",
-    "not_finite": "不能为无限值",
+    "invalid_type": "预期输入为 {{expected}}，而输入为 {{received}}",
+    "invalid_type_received_undefined": "必填",
+    "invalid_literal": "错误的字面量值，请输入 {{expected}}",
+    "unrecognized_keys": "对象中的键无法识别: {{- keys}}",
+    "invalid_union": "错误的联合类型",
+    "invalid_union_discriminator": "标识值无法被区分。请输入 {{- options}}",
+    "invalid_enum_value": "错误的枚举值 '{{received}}'。请输入 {{- options}}",
+    "invalid_arguments": "错误的函数参数",
+    "invalid_return_type": "错误的返回值",
+    "invalid_date": "错误的日期格式",
+    "custom": "错误的输入格式",
+    "invalid_intersection_types": "交叉类型结果无法被合并",
+    "not_multiple_of": "数值必须是 {{multipleOf}} 的倍数",
+    "not_finite": "数值必须有限",
     "invalid_string": {
-      "email": "{{validation}}格式错误",
-      "url": "{{validation}} 格式错误",
-      "uuid": "{{validation}} 格式错误",
-      "cuid": "{{validation}} 格式错误",
+      "email": "错误的 {{validation}}",
+      "url": "错误的 {{validation}}",
+      "uuid": "错误的 {{validation}}",
+      "cuid": "错误的 {{validation}}",
       "regex": "格式错误",
-      "datetime": "{{validation}} 格式错误",
-      "startsWith": "必须以 {{startsWith}} 起始",
-      "endsWith": "必须以 {{endsWith}} 结尾"
+      "datetime": "错误的 {{validation}}",
+      "startsWith": "输入必须以 \"{{startsWith}}\" 起始",
+      "endsWith": "输入必须以 \"{{endsWith}}\" 结尾"
     },
     "too_small": {
       "array": {
-        "inclusive": "至少需要包含 {{minimum}} 个元素",
-        "not_inclusive": "必须包含多于 {{minimum}} 个元素"
+        "exact": "数组元素必须为 {{minimum}} 个",
+        "inclusive": "数组元素不得少于 {{minimum}} 个",
+        "not_inclusive": "数组元素必须超过 {{minimum}} 个"
       },
       "string": {
-        "inclusive": "至少需要包含 {{minimum}} 个字符",
-        "not_inclusive": "必须包含多于 {{minimum}} 个字符"
+        "exact": "文本长度必须为 {{minimum}} 个字符",
+        "inclusive": "文本长度不得少于 {{minimum}} 个字符",
+        "not_inclusive": "文本长度必须超过 {{minimum}} 个字符"
       },
       "number": {
-        "inclusive": "必须大于或等于 {{minimum}}",
-        "not_inclusive": "必须大于 {{minimum}}"
+        "exact": "数值必须为 {{minimum}}",
+        "inclusive": "数值不得小于 {{minimum}}",
+        "not_inclusive": "数值必须大于 {{minimum}}"
       },
       "set": {
-        "inclusive": "无效输入",
-        "not_inclusive": "无效输入"
+        "exact": "错误的输入格式",
+        "inclusive": "错误的输入格式",
+        "not_inclusive": "错误的输入格式"
       },
       "date": {
-        "inclusive": "日期必须晚于或等于 {{- minimum, datetime}}",
-        "not_inclusive": "日期必须晚于 {{- minimum, datetime}}"
+        "exact": "日期必须为 {{- minimum，datetime}}",
+        "inclusive": "日期必须晚于或等于 {{- minimum，datetime}}",
+        "not_inclusive": "日期必须早于 {{- minimum，datetime}}"
       }
     },
     "too_big": {
       "array": {
-        "inclusive": "最多只能包含 {{maximum}} 个元素",
-        "not_inclusive": "必须少于 {{maximum}} 个元素"
+        "exact": "数组元素必须为 {{maximum}} 个",
+        "inclusive": "数组元素不得多于 {{maximum}} 个",
+        "not_inclusive": "数组元素必须少于 {{maximum}} 个"
       },
       "string": {
-        "inclusive": "最多只能包含 {{maximum}} 个字符",
-        "not_inclusive": "必须少于 {{maximum}} 个字符"
+        "exact": "文本长度必须为 {{maximum}} 个字符",
+        "inclusive": "文本长度不得多于 {{maximum}} 个字符",
+        "not_inclusive": "文本长度必须少于 {{maximum}} 个字符"
       },
       "number": {
-        "inclusive": "必须小于或等于 {{maximum}}",
+        "exact": "数值必须为 {{maximum}}",
+        "inclusive": "数值不得大于 {{maximum}}",
         "not_inclusive": "必须小于 {{maximum}}"
       },
       "set": {
-        "inclusive": "无效输入",
-        "not_inclusive": "无效输入"
+        "exact": "错误的输入格式",
+        "inclusive": "错误的输入格式",
+        "not_inclusive": "错误的输入格式"
       },
       "date": {
-        "inclusive": "日期必须早于或等于 {{- maximum, datetime}}",
-        "not_inclusive": "日期必须早于 {{- maximum, datetime}}"
+        "exact": "日期必须为 {{- maximum，datetime}}",
+        "inclusive": "日期不得早于 {{- maximum，datetime}}",
+        "not_inclusive": "日期必须晚于 {{- maximum，datetime}}"
       }
     }
   },
   "validations": {
     "email": "邮件",
-    "url": "url",
+    "url": "链接",
     "uuid": "uuid",
     "cuid": "cuid",
     "regex": "正则表达式",
-    "datetime": "datetime"
+    "datetime": "日期时间"
   },
   "types": {
     "function": "函数",
     "number": "数字",
     "string": "字符串",
-    "nan": "NaN",
+    "nan": "非数",
     "integer": "整数",
     "float": "浮点数",
     "boolean": "布尔值",
     "date": "日期",
-    "bigint": "Bigint",
-    "undefined": "undefined",
-    "symbol": "Symbol",
-    "null": "null",
+    "bigint": "大整数",
+    "undefined": "未定义",
+    "symbol": "符号",
+    "null": "空对象",
     "array": "数组",
     "object": "对象",
-    "unknown": "unknown",
+    "unknown": "未知",
     "promise": "Promise",
-    "void": "void",
-    "never": "never",
-    "map": "Map",
-    "set": "Set"
+    "void": "空",
+    "never": "不存在",
+    "map": "字典",
+    "set": "集合"
   }
 }
