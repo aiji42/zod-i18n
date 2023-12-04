@@ -46,9 +46,9 @@
         "not_inclusive": "错误的输入格式"
       },
       "date": {
-        "exact": "日期必须为 {{- minimum，datetime}}",
-        "inclusive": "日期必须晚于或等于 {{- minimum，datetime}}",
-        "not_inclusive": "日期必须早于 {{- minimum，datetime}}"
+        "exact": "日期必须为 {{- minimum, datetime}}",
+        "inclusive": "日期必须晚于或等于 {{- minimum, datetime}}",
+        "not_inclusive": "日期必须早于 {{- minimum, datetime}}"
       }
     },
     "too_big": {
@@ -73,9 +73,9 @@
         "not_inclusive": "错误的输入格式"
       },
       "date": {
-        "exact": "日期必须为 {{- maximum，datetime}}",
-        "inclusive": "日期不得早于 {{- maximum，datetime}}",
-        "not_inclusive": "日期必须晚于 {{- maximum，datetime}}"
+        "exact": "日期必须为 {{- maximum, datetime}}",
+        "inclusive": "日期不得早于 {{- maximum, datetime}}",
+        "not_inclusive": "日期必须晚于 {{- maximum, datetime}}"
       }
     }
   },
