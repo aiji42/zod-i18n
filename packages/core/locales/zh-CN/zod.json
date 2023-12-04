@@ -4,7 +4,7 @@
     "invalid_type_received_undefined": "必填",
     "invalid_literal": "错误的字面量值，请输入 {{expected}}",
     "unrecognized_keys": "对象中的键无法识别: {{- keys}}",
-    "invalid_union": "错误的联合类型",
+    "invalid_union": "不满足联合类型中的选项",
     "invalid_union_discriminator": "标识值无法被区分。请输入 {{- options}}",
     "invalid_enum_value": "错误的枚举值 '{{received}}'。请输入 {{- options}}",
     "invalid_arguments": "错误的函数参数格式",
