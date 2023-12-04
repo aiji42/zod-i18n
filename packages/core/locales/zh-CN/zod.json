@@ -1,6 +1,6 @@
 {
   "errors": {
-    "invalid_type": "预期输入为 {{expected}}，而输入为 {{received}}",
+    "invalid_type": "预期输入为{{expected}}，而输入为{{received}}",
     "invalid_type_received_undefined": "必填",
     "invalid_literal": "错误的字面量值，请输入 {{expected}}",
     "unrecognized_keys": "对象中的键无法识别: {{- keys}}",
@@ -15,14 +15,14 @@
     "not_multiple_of": "数值必须是 {{multipleOf}} 的倍数",
     "not_finite": "数值必须有限",
     "invalid_string": {
-      "email": "错误的 {{validation}}",
-      "url": "错误的 {{validation}}",
-      "uuid": "错误的 {{validation}}",
-      "cuid": "错误的 {{validation}}",
-      "regex": "格式错误",
-      "datetime": "错误的 {{validation}}",
-      "startsWith": "输入必须以 \"{{startsWith}}\" 起始",
-      "endsWith": "输入必须以 \"{{endsWith}}\" 结尾"
+      "email": "错误的{{validation}}格式",
+      "url": "错误的{{validation}}格式",
+      "uuid": "错误的{{validation}}格式",
+      "cuid": "错误的{{validation}}格式",
+      "regex": "错误的格式",
+      "datetime": "错误的{{validation}}格式",
+      "startsWith": "文本必须以 \"{{startsWith}}\" 开头",
+      "endsWith": "文本必须以 \"{{endsWith}}\" 结尾"
     },
     "too_small": {
       "array": {
@@ -65,7 +65,7 @@
       "number": {
         "exact": "数值必须为 {{maximum}}",
         "inclusive": "数值不得大于 {{maximum}}",
-        "not_inclusive": "必须小于 {{maximum}}"
+        "not_inclusive": "数值必须小于 {{maximum}}"
       },
       "set": {
         "exact": "错误的输入格式",
