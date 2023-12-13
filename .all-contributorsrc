@@ -351,6 +351,16 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "undeadevs",
+      "name": "Ilham",
+      "avatar_url": "https://avatars.githubusercontent.com/u/42311213?v=4",
+      "profile": "https://github.com/undeadevs",
+      "contributions": [
+        "translation",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
