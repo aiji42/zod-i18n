@@ -76,6 +76,7 @@ export default function HookForm() {
             borderLeftRadius={0}
           >
             <option value="ar">العربية</option>
+            <option value="id">Bahasa Indonesia</option>
             <option value="cs">Čeština</option>
             <option value="de">Deutsch</option>
             <option value="en">English</option>

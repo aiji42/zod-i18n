@@ -32,6 +32,7 @@ module.exports = {
       "hr-HR",
       "fi",
       "cs",
+      "id",
     ],
   },
   localePath: path.resolve("./public/locales"),
