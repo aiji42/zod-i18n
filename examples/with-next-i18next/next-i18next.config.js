@@ -33,6 +33,7 @@ module.exports = {
       "fi",
       "cs",
       "id",
+      "bg",
     ],
   },
   localePath: path.resolve("./public/locales"),
