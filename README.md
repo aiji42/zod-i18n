@@ -302,7 +302,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-36-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-37-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -359,6 +359,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/undeadevs"><img src="https://avatars.githubusercontent.com/u/42311213?v=4?s=100" width="100px;" alt="Ilham"/><br /><sub><b>Ilham</b></sub></a><br /><a href="#translation-undeadevs" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=undeadevs" title="Tests">⚠️</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://dobromiryor.github.io/"><img src="https://avatars.githubusercontent.com/u/32433021?v=4?s=100" width="100px;" alt="Dobromir Yordanov"/><br /><sub><b>Dobromir Yordanov</b></sub></a><br /><a href="#translation-dobromiryor" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=dobromiryor" title="Tests">⚠️</a></td>
     </tr>
   </tbody>
 </table>
