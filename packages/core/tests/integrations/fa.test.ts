@@ -47,7 +47,7 @@ test("string parser error messages", () => {
     "رشته باید دقیقا دارای 5 کلمه باشد"
   );
   expect(
-     getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
+    getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
   ).toEqual("تاریخ و زمان نامعتبر");
 });
 
@@ -112,16 +112,12 @@ test("date parser error messages", async () => {
   expect(
     getErrorMessage(schema.min(testDate).safeParse(new Date("2022-07-29")))
   ).toEqual(
-    `تاریخ باید بزرگتر یا برابر ${testDate.toLocaleDateString(
-      LOCALE
-    )} باشد`
+    `تاریخ باید بزرگتر یا برابر ${testDate.toLocaleDateString(LOCALE)} باشد`
   );
   expect(
     getErrorMessage(schema.max(testDate).safeParse(new Date("2022-08-02")))
   ).toEqual(
-    `تاریخ باید کوچکتر یا برابر ${testDate.toLocaleDateString(
-      LOCALE
-    )} باشد`
+    `تاریخ باید کوچکتر یا برابر ${testDate.toLocaleDateString(LOCALE)} باشد`
   );
   try {
     await schema.parseAsync(new Date("invalid"));
@@ -162,7 +158,7 @@ test("function parser error messages", () => {
   );
 });
 
-test.only("other parser error messages", () => {
+test("other parser error messages", () => {
   expect(
     getErrorMessage(
       z
