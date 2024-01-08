@@ -75,33 +75,34 @@ export default function HookForm() {
             onChange={changeLocale}
             borderLeftRadius={0}
           >
+            {/* Please list the options in the order of locale codes. */}
             <option value="ar">العربية</option>
-            <option value="id">Bahasa Indonesia</option>
             <option value="bg">Български</option>
             <option value="cs">Čeština</option>
             <option value="de">Deutsch</option>
             <option value="en">English</option>
-            <option value="he">עברית</option>
             <option value="es">español</option>
-            <option value="it">italiano</option>
+            <option value="fa">فارسی</option>
             <option value="fi">suomi</option>
             <option value="fr">Français</option>
-            <option value="fa">فارسی</option>
+            <option value="he">עברית</option>
             <option value="hr-HR">Hrvatski</option>
+            <option value="id">Bahasa Indonesia</option>
             <option value="is">íslenskur</option>
-            <option value="ko">한국어</option>
+            <option value="it">italiano</option>
             <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
             <option value="lt">Lietuvių</option>
-            <option value="nl">Nederlands</option>
-            <option value="sv">Swedish</option>
             <option value="nb">Norsk bokmål</option>
-            <option value="pt">Português</option>
+            <option value="nl">Nederlands</option>
             <option value="pl">polski</option>
+            <option value="pt">Português</option>
+            <option value="ro">Română</option>
             <option value="ru">Русский</option>
+            <option value="sv">Swedish</option>
+            <option value="tr">Türkçe</option>
             <option value="uk-UA">Українська</option>
             <option value="uz">O‘zbekcha</option>
-            <option value="ro">Română</option>
-            <option value="tr">Türkçe</option>
             <option value="zh-CN">简体中文</option>
             <option value="zh-TW">繁體中文</option>
           </Select>
