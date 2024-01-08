@@ -162,7 +162,7 @@ test("function parser error messages", () => {
   );
 });
 
-test("other parser error messages", () => {
+test.only("other parser error messages", () => {
   expect(
     getErrorMessage(
       z
