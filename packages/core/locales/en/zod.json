@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Expected {{expected}}, received {{received}}",
     "invalid_type_received_undefined": "Required",
+    "invalid_type_received_null": "Required",
     "invalid_literal": "Invalid literal value, expected {{expected}}",
     "unrecognized_keys": "Unrecognized key(s) in object: {{- keys}}",
     "invalid_union": "Invalid input",

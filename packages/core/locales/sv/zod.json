@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Förväntade {{expected}}, fick {{received}}",
     "invalid_type_received_undefined": "Obligatoriskt",
+    "invalid_type_received_null": "Obligatoriskt",
     "invalid_literal": "Ogiltigt literalvärde, förväntade {{expected}}",
     "unrecognized_keys": "Okänd(a) nyckel(ar) i objektet: {{- keys}}",
     "invalid_union": "Ogiltig inmatning",

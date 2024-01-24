@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Atteso {{expected}}, ricevuto {{received}}",
     "invalid_type_received_undefined": "Obbligatorio",
+    "invalid_type_received_null": "Obbligatorio",
     "invalid_literal": "Valore literal non valido, atteso {{expected}}",
     "unrecognized_keys": "Campo/i non riconosciuto nell'oggetto: {{- keys}}",
     "invalid_union": "Input non valido",

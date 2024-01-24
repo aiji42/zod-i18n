@@ -57,11 +57,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Obligatoire");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Obligatoire");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Le type « nombre » est attendu mais « chaîne de caractères » a été reçu"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Le type « nombre » est attendu mais « null » a été reçu"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Le type « nombre » est attendu mais « NaN » a été reçu"

@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Oczekiwano: {{expected}}, otrzymano: {{received}}",
     "invalid_type_received_undefined": "Wymagane",
+    "invalid_type_received_null": "Wymagane",
     "invalid_literal": "Niewłaściwa wartość literału, oczekiwano: {{expected}}",
     "unrecognized_keys": "Nierozpoznany klucz(e) w obiekcie: {{- keys}}",
     "invalid_union": "Niewłaściwa wartość",

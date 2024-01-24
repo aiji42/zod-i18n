@@ -57,11 +57,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Wymagane");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Wymagane");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Oczekiwano: liczba, otrzymano: ciąg znaków"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Oczekiwano: liczba, otrzymano: null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Oczekiwano: liczba, otrzymano: NaN"

@@ -55,11 +55,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Povinné");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Povinné");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Typ vstupu musí být číslo, ale byl obdržen typ text"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Typ vstupu musí být číslo, ale byl obdržen typ null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Typ vstupu musí být číslo, ale byl obdržen typ nan"

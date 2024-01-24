@@ -57,11 +57,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("必須");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("必須");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "数値での入力を期待していますが、文字列が入力されました。"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "数値での入力を期待していますが、NULLが入力されました。"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "数値での入力を期待していますが、NaNが入力されました。"

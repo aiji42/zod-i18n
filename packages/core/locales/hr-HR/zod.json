@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Očekivano: {{expected}}, uneseno: {{received}}",
     "invalid_type_received_undefined": "Obvezno polje",
+    "invalid_type_received_null": "Obvezno polje",
     "invalid_literal": "Neispravna literalna vrijednost, očekivano {{expected}}",
     "unrecognized_keys": "Neprepoznat(i) ključ(evi) u objektu: {{- keys}}",
     "invalid_union": "Neispravan unos",

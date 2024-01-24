@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "צפוי {{expected}}, קיבלנו {{received}}",
     "invalid_type_received_undefined": "נדרש",
+    "invalid_type_received_null": "נדרש",
     "invalid_literal": "ערך לא תקין, צפוי {{expected}}",
     "unrecognized_keys": "מפתחות לא מזוהים באובייקט: {{- keys}}",
     "invalid_union": "קלט לא תקין",

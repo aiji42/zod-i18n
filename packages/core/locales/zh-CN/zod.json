@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "预期输入为{{expected}}，而输入为{{received}}",
     "invalid_type_received_undefined": "必填",
+    "invalid_type_received_null": "必填",
     "invalid_literal": "错误的字面量值，请输入 {{expected}}",
     "unrecognized_keys": "对象中的键无法识别: {{- keys}}",
     "invalid_union": "不满足联合类型中的选项",

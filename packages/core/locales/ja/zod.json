@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "{{expected}}での入力を期待していますが、{{received}}が入力されました。",
     "invalid_type_received_undefined": "必須",
+    "invalid_type_received_null": "必須",
     "invalid_literal": "無効なリテラル値です。{{expected}}を入力してください。",
     "unrecognized_keys": "オブジェクトのキー{{- keys}}が識別できません。",
     "invalid_union": "入力形式が間違っています。",

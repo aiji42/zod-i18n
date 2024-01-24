@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Beklenen {{expected}}, alınan {{received}}",
     "invalid_type_received_undefined": "Zorunlu",
+    "invalid_type_received_null": "Zorunlu",
     "invalid_literal": "Geçersiz ilkel veri, beklenen {{expected}}",
     "unrecognized_keys": "Nesne içinde bilinmeyen anahtar(lar): {{- keys}}",
     "invalid_union": "Geçersiz tip birleşimi",

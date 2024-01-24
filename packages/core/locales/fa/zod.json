@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "نوع مورد انتظار {{expected}}, نوع دریافت شده {{received}}",
     "invalid_type_received_undefined": "الزامی",
+    "invalid_type_received_null": "الزامی",
     "invalid_literal": "مقدار دقیق نامعتبر, مورد انتظار {{expected}}",
     "unrecognized_keys": "کلید(ها) شناسایی نشده در آبجکت: {{- keys}}",
     "invalid_union": "مقدار ورودی نامعتبر",

@@ -57,11 +57,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Requerido");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Requerido");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Se esperaba número, se recibió texto"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Se esperaba número, se recibió nulo"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Se esperaba número, se recibió valor no númerico"

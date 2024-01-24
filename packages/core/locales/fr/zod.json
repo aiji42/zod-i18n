@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Le type « {{expected}} » est attendu mais « {{received}} » a été reçu",
     "invalid_type_received_undefined": "Obligatoire",
+    "invalid_type_received_null": "Obligatoire",
     "invalid_literal": "La valeur doit être {{expected}}",
     "unrecognized_keys": "Une ou plusieurs clé(s) non reconnue(s) dans l'objet : {{- keys}}",
     "invalid_union": "Champ non valide",

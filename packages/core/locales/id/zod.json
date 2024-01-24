@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Nilai seharusnya memiliki tipe data {{expected}}, diterima {{received}}",
     "invalid_type_received_undefined": "Wajib diisi",
+    "invalid_type_received_null": "Wajib diisi",
     "invalid_literal": "Nilai literal tidak valid, seharusnya {{expected}}",
     "unrecognized_keys": "Key {{- keys}} tidak valid pada object",
     "invalid_union": "Input tidak valid",

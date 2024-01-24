@@ -55,11 +55,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Obvezno polje");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Obvezno polje");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Očekivano: broj, uneseno: tekst"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Očekivano: broj, uneseno: null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Očekivano: broj, uneseno: nan"

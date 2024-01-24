@@ -63,11 +63,11 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual(
     "Šis laukas yra privalomas"
   );
+  expect(getErrorMessage(schema.safeParse(null))).toEqual(
+    "Šis laukas yra privalomas"
+  );
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Tikėtasi skaičius, gauta(s) tekstas"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Tikėtasi skaičius, gauta(s) null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Tikėtasi skaičius, gauta(s) nan"

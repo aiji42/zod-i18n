@@ -57,11 +57,9 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual(
     "Må ikke være tom"
   );
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Må ikke være tom");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Forventet Nummer, mottok String"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Forventet Nummer, mottok Null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Forventet Nummer, mottok NaN"

@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Tipul de date așteptat era {{expected}}, s-a primit {{received}}",
     "invalid_type_received_undefined": "Obligatoriu",
+    "invalid_type_received_null": "Obligatoriu",
     "invalid_literal": "Valoare literală nevalidă, valoarea așteptată era {{expected}}",
     "unrecognized_keys": "Chei/e nerecunoscută/e în obiect: {{- keys}}",
     "invalid_union": "Intrare nevalidă",

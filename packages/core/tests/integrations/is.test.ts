@@ -54,11 +54,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Nauðsynlegt");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Nauðsynlegt");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Bjóst við tölu, fékk streng"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Bjóst við tölu, fékk null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Bjóst við tölu, fékk nan"
