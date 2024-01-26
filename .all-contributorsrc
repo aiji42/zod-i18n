@@ -381,6 +381,16 @@
         "translation",
         "test"
       ]
+    },
+    {
+      "login": "Inshiku-Han",
+      "name": "inshiku-han",
+      "avatar_url": "https://avatars.githubusercontent.com/u/63291908?v=4",
+      "profile": "https://github.com/Inshiku-Han",
+      "contributions": [
+        "code",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
