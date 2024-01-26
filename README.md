@@ -34,6 +34,15 @@ i18next.init({
 });
 z.setErrorMap(zodI18nMap);
 
+// export configured zod instance
+export { z }
+```
+
+Import wherever it's required
+
+```ts
+import { z } from "./es-zod";
+
 const schema = z.string().email();
 // Translated into Spanish (es)
 schema.parse("foo"); // => correo inválido
