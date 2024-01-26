@@ -309,7 +309,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-38-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-39-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -368,6 +368,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/undeadevs"><img src="https://avatars.githubusercontent.com/u/42311213?v=4?s=100" width="100px;" alt="Ilham"/><br /><sub><b>Ilham</b></sub></a><br /><a href="#translation-undeadevs" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=undeadevs" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://dobromiryor.github.io/"><img src="https://avatars.githubusercontent.com/u/32433021?v=4?s=100" width="100px;" alt="Dobromir Yordanov"/><br /><sub><b>Dobromir Yordanov</b></sub></a><br /><a href="#translation-dobromiryor" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=dobromiryor" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/MohammadForoutan"><img src="https://avatars.githubusercontent.com/u/50955936?v=4?s=100" width="100px;" alt="Mohammad Foroutan"/><br /><sub><b>Mohammad Foroutan</b></sub></a><br /><a href="#translation-MohammadForoutan" title="Translation">🌍</a> <a href="https://github.com/aiji42/zod-i18n/commits?author=MohammadForoutan" title="Tests">⚠️</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Inshiku-Han"><img src="https://avatars.githubusercontent.com/u/63291908?v=4?s=100" width="100px;" alt="inshiku-han"/><br /><sub><b>inshiku-han</b></sub></a><br /><a href="https://github.com/aiji42/zod-i18n/commits?author=Inshiku-Han" title="Code">💻</a> <a href="https://github.com/aiji42/zod-i18n/issues?q=author%3AInshiku-Han" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
