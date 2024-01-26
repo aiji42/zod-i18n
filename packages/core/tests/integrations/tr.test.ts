@@ -55,11 +55,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Zorunlu");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Zorunlu");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Beklenen sayı, alınan metin"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Beklenen sayı, alınan boş"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Beklenen sayı, alınan NaN"

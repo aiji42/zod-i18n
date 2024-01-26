@@ -59,11 +59,11 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual(
     "Darf nicht leer sein"
   );
+  expect(getErrorMessage(schema.safeParse(null))).toEqual(
+    "Darf nicht leer sein"
+  );
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Zahl erwartet, String erhalten"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Zahl erwartet, Nullwert erhalten"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Zahl erwartet, NaN erhalten"

@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Tikėtasi {{expected}}, gauta(s) {{received}}",
     "invalid_type_received_undefined": "Šis laukas yra privalomas",
+    "invalid_type_received_null": "Šis laukas yra privalomas",
     "invalid_literal": "Klaidinga literalo reikšmė, tikėtasi {{expected}}",
     "unrecognized_keys": "Neatpažintas(i) raktas(ai) objekte: {{- keys}}",
     "invalid_union": "Klaidinga įvestis",

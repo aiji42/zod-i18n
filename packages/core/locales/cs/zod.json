@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Typ vstupu musí být {{expected}}, ale byl obdržen typ {{received}}",
     "invalid_type_received_undefined": "Povinné",
+    "invalid_type_received_null": "Povinné",
     "invalid_literal": "Neplatná doslovná hodnota, očekává se {{expected}}",
     "unrecognized_keys": "Nerozpoznané klíče v objektu: {{- keys}}",
     "invalid_union": "Neplatný vstup",

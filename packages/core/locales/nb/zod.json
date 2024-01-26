@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Forventet {{expected}}, mottok {{received}}",
     "invalid_type_received_undefined": "Må ikke være tom",
+    "invalid_type_received_null": "Må ikke være tom",
     "invalid_literal": "Ugyldig bokstavlig verdi, forventet {{expected}}",
     "unrecognized_keys": "Ukjent nøkkel i objektet: {{- keys}}",
     "invalid_union": "Ugyldig inndata",

@@ -59,11 +59,9 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual(
     "Majburiy maydon"
   );
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Majburiy maydon");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Kutilayotgan tur - son, qabul qilingan - satr"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Kutilayotgan tur - son, qabul qilingan - null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Kutilayotgan tur - son, qabul qilingan - NaN"

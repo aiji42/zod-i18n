@@ -103,6 +103,12 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
           defaultValue: message,
           ...path,
         });
+      } else if (issue.received === ZodParsedType.null) {
+        message = t("errors.invalid_type_received_null", {
+          ns,
+          defaultValue: message,
+          ...path,
+        });
       } else {
         message = t("errors.invalid_type", {
           expected: t(`types.${issue.expected}`, {

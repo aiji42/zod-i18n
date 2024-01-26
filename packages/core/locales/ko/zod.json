@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "{{expected}} 입력을 기대하였지만, {{received}}이 입력되었습니다.",
     "invalid_type_received_undefined": "필수 입력 값 입니다.",
+    "invalid_type_received_null": "필수 입력 값 입니다.",
     "invalid_literal": "허용되지 않은 리터럴 값 입니다. 입력 가능한 값은 {{expected}} 입니다.",
     "unrecognized_keys": "객체 키 {{- keys}} 값은 허용되지 않습니다.",
     "invalid_union": "허용되지 않은 입력 값입니다.",

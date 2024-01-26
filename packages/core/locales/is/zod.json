@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Bjóst við {{expected}}, fékk {{received}}",
     "invalid_type_received_undefined": "Nauðsynlegt",
+    "invalid_type_received_null": "Nauðsynlegt",
     "invalid_literal": "Ógilt bókstaflegt gildi, bjóst við {{expected}}",
     "unrecognized_keys": "Óþekktir lyklar í hlut: {{- keys}}",
     "invalid_union": "Ógilt inntak",

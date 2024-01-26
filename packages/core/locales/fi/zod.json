@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Odotettiin arvon olevan {{expected}}, saatiin {{received}}",
     "invalid_type_received_undefined": "Vaadittu",
+    "invalid_type_received_null": "Vaadittu",
     "invalid_literal": "Virheellinen merkkijono, odotettiin {{expected}}",
     "unrecognized_keys": "Tuntemattomia avaimia objektissa: {{- keys}}",
     "invalid_union": "Virheellinen syöte",

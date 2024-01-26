@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Очікувався тип {{expected}}, отримано {{received}}",
     "invalid_type_received_undefined": "Обов'язковe поле",
+    "invalid_type_received_null": "Обов'язковe поле",
     "invalid_literal": "Невірне літеральне значення, очікувалось {{expected}}",
     "unrecognized_keys": "Нерозпізнані ключі в об'єкті: {{- keys}}",
     "invalid_union": "Невірне введення",

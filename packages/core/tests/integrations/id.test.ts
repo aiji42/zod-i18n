@@ -57,11 +57,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Wajib diisi");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Wajib diisi");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Nilai seharusnya memiliki tipe data number, diterima string"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Nilai seharusnya memiliki tipe data number, diterima null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Nilai seharusnya memiliki tipe data number, diterima nan"

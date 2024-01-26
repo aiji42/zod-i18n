@@ -55,11 +55,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Obbligatorio");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Obbligatorio");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Atteso number, ricevuto string"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Atteso number, ricevuto null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Atteso number, ricevuto nan"

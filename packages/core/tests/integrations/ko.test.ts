@@ -61,11 +61,11 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual(
     "필수 입력 값 입니다."
   );
+  expect(getErrorMessage(schema.safeParse(null))).toEqual(
+    "필수 입력 값 입니다."
+  );
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "숫자 타입 입력을 기대하였지만, 문자열 타입이 입력되었습니다."
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "숫자 타입 입력을 기대하였지만, null 값이 입력되었습니다."
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "숫자 타입 입력을 기대하였지만, NaN 값이 입력되었습니다."

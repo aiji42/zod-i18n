@@ -57,11 +57,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Vaadittu");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Vaadittu");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Odotettiin arvon olevan numero, saatiin merkkijono"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Odotettiin arvon olevan numero, saatiin null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Odotettiin arvon olevan numero, saatiin ei-luku"

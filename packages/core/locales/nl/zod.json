@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Ongeldig type: {{received}}. Type {{expected}} vereist",
     "invalid_type_received_undefined": "Vereist",
+    "invalid_type_received_null": "Vereist",
     "invalid_literal": "Ongeldige letterlijke waarde, vereist {{expected}}",
     "unrecognized_keys": "Onbekende sleutel(s) in object: {{- keys}}",
     "invalid_union": "Ongeldige invoer",

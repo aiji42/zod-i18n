@@ -56,11 +56,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Obrigatório");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Obrigatório");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "O dado deve ser do tipo number, porém foi enviado string"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "O dado deve ser do tipo number, porém foi enviado null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "O dado deve ser do tipo number, porém foi enviado nan"

@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "期望輸入的是{{expected}}，而輸入的是{{received}}",
     "invalid_type_received_undefined": "必填的欄位",
+    "invalid_type_received_null": "必填的欄位",
     "invalid_literal": "無效的輸入，請輸入 {{expected}}",
     "unrecognized_keys": "無法識別物件的鍵值：{{- keys}}",
     "invalid_union": "輸入格式錯誤",

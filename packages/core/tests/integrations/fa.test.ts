@@ -55,11 +55,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("الزامی");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("الزامی");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "نوع مورد انتظار عدد, نوع دریافت شده رشته"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "نوع مورد انتظار عدد, نوع دریافت شده خالی"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "نوع مورد انتظار عدد, نوع دریافت شده ناعدد"

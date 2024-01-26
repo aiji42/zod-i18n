@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "المتوقع {{expected}}، المستلم {{received}}",
     "invalid_type_received_undefined": "مطلوب",
+    "invalid_type_received_null": "مطلوب",
     "invalid_literal": "قيمة حرفية غير صالحة، المتوقع {{expected}}",
     "unrecognized_keys": "عنصر (عناصر) غير معروف في الكائن: {{- keys}}",
     "invalid_union": "مدخل غير صالح",

@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Ожидался тип - {{expected}}, получено - {{received}}",
     "invalid_type_received_undefined": "Обязательное поле",
+    "invalid_type_received_null": "Обязательное поле",
     "invalid_literal": "Неверное значение литерала, ожидалось {{expected}}",
     "unrecognized_keys": "Неверные ключи в объекте: {{- keys}}",
     "invalid_union": "Результаты пересечения не могут быть объединены",

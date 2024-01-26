@@ -55,11 +55,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("必填");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("必填");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "预期输入为数字，而输入为字符串"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "预期输入为数字，而输入为空对象"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "预期输入为数字，而输入为非数"

@@ -53,11 +53,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Obligatoriu");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Obligatoriu");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Tipul de date așteptat era număr, s-a primit șir de caractere"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Tipul de date așteptat era număr, s-a primit nul"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Tipul de date așteptat era număr, s-a primit NaN"
@@ -194,7 +192,9 @@ test("other parser error messages", () => {
         ])
         .safeParse({ type: "c", c: "abc" })
     )
-  ).toEqual("Valoare nevalidă pentru discriminant. Valori așteptate: 'a' | 'b'");
+  ).toEqual(
+    "Valoare nevalidă pentru discriminant. Valori așteptate: 'a' | 'b'"
+  );
   expect(
     getErrorMessage(z.union([z.string(), z.number()]).safeParse([true]))
   ).toEqual("Intrare nevalidă");

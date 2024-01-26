@@ -57,11 +57,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("נדרש");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("נדרש");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "צפוי מספר, קיבלנו מחרוזת"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "צפוי מספר, קיבלנו null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "צפוי מספר, קיבלנו NaN"

@@ -2,6 +2,7 @@
   "errors": {
     "invalid_type": "Kutilayotgan tur - {{expected}}, qabul qilingan - {{received}}",
     "invalid_type_received_undefined": "Majburiy maydon",
+    "invalid_type_received_null": "Majburiy maydon",
     "invalid_literal": "Noto'g'ri so'zma-so'z qiymat, kutilmoqda {{expected}}",
     "unrecognized_keys": "Obyektdagi kalit(lar) noto'g'ri: {{- keys}}",
     "invalid_union": "Kesishma natijalarini birlashtirib bo'lmaydi",

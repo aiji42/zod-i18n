@@ -57,11 +57,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("必填的欄位");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("必填的欄位");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "期望輸入的是數字，而輸入的是字串"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "期望輸入的是數字，而輸入的是null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "期望輸入的是數字，而輸入的是NaN"

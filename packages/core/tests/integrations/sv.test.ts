@@ -57,11 +57,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("Obligatoriskt");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Obligatoriskt");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Förväntade nummer, fick sträng"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Förväntade nummer, fick null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Förväntade nummer, fick NaN"

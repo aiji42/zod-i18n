@@ -57,11 +57,9 @@ test("number parser error messages", () => {
   const schema = z.number();
 
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual("مطلوب");
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("مطلوب");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "المتوقع رقم، المستلم سلسلة"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "المتوقع رقم، المستلم لا شيء"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "المتوقع رقم، المستلم مدخل غير رقمي"

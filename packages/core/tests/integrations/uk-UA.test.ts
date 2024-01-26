@@ -59,11 +59,9 @@ test("number parser error messages", () => {
   expect(getErrorMessage(schema.safeParse(undefined))).toEqual(
     "Обов'язковe поле"
   );
+  expect(getErrorMessage(schema.safeParse(null))).toEqual("Обов'язковe поле");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "Очікувався тип number, отримано string"
-  );
-  expect(getErrorMessage(schema.safeParse(null))).toEqual(
-    "Очікувався тип number, отримано null"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
     "Очікувався тип number, отримано NaN"
