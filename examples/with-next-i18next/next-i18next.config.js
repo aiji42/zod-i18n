@@ -30,6 +30,7 @@ module.exports = {
       "pt",
       "ro",
       "ru",
+      "sk",
       "sv",
       "tr",
       "uk-UA",
