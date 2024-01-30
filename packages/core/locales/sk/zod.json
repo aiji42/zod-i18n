@@ -1,0 +1,119 @@
+{
+  "errors": {
+    "invalid_type": "Typ vstupu musí byť {{expected}}, ale bol obdržaný typ {{received}}",
+    "invalid_type_received_undefined": "Povinné",
+    "invalid_type_received_null": "Povinné",
+    "invalid_literal": "Neplatná doslovná hodnota, očakáva sa {{expected}}",
+    "unrecognized_keys": "Nerozpoznané kľúče v objekte: {{- keys}}",
+    "invalid_union": "Neplatný vstup",
+    "invalid_union_discriminator": "Neplatná hodnota diskriminátora. Očakáva sa {{- options}}",
+    "invalid_enum_value": "Neplatná hodnota výčtu. Očakáva sa {{- options}}, ale bolo obdržané '{{received}}'",
+    "invalid_arguments": "Neplatné argumenty funkcie",
+    "invalid_return_type": "Neplatný typ návratovej hodnoty",
+    "invalid_date": "Neplatný dátum",
+    "custom": "Neplatný vstup",
+    "invalid_intersection_types": "Hodnoty prieniku nie je možné zlúčiť",
+    "not_multiple_of": "Číslo musí byť násobkom {{multipleOf}}",
+    "not_finite": "Číslo nesmie byť nekonečné",
+    "invalid_string": {
+      "email": "Neplatný {{validation}}",
+      "url": "Neplatná {{validation}}",
+      "uuid": "Neplatné {{validation}}",
+      "cuid": "Neplatné {{validation}}",
+      "regex": "Neplatná kombinácia",
+      "datetime": "Neplatný {{validation}}",
+      "startsWith": "Neplatný vstup: musí začínať \"{{startsWith}}\"",
+      "endsWith": "Neplatný vstup: musí končiť \"{{endsWith}}\""
+    },
+    "too_small": {
+      "array": {
+        "exact": "Pole musí obsahovať presne {{minimum}} prvky",
+        "exact_one": "Pole musí obsahovať presne jeden prvok",
+        "inclusive": "Pole musí obsahovať aspoň {{minimum}} prvky",
+        "inclusive_one": "Pole musí obsahovať aspoň jeden prvok",
+        "not_inclusive": "Pole musí obsahovať viac ako {{minimum}} prvky",
+        "not_inclusive_one": "Pole musí obsahovať aspoň dva prvky"
+      },
+      "string": {
+        "exact": "Text musí obsahovať presne {{minimum}} znak(y)",
+        "inclusive": "Text musí obsahovať aspoň {{minimum}} znak(y)",
+        "not_inclusive": "Text musí obsahovať najviac {{minimum}} znak(y)"
+      },
+      "number": {
+        "exact": "Číslo musí byť presne {{minimum}}",
+        "inclusive": "Číslo musí byť väčšie alebo rovné {{minimum}}",
+        "not_inclusive": "Číslo musí byť väčšie než {{minimum}}"
+      },
+      "set": {
+        "exact": "Neplatný vstup",
+        "inclusive": "Neplatný vstup",
+        "not_inclusive": "Neplatný vstup"
+      },
+      "date": {
+        "exact": "Dátum musí byť presne {{- minimum, datetime}}",
+        "inclusive": "Dátum musí byť väčší alebo rovný {{- minimum, datetime}}",
+        "not_inclusive": "Dátum musí byť väčší než {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "array": {
+        "exact": "Pole musí obsahovať presne {{maximum}} prvky",
+        "exact_one": "Pole musí obsahovať presne jeden prvok",
+        "inclusive": "Pole musí obsahovať najviac {{maximum}} prvky",
+        "inclusive_one": "Pole musí obsahovať najviac jeden prvok",
+        "not_inclusive": "Pole musí obsahovať menej než {{maximum}} prvky",
+        "not_inclusive_one": "Pole musí byť prázdne"
+      },
+      "string": {
+        "exact": "Text musí obsahovať presne {{maximum}} znak(y)",
+        "inclusive": "Text musí obsahovať najviac {{maximum}} znak(y)",
+        "not_inclusive": "Text musí obsahovať menej než {{maximum}} znak(y)"
+      },
+      "number": {
+        "exact": "Číslo musí byť presne {{maximum}}",
+        "inclusive": "Číslo musí byť menšie alebo rovné {{maximum}}",
+        "not_inclusive": "Číslo musí byť menšie než {{maximum}}"
+      },
+      "set": {
+        "exact": "Neplatný vstup",
+        "inclusive": "Neplatný vstup",
+        "not_inclusive": "Neplatný vstup"
+      },
+      "date": {
+        "exact": "Dátum musí byť presne {{- maximum, datetime}}",
+        "inclusive": "Dátum musí byť menší alebo rovný {{- maximum, datetime}}",
+        "not_inclusive": "Dátum musí byť menší než {{- maximum, datetime}}"
+      }
+    }
+  },
+  "validations": {
+    "email": "e-mail",
+    "url": "url",
+    "uuid": "uuid",
+    "cuid": "cuid",
+    "regex": "regex",
+    "datetime": "dátum a čas"
+  },
+  "types": {
+    "function": "funkcia",
+    "number": "číslo",
+    "string": "text",
+    "nan": "NaN",
+    "integer": "celé číslo",
+    "float": "reálne číslo",
+    "boolean": "boolean",
+    "date": "dátum",
+    "bigint": "bigint",
+    "undefined": "undefined",
+    "symbol": "symbol",
+    "null": "null",
+    "array": "pole",
+    "object": "objekt",
+    "unknown": "neznámy",
+    "promise": "promise",
+    "void": "void",
+    "never": "never",
+    "map": "mapa",
+    "set": "množina"
+  }
+}
