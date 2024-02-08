@@ -255,7 +255,7 @@ i18next.init({
 });
 
 z.setErrorMap(
-  zodI18nMap({
+  makeZodI18nMap({
     ns: ["zod", "form"],
     handlePath: {
       keyPrefix: "paths",
