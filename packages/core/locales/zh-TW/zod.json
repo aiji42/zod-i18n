@@ -27,14 +27,17 @@
     },
     "too_small": {
       "array": {
+        "exact": "必須恰好包含 {{minimum}} 個元素",
         "inclusive": "至少需要包含 {{minimum}} 個元素",
         "not_inclusive": "必須包含多於 {{minimum}} 個元素"
       },
       "string": {
+        "exact": "必須恰好 {{minimum}} 個字元",
         "inclusive": "至少需要包含 {{minimum}} 個字元",
         "not_inclusive": "必須包含多於 {{minimum}} 個字元"
       },
       "number": {
+        "exact": "必須是 {{minimum}}",
         "inclusive": "必須大於或等於 {{minimum}}",
         "not_inclusive": "必須大於 {{minimum}}"
       },
@@ -50,14 +53,17 @@
     },
     "too_big": {
       "array": {
+        "exact": "必須恰好包含 {{maximum}} 個元素",
         "inclusive": "最多只能包含 {{maximum}} 個元素",
         "not_inclusive": "必須少於 {{maximum}} 個元素"
       },
       "string": {
+        "exact": "必須恰好 {{maximum}} 個字元",
         "inclusive": "最多只能包含 {{maximum}} 個字元",
         "not_inclusive": "必須少於 {{maximum}} 個字元"
       },
       "number": {
+        "exact": "必須是 {{maximum}}",
         "inclusive": "必須小於或等於 {{maximum}}",
         "not_inclusive": "必須小於 {{maximum}}"
       },
