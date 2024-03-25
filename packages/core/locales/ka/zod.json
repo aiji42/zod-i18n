@@ -1,0 +1,113 @@
+{
+   "errors":{
+      "invalid_type":"ელოდებოდა {{expected}}, მიიღო {{received}}",
+      "invalid_type_received_undefined":"საჭიროა",
+      "invalid_type_received_null":"საჭიროა",
+      "invalid_literal":"არასწორი მნიშვნელობა, ელოდებოდა {{expected}}",
+      "unrecognized_keys":"უცნობი მნიშვნელობები ობიექტში: {{- keys}}",
+      "invalid_union":"არასწორი მნიშვნელობა",
+      "invalid_union_discriminator":"არასწორი მნიშვნელობა, ელოდებოდა {{- options}}",
+      "invalid_enum_value":"არასწორი ენუმერატორის მნიშვნელობა. ელოდებოდა {{- options}}, მიიღო '{{received}}'",
+      "invalid_arguments":"არასწორი ფუნქციის არგუმენტები",
+      "invalid_return_type":"არასწორი ფუნქციის დაბრუნების ტიპი",
+      "invalid_date":"თარიღი არასწორია.",
+      "custom":"არასწორი მნიშვნელობა",
+      "invalid_intersection_types":"გადაკვეთის შედეგები ვერ გაერთიანდა",
+      "not_multiple_of":"ციფრი უნდა იყოს {{multipleOf}}-ის ჯერადი",
+      "not_finite":"ციფრი უნდა იყოს ფინიტური",
+      "invalid_string":{
+         "email":"არასწორი {{validation}}",
+         "url":"არასწორი {{validation}}",
+         "uuid":"არასწორი {{validation}}",
+         "cuid":"არასწორი {{validation}}",
+         "regex":"არასწორი",
+         "datetime":"არასწორი {{validation}}",
+         "startsWith":"არასწორი მნიშვნელობა: უნდა დაიწყოს \"{{startsWith}}\"-ით",
+         "endsWith":"არასწორი მნიშვნელობა: უნდა დამთავრდეს \"{{endsWith}}\"-ით"
+      },
+      "too_small":{
+         "array":{
+            "exact":"სია უნდა შეიცავდეს ზუსტად {{minimum}} ელემენტს",
+            "inclusive":"სია უნდა შეიცავდეს მინიმუმ {{minimum}} ელემენტს",
+            "not_inclusive":"სია უნდა შეიცავდეს {{minimum}}-ზე მეტ ელემენტს"
+         },
+         "string":{
+            "exact":"სტრინგი უნდა შეიცავდეს ზუსტად {{minimum}} სიმბოლოებს",
+            "inclusive":"სტრინგი უნდა შეიცავდეს მინიმუმ {{minimum}} სიმბოლოებს",
+            "not_inclusive":"სტრინგი უნდა შეიცავდეს {{minimum}}-ზე მეტ სიმბოლოებს"
+         },
+         "number":{
+            "exact":"ციფრი ზუსტად უნდა იყოს {{minimum}}",
+            "inclusive":"ციფრი ან მეტი ან ტოლი უნდა იყოს {{minimum}}-ზე",
+            "not_inclusive":"ციფრი მეტი უნდა იყოს {{minimum}}-ზე"
+         },
+         "set":{
+            "exact":"არასწორი მნიშვნელობა",
+            "inclusive":"არასწორი მნიშვნელობა",
+            "not_inclusive":"არასწორი მნიშვნელობა"
+         },
+         "date":{
+            "exact":"თარიღი ზუსტად უნდა იყოს {{- minimum, datetime}}",
+            "inclusive":"თარიღი ან მეტი ან ტოლი უნდა იყოს {{- minimum, datetime}}-ზე",
+            "not_inclusive":"თარიღი მეტი უნდა იყოს {{- minimum, datetime}}-ზე"
+         }
+      },
+      "too_big":{
+         "array":{
+            "exact":"სია უნდა შეიცავდეს ზუსტად {{maximum}} ელემენტს",
+            "inclusive":"სია უნდა შეიცავდეს მაქსიმუმ {{maximum}} ელემენტს",
+            "not_inclusive":"სია უნდა შეიცავდეს {{maximum}}-ზე ნაკლებ ელემენტს"
+         },
+         "string":{
+            "exact":"სტრინგი უნდა შეიცავდეს ზუსტად {{maximum}} სიმბოლოებს",
+            "inclusive":"სტრინგი უნდა შეიცავდეს მაქსიმუმ {{maximum}} სიმბოლოებს",
+            "not_inclusive":"სტრინგი უნდა შეიცავდეს {{maximum}}-ზე ნაკლებ სიმბოლოებს"
+         },
+         "number":{
+            "exact":"ციფრი ზუსტად უნდა იყოს {{maximum}}",
+            "inclusive":"ციფრი ან ნაკლები ან ტოლი უნდა იყოს {{maximum}}-ზე",
+            "not_inclusive":"ციფრი ნაკლები უნდა იყოს {{maximum}}-ზე"
+         },
+         "set":{
+            "exact":"არასწორი მნიშვნელობა",
+            "inclusive":"არასწორი მნიშვნელობა",
+            "not_inclusive":"არასწორი მნიშვნელობა"
+         },
+         "date":{
+            "exact":"თარიღი ზუსტად უნდა იყოს {{- maximum, datetime}}",
+            "inclusive":"თარიღი ან ნაკლები ან ტოლი უნდა იყოს {{- maximum, datetime}}-ზე",
+            "not_inclusive":"თარიღი ნაკლები უნდა იყოს {{- maximum, datetime}}-ზე"
+         }
+      }
+   },
+   "validations":{
+      "email":"ელ-ფოსტა",
+      "url":"url",
+      "uuid":"uuid",
+      "cuid":"cuid",
+      "regex":"regex",
+      "datetime":"datetime"
+   },
+   "types":{
+      "function":"ფუნქცია",
+      "number":"ციფრი",
+      "string":"სტრინგი",
+      "nan":"nan",
+      "integer":"ინტეჯერი",
+      "float":"ათწილადი",
+      "boolean":"boolean",
+      "date":"თარიღი",
+      "bigint":"bigint",
+      "undefined":"undefined",
+      "symbol":"სიმბოლო",
+      "null":"null",
+      "array":"სია",
+      "object":"ობიექტი",
+      "unknown":"უცნობი",
+      "promise":"promise",
+      "void":"void",
+      "never":"არასოდეს",
+      "map":"map",
+      "set":"სეტი"
+   }
+}
