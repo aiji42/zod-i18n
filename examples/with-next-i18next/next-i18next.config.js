@@ -22,6 +22,7 @@ module.exports = {
       "is",
       "it",
       "ja",
+      "ka",
       "ko",
       "lt",
       "nb",
