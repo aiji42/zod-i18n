@@ -32,9 +32,9 @@
         "not_inclusive": "המערך חייב להכיל יותר מ-{{minimum}} איברים"
       },
       "string": {
-        "exact": "המחרוזת חייבת להכיל בדיוק {{minimum}} תווים",
-        "inclusive": "המחרוזת חייבת להכיל לפחות {{minimum}} תווים",
-        "not_inclusive": "המחרוזת חייבת להכיל מעל {{minimum}} תווים"
+        "exact": "הטקסט חייב להכיל בדיוק {{minimum}} תווים",
+        "inclusive": "הטקסט חייב להכיל לפחות {{minimum}} תווים",
+        "not_inclusive": "הטקסט חייב להכיל מעל {{minimum}} תווים"
       },
       "number": {
         "exact": "המספר חייב להיות בדיוק {{minimum}}",
@@ -59,9 +59,9 @@
         "not_inclusive": "המערך חייב להכיל פחות מ-{{maximum}} איברים"
       },
       "string": {
-        "exact": "המחרוזת חייבת להכיל בדיוק {{maximum}} תווים",
-        "inclusive": "המחרוזת חייבת להכיל לכל היותר {{maximum}} תווים",
-        "not_inclusive": "המחרוזת חייבת להכיל פחות מ-{{maximum}} תווים"
+        "exact": "הטקסט חייב להכיל בדיוק {{maximum}} תווים",
+        "inclusive": "הטקסט חייב להכיל לכל היותר {{maximum}} תווים",
+        "not_inclusive": "הטקסט חייב להכיל פחות מ-{{maximum}} תווים"
       },
       "number": {
         "exact": "המספר חייב להיות בדיוק {{maximum}}",
@@ -91,7 +91,7 @@
   "types": {
     "function": "פונקציה",
     "number": "מספר",
-    "string": "מחרוזת",
+    "string": "טקסט",
     "nan": "NaN",
     "integer": "מספר שלם",
     "float": "מספר עשרוני",
