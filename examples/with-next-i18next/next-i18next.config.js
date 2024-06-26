@@ -32,6 +32,7 @@ module.exports = {
       "ru",
       "sk",
       "sv",
+      "th",
       "tr",
       "uk-UA",
       "uz",

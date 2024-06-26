@@ -1,0 +1,113 @@
+{
+  "errors": {
+    "invalid_type": "คาดว่า {{expected}} แต่ได้รับ {{received}}",
+    "invalid_type_received_undefined": "จำเป็น",
+    "invalid_type_received_null": "จำเป็น",
+    "invalid_literal": "ค่าที่กำหนดไม่ถูกต้อง คาดว่า {{expected}}",
+    "unrecognized_keys": "คีย์ที่ไม่รู้จักในอ็อบเจ็กต์: {{- keys}}",
+    "invalid_union": "ข้อมูลไม่ถูกต้อง",
+    "invalid_union_discriminator": "ค่าตัวแบ่งไม่ถูกต้อง คาดว่า {{- options}}",
+    "invalid_enum_value": "ค่าที่กำหนดไม่ถูกต้อง คาดว่า {{- options}}, แต่ได้รับ '{{received}}'",
+    "invalid_arguments": "อาร์กิวเมนต์ของฟังก์ชันไม่ถูกต้อง",
+    "invalid_return_type": "ประเภทการส่งคืนของฟังก์ชันไม่ถูกต้อง",
+    "invalid_date": "วันที่ไม่ถูกต้อง",
+    "custom": "ข้อมูลไม่ถูกต้อง",
+    "invalid_intersection_types": "ผลลัพธ์ของการตัดกันไม่สามารถรวมกันได้",
+    "not_multiple_of": "ตัวเลขต้องเป็นพหุคูณของ {{multipleOf}}",
+    "not_finite": "ตัวเลขต้องมีขอบเขต",
+    "invalid_string": {
+      "email": "ไม่ถูกต้อง {{validation}}",
+      "url": "ไม่ถูกต้อง {{validation}}",
+      "uuid": "ไม่ถูกต้อง {{validation}}",
+      "cuid": "ไม่ถูกต้อง {{validation}}",
+      "regex": "ไม่ถูกต้อง",
+      "datetime": "ไม่ถูกต้อง {{validation}}",
+      "startsWith": "ข้อมูลไม่ถูกต้อง: ต้องเริ่มต้นด้วย \"{{startsWith}}\"",
+      "endsWith": "ข้อมูลไม่ถูกต้อง: ต้องลงท้ายด้วย \"{{endsWith}}\""
+    },
+    "too_small": {
+      "array": {
+        "exact": "อาร์เรย์ต้องมี {{minimum}} องค์ประกอบเท่านั้น",
+        "inclusive": "อาร์เรย์ต้องมีอย่างน้อย {{minimum}} องค์ประกอบ",
+        "not_inclusive": "อาร์เรย์ต้องมีมากกว่า {{minimum}} องค์ประกอบ"
+      },
+      "string": {
+        "exact": "สตริงต้องมี {{minimum}} ตัวอักษรเท่านั้น",
+        "inclusive": "สตริงต้องมีอย่างน้อย {{minimum}} ตัวอักษร",
+        "not_inclusive": "สตริงต้องมีมากกว่า {{minimum}} ตัวอักษร"
+      },
+      "number": {
+        "exact": "ตัวเลขต้องมีค่าเท่ากับ {{minimum}}",
+        "inclusive": "ตัวเลขต้องมีค่ามากกว่าหรือเท่ากับ {{minimum}}",
+        "not_inclusive": "ตัวเลขต้องมีค่ามากกว่า {{minimum}}"
+      },
+      "set": {
+        "exact": "ข้อมูลไม่ถูกต้อง",
+        "inclusive": "ข้อมูลไม่ถูกต้อง",
+        "not_inclusive": "ข้อมูลไม่ถูกต้อง"
+      },
+      "date": {
+        "exact": "วันที่ต้องตรงกับ {{- minimum, datetime}}",
+        "inclusive": "วันที่ต้องมากกว่าหรือเท่ากับ {{- minimum, datetime}}",
+        "not_inclusive": "วันที่ต้องมากกว่า {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "array": {
+        "exact": "อาร์เรย์ต้องมี {{maximum}} องค์ประกอบเท่านั้น",
+        "inclusive": "อาร์เรย์ต้องมีไม่เกิน {{maximum}} องค์ประกอบ",
+        "not_inclusive": "อาร์เรย์ต้องมีน้อยกว่า {{maximum}} องค์ประกอบ"
+      },
+      "string": {
+        "exact": "สตริงต้องมี {{maximum}} ตัวอักษรเท่านั้น",
+        "inclusive": "สตริงต้องมีไม่เกิน {{maximum}} ตัวอักษร",
+        "not_inclusive": "สตริงต้องมีน้อยกว่า {{maximum}} ตัวอักษร"
+      },
+      "number": {
+        "exact": "ตัวเลขต้องมีค่าเท่ากับ {{maximum}}",
+        "inclusive": "ตัวเลขต้องมีค่าน้อยกว่าหรือเท่ากับ {{maximum}}",
+        "not_inclusive": "ตัวเลขต้องมีค่าน้อยกว่า {{maximum}}"
+      },
+      "set": {
+        "exact": "ข้อมูลไม่ถูกต้อง",
+        "inclusive": "ข้อมูลไม่ถูกต้อง",
+        "not_inclusive": "ข้อมูลไม่ถูกต้อง"
+      },
+      "date": {
+        "exact": "วันที่ต้องตรงกับ {{- maximum, datetime}}",
+        "inclusive": "วันที่ต้องน้อยกว่าหรือเท่ากับ {{- maximum, datetime}}",
+        "not_inclusive": "วันที่ต้องน้อยกว่า {{- maximum, datetime}}"
+      }
+    }
+  },
+  "validations": {
+    "email": "อีเมล",
+    "url": "URL",
+    "uuid": "UUID",
+    "cuid": "CUID",
+    "regex": "regex",
+    "datetime": "วันที่และเวลา"
+  },
+  "types": {
+    "function": "ฟังก์ชัน",
+    "number": "ตัวเลข",
+    "string": "สตริง",
+    "nan": "ไม่ใช่ตัวเลข",
+    "integer": "จำนวนเต็ม",
+    "float": "จำนวนทศนิยม",
+    "boolean": "บูลีน",
+    "date": "วันที่",
+    "bigint": "BigInt",
+    "undefined": "undefined",
+    "symbol": "สัญลักษณ์",
+    "null": "null",
+    "array": "อาร์เรย์",
+    "object": "อ็อบเจ็กต์",
+    "unknown": "ไม่รู้จัก",
+    "promise": "promise",
+    "void": "void",
+    "never": "never",
+    "map": "map",
+    "set": "set"
+  }
+}
