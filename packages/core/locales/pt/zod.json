@@ -5,6 +5,8 @@
     "invalid_type_received_null": "Obrigatório",
     "invalid_literal": "Valor literal inválido, era esperado {{expected}}",
     "unrecognized_keys": "Chave(s) não reconhecida(s) no objeto: {{- keys}}",
+    "unrecognized_keys_one": "Chave não reconhecida no objeto: {{- keys}}",
+    "unrecognized_keys_other": "Chaves não reconhecidas no objeto: {{- keys}}",
     "invalid_union": "Entrada inválida",
     "invalid_union_discriminator": "Valor discriminador inválido. Foi esperado {{- options}}",
     "invalid_enum_value": "Enum no formato inválido. Foi esperado {{- options}}, porém foi recebido '{{received}}'",
@@ -28,16 +30,30 @@
     "too_small": {
       "array": {
         "exact": "Lista deve conter exatamente {{minimum}} elemento(s)",
+        "exact_one": "Lista deve conter exatamente {{minimum}} elemento",
+        "exact_other": "Lista deve conter exatamente {{minimum}} elementos",
         "inclusive": "Lista deve conter no mínimo {{minimum}} elemento(s)",
-        "not_inclusive": "Lista deve conter mais de {{minimum}} elemento(s)"
+        "inclusive_one": "Lista deve conter no mínimo {{minimum}} elemento",
+        "inclusive_other": "Lista deve conter no mínimo {{minimum}} elementos",
+        "not_inclusive": "Lista deve conter mais de {{minimum}} elemento(s)",
+        "not_inclusive_one": "Lista deve conter mais de {{minimum}} elemento",
+        "not_inclusive_other": "Lista deve conter mais de {{minimum}} elementos"
       },
       "string": {
         "exact": "Texto deve conter exatamente {{minimum}} caracter(es)",
+        "exact_one": "Texto deve conter exatamente {{minimum}} caracter",
+        "exact_other": "Texto deve conter exatamente {{minimum}} caracteres",
         "inclusive": "Texto deve conter pelo menos {{minimum}} caracter(es)",
-        "not_inclusive": "Texto deve conter mais de {{minimum}} caracter(es)"
+        "inclusive_one": "Texto deve conter pelo menos {{minimum}} caracter",
+        "inclusive_other": "Texto deve conter pelo menos {{minimum}} caracteres",
+        "not_inclusive": "Texto deve conter mais de {{minimum}} caracter(es)",
+        "not_inclusive_one": "Texto deve conter mais de {{minimum}} caracter",
+        "not_inclusive_other": "Texto deve conter mais de {{minimum}} caracteres"
       },
       "number": {
         "exact": "Número deve conter exatamente {{minimum}} caracter(es)",
+        "exact_one": "Número deve conter exatamente {{minimum}} caracter",
+        "exact_other": "Número deve conter exatamente {{minimum}} caracteres",
         "inclusive": "Número deve ser maior ou igual a {{minimum}}",
         "not_inclusive": "Número deve ser maior que {{minimum}}"
       },
@@ -55,16 +71,30 @@
     "too_big": {
       "array": {
         "exact": "Lista deve conter exatamente {{maximum}} elemento(s)",
+        "exact_one": "Lista deve conter exatamente {{maximum}} elemento",
+        "exact_other": "Lista deve conter exatamente {{maximum}} elementos",
         "inclusive": "Lista deve conter no máximo {{maximum}} elemento(s)",
-        "not_inclusive": "Lista deve conter menos de {{maximum}} elemento(s)"
+        "inclusive_one": "Lista deve conter no máximo {{maximum}} elemento",
+        "inclusive_other": "Lista deve conter no máximo {{maximum}} elementos",
+        "not_inclusive": "Lista deve conter menos de {{maximum}} elemento(s)",
+        "not_inclusive_one": "Lista deve conter menos de {{maximum}} elemento",
+        "not_inclusive_other": "Lista deve conter menos de {{maximum}} elementos"
       },
       "string": {
         "exact": "Texto deve conter exatamente {{maximum}} caracter(es)",
+        "exact_one": "Texto deve conter exatamente {{maximum}} caracter",
+        "exact_other": "Texto deve conter exatamente {{maximum}} caracteres",
         "inclusive": "Texto pode conter no máximo {{maximum}} caracter(es)",
-        "not_inclusive": "Texto deve conter menos que {{maximum}} caracter(es)"
+        "inclusive_one": "Texto pode conter no máximo {{maximum}} caracter",
+        "inclusive_other": "Texto pode conter no máximo {{maximum}} caracteres",
+        "not_inclusive": "Texto deve conter menos que {{maximum}} caracter(es)",
+        "not_inclusive_one": "Texto deve conter menos que {{maximum}} caracter",
+        "not_inclusive_other": "Texto deve conter menos que {{maximum}} caracteres"
       },
       "number": {
         "exact": "Número deve conter exatamente {{maximum}} caracter(es)",
+        "exact_one": "Número deve conter exatamente {{maximum}} caracter",
+        "exact_other": "Número deve conter exatamente {{maximum}} caracteres",
         "inclusive": "Número deve ser menor ou igual a {{maximum}}",
         "not_inclusive": "Número deve ser menor que {{maximum}}"
       },

@@ -37,14 +37,23 @@ test("string parser error messages", () => {
   expect(getErrorMessage(schema.endsWith("bar").safeParse(""))).toEqual(
     'Entrada inválida: deve terminar com "bar"'
   );
+  expect(getErrorMessage(schema.length(1).safeParse("abcdef"))).toEqual(
+    "Texto deve conter exatamente 1 caracter"
+  );
   expect(getErrorMessage(schema.length(5).safeParse("abcdef"))).toEqual(
-    "Texto deve conter exatamente 5 caracter(es)"
+    "Texto deve conter exatamente 5 caracteres"
+  );
+  expect(getErrorMessage(schema.min(1).safeParse(""))).toEqual(
+    "Texto deve conter pelo menos 1 caracter"
   );
   expect(getErrorMessage(schema.min(5).safeParse("a"))).toEqual(
-    "Texto deve conter pelo menos 5 caracter(es)"
+    "Texto deve conter pelo menos 5 caracteres"
+  );
+  expect(getErrorMessage(schema.max(1).safeParse("abcdef"))).toEqual(
+    "Texto pode conter no máximo 1 caracter"
   );
   expect(getErrorMessage(schema.max(5).safeParse("abcdef"))).toEqual(
-    "Texto pode conter no máximo 5 caracter(es)"
+    "Texto pode conter no máximo 5 caracteres"
   );
   // TODO: translation `datetime` (zod:validations.datetime and zod:errors.invalid_string.datetime)
   expect(
@@ -131,17 +140,26 @@ test("array parser error messages", () => {
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
     "O dado deve ser do tipo array, porém foi enviado string"
   );
-  expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
-    "Lista deve conter exatamente 2 elemento(s)"
+  expect(getErrorMessage(schema.length(1).safeParse([]))).toEqual(
+    "Lista deve conter exatamente 1 elemento"
   );
-  expect(getErrorMessage(schema.min(5).safeParse([""]))).toEqual(
-    "Lista deve conter no mínimo 5 elemento(s)"
+  expect(getErrorMessage(schema.length(2).safeParse([]))).toEqual(
+    "Lista deve conter exatamente 2 elementos"
+  );
+  expect(getErrorMessage(schema.min(1).safeParse([]))).toEqual(
+    "Lista deve conter no mínimo 1 elemento"
+  );
+  expect(getErrorMessage(schema.min(2).safeParse([""]))).toEqual(
+    "Lista deve conter no mínimo 2 elementos"
+  );
+  expect(getErrorMessage(schema.max(1).safeParse(["", "", ""]))).toEqual(
+    "Lista deve conter no máximo 1 elemento"
   );
   expect(getErrorMessage(schema.max(2).safeParse(["", "", ""]))).toEqual(
-    "Lista deve conter no máximo 2 elemento(s)"
+    "Lista deve conter no máximo 2 elementos"
   );
   expect(getErrorMessage(schema.nonempty().safeParse([]))).toEqual(
-    "Lista deve conter no mínimo 1 elemento(s)"
+    "Lista deve conter no mínimo 1 elemento"
   );
 });
 
@@ -176,12 +194,17 @@ test("other parser error messages", () => {
   );
   expect(
     getErrorMessage(
+      z.object({ dog: z.string() }).strict().safeParse({ dog: "", cat: "" })
+    )
+  ).toEqual("Chave não reconhecida no objeto: 'cat'");
+  expect(
+    getErrorMessage(
       z
         .object({ dog: z.string() })
         .strict()
         .safeParse({ dog: "", cat: "", rat: "" })
     )
-  ).toEqual("Chave(s) não reconhecida(s) no objeto: 'cat', 'rat'");
+  ).toEqual("Chaves não reconhecidas no objeto: 'cat', 'rat'");
   expect(
     getErrorMessage(
       z
