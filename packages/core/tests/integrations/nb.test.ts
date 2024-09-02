@@ -15,19 +15,19 @@ test("string parser error messages", () => {
     "Må ikke være tom"
   );
   expect(getErrorMessage(schema.safeParse(1))).toEqual(
-    "Forventet String, mottok Nummer"
+    "Forventet streng, mottok nummer"
   );
   expect(getErrorMessage(schema.safeParse(true))).toEqual(
-    "Forventet String, mottok Boolean"
+    "Forventet streng, mottok boolean"
   );
   expect(getErrorMessage(schema.safeParse(Date))).toEqual(
-    "Forventet String, mottok Funksjon"
+    "Forventet streng, mottok funksjon"
   );
   expect(getErrorMessage(schema.safeParse(new Date()))).toEqual(
-    "Forventet String, mottok Dato"
+    "Forventet streng, mottok dato"
   );
   expect(getErrorMessage(schema.email().safeParse(""))).toEqual(
-    "Ugyldig Epost adresse"
+    "Ugyldig e-postadresse"
   );
   expect(getErrorMessage(schema.url().safeParse(""))).toEqual("Ugyldig URL");
   expect(getErrorMessage(schema.regex(/aaa/).safeParse(""))).toEqual("Ugyldig");
@@ -48,7 +48,7 @@ test("string parser error messages", () => {
   );
   expect(
     getErrorMessage(schema.datetime().safeParse("2020-01-01T00:00:00+02:00"))
-  ).toEqual("Ugyldig Dato og klokkeslett");
+  ).toEqual("Ugyldig dato og klokkeslett");
 });
 
 test("number parser error messages", () => {
@@ -59,13 +59,13 @@ test("number parser error messages", () => {
   );
   expect(getErrorMessage(schema.safeParse(null))).toEqual("Må ikke være tom");
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
-    "Forventet Nummer, mottok String"
+    "Forventet nummer, mottok streng"
   );
   expect(getErrorMessage(schema.safeParse(NaN))).toEqual(
-    "Forventet Nummer, mottok NaN"
+    "Forventet nummer, mottok NaN"
   );
   expect(getErrorMessage(schema.int().safeParse(0.1))).toEqual(
-    "Forventet Heltall, mottok Flyttall"
+    "Forventet heltall, mottok flyttall"
   );
   expect(getErrorMessage(schema.multipleOf(5).safeParse(2))).toEqual(
     "Tallet må være et multiplum av 5"
@@ -107,7 +107,7 @@ test("date parser error messages", async () => {
   const schema = z.date();
 
   expect(getErrorMessage(schema.safeParse("2022-12-01"))).toEqual(
-    "Forventet Dato, mottok String"
+    "Forventet dato, mottok streng"
   );
   expect(
     getErrorMessage(schema.min(testDate).safeParse(new Date("2022-07-29")))
@@ -130,7 +130,7 @@ test("array parser error messages", () => {
   const schema = z.string().array();
 
   expect(getErrorMessage(schema.safeParse(""))).toEqual(
-    "Forventet Array, mottok String"
+    "Forventet array, mottok streng"
   );
   expect(getErrorMessage(schema.min(5).safeParse([""]))).toEqual(
     "Array må inneholde minst 5 element(er)"
