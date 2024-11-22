@@ -25,7 +25,7 @@
     "@commitlint/config-conventional": "^17.4.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
-    "npm-run-all": "^4.1.5",
+    "npm-run-all2": "^5.0.0",
     "prettier": "^2.8.3",
     "semantic-release": "^20.1.0",
     "semantic-release-monorepo": "^7.0.5"
