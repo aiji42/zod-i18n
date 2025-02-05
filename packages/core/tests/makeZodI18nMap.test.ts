@@ -339,3 +339,38 @@ describe("custom error message", () => {
     ).toEqual("custom error message with value {{myVal}}");
   });
 });
+
+describe("keySeparator", () => {
+  test("configurable keySeparator", async () => {
+    await i18next.init({
+      lng: "en",
+      keySeparator: ":",
+      resources: {
+        en: {
+          zod: {
+            errors: {
+              invalid_type: "Expected {{expected}}, received {{received}}",
+            },
+          },
+          zod2: {
+            errors: {
+              invalid_type:
+                "Error: it is expected to provide {{expected}} but you provided {{received}}",
+            },
+          },
+        },
+      },
+    });
+    z.setErrorMap(makeZodI18nMap({ keySeparator: ":" }));
+
+    expect(getErrorMessage(z.string().safeParse(5))).toEqual(
+      "Expected string, received number"
+    );
+
+    z.setErrorMap(makeZodI18nMap({ ns: "zod2", keySeparator: ":" }));
+
+    expect(getErrorMessage(z.string().safeParse(5))).toEqual(
+      "Error: it is expected to provide string but you provided number"
+    );
+  });
+});

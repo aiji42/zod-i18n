@@ -50,6 +50,7 @@ export type ZodI18nMapOption = {
   t?: i18n["t"];
   ns?: string | readonly string[];
   handlePath?: HandlePathOption | false;
+  keySeparator?: string;
 };
 
 export type HandlePathOption = {
@@ -61,9 +62,10 @@ export type HandlePathOption = {
 const defaultNs = "zod";
 
 export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
-  const { t, ns, handlePath } = {
+  const { t, ns, handlePath, keySeparator } = {
     t: i18next.t,
     ns: defaultNs,
+    keySeparator: ".",
     ...option,
     handlePath:
       option?.handlePath !== false
@@ -84,12 +86,12 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
       ? {
           context: handlePath.context,
           path: t(
-            [handlePath.keyPrefix, issue.path.join(".")]
+            [handlePath.keyPrefix, issue.path.join(keySeparator)]
               .filter(Boolean)
-              .join("."),
+              .join(keySeparator),
             {
               ns: handlePath.ns,
-              defaultValue: issue.path.join("."),
+              defaultValue: issue.path.join(keySeparator),
             }
           ),
         }
@@ -98,19 +100,19 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
   switch (issue.code) {
     case ZodIssueCode.invalid_type:
       if (issue.received === ZodParsedType.undefined) {
-        message = t("errors.invalid_type_received_undefined", {
+        message = t(`errors${keySeparator}invalid_type_received_undefined`, {
           ns,
           defaultValue: message,
           ...path,
         });
       } else if (issue.received === ZodParsedType.null) {
-        message = t("errors.invalid_type_received_null", {
+        message = t(`errors${keySeparator}invalid_type_received_null`, {
           ns,
           defaultValue: message,
           ...path,
         });
       } else {
-        message = t("errors.invalid_type", {
+        message = t(`errors${keySeparator}invalid_type`, {
           expected: t(`types.${issue.expected}`, {
             defaultValue: issue.expected,
             ns,
@@ -126,7 +128,7 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
       }
       break;
     case ZodIssueCode.invalid_literal:
-      message = t("errors.invalid_literal", {
+      message = t(`errors${keySeparator}invalid_literal`, {
         expected: JSON.stringify(issue.expected, jsonStringifyReplacer),
         ns,
         defaultValue: message,
@@ -134,7 +136,7 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
       });
       break;
     case ZodIssueCode.unrecognized_keys:
-      message = t("errors.unrecognized_keys", {
+      message = t(`errors${keySeparator}unrecognized_keys`, {
         keys: joinValues(issue.keys, ", "),
         count: issue.keys.length,
         ns,
@@ -143,14 +145,14 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
       });
       break;
     case ZodIssueCode.invalid_union:
-      message = t("errors.invalid_union", {
+      message = t(`errors${keySeparator}invalid_union`, {
         ns,
         defaultValue: message,
         ...path,
       });
       break;
     case ZodIssueCode.invalid_union_discriminator:
-      message = t("errors.invalid_union_discriminator", {
+      message = t(`errors${keySeparator}invalid_union_discriminator`, {
         options: joinValues(issue.options),
         ns,
         defaultValue: message,
@@ -158,7 +160,7 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
       });
       break;
     case ZodIssueCode.invalid_enum_value:
-      message = t("errors.invalid_enum_value", {
+      message = t(`errors${keySeparator}invalid_enum_value`, {
         options: joinValues(issue.options),
         received: issue.received,
         ns,
@@ -167,21 +169,21 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
       });
       break;
     case ZodIssueCode.invalid_arguments:
-      message = t("errors.invalid_arguments", {
+      message = t(`errors${keySeparator}invalid_arguments`, {
         ns,
         defaultValue: message,
         ...path,
       });
       break;
     case ZodIssueCode.invalid_return_type:
-      message = t("errors.invalid_return_type", {
+      message = t(`errors${keySeparator}invalid_return_type`, {
         ns,
         defaultValue: message,
         ...path,
       });
       break;
     case ZodIssueCode.invalid_date:
-      message = t("errors.invalid_date", {
+      message = t(`errors${keySeparator}invalid_date`, {
         ns,
         defaultValue: message,
         ...path,
@@ -190,30 +192,39 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
     case ZodIssueCode.invalid_string:
       if (typeof issue.validation === "object") {
         if ("startsWith" in issue.validation) {
-          message = t(`errors.invalid_string.startsWith`, {
-            startsWith: issue.validation.startsWith,
-            ns,
-            defaultValue: message,
-            ...path,
-          });
+          message = t(
+            `errors${keySeparator}invalid_string${keySeparator}startsWith`,
+            {
+              startsWith: issue.validation.startsWith,
+              ns,
+              defaultValue: message,
+              ...path,
+            }
+          );
         } else if ("endsWith" in issue.validation) {
-          message = t(`errors.invalid_string.endsWith`, {
-            endsWith: issue.validation.endsWith,
-            ns,
-            defaultValue: message,
-            ...path,
-          });
+          message = t(
+            `errors${keySeparator}invalid_string${keySeparator}endsWith`,
+            {
+              endsWith: issue.validation.endsWith,
+              ns,
+              defaultValue: message,
+              ...path,
+            }
+          );
         }
       } else {
-        message = t(`errors.invalid_string.${issue.validation}`, {
-          validation: t(`validations.${issue.validation}`, {
-            defaultValue: issue.validation,
+        message = t(
+          `errors${keySeparator}invalid_string${keySeparator}${issue.validation}`,
+          {
+            validation: t(`validations${keySeparator}${issue.validation}`, {
+              defaultValue: issue.validation,
+              ns,
+            }),
             ns,
-          }),
-          ns,
-          defaultValue: message,
-          ...path,
-        });
+            defaultValue: message,
+            ...path,
+          }
+        );
       }
       break;
     case ZodIssueCode.too_small:
@@ -222,7 +233,7 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
           ? new Date(issue.minimum as number)
           : issue.minimum;
       message = t(
-        `errors.too_small.${issue.type}.${
+        `errors${keySeparator}too_small${keySeparator}${issue.type}.${
           issue.exact
             ? "exact"
             : issue.inclusive
@@ -244,7 +255,7 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
           ? new Date(issue.maximum as number)
           : issue.maximum;
       message = t(
-        `errors.too_big.${issue.type}.${
+        `errors${keySeparator}too_big${keySeparator}${issue.type}.${
           issue.exact
             ? "exact"
             : issue.inclusive
@@ -263,7 +274,7 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
     case ZodIssueCode.custom:
       const { key, values } = getKeyAndValues(
         issue.params?.i18n,
-        "errors.custom"
+        `errors${keySeparator}custom`
       );
 
       message = t(key, {
@@ -274,14 +285,14 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
       });
       break;
     case ZodIssueCode.invalid_intersection_types:
-      message = t("errors.invalid_intersection_types", {
+      message = t(`errors${keySeparator}invalid_intersection_types`, {
         ns,
         defaultValue: message,
         ...path,
       });
       break;
     case ZodIssueCode.not_multiple_of:
-      message = t("errors.not_multiple_of", {
+      message = t(`errors${keySeparator}not_multiple_of`, {
         multipleOf: issue.multipleOf,
         ns,
         defaultValue: message,
@@ -289,7 +300,7 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
       });
       break;
     case ZodIssueCode.not_finite:
-      message = t("errors.not_finite", {
+      message = t(`errors${keySeparator}not_finite`, {
         ns,
         defaultValue: message,
         ...path,
