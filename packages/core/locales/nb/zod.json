@@ -22,6 +22,7 @@
       "cuid": "Ugyldig {{validation}}",
       "regex": "Ugyldig",
       "datetime": "Ugyldig {{validation}}",
+      "date": "Ugyldig {{validation}}",
       "startsWith": "Ugyldig inndata: må starte med \"{{startsWith}}\"",
       "endsWith": "Ugyldig inndata: må slutte med \"{{endsWith}}\""
     },

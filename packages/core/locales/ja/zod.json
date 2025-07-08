@@ -22,6 +22,7 @@
       "cuid": "{{validation}}の形式で入力してください。",
       "regex": "入力形式が間違っています。",
       "datetime": "{{validation}}の形式で入力してください。",
+      "date": "{{validation}}の形式で入力してください。",
       "startsWith": "\"{{startsWith}}\"で始まる文字列である必要があります。",
       "endsWith": "\"{{endsWith}}\"で終わる文字列である必要があります。"
     },

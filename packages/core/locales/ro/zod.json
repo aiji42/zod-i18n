@@ -22,6 +22,7 @@
       "cuid": "{{validation}} nevalid",
       "regex": "Nevalid",
       "datetime": "{{validation}} nevalid",
+      "date": "{{validation}} nevalid",
       "startsWith": "Intrare nevalidă: trebuie să înceapă cu \"{{startsWith}}\"",
       "endsWith": "Intrare nevalidă: trebuie să se termine cu \"{{endsWith}}\""
     },

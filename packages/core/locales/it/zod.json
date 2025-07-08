@@ -22,6 +22,7 @@
       "cuid": "{{validation}} non valido",
       "regex": "Non valida",
       "datetime": "{{validation}} non valido",
+      "date": "{{validation}} non valido",
       "startsWith": "Input non valido: deve iniziare con \"{{startsWith}}\"",
       "endsWith": "Input non valido: deve finire con \"{{endsWith}}\""
     },

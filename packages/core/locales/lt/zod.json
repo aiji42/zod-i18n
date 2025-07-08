@@ -22,6 +22,7 @@
       "cuid": "Klaidingas {{validation}}",
       "regex": "Klaidingas {{validation}}",
       "datetime": "Klaidinga {{validation}}",
+      "date": "Klaidinga {{validation}}",
       "startsWith": "Klaidinga įvestis: privaloma pradžia \"{{startsWith}}\"",
       "endsWith": "Klaidinga įvestis: privaloma pabaiga \"{{endsWith}}\""
     },

@@ -22,6 +22,7 @@
       "cuid": "Format {{validation}} tidak valid",
       "regex": "Tidak valid",
       "datetime": "Format {{validation}} tidak valid",
+      "date": "Format {{validation}} tidak valid",
       "startsWith": "String harus dimulai dengan \"{{startsWith}}\"",
       "endsWith": "String harus diakhiri dengan \"{{endsWith}}\""
     },

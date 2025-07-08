@@ -22,6 +22,7 @@
       "cuid": "Невалиден {{validation}}",
       "regex": "Невалиден {{validation}}",
       "datetime": "Невалидна {{validation}}",
+      "date": "Невалидна {{validation}}",
       "startsWith": "Невалидни данни: трябва да започва с \"{{startsWith}}\"",
       "endsWith": "Невалидни данни: трябва да завършва с \"{{endsWith}}\""
     },

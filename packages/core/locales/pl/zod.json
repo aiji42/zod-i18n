@@ -22,6 +22,7 @@
       "cuid": "Niewłaściwe CUID",
       "regex": "Niewłaściwa wartość",
       "datetime": "Niewłaściwa data i czas",
+      "date": "Niewłaściwa data i czas",
       "startsWith": "Niewłaściwa wartość: musi zaczynać się na \"{{startsWith}}\"",
       "endsWith": "Niewłaściwa wartość: musi kończyć się na \"{{endsWith}}\""
     },

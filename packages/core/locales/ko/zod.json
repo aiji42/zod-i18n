@@ -22,6 +22,7 @@
       "cuid": "허용되지 않은 {{validation}} 형식 입니다.",
       "regex": "허용되지 않은 형식 입니다.",
       "datetime": "허용되지 않은 {{validation}} 형식 입니다.",
+      "date": "허용되지 않은 {{validation}} 형식 입니다.",
       "startsWith": "\"{{startsWith}}\"로 시작하는 문자열이어야 합니다.",
       "endsWith": "\"{{endsWith}}\"로 끝나는 문자열이어야 합니다."
     },

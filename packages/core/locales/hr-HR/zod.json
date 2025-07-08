@@ -22,6 +22,7 @@
       "cuid": "Neispravan {{validation}}",
       "regex": "Neispravno",
       "datetime": "Neispravan {{validation}}",
+      "date": "Neispravan {{validation}}",
       "startsWith": "Neispravan unos: mora započeti s \"{{startsWith}}\"",
       "endsWith": "Neispravan unos: mora završiti s \"{{endsWith}}\""
     },

@@ -22,6 +22,7 @@
       "cuid": "Geçersiz {{validation}}",
       "regex": "Geçersiz",
       "datetime": "Geçersiz {{validation}}",
+      "date": "Geçersiz {{validation}}",
       "startsWith": "Geçersiz girdi: \"{{startsWith}}\" ile başlamalı",
       "endsWith": "Geçersiz girdi: \"{{endsWith}}\" ile bitmeli"
     },

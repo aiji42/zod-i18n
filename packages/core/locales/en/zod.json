@@ -22,6 +22,7 @@
       "cuid": "Invalid {{validation}}",
       "regex": "Invalid",
       "datetime": "Invalid {{validation}}",
+      "date": "Invalid {{validation}}",
       "startsWith": "Invalid input: must start with \"{{startsWith}}\"",
       "endsWith": "Invalid input: must end with \"{{endsWith}}\""
     },

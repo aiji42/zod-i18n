@@ -22,6 +22,7 @@
       "cuid": "Ogiltig {{validation}}",
       "regex": "Ogiltigt",
       "datetime": "Ogiltig {{validation}}",
+      "date": "Ogiltig {{validation}}",
       "startsWith": "Ogiltig inmatning: måste börja med \"{{startsWith}}\"",
       "endsWith": "Ogiltig inmatning: måste sluta med \"{{endsWith}}\""
     },
