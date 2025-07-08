@@ -22,6 +22,7 @@
       "cuid": "Noto'g'ri {{validation}}",
       "regex": "Noto'g'ri",
       "datetime": "Noto'g'ri {{validation}}",
+      "date": "Noto'g'ri {{validation}}",
       "startsWith": "Noto'g'ri kiritildi: \"{{startsWith}}\" bilan boshlanishi kerak",
       "endsWith": "Noto'g'ri kiritildi: \"{{endsWith}}\" bilan tugashi kerak"
     },

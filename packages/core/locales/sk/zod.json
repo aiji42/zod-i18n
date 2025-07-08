@@ -22,6 +22,7 @@
       "cuid": "Neplatné {{validation}}",
       "regex": "Neplatná kombinácia",
       "datetime": "Neplatný {{validation}}",
+      "date": "Neplatný {{validation}}",
       "startsWith": "Neplatný vstup: musí začínať \"{{startsWith}}\"",
       "endsWith": "Neplatný vstup: musí končiť \"{{endsWith}}\""
     },

@@ -22,6 +22,7 @@
       "cuid": "غير صالح {{validation}}",
       "regex": "غير صالح",
       "datetime": "غير صالح {{validation}}",
+      "date": "غير صالح {{validation}}",
       "startsWith": "إدخال غير صالح: يجب أن يبدأ بـ {{startsWith}}",
       "endsWith": "إدخال غير صالح: يجب أن ينتهي بـ {{endsWith}}"
     },

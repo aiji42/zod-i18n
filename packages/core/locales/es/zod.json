@@ -22,6 +22,7 @@
       "cuid": "{{validation}} inválido",
       "regex": "Inválido",
       "datetime": "{{validation}} inválida",
+      "date": "{{validation}} inválida",
       "startsWith": "Entrada inválida: debe comenzar con \"{{startsWith}}\"",
       "endsWith": "Entrada inválida: debe finalizar con \"{{endsWith}}\""
     },

@@ -22,6 +22,7 @@
       "cuid": "{{validation}} non valide",
       "regex": "{{validation}} non valide",
       "datetime": "{{validation}} non valide",
+      "date": "{{validation}} non valide",
       "startsWith": "Le champ doit commencer par « {{startsWith}} »",
       "endsWith": "Le champ doit se terminer par « {{endsWith}} »"
     },

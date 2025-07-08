@@ -22,6 +22,7 @@
       "cuid": "错误的{{validation}}格式",
       "regex": "错误的格式",
       "datetime": "错误的{{validation}}格式",
+      "date": "错误的{{validation}}格式",
       "startsWith": "文本必须以 \"{{startsWith}}\" 开头",
       "endsWith": "文本必须以 \"{{endsWith}}\" 结尾"
     },

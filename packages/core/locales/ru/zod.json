@@ -22,6 +22,7 @@
       "cuid": "Неверный {{validation}}",
       "regex": "Неверное {{validation}}",
       "datetime": "Неверная {{validation}}",
+      "date": "Неверная {{validation}}",
       "startsWith": "Неверный формат, должен начинаться с \"{{startsWith}}\"",
       "endsWith": "Неверный формат, должен заканчиваться на \"{{endsWith}}\""
     },

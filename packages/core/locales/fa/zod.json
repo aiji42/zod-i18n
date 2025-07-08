@@ -22,6 +22,7 @@
       "cuid": "{{validation}} نامعتبر",
       "regex": "نامعتبر",
       "datetime": "{{validation}} نامعتبر",
+      "date": "{{validation}} نامعتبر",
       "startsWith": "ورودی نامعتبر: باید با \"{{startsWith}}\" شروع شود",
       "endsWith": "ورودی نامعتبر: باید با \"{{endsWith}}\" به اتمام برسد"
     },

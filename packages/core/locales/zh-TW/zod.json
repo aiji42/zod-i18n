@@ -22,6 +22,7 @@
       "cuid": "{{validation}} 格式錯誤",
       "regex": "格式錯誤",
       "datetime": "{{validation}} 格式錯誤",
+      "date": "{{validation}} 格式錯誤",
       "startsWith": "必須以 \"{{startsWith}}\" 開始",
       "endsWith": "必須以 \"{{endsWith}}\" 結尾"
     },

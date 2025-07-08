@@ -22,6 +22,7 @@
       "cuid": "Ungültige {{validation}}",
       "regex": "Ungültig",
       "datetime": "Ungültiger {{validation}}",
+      "date": "Ungültiger {{validation}}",
       "startsWith": "Ungültige Eingabe: muss mit \"{{startsWith}}\" beginnen",
       "endsWith": "Ungültige Eingabe: muss mit \"{{endsWith}}\" enden"
     },

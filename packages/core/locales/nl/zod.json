@@ -22,6 +22,7 @@
       "cuid": "Ongeldige {{validation}}",
       "regex": "Ongeldig",
       "datetime": "Ongeldige {{validation}}",
+      "date": "Ongeldige {{validation}}",
       "startsWith": "Ongeldige invoer: moet beginnen met \"{{startsWith}}\"",
       "endsWith": "Ongeldige invoer: moet eindigen met \"{{endsWith}}\""
     },
