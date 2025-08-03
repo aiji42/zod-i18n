@@ -81,7 +81,7 @@
     }
   },
   "validations": {
-    "email": "邮件",
+    "email": "邮箱",
     "url": "链接",
     "uuid": "uuid",
     "cuid": "cuid",
