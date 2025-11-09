@@ -1,0 +1,113 @@
+{
+  "errors": {
+    "invalid_type": "Várt: {{expected}}, kapott: {{received}}",
+    "invalid_type_received_undefined": "Kötelező",
+    "invalid_type_received_null": "Kötelező",
+    "invalid_literal": "Érvénytelen literál érték, várt: {{expected}}",
+    "unrecognized_keys": "Ismeretlen kulcs(ok) az objektumban: {{- keys}}",
+    "invalid_union": "Érvénytelen bemenet",
+    "invalid_union_discriminator": "Érvénytelen diszkriminátor érték. Várt: {{- options}}",
+    "invalid_enum_value": "Érvénytelen enum érték. Várt: {{- options}}, kapott: '{{received}}'",
+    "invalid_arguments": "Érvénytelen függvényargumentumok",
+    "invalid_return_type": "Érvénytelen függvény visszatérési típus",
+    "invalid_date": "Érvénytelen dátum",
+    "custom": "Érvénytelen bemenet",
+    "invalid_intersection_types": "A metszet eredményei nem egyesíthetők",
+    "not_multiple_of": "A számnak a(z) {{multipleOf}} többszörösének kell lennie",
+    "not_finite": "A számnak végesnek kell lennie",
+    "invalid_string": {
+      "email": "Érvénytelen {{validation}}",
+      "url": "Érvénytelen {{validation}}",
+      "uuid": "Érvénytelen {{validation}}",
+      "cuid": "Érvénytelen {{validation}}",
+      "regex": "Érvénytelen",
+      "datetime": "Érvénytelen {{validation}}",
+      "startsWith": "Érvénytelen bemenet: \"{{startsWith}}\"-sel kell kezdődnie",
+      "endsWith": "Érvénytelen bemenet: \"{{endsWith}}\"-re kell végződnie"
+    },
+    "too_small": {
+      "array": {
+        "exact": "A tömbnek pontosan {{minimum}} elemet kell tartalmaznia",
+        "inclusive": "A tömbnek legalább {{minimum}} elemet kell tartalmaznia",
+        "not_inclusive": "A tömbnek több mint {{minimum}} elemet kell tartalmaznia"
+      },
+      "string": {
+        "exact": "A szövegnek pontosan {{minimum}} karakterből kell állnia",
+        "inclusive": "A szövegnek legalább {{minimum}} karakterből kell állnia",
+        "not_inclusive": "A szövegnek több mint {{minimum}} karakterből kell állnia"
+      },
+      "number": {
+        "exact": "A szám értéke legyen pontosan {{minimum}}",
+        "inclusive": "A szám értéke legyen nagyobb vagy egyenlő, mint {{minimum}}",
+        "not_inclusive": "A szám értéke legyen nagyobb, mint {{minimum}}"
+      },
+      "set": {
+        "exact": "Érvénytelen bemenet",
+        "inclusive": "Érvénytelen bemenet",
+        "not_inclusive": "Érvénytelen bemenet"
+      },
+      "date": {
+        "exact": "A dátumnak pontosan {{- minimum, datetime}} kell lennie",
+        "inclusive": "A dátumnak nagyobbnak vagy egyenlőnek kell lennie, mint {{- minimum, datetime}}",
+        "not_inclusive": "A dátumnak nagyobbnak kell lennie, mint {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "array": {
+        "exact": "A tömbnek pontosan {{maximum}} elemet kell tartalmaznia",
+        "inclusive": "A tömb legfeljebb {{maximum}} elemet tartalmazhat",
+        "not_inclusive": "A tömbnek kevesebb mint {{maximum}} elemet kell tartalmaznia"
+      },
+      "string": {
+        "exact": "A szövegnek pontosan {{maximum}} karakterből kell állnia",
+        "inclusive": "A szöveg legfeljebb {{maximum}} karakterből állhat",
+        "not_inclusive": "A szövegnek kevesebb mint {{maximum}} karakterből kell állnia"
+      },
+      "number": {
+        "exact": "A szám értéke legyen pontosan {{maximum}}",
+        "inclusive": "A szám értéke legyen kisebb vagy egyenlő, mint {{maximum}}",
+        "not_inclusive": "A szám értéke legyen kisebb, mint {{maximum}}"
+      },
+      "set": {
+        "exact": "Érvénytelen bemenet",
+        "inclusive": "Érvénytelen bemenet",
+        "not_inclusive": "Érvénytelen bemenet"
+      },
+      "date": {
+        "exact": "A dátumnak pontosan {{- maximum, datetime}} kell lennie",
+        "inclusive": "A dátumnak kisebbnek vagy egyenlőnek kell lennie, mint {{- maximum, datetime}}",
+        "not_inclusive": "A dátumnak kisebbnek kell lennie, mint {{- maximum, datetime}}"
+      }
+    }
+  },
+  "validations": {
+    "email": "e-mail cím",
+    "url": "url",
+    "uuid": "uuid",
+    "cuid": "cuid",
+    "regex": "reguláris kifejezés",
+    "datetime": "dátum és idő"
+  },
+  "types": {
+    "function": "függvény",
+    "number": "szám",
+    "string": "sztring",
+    "nan": "NaN",
+    "integer": "egész",
+    "float": "lebegőpontos",
+    "boolean": "logikai",
+    "date": "dátum",
+    "bigint": "bigint",
+    "undefined": "nem definiált",
+    "symbol": "szimbólum",
+    "null": "null",
+    "array": "tömb",
+    "object": "objektum",
+    "unknown": "ismeretlen",
+    "promise": "promise",
+    "void": "void",
+    "never": "never",
+    "map": "map",
+    "set": "halmaz"
+  }
+}
