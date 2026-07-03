@@ -31,7 +31,7 @@
       "string": {
         "exact": "رشته باید دقیقا {{minimum}} کلمه‌ای باشد",
         "inclusive": "رشته باید حداقل {{minimum}} کلمه‌ای باشد",
-        "not_inclusive": "رشته باید بیش از {minimum}} کلمه باشد"
+        "not_inclusive": "رشته باید بیش از {{minimum}} کلمه باشد"
       },
       "number": {
         "exact": "عدد باید دقیقا برابر با {{minimum}} باشد",

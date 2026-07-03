@@ -1,0 +1,110 @@
+{
+  "errors": {
+    "invalid_type": "Odotettiin arvon olevan {expected}, saatiin {received}",
+    "invalid_type_received_undefined": "Vaadittu",
+    "invalid_type_received_null": "Vaadittu",
+    "invalid_literal": "Virheellinen merkkijono, odotettiin {expected}",
+    "unrecognized_keys": "Tuntemattomia avaimia objektissa: {keys}",
+    "invalid_union": "Virheellinen syöte",
+    "invalid_union_discriminator": "Virheellinen erottimen arvo. Odotettiin {options}",
+    "invalid_enum_value": "Virheellinen vaihtoehto. Odotettiin {options}, saatiin ''{received}''",
+    "invalid_date": "Virheellinen päivämäärä",
+    "custom": "Virheellinen syöte",
+    "not_multiple_of": "Numeron tulee olla luvun {multipleOf} monikerta",
+    "not_finite": "Numeron tulee olla äärellinen",
+    "invalid_string": {
+      "email": "Virheellinen {validation}",
+      "url": "Virheellinen {validation}",
+      "uuid": "Virheellinen {validation}",
+      "cuid": "Virheellinen {validation}",
+      "regex": "Virheellinen",
+      "datetime": "Virheellinen {validation}",
+      "startsWith": "Virheellinen syöte: täytyy alkaa \"{startsWith}\"",
+      "endsWith": "Virheellinen syöte: täytyy päättyä \"{endsWith}\""
+    },
+    "too_small": {
+      "array": {
+        "exact": "Taulukon tulee sisältää tarkalleen {minimum} alkiota",
+        "inclusive": "Taulukon tulee sisältää vähintään {minimum} alkiota",
+        "not_inclusive": "Taulukon tulee sisältää yli {minimum} alkiota"
+      },
+      "string": {
+        "exact": "Merkkijonon tulee sisältää täsmälleen {minimum} merkkiä",
+        "inclusive": "Merkkijonon tulee sisältää vähintään {minimum} merkkiä",
+        "not_inclusive": "Merkkijonon tulee sisältää yli {minimum} merkkiä"
+      },
+      "number": {
+        "exact": "Numeron tulee olla täsmälleen {minimum}",
+        "inclusive": "Numeron tulee olla suurempi tai yhtä suuri kuin {minimum}",
+        "not_inclusive": "Numeron tulee olla suurempi kuin {minimum}"
+      },
+      "set": {
+        "exact": "Virheellinen syöte",
+        "inclusive": "Virheellinen syöte",
+        "not_inclusive": "Virheellinen syöte"
+      },
+      "date": {
+        "exact": "Päivämäärän on oltava täsmälleen {minimum, date}",
+        "inclusive": "Päivämäärän on oltava suurempi tai yhtä suuri kuin {minimum, date}",
+        "not_inclusive": "Päivämäärän on oltava suurempi kuin {minimum, date}"
+      }
+    },
+    "too_big": {
+      "array": {
+        "exact": "Taulukon tulee sisältää tarkalleen {maximum} alkiota",
+        "inclusive": "Taulukon tulee sisältää enintään {maximum} alkiota",
+        "not_inclusive": "Taulukon tulee sisältää vähemmän kuin {maximum} alkiota"
+      },
+      "string": {
+        "exact": "Merkkijonon tulee sisältää täsmälleen {maximum} merkkiä",
+        "inclusive": "Merkkijonon tulee sisältää enintään {maximum} merkkiä",
+        "not_inclusive": "Merkkijonon tulee sisältää alle {maximum} merkkiä"
+      },
+      "number": {
+        "exact": "Numeron tulee olla täsmälleen {maximum}",
+        "inclusive": "Numeron tulee olla pienempi tai yhtä suuri kuin {maximum}",
+        "not_inclusive": "Numeron tulee olla pienempi kuin {maximum}"
+      },
+      "set": {
+        "exact": "Virheellinen syöte",
+        "inclusive": "Virheellinen syöte",
+        "not_inclusive": "Virheellinen syöte"
+      },
+      "date": {
+        "exact": "Päivämäärän on oltava täsmälleen {maximum, date}",
+        "inclusive": "Päivämäärän on oltava pienempi tai yhtä suuri kuin {maximum, date}",
+        "not_inclusive": "Päivämäärän on oltava pienempi kuin {maximum, date}"
+      }
+    }
+  },
+  "validations": {
+    "email": "sähköpostiosoite",
+    "url": "URL",
+    "uuid": "uuid",
+    "cuid": "cuid",
+    "regex": "regex",
+    "datetime": "päivämäärä"
+  },
+  "types": {
+    "function": "funktio",
+    "number": "numero",
+    "string": "merkkijono",
+    "nan": "ei-luku",
+    "int": "kokonaisluku",
+    "float": "desimaaliluku",
+    "boolean": "totuusarvo",
+    "date": "päivämäärä",
+    "bigint": "iso kokonaisluku",
+    "undefined": "määrittelemätön",
+    "symbol": "symboli",
+    "null": "null",
+    "array": "taulukko",
+    "object": "objekti",
+    "unknown": "tuntematon",
+    "promise": "promise",
+    "void": "void",
+    "never": "never",
+    "map": "map",
+    "set": "set"
+  }
+}

@@ -74,6 +74,39 @@ init({
 });
 ```
 No need to export a new zod instance, just use the default zod export.
+
+## ICU Message Format support
+
+Each locale ships in two formats:
+
+- `locales/<lang>/zod.json` — the default, `i18next`-interpolation format (`{{expected}}`). **Unchanged, fully backward compatible.**
+- `locales/<lang>/zod.icu.json` — the same messages rewritten as [ICU MessageFormat](https://formatjs.github.io/docs/core-concepts/icu-syntax/) (`{expected}`, `{minimum, date}`, literal `'` escaped as `''`).
+
+There is no runtime flag on `makeZodI18nMap`/`zodI18nMap` to "turn on" ICU — `t()` always just forwards the key and values to whatever `i18next` instance you configured, so the switch is entirely which JSON file you import plus whether your `i18next` instance has the [`i18next-icu`](https://github.com/i18next/i18next-icu) plugin loaded. If you don't load `i18next-icu`, keep importing `zod.json`; nothing changes for you.
+
+To opt in to ICU (e.g. because your app already uses `i18next-icu` or a tool like [Tolgee](https://tolgee.io/) with ICU formatting):
+
+```ts
+import i18next from "i18next";
+import ICU from "i18next-icu";
+import { z } from "zod";
+import { makeZodI18nMap } from "@semihbou/zod-i18n-map";
+import translation from "@semihbou/zod-i18n-map/locales/en/zod.icu.json";
+
+i18next.use(ICU).init({
+  lng: "en",
+  resources: {
+    en: { zod: translation },
+  },
+  // ICU handles interpolation; let it, don't double-escape/interpolate.
+  interpolation: { escapeValue: false },
+});
+
+z.config({ customError: makeZodI18nMap() });
+```
+
+`i18next-icu` is an optional peer dependency — only install it if you use the `.icu.json` files.
+
 ### Original readme below:
 ___
 [![npm version](https://badge.fury.io/js/zod-i18n-map.svg)](https://badge.fury.io/js/zod-i18n-map)

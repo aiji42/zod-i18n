@@ -31,7 +31,9 @@ yarn test
 
 ## Create a new translation file
 
-When creating a new translation file, copy `packages/core/src/locales/en/zod.json` and name the file with the locale code.
+When creating a new translation file, copy `packages/core/locales/en/zod.json` and name the file with the locale code.
+
+Also copy `packages/core/locales/en/zod.icu.json` (the [ICU MessageFormat](https://formatjs.github.io/docs/core-concepts/icu-syntax/) variant) and translate it the same way. Keep both files in sync: same keys, same variable names inside `{}`/`{{}}`. The only differences should be brace style (`{{var}}` vs `{var}`) and that any literal `'` in the ICU file must be escaped as `''` (ICU MessageFormat treats a lone `'` as the start of a quoted-literal section).
 
 After creation and customization is complete, copy `packages/core/tests/integrations/en.test.ts` and create a new test file.
 
