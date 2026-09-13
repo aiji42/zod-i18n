@@ -1,7 +1,7 @@
 import { $ZodErrorMap } from "zod/v4/core";
 import i18next, { i18n } from "i18next";
 import { ZodLiteral, ZodEnum, ZodUnion, ZodDiscriminatedUnion } from "zod/v4";
-import { en } from "zod/locales";
+import { en } from "zod/v4/locales";
 
 const jsonStringifyReplacer = (_: string, value: any): any => {
   if (typeof value === "bigint") {

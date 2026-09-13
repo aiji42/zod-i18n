@@ -8,12 +8,12 @@
   "private": true,
   "scripts": {
     "dev": "run-p dev:*",
-    "dev:core": "yarn workspace @semihbou/zod-i18n-map dev",
-    "dev:with-next-i18next": "yarn workspace with-next-i18next dev",
-    "build": "yarn workspace @semihbou/zod-i18n-map build",
-    "coverage": "yarn workspace @semihbou/zod-i18n-map test:coverage",
-    "test": "yarn workspace @semihbou/zod-i18n-map test",
-    "release": "yarn workspace @semihbou/zod-i18n-map release",
+    "dev:core": "pnpm --filter=@semihbou/zod-i18n-map dev",
+    "dev:with-next-i18next": "pnpm --filter=with-next-i18next dev",
+    "build": "pnpm --filter=@semihbou/zod-i18n-map build",
+    "coverage": "pnpm --filter=@semihbou/zod-i18n-map test:coverage",
+    "test": "pnpm --filter=@semihbou/zod-i18n-map test",
+    "release": "pnpm --filter=@semihbou/zod-i18n-map release",
     "prepare": "husky install"
   },
   "workspaces": [
@@ -27,8 +27,8 @@
     "lint-staged": "^13.1.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.3",
-    "semantic-release": "^20.1.0",
-    "semantic-release-monorepo": "^7.0.5"
+    "semantic-release": "^25.0.9",
+    "semantic-release-monorepo": "^8.0.2"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,json}": [
@@ -36,9 +36,9 @@
     ]
   },
   "engines": {
-    "node": ">=18",
-    "npm": "please_use_yarn_instead",
-    "yarn": ">=1.22"
+    "npm": "please_use_pnpm_instead",
+    "yarn": "please_use_pnpm_instead",
+    "pnpm": ">=11.0.0"
   },
   "release": {
     "extends": "semantic-release-monorepo",
