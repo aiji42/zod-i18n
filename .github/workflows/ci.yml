@@ -8,24 +8,26 @@ on:
     branches:
       - "*"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/setup@v2
+        name: Install pnpm, Node.js and dependencies
         with:
-          node-version: 18.x
-          registry-url: https://registry.npmjs.org
-      - uses: actions/cache@v3
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-      - name: Install dependencies 💿
-        run: yarn install --frozen-lockfile
+          version: 11
+          runtime: node@24
+          cache: true
+
       - name: Run Tests 🧪
-        run: yarn coverage
+        run: pnpm coverage
+
       - name: Report coverage 📏
         uses: codecov/codecov-action@v3
         with:
@@ -37,25 +39,28 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - Test
+    permissions:
+      contents: write # semantic-release: create GitHub releases/tags
+      issues: write # semantic-release: comment on released issues
+      pull-requests: write # semantic-release: comment on released PRs
+      id-token: write # required for npm OIDC trusted publishing (no NPM_TOKEN needed)
     if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v7
         with:
-          node-version: 18.x
-          registry-url: https://registry.npmjs.org
-      - uses: actions/cache@v3
+          fetch-depth: 0
+
+      - uses: pnpm/setup@v2
+        name: Install pnpm, Node.js and dependencies
         with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-      - name: Install dependencies 💿
-        run: yarn install --frozen-lockfile
+          version: 11
+          runtime: node@24
+          cache: true
+
       - name: Publish 🚀
         run: |
           rm .npmrc
           cp ./README.md ./packages/core/README.md
-          yarn run release
+          pnpm run release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

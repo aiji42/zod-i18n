@@ -6,6 +6,13 @@
   "author": "VC-Semih <semihciftci.pro@gmail.com>",
   "license": "MIT",
   "private": true,
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^24",
+      "onFail": "download"
+    }
+  },
   "scripts": {
     "dev": "run-p dev:*",
     "dev:core": "pnpm --filter=@semihbou/zod-i18n-map dev",
