@@ -1,19 +1,28 @@
-/**
- * @type {import('semantic-release').Options}
- */
 module.exports = {
     extends: 'semantic-release-monorepo',
-    branches: ['main', { name: 'beta', prerelease: true }],
+    branches: [
+        'main',
+        {
+            name: 'beta',
+            prerelease: true,
+        },
+    ],
     plugins: [
         '@semantic-release/commit-analyzer',
         '@semantic-release/release-notes-generator',
         [
             '@semantic-release/exec',
             {
-                // 1. Force pnpm to bump the package.json version
-                prepareCmd: 'pnpm version ${nextRelease.version} --no-git-tag-version',
-                // 2. Force pnpm to publish to the registry
-                publishCmd: 'pnpm publish --no-git-checks --access public',
+                // Direct package.json mutation that bypasses pnpm's git tree checks
+                prepareCmd: 'pnpm pkg set version=${nextRelease.version}',
+            },
+        ],
+        [
+            '@semantic-release/npm',
+            {
+                // Publishes the package to npm using the version set above
+                npmPublish: true,
+                pkgRoot: '.',
             },
         ],
         '@semantic-release/github',
