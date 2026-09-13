@@ -31,7 +31,7 @@
   "peerDependencies": {
     "i18next": ">=21.3.0",
     "i18next-icu": ">=2.0.0",
-    "zod": ">=4.1.12"
+    "zod": ">=4.6.4"
   },
   "peerDependenciesMeta": {
     "i18next-icu": {
@@ -50,8 +50,8 @@
     "rimraf": "^5.0.0",
     "tsup": "8.5.0",
     "typescript": "^5.7.3",
-    "vite": "7.2.2",
-    "vitest": "^4.0.8",
-    "zod": "^4.1.12"
+    "vite": "8.0.16",
+    "vitest": "^5.0.0",
+    "zod": "^4.6.4"
   }
 }
