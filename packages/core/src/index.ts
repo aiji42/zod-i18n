@@ -3,13 +3,6 @@ import i18next, { i18n } from "i18next";
 import { ZodLiteral, ZodEnum, ZodUnion, ZodDiscriminatedUnion } from "zod/v4";
 import { en } from "zod/v4/locales";
 
-const jsonStringifyReplacer = (_: string, value: any): any => {
-  if (typeof value === "bigint") {
-    return value.toString();
-  }
-  return value;
-};
-
 function joinValues<T extends any[]>(array: T, separator = " | "): string {
   return array
     .map((val) => {
@@ -199,10 +192,13 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue) => {
       break;
     case "invalid_union":
       // This one must be first (narrower type)
-      if (issue.inst instanceof ZodDiscriminatedUnion) {
-        const options = issue.inst?.def.options.map(
-          (opt: any) => opt.def.shape.type.def.values[0]
-        );
+      const issueInstance = issue.inst;
+      if (issueInstance instanceof ZodDiscriminatedUnion) {
+        const options = issueInstance.def.options.map((opt: any) => {
+          const discriminator =
+            issue.discriminator ?? issueInstance.def.discriminator;
+          return opt.def.shape[discriminator!].def.values[0];
+        });
         message = t("errors.invalid_union_discriminator", {
           options: joinValues(options),
           ns,
