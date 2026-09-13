@@ -13,16 +13,8 @@ module.exports = {
         [
             '@semantic-release/exec',
             {
-                // Direct package.json mutation that bypasses pnpm's git tree checks
                 prepareCmd: 'pnpm pkg set version=${nextRelease.version}',
-            },
-        ],
-        [
-            '@semantic-release/npm',
-            {
-                // Publishes the package to npm using the version set above
-                npmPublish: true,
-                pkgRoot: '.',
+                publishCmd: 'pnpm publish --no-git-checks --access public',
             },
         ],
         '@semantic-release/github',
