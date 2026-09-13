@@ -44,6 +44,7 @@
     ]
   },
   "engines": {
+    "npm": "please_use_pnpm_instead",
     "yarn": "please_use_pnpm_instead",
     "pnpm": ">=11.0.0"
   },
