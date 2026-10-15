@@ -1,27 +1,31 @@
 {
   "errors": {
-    "invalid_type": "Várt: {{expected}}, kapott: {{received}}",
+    "invalid_type": "Az értéknek {{expected}} típusúnak kell lennie (kapott típus: {{received}})",
     "invalid_type_received_undefined": "Kötelező mező",
     "invalid_type_received_null": "Kötelező mező",
-    "invalid_value": "Érvénytelen érték. Lehetséges értékek: {{- options}}",
-    "invalid_value_single": "Érvénytelen érték. Várt: {{- expected}}",
+    "invalid_value": "Az értéknek a következők egyikének kell lennie: {{- options}}",
+    "invalid_value_single": "Az értéknek a következőnek kell lennie: {{- expected}}",
     "invalid_format": {
       "default": "Érvénytelen {{format}}",
+      "datetime": "Érvénytelen dátum és idő (elvárt formátum: ISO 8601)",
+      "date": "Érvénytelen dátum (elvárt formátum: ÉÉÉÉ-HH-NN)",
+      "time": "Érvénytelen időpont (elvárt formátum: ISO 8601)",
+      "e164": "Érvénytelen telefonszám (elvárt formátum: nemzetközi E.164)",
       "regex": "Érvénytelen formátum",
       "starts_with": "A következővel kell kezdődnie: \"{{- prefix}}\"",
       "ends_with": "A következőre kell végződnie: \"{{- suffix}}\"",
       "includes": "Tartalmaznia kell a következőt: \"{{- includes}}\"",
-      "lowercase": "Csak kisbetűket tartalmazhat",
-      "uppercase": "Csak nagybetűket tartalmazhat"
+      "lowercase": "Nem tartalmazhat nagybetűt",
+      "uppercase": "Nem tartalmazhat kisbetűt"
     },
     "not_multiple_of": "A számnak a(z) {{divisor}} többszörösének kell lennie",
     "unrecognized_keys_one": "Ismeretlen kulcs az objektumban: {{- keys}}",
     "unrecognized_keys_other": "Ismeretlen kulcsok az objektumban: {{- keys}}",
-    "invalid_key": "Érvénytelen kulcs (típus: {{origin}})",
-    "invalid_element": "Érvénytelen érték (típus: {{origin}})",
-    "invalid_union": "Érvénytelen bemenet",
-    "invalid_union_discriminator": "Érvénytelen diszkriminátorérték. Várt: {{- options}}",
-    "custom": "Érvénytelen bemenet",
+    "invalid_key": "Érvénytelen kulcs a(z) {{origin}} típusú értékben",
+    "invalid_element": "Érvénytelen elem a(z) {{origin}} típusú értékben",
+    "invalid_union": "Érvénytelen érték",
+    "invalid_union_discriminator": "Az értéknek a következők egyikének kell lennie: {{- options}}",
+    "custom": "Érvénytelen érték",
     "too_small": {
       "string": {
         "exact": "A szövegnek pontosan {{count}} karakterből kell állnia",
@@ -29,14 +33,14 @@
         "not_inclusive": "A szövegnek több mint {{count}} karakterből kell állnia"
       },
       "number": {
-        "exact": "A szám értéke legyen pontosan {{minimum}}",
-        "inclusive": "A szám értéke legyen nagyobb vagy egyenlő, mint {{minimum}}",
-        "not_inclusive": "A szám értéke legyen nagyobb, mint {{minimum}}"
+        "exact": "A számnak pontosan {{minimum}} értékűnek kell lennie",
+        "inclusive": "A szám nem lehet kisebb, mint {{minimum}}",
+        "not_inclusive": "A számnak nagyobbnak kell lennie, mint {{minimum}}"
       },
       "array": {
-        "exact": "A tömbnek pontosan {{count}} elemet kell tartalmaznia",
-        "inclusive": "A tömbnek legalább {{count}} elemet kell tartalmaznia",
-        "not_inclusive": "A tömbnek több mint {{count}} elemet kell tartalmaznia"
+        "exact": "A listának pontosan {{count}} elemet kell tartalmaznia",
+        "inclusive": "A listának legalább {{count}} elemet kell tartalmaznia",
+        "not_inclusive": "A listának több mint {{count}} elemet kell tartalmaznia"
       },
       "set": {
         "exact": "A halmaznak pontosan {{count}} elemet kell tartalmaznia",
@@ -49,14 +53,14 @@
         "not_inclusive": "A leképezésnek több mint {{count}} bejegyzést kell tartalmaznia"
       },
       "file": {
-        "exact": "A fájl mérete pontosan {{count}} bájt legyen",
-        "inclusive": "A fájl mérete legalább {{count}} bájt legyen",
-        "not_inclusive": "A fájl mérete több mint {{count}} bájt legyen"
+        "exact": "A fájl méretének pontosan {{count}} bájtnak kell lennie",
+        "inclusive": "A fájl mérete nem lehet kisebb {{count}} bájtnál",
+        "not_inclusive": "A fájl méretének több mint {{count}} bájtnak kell lennie"
       },
       "date": {
-        "exact": "A dátum pontosan a következő legyen: {{- minimum, datetime}}",
+        "exact": "A dátumnak a következőnek kell lennie: {{- minimum, datetime}}",
         "inclusive": "A dátum nem lehet korábbi, mint {{- minimum, datetime}}",
-        "not_inclusive": "A dátum legyen későbbi, mint {{- minimum, datetime}}"
+        "not_inclusive": "A dátumnak későbbinek kell lennie, mint {{- minimum, datetime}}"
       }
     },
     "too_big": {
@@ -66,14 +70,14 @@
         "not_inclusive": "A szövegnek kevesebb mint {{count}} karakterből kell állnia"
       },
       "number": {
-        "exact": "A szám értéke legyen pontosan {{maximum}}",
-        "inclusive": "A szám értéke legyen kisebb vagy egyenlő, mint {{maximum}}",
-        "not_inclusive": "A szám értéke legyen kisebb, mint {{maximum}}"
+        "exact": "A számnak pontosan {{maximum}} értékűnek kell lennie",
+        "inclusive": "A szám nem lehet nagyobb, mint {{maximum}}",
+        "not_inclusive": "A számnak kisebbnek kell lennie, mint {{maximum}}"
       },
       "array": {
-        "exact": "A tömbnek pontosan {{count}} elemet kell tartalmaznia",
-        "inclusive": "A tömb legfeljebb {{count}} elemet tartalmazhat",
-        "not_inclusive": "A tömbnek kevesebb mint {{count}} elemet kell tartalmaznia"
+        "exact": "A listának pontosan {{count}} elemet kell tartalmaznia",
+        "inclusive": "A lista legfeljebb {{count}} elemet tartalmazhat",
+        "not_inclusive": "A listának kevesebb mint {{count}} elemet kell tartalmaznia"
       },
       "set": {
         "exact": "A halmaznak pontosan {{count}} elemet kell tartalmaznia",
@@ -86,14 +90,14 @@
         "not_inclusive": "A leképezésnek kevesebb mint {{count}} bejegyzést kell tartalmaznia"
       },
       "file": {
-        "exact": "A fájl mérete pontosan {{count}} bájt legyen",
+        "exact": "A fájl méretének pontosan {{count}} bájtnak kell lennie",
         "inclusive": "A fájl mérete legfeljebb {{count}} bájt lehet",
-        "not_inclusive": "A fájl mérete kevesebb mint {{count}} bájt legyen"
+        "not_inclusive": "A fájl méretének kevesebb mint {{count}} bájtnak kell lennie"
       },
       "date": {
-        "exact": "A dátum pontosan a következő legyen: {{- maximum, datetime}}",
+        "exact": "A dátumnak a következőnek kell lennie: {{- maximum, datetime}}",
         "inclusive": "A dátum nem lehet későbbi, mint {{- maximum, datetime}}",
-        "not_inclusive": "A dátum legyen korábbi, mint {{- maximum, datetime}}"
+        "not_inclusive": "A dátumnak korábbinak kell lennie, mint {{- maximum, datetime}}"
       }
     }
   },
@@ -140,10 +144,10 @@
     "void": "void",
     "never": "never",
     "date": "dátum",
-    "array": "tömb",
+    "array": "lista",
     "tuple": "rendezett n-es",
     "object": "objektum",
-    "record": "rekord",
+    "record": "objektum",
     "map": "leképezés",
     "set": "halmaz",
     "file": "fájl",

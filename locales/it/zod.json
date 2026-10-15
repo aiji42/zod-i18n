@@ -1,12 +1,23 @@
 {
   "errors": {
-    "invalid_type": "Il valore deve essere di tipo {{expected}}, ma è di tipo {{received}}",
-    "invalid_type_received_undefined": "Obbligatorio",
-    "invalid_type_received_null": "Obbligatorio",
-    "invalid_value": "Opzione non valida: è atteso uno dei valori {{- options}}",
-    "invalid_value_single": "Valore non valido: è atteso {{- expected}}",
+    "invalid_type": "Il valore deve essere di tipo {{expected}} (tipo ricevuto: {{received}})",
+    "invalid_type_received_undefined": "Questo campo è obbligatorio",
+    "invalid_type_received_null": "Questo campo è obbligatorio",
+    "invalid_value": "Il valore deve essere uno dei seguenti: {{- options}}",
+    "invalid_value_single": "Il valore deve essere {{- expected}}",
     "invalid_format": {
       "default": "Formato di {{format}} non valido",
+      "email": "Indirizzo email non valido",
+      "url": "URL non valido",
+      "uuid": "UUID non valido",
+      "datetime": "Data e ora non valide (formato atteso: ISO 8601)",
+      "date": "Data non valida (formato atteso: AAAA-MM-GG)",
+      "time": "Ora non valida (formato atteso: ISO 8601)",
+      "ipv4": "Indirizzo IPv4 non valido",
+      "ipv6": "Indirizzo IPv6 non valido",
+      "e164": "Numero di telefono non valido (formato atteso: E.164 internazionale)",
+      "credit_card": "Numero di carta non valido",
+      "iban": "IBAN non valido",
       "regex": "Formato non valido",
       "starts_with": "Deve iniziare con \"{{- prefix}}\"",
       "ends_with": "Deve terminare con \"{{- suffix}}\"",
@@ -15,14 +26,14 @@
       "uppercase": "Deve essere in maiuscolo"
     },
     "not_multiple_of": "Il numero deve essere un multiplo di {{divisor}}",
-    "unrecognized_keys_one": "Chiave non riconosciuta nell'oggetto: {{- keys}}",
-    "unrecognized_keys_many": "Chiavi non riconosciute nell'oggetto: {{- keys}}",
-    "unrecognized_keys_other": "Chiavi non riconosciute nell'oggetto: {{- keys}}",
+    "unrecognized_keys_one": "Chiave non riconosciuta: {{- keys}}",
+    "unrecognized_keys_many": "Chiavi non riconosciute: {{- keys}}",
+    "unrecognized_keys_other": "Chiavi non riconosciute: {{- keys}}",
     "invalid_key": "Chiave non valida nel valore di tipo {{origin}}",
     "invalid_element": "Elemento non valido nel valore di tipo {{origin}}",
-    "invalid_union": "Input non valido",
-    "invalid_union_discriminator": "Valore discriminante non valido. Atteso {{- options}}",
-    "custom": "Input non valido",
+    "invalid_union": "Valore non valido",
+    "invalid_union_discriminator": "Il valore deve essere uno dei seguenti: {{- options}}",
+    "custom": "Valore non valido",
     "too_small": {
       "string": {
         "exact_one": "Il testo deve contenere esattamente {{count}} carattere",
@@ -74,15 +85,15 @@
         "not_inclusive_other": "La mappa deve contenere più di {{count}} voci"
       },
       "file": {
-        "exact_one": "Il file deve essere di esattamente {{count}} byte",
-        "exact_many": "Il file deve essere di esattamente {{count}} byte",
-        "exact_other": "Il file deve essere di esattamente {{count}} byte",
-        "inclusive_one": "Il file deve essere di almeno {{count}} byte",
-        "inclusive_many": "Il file deve essere di almeno {{count}} byte",
-        "inclusive_other": "Il file deve essere di almeno {{count}} byte",
-        "not_inclusive_one": "Il file deve essere superiore a {{count}} byte",
-        "not_inclusive_many": "Il file deve essere superiore a {{count}} byte",
-        "not_inclusive_other": "Il file deve essere superiore a {{count}} byte"
+        "exact_one": "Il file deve avere una dimensione di esattamente {{count}} byte",
+        "exact_many": "Il file deve avere una dimensione di esattamente {{count}} byte",
+        "exact_other": "Il file deve avere una dimensione di esattamente {{count}} byte",
+        "inclusive_one": "Il file deve avere una dimensione minima di {{count}} byte",
+        "inclusive_many": "Il file deve avere una dimensione minima di {{count}} byte",
+        "inclusive_other": "Il file deve avere una dimensione minima di {{count}} byte",
+        "not_inclusive_one": "Il file deve avere una dimensione superiore a {{count}} byte",
+        "not_inclusive_many": "Il file deve avere una dimensione superiore a {{count}} byte",
+        "not_inclusive_other": "Il file deve avere una dimensione superiore a {{count}} byte"
       },
       "date": {
         "exact": "La data deve essere il {{- minimum, datetime}}",
@@ -141,15 +152,15 @@
         "not_inclusive_other": "La mappa deve contenere meno di {{count}} voci"
       },
       "file": {
-        "exact_one": "Il file deve essere di esattamente {{count}} byte",
-        "exact_many": "Il file deve essere di esattamente {{count}} byte",
-        "exact_other": "Il file deve essere di esattamente {{count}} byte",
-        "inclusive_one": "Il file deve essere di al massimo {{count}} byte",
-        "inclusive_many": "Il file deve essere di al massimo {{count}} byte",
-        "inclusive_other": "Il file deve essere di al massimo {{count}} byte",
-        "not_inclusive_one": "Il file deve essere inferiore a {{count}} byte",
-        "not_inclusive_many": "Il file deve essere inferiore a {{count}} byte",
-        "not_inclusive_other": "Il file deve essere inferiore a {{count}} byte"
+        "exact_one": "Il file deve avere una dimensione di esattamente {{count}} byte",
+        "exact_many": "Il file deve avere una dimensione di esattamente {{count}} byte",
+        "exact_other": "Il file deve avere una dimensione di esattamente {{count}} byte",
+        "inclusive_one": "Il file deve avere una dimensione massima di {{count}} byte",
+        "inclusive_many": "Il file deve avere una dimensione massima di {{count}} byte",
+        "inclusive_other": "Il file deve avere una dimensione massima di {{count}} byte",
+        "not_inclusive_one": "Il file deve avere una dimensione inferiore a {{count}} byte",
+        "not_inclusive_many": "Il file deve avere una dimensione inferiore a {{count}} byte",
+        "not_inclusive_other": "Il file deve avere una dimensione inferiore a {{count}} byte"
       },
       "date": {
         "exact": "La data deve essere il {{- maximum, datetime}}",
@@ -179,9 +190,9 @@
     "mac": "indirizzo MAC",
     "cidrv4": "intervallo IPv4",
     "cidrv6": "intervallo IPv6",
-    "base64": "stringa codificata in base64",
-    "base64url": "stringa codificata in base64url",
-    "json_string": "stringa JSON",
+    "base64": "testo codificato in base64",
+    "base64url": "testo codificato in base64url",
+    "json_string": "testo JSON",
     "e164": "numero di telefono E.164",
     "jwt": "JWT",
     "hostname": "nome host",
@@ -204,11 +215,11 @@
     "array": "lista",
     "tuple": "tupla",
     "object": "oggetto",
-    "record": "record",
+    "record": "oggetto",
     "map": "mappa",
     "set": "insieme",
     "file": "file",
     "function": "funzione",
-    "promise": "promise"
+    "promise": "promessa"
   }
 }
