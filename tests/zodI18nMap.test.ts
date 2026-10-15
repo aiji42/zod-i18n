@@ -2,7 +2,7 @@ import i18next, { createInstance } from "i18next";
 import { beforeEach, describe, expect, test } from "vitest";
 import * as z from "zod";
 import en from "../locales/en/zod.json" with { type: "json" };
-import { i18nKey, makeZodI18nMap, zodI18nMap } from "../src/index.ts";
+import { i18nKey, makeZodI18nMap, translateIssue, zodI18nMap } from "../src/index.ts";
 
 const messageOf = (schema: z.ZodType, input: unknown): string | undefined =>
   schema.safeParse(input).error?.issues[0]?.message;
@@ -233,5 +233,53 @@ describe("per-request translation", () => {
     });
     const error = makeZodI18nMap({ t: i18n.getFixedT("ja") });
     expect(z.string().safeParse(undefined, { error }).error?.issues[0]?.message).toBe("必須");
+  });
+});
+
+describe("translateIssue (render-time translation)", () => {
+  const ja = {
+    errors: {
+      invalid_type: "{{expected}}を入力してください（{{received}}）",
+      invalid_type_received_undefined: "必須項目です",
+      too_small: { string: { inclusive: "{{count}}文字以上で入力してください" } },
+    },
+    types: { string: "文字列", number: "数値" },
+    custom: { too_short: "{{count}}文字以上必要です" },
+  };
+
+  beforeEach(async () => {
+    await i18next.init({ lng: "en", resources: { en: { zod: en }, ja: { zod: ja } } });
+    z.config({ customError: zodI18nMap });
+  });
+
+  const issuesOf = (schema: z.ZodType, input: unknown) =>
+    schema.safeParse(input).error?.issues ?? [];
+
+  test("re-translates existing issues after a language change", async () => {
+    const schema = z.object({ a: z.string(), b: z.string(), c: z.string().min(3) });
+    const issues = issuesOf(schema, { b: 1, c: "x" });
+    expect(issues.map((i) => i.message)).toEqual([
+      "Required",
+      "Expected string, received number",
+      "String must contain at least 3 characters",
+    ]);
+    await i18next.changeLanguage("ja");
+    expect(issues.map(translateIssue)).toEqual([
+      "必須項目です",
+      "文字列を入力してください（数値）",
+      "3文字以上で入力してください",
+    ]);
+  });
+
+  test("keeps keys set with i18nKey", async () => {
+    const [issue] = issuesOf(z.string().min(5, { error: i18nKey("custom.too_short") }), "a");
+    await i18next.changeLanguage("ja");
+    expect(issue && translateIssue(issue)).toBe("5文字以上必要です");
+  });
+
+  test("leaves messages it did not create untouched", async () => {
+    const [issue] = issuesOf(z.string({ error: "my own message" }), 1);
+    await i18next.changeLanguage("ja");
+    expect(issue && translateIssue(issue)).toBe("my own message");
   });
 });

@@ -79,6 +79,18 @@ const result = schema.safeParse(body, { error });
 
 `t` can be any i18next-compatible translate function: `i18next.t`, `getFixedT(...)`, or react-i18next's `useTranslation().t`.
 
+### Re-translating shown errors after a language switch
+
+Messages are created when a value is parsed. If the user switches languages while errors are on screen (e.g. kept in react-hook-form state), translate the issues again when you render them:
+
+```tsx
+import { translateIssue } from "zod-i18n-map";
+
+{result.error.issues.map((issue) => <p key={issue.path.join(".")}>{translateIssue(issue)}</p>)}
+```
+
+This works because the map stores a small `zodI18n` field on each issue it handles, with the received type and any `i18nKey`. So the message can be rebuilt in full, field names included. Issues whose message came from your own `error` string are returned unchanged. With a custom map, use `map.translate(issue)`.
+
 ### Your own keys for specific fields
 
 Use `i18nKey` (or `.key()` on a map you created) as the `error` of any schema or check. All the issue's values (`count`, `minimum`, `maximum`, `path`, ...) are available for interpolation:
@@ -161,6 +173,8 @@ makeZodI18nMap(options?: {
 zodI18nMap: ZodI18nMap                   // makeZodI18nMap() with defaults
 zodI18nMap.key(key, values?)             // error map that tries `key` first
 i18nKey(key, values?)                    // = zodI18nMap.key
+zodI18nMap.translate(issue)              // re-translate an existing issue in the current language
+translateIssue(issue)                    // = zodI18nMap.translate
 ```
 
 `ZodI18nMap` is a regular Zod v4 error map. You can use it in `z.config({ customError })`, in a parse's `{ error }`, or in a schema's `{ error }`.

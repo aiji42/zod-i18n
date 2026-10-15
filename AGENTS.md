@@ -4,7 +4,7 @@
 
 ## Layout
 
-- `src/index.ts`: the whole library. `makeZodI18nMap`, `zodI18nMap`, `i18nKey`. It has no runtime dependencies except `i18next`, and imports only types from `zod/v4/core`.
+- `src/index.ts`: the whole library. `makeZodI18nMap`, `zodI18nMap`, `i18nKey`, `translateIssue`. Issues carry a `zodI18n` metadata field so `translate()` can rebuild messages later. It has no runtime dependencies except `i18next`, and imports only types from `zod/v4/core`.
 - `src/cli.ts`: `npx zod-i18n-map add|list|check`. It has zero dependencies, fetches from `raw.githubusercontent.com/aiji42/zod-i18n/<ref>/locales/...`, and defaults to ref `v<package version>` with `main` as fallback.
 - `locales/<code>/zod.json`: translations. `locales/en/zod.json` is the reference key schema. `locales/index.json` is generated and read by `cli list`.
 - `scripts/check-locales.ts`: structural validation of every locale. It checks keys, variables and CLDR plural categories, and it replaces per-locale tests.

@@ -100,9 +100,20 @@ export type ZodI18nMap = z.$ZodErrorMap & {
    * @example z.string().min(8, { error: zodI18nMap.key("password.too_short") })
    */
   key: (key: string, values?: Record<string, unknown>) => z.$ZodErrorMap;
+  /**
+   * Translate an already-created issue with the *current* language, e.g. at render time after
+   * the user switched languages. Issues created by this map carry what is needed in `issue.zodI18n`.
+   * Other issues (e.g. messages from your own `error` strings) are returned unchanged.
+   */
+  translate: (issue: z.$ZodIssue) => string;
 };
 
 type CustomI18n = { key: string; values: Record<string, unknown> };
+
+/** Stored on each issue this map handles, so `translate()` can rebuild the message later. */
+export type ZodI18nIssueMeta = { received?: string; custom?: CustomI18n };
+
+const META = "zodI18n";
 
 export const makeZodI18nMap = (option: ZodI18nMapOption = {}): ZodI18nMap => {
   const t: TranslateFunction = option.t ?? ((key, options) => i18next.t(key as string, options));
@@ -135,9 +146,16 @@ export const makeZodI18nMap = (option: ZodI18nMapOption = {}): ZodI18nMap => {
             }
           : {};
 
-      const { key, values } = resolve(issue, label);
+      const meta: ZodI18nIssueMeta = (issue as { [META]?: ZodI18nIssueMeta })[META] ?? {};
+      if (issue.code === "invalid_type" && "input" in issue && meta.received === undefined)
+        meta.received = getReceivedType(issue.input);
+      if (forced) meta.custom = forced;
+      // Copied onto the final issue by Zod (it keeps the raw issue's own properties).
+      (issue as { [META]?: ZodI18nIssueMeta })[META] = meta;
+
+      const { key, values } = resolve(issue, label, meta.received);
       const override =
-        forced ?? (issue.code === "custom" ? getCustomI18n(issue.params?.i18n) : undefined);
+        meta.custom ?? (issue.code === "custom" ? getCustomI18n(issue.params?.i18n) : undefined);
       if (issue.code === "custom" && !override) {
         return translateOrUndefined(t, "errors.custom", pathOptions, ns);
       }
@@ -151,8 +169,14 @@ export const makeZodI18nMap = (option: ZodI18nMapOption = {}): ZodI18nMap => {
       );
     };
 
-  return Object.assign(build(), {
+  const map = build();
+  return Object.assign(map, {
     key: (key: string, values: Record<string, unknown> = {}) => build({ key, values }),
+    translate: (issue: z.$ZodIssue): string => {
+      if (!(META in issue)) return issue.message;
+      const message = map({ ...issue } as unknown as z.$ZodRawIssue);
+      return (typeof message === "string" ? message : message?.message) ?? issue.message;
+    },
   });
 };
 
@@ -180,10 +204,10 @@ type Resolved = {
 const resolve = (
   issue: z.$ZodRawIssue,
   label: (key: string, defaultValue: string) => string,
+  received = "unknown",
 ): Resolved => {
   switch (issue.code) {
     case "invalid_type": {
-      const received = getReceivedType(issue.input);
       if (received === "undefined") return { key: "errors.invalid_type_received_undefined" };
       if (received === "null") return { key: "errors.invalid_type_received_null" };
       return {
@@ -276,3 +300,6 @@ export const zodI18nMap: ZodI18nMap = makeZodI18nMap();
 
 /** Shorthand for `zodI18nMap.key(...)` using the global `i18next` instance. */
 export const i18nKey: ZodI18nMap["key"] = zodI18nMap.key;
+
+/** Shorthand for `zodI18nMap.translate(...)` using the global `i18next` instance. */
+export const translateIssue: ZodI18nMap["translate"] = zodI18nMap.translate;

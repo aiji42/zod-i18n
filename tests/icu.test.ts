@@ -24,7 +24,7 @@ test("converts interpolation, escaping and plurals", () => {
 test.each([
   ["en", en, z.string().min(3), "a", "String must contain at least 3 characters"],
   ["en", en, z.strictObject({}), { a: 1 }, 'Unrecognized key in object: "a"'],
-  ["ru", ru, z.string().min(5), "a", "Строка должна содержать не менее 5 символов"],
+  ["ru", ru, z.string().min(5), "a", "Текст должен содержать не менее 5 символов"],
 ] as const)(
   "renders shipped %s messages through i18next-icu",
   async (lng, res, schema, input, expected) => {

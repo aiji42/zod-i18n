@@ -34,6 +34,10 @@ import { makeZodI18nMap } from "zod-i18n-map";
 schema.safeParse(input, { error: makeZodI18nMap({ t: i18next.getFixedT(locale) }) });
 ```
 
+## Language switch with errors already on screen
+
+Render `translateIssue(issue)` (or `map.translate(issue)`) instead of `issue.message`. It re-translates in the current language using the `zodI18n` metadata the map stores on each issue.
+
 ## Custom messages
 
 - Built-in schema or check: `z.string().min(8, { error: i18nKey("password.too_short") })`.
