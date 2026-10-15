@@ -3,111 +3,181 @@
     "invalid_type": "Förväntade {{expected}}, fick {{received}}",
     "invalid_type_received_undefined": "Obligatoriskt",
     "invalid_type_received_null": "Obligatoriskt",
-    "invalid_literal": "Ogiltigt literalvärde, förväntade {{expected}}",
-    "unrecognized_keys": "Okänd(a) nyckel(ar) i objektet: {{- keys}}",
-    "invalid_union": "Ogiltig inmatning",
-    "invalid_union_discriminator": "Ogiltigt diskriminatorsvärde. Förväntade {{- options}}",
-    "invalid_enum_value": "Ogiltigt enumvärde. Förväntade {{- options}}, fick '{{received}}'",
-    "invalid_arguments": "Ogiltiga funktionsargument",
-    "invalid_return_type": "Ogiltig returtyp för funktionen",
-    "invalid_date": "Ogiltigt datum",
-    "custom": "Ogiltig inmatning",
-    "invalid_intersection_types": "Sammansättningsresultaten kunde inte slås samman",
-    "not_multiple_of": "Numret måste vara ett multipel av {{multipleOf}}",
-    "not_finite": "Numret måste vara ändligt",
-    "invalid_string": {
-      "email": "Ogiltig {{validation}}",
-      "url": "Ogiltig {{validation}}",
-      "uuid": "Ogiltig {{validation}}",
-      "cuid": "Ogiltig {{validation}}",
-      "regex": "Ogiltigt",
-      "datetime": "Ogiltig {{validation}}",
-      "startsWith": "Ogiltig inmatning: måste börja med \"{{startsWith}}\"",
-      "endsWith": "Ogiltig inmatning: måste sluta med \"{{endsWith}}\""
+    "invalid_value": "Ogiltigt alternativ: förväntade ett av {{- options}}",
+    "invalid_value_single": "Ogiltig inmatning: förväntade {{- expected}}",
+    "invalid_format": {
+      "default": "Ogiltigt format: förväntade {{format}}",
+      "regex": "Ogiltigt format",
+      "starts_with": "Måste börja med \"{{- prefix}}\"",
+      "ends_with": "Måste sluta med \"{{- suffix}}\"",
+      "includes": "Måste innehålla \"{{- includes}}\"",
+      "lowercase": "Måste skrivas med små bokstäver",
+      "uppercase": "Måste skrivas med stora bokstäver"
     },
+    "not_multiple_of": "Talet måste vara en multipel av {{divisor}}",
+    "unrecognized_keys_one": "Okänd nyckel i objektet: {{- keys}}",
+    "unrecognized_keys_other": "Okända nycklar i objektet: {{- keys}}",
+    "invalid_key": "Ogiltig nyckel i {{origin}}",
+    "invalid_element": "Ogiltigt värde i {{origin}}",
+    "invalid_union": "Ogiltig inmatning",
+    "invalid_union_discriminator": "Ogiltigt diskriminatorvärde: förväntade {{- options}}",
+    "custom": "Ogiltig inmatning",
     "too_small": {
-      "array": {
-        "exact": "Arrayen måste innehålla exakt {{minimum}} element",
-        "inclusive": "Arrayen måste innehålla minst {{minimum}} element",
-        "not_inclusive": "Arrayen måste innehålla fler än {{minimum}} element"
-      },
       "string": {
-        "exact": "Strängen måste innehålla exakt {{minimum}} tecken",
-        "inclusive": "Strängen måste innehålla minst {{minimum}} tecken",
-        "not_inclusive": "Strängen måste innehålla fle {{minimum}} tecken"
+        "exact_one": "Texten måste innehålla exakt {{count}} tecken",
+        "exact_other": "Texten måste innehålla exakt {{count}} tecken",
+        "inclusive_one": "Texten måste innehålla minst {{count}} tecken",
+        "inclusive_other": "Texten måste innehålla minst {{count}} tecken",
+        "not_inclusive_one": "Texten måste innehålla fler än {{count}} tecken",
+        "not_inclusive_other": "Texten måste innehålla fler än {{count}} tecken"
       },
       "number": {
-        "exact": "Numret måste vara exakt {{minimum}}",
-        "inclusive": "Numret måste vara större än eller lika med {{minimum}}",
-        "not_inclusive": "Numret måste vara större än {{minimum}}"
+        "exact": "Talet måste vara exakt {{minimum}}",
+        "inclusive": "Talet måste vara minst {{minimum}}",
+        "not_inclusive": "Talet måste vara större än {{minimum}}"
+      },
+      "array": {
+        "exact_one": "Listan måste innehålla exakt {{count}} element",
+        "exact_other": "Listan måste innehålla exakt {{count}} element",
+        "inclusive_one": "Listan måste innehålla minst {{count}} element",
+        "inclusive_other": "Listan måste innehålla minst {{count}} element",
+        "not_inclusive_one": "Listan måste innehålla fler än {{count}} element",
+        "not_inclusive_other": "Listan måste innehålla fler än {{count}} element"
       },
       "set": {
-        "exact": "Ogiltig inmatning",
-        "inclusive": "Ogiltig inmatning",
-        "not_inclusive": "Ogiltig inmatning"
+        "exact_one": "Mängden måste innehålla exakt {{count}} element",
+        "exact_other": "Mängden måste innehålla exakt {{count}} element",
+        "inclusive_one": "Mängden måste innehålla minst {{count}} element",
+        "inclusive_other": "Mängden måste innehålla minst {{count}} element",
+        "not_inclusive_one": "Mängden måste innehålla fler än {{count}} element",
+        "not_inclusive_other": "Mängden måste innehålla fler än {{count}} element"
+      },
+      "map": {
+        "exact_one": "Mappningen måste innehålla exakt {{count}} post",
+        "exact_other": "Mappningen måste innehålla exakt {{count}} poster",
+        "inclusive_one": "Mappningen måste innehålla minst {{count}} post",
+        "inclusive_other": "Mappningen måste innehålla minst {{count}} poster",
+        "not_inclusive_one": "Mappningen måste innehålla fler än {{count}} post",
+        "not_inclusive_other": "Mappningen måste innehålla fler än {{count}} poster"
+      },
+      "file": {
+        "exact_one": "Filen måste vara exakt {{count}} byte",
+        "exact_other": "Filen måste vara exakt {{count}} byte",
+        "inclusive_one": "Filen måste vara minst {{count}} byte",
+        "inclusive_other": "Filen måste vara minst {{count}} byte",
+        "not_inclusive_one": "Filen måste vara större än {{count}} byte",
+        "not_inclusive_other": "Filen måste vara större än {{count}} byte"
       },
       "date": {
         "exact": "Datumet måste vara exakt {{- minimum, datetime}}",
-        "inclusive": "Datumet måste vara större än eller lika med {{- minimum, datetime}}",
-        "not_inclusive": "Datumet måste vara större än {{- minimum, datetime}}"
+        "inclusive": "Datumet måste vara {{- minimum, datetime}} eller senare",
+        "not_inclusive": "Datumet måste vara efter {{- minimum, datetime}}"
       }
     },
     "too_big": {
-      "array": {
-        "exact": "Arrayen måste innehålla exakt {{maximum}} element",
-        "inclusive": "Arrayen måste innehålla högst {{maximum}} element",
-        "not_inclusive": "Arrayen måste innehålla färre än {{maximum}} element"
-      },
       "string": {
-        "exact": "Strängen måste innehålla exakt {{maximum}} tecken",
-        "inclusive": "Strängen måste innehålla högst {{maximum}} tecken",
-        "not_inclusive": "Strängen måste innehålla färre än {{maximum}} tecken"
+        "exact_one": "Texten måste innehålla exakt {{count}} tecken",
+        "exact_other": "Texten måste innehålla exakt {{count}} tecken",
+        "inclusive_one": "Texten får innehålla högst {{count}} tecken",
+        "inclusive_other": "Texten får innehålla högst {{count}} tecken",
+        "not_inclusive_one": "Texten måste innehålla färre än {{count}} tecken",
+        "not_inclusive_other": "Texten måste innehålla färre än {{count}} tecken"
       },
       "number": {
-        "exact": "Numret måste vara exakt {{maximum}}",
-        "inclusive": "Numret måste vara högst {{maximum}}",
-        "not_inclusive": "Numret måste vara mindre än {{maximum}}"
+        "exact": "Talet måste vara exakt {{maximum}}",
+        "inclusive": "Talet får vara högst {{maximum}}",
+        "not_inclusive": "Talet måste vara mindre än {{maximum}}"
+      },
+      "array": {
+        "exact_one": "Listan måste innehålla exakt {{count}} element",
+        "exact_other": "Listan måste innehålla exakt {{count}} element",
+        "inclusive_one": "Listan får innehålla högst {{count}} element",
+        "inclusive_other": "Listan får innehålla högst {{count}} element",
+        "not_inclusive_one": "Listan måste innehålla färre än {{count}} element",
+        "not_inclusive_other": "Listan måste innehålla färre än {{count}} element"
       },
       "set": {
-        "exact": "Ogiltig inmatning",
-        "inclusive": "Ogiltig inmatning",
-        "not_inclusive": "Ogiltig inmatning"
+        "exact_one": "Mängden måste innehålla exakt {{count}} element",
+        "exact_other": "Mängden måste innehålla exakt {{count}} element",
+        "inclusive_one": "Mängden får innehålla högst {{count}} element",
+        "inclusive_other": "Mängden får innehålla högst {{count}} element",
+        "not_inclusive_one": "Mängden måste innehålla färre än {{count}} element",
+        "not_inclusive_other": "Mängden måste innehålla färre än {{count}} element"
+      },
+      "map": {
+        "exact_one": "Mappningen måste innehålla exakt {{count}} post",
+        "exact_other": "Mappningen måste innehålla exakt {{count}} poster",
+        "inclusive_one": "Mappningen får innehålla högst {{count}} post",
+        "inclusive_other": "Mappningen får innehålla högst {{count}} poster",
+        "not_inclusive_one": "Mappningen måste innehålla färre än {{count}} post",
+        "not_inclusive_other": "Mappningen måste innehålla färre än {{count}} poster"
+      },
+      "file": {
+        "exact_one": "Filen måste vara exakt {{count}} byte",
+        "exact_other": "Filen måste vara exakt {{count}} byte",
+        "inclusive_one": "Filen får vara högst {{count}} byte",
+        "inclusive_other": "Filen får vara högst {{count}} byte",
+        "not_inclusive_one": "Filen måste vara mindre än {{count}} byte",
+        "not_inclusive_other": "Filen måste vara mindre än {{count}} byte"
       },
       "date": {
         "exact": "Datumet måste vara exakt {{- maximum, datetime}}",
-        "inclusive": "Datumet måste vara mindre än eller lika med {{- maximum, datetime}}",
-        "not_inclusive": "Datumet måste vara mindre än {{- maximum, datetime}}"
+        "inclusive": "Datumet måste vara {{- maximum, datetime}} eller tidigare",
+        "not_inclusive": "Datumet måste vara före {{- maximum, datetime}}"
       }
     }
   },
-  "validations": {
-    "email": "e-post",
-    "url": "webbadress",
+  "formats": {
+    "email": "e-postadress",
+    "url": "URL",
+    "emoji": "emoji",
     "uuid": "UUID",
-    "cuid": "CUID",
-    "regex": "regex",
-    "datetime": "datumtid"
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO-datum och tid",
+    "date": "ISO-datum",
+    "time": "ISO-tid",
+    "duration": "ISO-varaktighet",
+    "ipv4": "IPv4-adress",
+    "ipv6": "IPv6-adress",
+    "mac": "MAC-adress",
+    "cidrv4": "IPv4-intervall",
+    "cidrv6": "IPv6-intervall",
+    "base64": "base64-kodad sträng",
+    "base64url": "base64url-kodad sträng",
+    "json_string": "JSON-sträng",
+    "e164": "E.164-telefonnummer",
+    "jwt": "JWT",
+    "hostname": "värdnamn",
+    "credit_card": "kreditkortsnummer",
+    "iban": "IBAN"
   },
   "types": {
-    "function": "funktion",
-    "number": "nummer",
-    "string": "sträng",
-    "nan": "NaN",
-    "integer": "heltal",
-    "float": "flyttal",
-    "boolean": "boolesk",
-    "date": "datum",
+    "string": "text",
+    "number": "tal",
+    "int": "heltal",
     "bigint": "bigint",
-    "undefined": "obestämd",
+    "boolean": "booleskt värde",
     "symbol": "symbol",
+    "undefined": "undefined",
     "null": "null",
-    "array": "array",
-    "object": "objekt",
-    "unknown": "okänd",
-    "promise": "promise",
+    "nan": "NaN",
     "void": "void",
-    "never": "aldrig",
-    "map": "map",
-    "set": "set"
+    "never": "never",
+    "date": "datum",
+    "array": "lista",
+    "tuple": "tupel",
+    "object": "objekt",
+    "record": "record",
+    "map": "mappning",
+    "set": "mängd",
+    "file": "fil",
+    "function": "funktion",
+    "promise": "promise"
   }
 }

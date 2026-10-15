@@ -1,113 +1,183 @@
 {
   "errors": {
     "invalid_type": "Forventet {{expected}}, mottok {{received}}",
-    "invalid_type_received_undefined": "Må ikke være tom",
-    "invalid_type_received_null": "Må ikke være tom",
-    "invalid_literal": "Ugyldig bokstavlig verdi, forventet {{expected}}",
-    "unrecognized_keys": "Ukjent nøkkel i objektet: {{- keys}}",
-    "invalid_union": "Ugyldig inndata",
-    "invalid_union_discriminator": "Ugyldig diskriminatorverdi, forventet {{- options}}",
-    "invalid_enum_value": "Ugyldig enum-verdi. Forventet {{- options}}, mottatt '{{received}}'",
-    "invalid_arguments": "Ugyldige funksjonsargumenter",
-    "invalid_return_type": "Ugyldig returtype",
-    "invalid_date": "Ugyldig dato",
-    "custom": "Ugyldig inndata",
-    "invalid_intersection_types": "Kryssresultater kunne ikke slås sammen",
-    "not_multiple_of": "Tallet må være et multiplum av {{multipleOf}}",
-    "not_finite": "Tallet må være endelig",
-    "invalid_string": {
-      "email": "Ugyldig {{validation}}",
-      "url": "Ugyldig {{validation}}",
-      "uuid": "Ugyldig {{validation}}",
-      "cuid": "Ugyldig {{validation}}",
-      "regex": "Ugyldig",
-      "datetime": "Ugyldig {{validation}}",
-      "startsWith": "Ugyldig inndata: må starte med \"{{startsWith}}\"",
-      "endsWith": "Ugyldig inndata: må slutte med \"{{endsWith}}\""
+    "invalid_type_received_undefined": "Påkrevd",
+    "invalid_type_received_null": "Påkrevd",
+    "invalid_value": "Ugyldig valg: forventet én av {{- options}}",
+    "invalid_value_single": "Ugyldig verdi: forventet {{- expected}}",
+    "invalid_format": {
+      "default": "Ugyldig {{format}}",
+      "regex": "Ugyldig format",
+      "starts_with": "Må starte med \"{{- prefix}}\"",
+      "ends_with": "Må slutte med \"{{- suffix}}\"",
+      "includes": "Må inneholde \"{{- includes}}\"",
+      "lowercase": "Må skrives med små bokstaver",
+      "uppercase": "Må skrives med store bokstaver"
     },
+    "not_multiple_of": "Tallet må være et multiplum av {{divisor}}",
+    "unrecognized_keys_one": "Ukjent nøkkel i objektet: {{- keys}}",
+    "unrecognized_keys_other": "Ukjente nøkler i objektet: {{- keys}}",
+    "invalid_key": "Ugyldig nøkkel i {{origin}}",
+    "invalid_element": "Ugyldig verdi i {{origin}}",
+    "invalid_union": "Ugyldig inndata",
+    "invalid_union_discriminator": "Ugyldig diskriminatorverdi: forventet {{- options}}",
+    "custom": "Ugyldig inndata",
     "too_small": {
-      "array": {
-        "exact": "Array må inneholde nøyaktig {{minimum}} element(er)",
-        "inclusive": "Array må inneholde minst {{minimum}} element(er)",
-        "not_inclusive": "Array må inneholde mer enn {{minimum}} element(er)"
-      },
       "string": {
-        "exact": "Strengen må inneholde nøyaktig {{minimum}} bokstav(er)",
-        "inclusive": "Strengen må inneholde minst {{minimum}} bokstav(er)",
-        "not_inclusive": "Strengen må inneholde over {{minimum}} bokstav(er)"
+        "exact_one": "Strengen må inneholde nøyaktig {{count}} tegn",
+        "exact_other": "Strengen må inneholde nøyaktig {{count}} tegn",
+        "inclusive_one": "Strengen må inneholde minst {{count}} tegn",
+        "inclusive_other": "Strengen må inneholde minst {{count}} tegn",
+        "not_inclusive_one": "Strengen må inneholde mer enn {{count}} tegn",
+        "not_inclusive_other": "Strengen må inneholde mer enn {{count}} tegn"
       },
       "number": {
         "exact": "Tallet må være nøyaktig {{minimum}}",
-        "inclusive": "Tallet må være større enn eller lik {{minimum}}",
+        "inclusive": "Tallet må være minst {{minimum}}",
         "not_inclusive": "Tallet må være større enn {{minimum}}"
       },
+      "array": {
+        "exact_one": "Listen må inneholde nøyaktig {{count}} element",
+        "exact_other": "Listen må inneholde nøyaktig {{count}} elementer",
+        "inclusive_one": "Listen må inneholde minst {{count}} element",
+        "inclusive_other": "Listen må inneholde minst {{count}} elementer",
+        "not_inclusive_one": "Listen må inneholde mer enn {{count}} element",
+        "not_inclusive_other": "Listen må inneholde mer enn {{count}} elementer"
+      },
       "set": {
-        "exact": "Ugyldig inndata",
-        "inclusive": "Ugyldig inndata",
-        "not_inclusive": "Ugyldig inndata"
+        "exact_one": "Mengden må inneholde nøyaktig {{count}} element",
+        "exact_other": "Mengden må inneholde nøyaktig {{count}} elementer",
+        "inclusive_one": "Mengden må inneholde minst {{count}} element",
+        "inclusive_other": "Mengden må inneholde minst {{count}} elementer",
+        "not_inclusive_one": "Mengden må inneholde mer enn {{count}} element",
+        "not_inclusive_other": "Mengden må inneholde mer enn {{count}} elementer"
+      },
+      "map": {
+        "exact_one": "Map-en må inneholde nøyaktig {{count}} oppføring",
+        "exact_other": "Map-en må inneholde nøyaktig {{count}} oppføringer",
+        "inclusive_one": "Map-en må inneholde minst {{count}} oppføring",
+        "inclusive_other": "Map-en må inneholde minst {{count}} oppføringer",
+        "not_inclusive_one": "Map-en må inneholde mer enn {{count}} oppføring",
+        "not_inclusive_other": "Map-en må inneholde mer enn {{count}} oppføringer"
+      },
+      "file": {
+        "exact_one": "Filen må være nøyaktig {{count}} byte",
+        "exact_other": "Filen må være nøyaktig {{count}} byte",
+        "inclusive_one": "Filen må være minst {{count}} byte",
+        "inclusive_other": "Filen må være minst {{count}} byte",
+        "not_inclusive_one": "Filen må være større enn {{count}} byte",
+        "not_inclusive_other": "Filen må være større enn {{count}} byte"
       },
       "date": {
         "exact": "Datoen må være nøyaktig {{- minimum, datetime}}",
-        "inclusive": "Datoen må være større enn eller lik {{- minimum, datetime}}",
-        "not_inclusive": "Datoen må være større enn {{- minimum, datetime}}"
+        "inclusive": "Datoen må være {{- minimum, datetime}} eller senere",
+        "not_inclusive": "Datoen må være etter {{- minimum, datetime}}"
       }
     },
     "too_big": {
-      "array": {
-        "exact": "Array må inneholde nøyaktig {{maximum}} element(er)",
-        "inclusive": "Array må inneholde maksimalt {{maximum}} element(er)",
-        "not_inclusive": "Array må inneholde mindre enn {{maximum}} element(er)"
-      },
       "string": {
-        "exact": "Strengen må inneholde nøyaktig {{maximum}} tegn",
-        "inclusive": "Strengen må være mindre eller lik {{maximum}} tegn",
-        "not_inclusive": "Strengen må inneholde under {{maximum}} tegn"
+        "exact_one": "Strengen må inneholde nøyaktig {{count}} tegn",
+        "exact_other": "Strengen må inneholde nøyaktig {{count}} tegn",
+        "inclusive_one": "Strengen kan inneholde maksimalt {{count}} tegn",
+        "inclusive_other": "Strengen kan inneholde maksimalt {{count}} tegn",
+        "not_inclusive_one": "Strengen må inneholde færre enn {{count}} tegn",
+        "not_inclusive_other": "Strengen må inneholde færre enn {{count}} tegn"
       },
       "number": {
         "exact": "Tallet må være nøyaktig {{maximum}}",
-        "inclusive": "Tallet må være mindre enn eller lik {{maximum}}",
+        "inclusive": "Tallet kan være maksimalt {{maximum}}",
         "not_inclusive": "Tallet må være mindre enn {{maximum}}"
       },
+      "array": {
+        "exact_one": "Listen må inneholde nøyaktig {{count}} element",
+        "exact_other": "Listen må inneholde nøyaktig {{count}} elementer",
+        "inclusive_one": "Listen kan inneholde maksimalt {{count}} element",
+        "inclusive_other": "Listen kan inneholde maksimalt {{count}} elementer",
+        "not_inclusive_one": "Listen må inneholde færre enn {{count}} element",
+        "not_inclusive_other": "Listen må inneholde færre enn {{count}} elementer"
+      },
       "set": {
-        "exact": "Ugyldig inndata",
-        "inclusive": "Ugyldig inndata",
-        "not_inclusive": "Ugyldig inndata"
+        "exact_one": "Mengden må inneholde nøyaktig {{count}} element",
+        "exact_other": "Mengden må inneholde nøyaktig {{count}} elementer",
+        "inclusive_one": "Mengden kan inneholde maksimalt {{count}} element",
+        "inclusive_other": "Mengden kan inneholde maksimalt {{count}} elementer",
+        "not_inclusive_one": "Mengden må inneholde færre enn {{count}} element",
+        "not_inclusive_other": "Mengden må inneholde færre enn {{count}} elementer"
+      },
+      "map": {
+        "exact_one": "Map-en må inneholde nøyaktig {{count}} oppføring",
+        "exact_other": "Map-en må inneholde nøyaktig {{count}} oppføringer",
+        "inclusive_one": "Map-en kan inneholde maksimalt {{count}} oppføring",
+        "inclusive_other": "Map-en kan inneholde maksimalt {{count}} oppføringer",
+        "not_inclusive_one": "Map-en må inneholde færre enn {{count}} oppføring",
+        "not_inclusive_other": "Map-en må inneholde færre enn {{count}} oppføringer"
+      },
+      "file": {
+        "exact_one": "Filen må være nøyaktig {{count}} byte",
+        "exact_other": "Filen må være nøyaktig {{count}} byte",
+        "inclusive_one": "Filen kan være maksimalt {{count}} byte",
+        "inclusive_other": "Filen kan være maksimalt {{count}} byte",
+        "not_inclusive_one": "Filen må være mindre enn {{count}} byte",
+        "not_inclusive_other": "Filen må være mindre enn {{count}} byte"
       },
       "date": {
         "exact": "Datoen må være nøyaktig {{- maximum, datetime}}",
-        "inclusive": "Datoen må være mindre enn eller lik {{- maximum, datetime}}",
-        "not_inclusive": "Datoen må være mindre enn {{- maximum, datetime}}"
+        "inclusive": "Datoen må være {{- maximum, datetime}} eller tidligere",
+        "not_inclusive": "Datoen må være før {{- maximum, datetime}}"
       }
     }
   },
-  "validations": {
-    "email": "Epost adresse",
+  "formats": {
+    "email": "e-postadresse",
     "url": "URL",
+    "emoji": "emoji",
     "uuid": "UUID",
-    "cuid": "CUID",
-    "regex": "Eegex",
-    "datetime": "Dato og klokkeslett"
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO-dato og -klokkeslett",
+    "date": "ISO-dato",
+    "time": "ISO-klokkeslett",
+    "duration": "ISO-varighet",
+    "ipv4": "IPv4-adresse",
+    "ipv6": "IPv6-adresse",
+    "mac": "MAC-adresse",
+    "cidrv4": "IPv4-område",
+    "cidrv6": "IPv6-område",
+    "base64": "base64-kodet streng",
+    "base64url": "base64url-kodet streng",
+    "json_string": "JSON-streng",
+    "e164": "E.164-telefonnummer",
+    "jwt": "JWT",
+    "hostname": "vertsnavn",
+    "credit_card": "kredittkortnummer",
+    "iban": "IBAN"
   },
   "types": {
-    "function": "Funksjon",
-    "number": "Nummer",
-    "string": "String",
+    "string": "streng",
+    "number": "tall",
+    "int": "heltall",
+    "bigint": "bigint",
+    "boolean": "boolsk verdi",
+    "symbol": "symbol",
+    "undefined": "undefined",
+    "null": "null",
     "nan": "NaN",
-    "integer": "Heltall",
-    "float": "Flyttall",
-    "boolean": "Boolean",
-    "date": "Dato",
-    "bigint": "Bigint",
-    "undefined": "Undefined",
-    "symbol": "Symbol",
-    "null": "Null",
-    "array": "Array",
-    "object": "Objekt",
-    "unknown": "Unknown",
-    "promise": "Promise",
-    "void": "Void",
-    "never": "Never",
-    "map": "Map",
-    "set": "Set"
+    "void": "void",
+    "never": "never",
+    "date": "dato",
+    "array": "liste",
+    "tuple": "tuppel",
+    "object": "objekt",
+    "record": "record",
+    "map": "map",
+    "set": "mengde",
+    "file": "fil",
+    "function": "funksjon",
+    "promise": "promise"
   }
 }

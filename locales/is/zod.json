@@ -1,105 +1,183 @@
 {
   "errors": {
-    "invalid_type": "Bjóst við {{expected}}, fékk {{received}}",
+    "invalid_type": "Rangt tag: átti að vera {{expected}} en var {{received}}",
     "invalid_type_received_undefined": "Nauðsynlegt",
     "invalid_type_received_null": "Nauðsynlegt",
-    "invalid_literal": "Ógilt bókstaflegt gildi, bjóst við {{expected}}",
-    "unrecognized_keys": "Óþekktir lyklar í hlut: {{- keys}}",
-    "invalid_union": "Ógilt inntak",
-    "invalid_union_discriminator": "Ógilt mismununargildi. Bjóst við {{- options}}",
-    "invalid_enum_value": "Ógilt upptalningargildi. Bjóst við {{- options}}, fékk '{{received}}'",
-    "invalid_arguments": "Ógildar aðgerðarbreytur",
-    "invalid_return_type": "Ógild skilategund á falli",
-    "invalid_date": "Ógild dagsetning",
-    "custom": "Ógilt inntak",
-    "invalid_intersection_types": "Ekki var hægt að sameina niðurstöður",
-    "not_multiple_of": "Tala þarf að vera margfeldi af {{multipleOf}}",
-    "not_finite": "Tala þarf að vera endanleg",
-    "invalid_string": {
-      "email": "Ógilt {{validation}}",
-      "url": "Ógild {{validation}}",
-      "uuid": "Ógilt {{validation}}",
-      "cuid": "Ógilt {{validation}}",
-      "regex": "Ógilt",
-      "datetime": "Ógild {{validation}}",
-      "startsWith": "Ógilt inntak: þarf að byrja á \"{{startsWith}}\"",
-      "endsWith": "Ógilt inntak: þarf að enda á \"{{endsWith}}\""
+    "invalid_value": "Ógilt val: á að vera eitt af {{- options}}",
+    "invalid_value_single": "Ógilt inntak: á að vera {{- expected}}",
+    "invalid_format": {
+      "default": "Ógilt snið: á að vera {{format}}",
+      "regex": "Ógilt snið",
+      "starts_with": "Verður að byrja á \"{{- prefix}}\"",
+      "ends_with": "Verður að enda á \"{{- suffix}}\"",
+      "includes": "Verður að innihalda \"{{- includes}}\"",
+      "lowercase": "Verður að vera með lágstöfum",
+      "uppercase": "Verður að vera með hástöfum"
     },
+    "not_multiple_of": "Talan verður að vera margfeldi af {{divisor}}",
+    "unrecognized_keys_one": "Óþekktur lykill í hlut: {{- keys}}",
+    "unrecognized_keys_other": "Óþekktir lyklar í hlut: {{- keys}}",
+    "invalid_key": "Ógildur lykill ({{origin}})",
+    "invalid_element": "Ógilt gildi ({{origin}})",
+    "invalid_union": "Ógilt inntak",
+    "invalid_union_discriminator": "Ógilt aðgreiningargildi: á að vera {{- options}}",
+    "custom": "Ógilt inntak",
     "too_small": {
-      "array": {
-        "inclusive": "Fylki verður að innihalda að minnsta kosti {{minimum}} stök",
-        "not_inclusive": "Fylki verður að innihalda fleiri en {{minimum}} stök"
-      },
       "string": {
-        "inclusive": "Strengur verður að innihalda að minnsta kosti {{minimum}} stafi",
-        "not_inclusive": "Strengur verður að innihalda meira en {{minimum}} stafi"
+        "exact_one": "Textinn verður að innihalda nákvæmlega {{count}} staf",
+        "exact_other": "Textinn verður að innihalda nákvæmlega {{count}} stafi",
+        "inclusive_one": "Textinn verður að innihalda að minnsta kosti {{count}} staf",
+        "inclusive_other": "Textinn verður að innihalda að minnsta kosti {{count}} stafi",
+        "not_inclusive_one": "Textinn verður að innihalda fleiri en {{count}} staf",
+        "not_inclusive_other": "Textinn verður að innihalda fleiri en {{count}} stafi"
       },
       "number": {
-        "inclusive": "Tala verður að vera stærri en eða jöfn {{minimum}}",
-        "not_inclusive": "Tala verður að vera stærri en {{minimum}}"
+        "exact": "Talan verður að vera nákvæmlega {{minimum}}",
+        "inclusive": "Talan verður að vera {{minimum}} eða hærri",
+        "not_inclusive": "Talan verður að vera hærri en {{minimum}}"
+      },
+      "array": {
+        "exact_one": "Fylkið verður að innihalda nákvæmlega {{count}} stak",
+        "exact_other": "Fylkið verður að innihalda nákvæmlega {{count}} stök",
+        "inclusive_one": "Fylkið verður að innihalda að minnsta kosti {{count}} stak",
+        "inclusive_other": "Fylkið verður að innihalda að minnsta kosti {{count}} stök",
+        "not_inclusive_one": "Fylkið verður að innihalda fleiri en {{count}} stak",
+        "not_inclusive_other": "Fylkið verður að innihalda fleiri en {{count}} stök"
       },
       "set": {
-        "exact": "Ógilt inntak",
-        "inclusive": "Ógilt inntak",
-        "not_inclusive": "Ógilt inntak"
+        "exact_one": "Mengið verður að innihalda nákvæmlega {{count}} stak",
+        "exact_other": "Mengið verður að innihalda nákvæmlega {{count}} stök",
+        "inclusive_one": "Mengið verður að innihalda að minnsta kosti {{count}} stak",
+        "inclusive_other": "Mengið verður að innihalda að minnsta kosti {{count}} stök",
+        "not_inclusive_one": "Mengið verður að innihalda fleiri en {{count}} stak",
+        "not_inclusive_other": "Mengið verður að innihalda fleiri en {{count}} stök"
+      },
+      "map": {
+        "exact_one": "Varpið verður að innihalda nákvæmlega {{count}} færslu",
+        "exact_other": "Varpið verður að innihalda nákvæmlega {{count}} færslur",
+        "inclusive_one": "Varpið verður að innihalda að minnsta kosti {{count}} færslu",
+        "inclusive_other": "Varpið verður að innihalda að minnsta kosti {{count}} færslur",
+        "not_inclusive_one": "Varpið verður að innihalda fleiri en {{count}} færslu",
+        "not_inclusive_other": "Varpið verður að innihalda fleiri en {{count}} færslur"
+      },
+      "file": {
+        "exact_one": "Skráin verður að vera nákvæmlega {{count}} bæti",
+        "exact_other": "Skráin verður að vera nákvæmlega {{count}} bæti",
+        "inclusive_one": "Skráin verður að vera að minnsta kosti {{count}} bæti",
+        "inclusive_other": "Skráin verður að vera að minnsta kosti {{count}} bæti",
+        "not_inclusive_one": "Skráin verður að vera stærri en {{count}} bæti",
+        "not_inclusive_other": "Skráin verður að vera stærri en {{count}} bæti"
       },
       "date": {
-        "inclusive": "Dagsetning verður að vera á eftir eða sama og {{- minimum, datetime}}",
-        "not_inclusive": "Dagsetning verður að vera á eftir {{- minimum, datetime}}"
+        "exact": "Dagsetningin verður að vera nákvæmlega {{- minimum, datetime}}",
+        "inclusive": "Dagsetningin verður að vera {{- minimum, datetime}} eða síðar",
+        "not_inclusive": "Dagsetningin verður að vera eftir {{- minimum, datetime}}"
       }
     },
     "too_big": {
-      "array": {
-        "inclusive": "Fylki verður að innihalda að hámarki {{maximum}} stök",
-        "not_inclusive": "Fylki verður að innihalda færri en {{maximum}} stök"
-      },
       "string": {
-        "inclusive": "Strengur getur ekki verið lengri en {{maximum}} stafir",
-        "not_inclusive": "Strengur verður að innihalda færri en {{maximum}} stafi"
+        "exact_one": "Textinn verður að innihalda nákvæmlega {{count}} staf",
+        "exact_other": "Textinn verður að innihalda nákvæmlega {{count}} stafi",
+        "inclusive_one": "Textinn má innihalda í mesta lagi {{count}} staf",
+        "inclusive_other": "Textinn má innihalda í mesta lagi {{count}} stafi",
+        "not_inclusive_one": "Textinn verður að innihalda færri en {{count}} staf",
+        "not_inclusive_other": "Textinn verður að innihalda færri en {{count}} stafi"
       },
       "number": {
-        "inclusive": "Tala verður að vera minni en eða jöfn {{maximum}}",
-        "not_inclusive": "Tala verður að vera minni en {{maximum}}"
+        "exact": "Talan verður að vera nákvæmlega {{maximum}}",
+        "inclusive": "Talan verður að vera {{maximum}} eða lægri",
+        "not_inclusive": "Talan verður að vera lægri en {{maximum}}"
+      },
+      "array": {
+        "exact_one": "Fylkið verður að innihalda nákvæmlega {{count}} stak",
+        "exact_other": "Fylkið verður að innihalda nákvæmlega {{count}} stök",
+        "inclusive_one": "Fylkið má innihalda í mesta lagi {{count}} stak",
+        "inclusive_other": "Fylkið má innihalda í mesta lagi {{count}} stök",
+        "not_inclusive_one": "Fylkið verður að innihalda færri en {{count}} stak",
+        "not_inclusive_other": "Fylkið verður að innihalda færri en {{count}} stök"
       },
       "set": {
-        "exact": "Ógilt inntak",
-        "inclusive": "Ógilt inntak",
-        "not_inclusive": "Ógilt inntak"
+        "exact_one": "Mengið verður að innihalda nákvæmlega {{count}} stak",
+        "exact_other": "Mengið verður að innihalda nákvæmlega {{count}} stök",
+        "inclusive_one": "Mengið má innihalda í mesta lagi {{count}} stak",
+        "inclusive_other": "Mengið má innihalda í mesta lagi {{count}} stök",
+        "not_inclusive_one": "Mengið verður að innihalda færri en {{count}} stak",
+        "not_inclusive_other": "Mengið verður að innihalda færri en {{count}} stök"
+      },
+      "map": {
+        "exact_one": "Varpið verður að innihalda nákvæmlega {{count}} færslu",
+        "exact_other": "Varpið verður að innihalda nákvæmlega {{count}} færslur",
+        "inclusive_one": "Varpið má innihalda í mesta lagi {{count}} færslu",
+        "inclusive_other": "Varpið má innihalda í mesta lagi {{count}} færslur",
+        "not_inclusive_one": "Varpið verður að innihalda færri en {{count}} færslu",
+        "not_inclusive_other": "Varpið verður að innihalda færri en {{count}} færslur"
+      },
+      "file": {
+        "exact_one": "Skráin verður að vera nákvæmlega {{count}} bæti",
+        "exact_other": "Skráin verður að vera nákvæmlega {{count}} bæti",
+        "inclusive_one": "Skráin má vera í mesta lagi {{count}} bæti",
+        "inclusive_other": "Skráin má vera í mesta lagi {{count}} bæti",
+        "not_inclusive_one": "Skráin verður að vera minni en {{count}} bæti",
+        "not_inclusive_other": "Skráin verður að vera minni en {{count}} bæti"
       },
       "date": {
-        "inclusive": "Dagsetning verður að vera fyrr en eða sama og {{- maximum, datetime}}",
-        "not_inclusive": "Dagsetning verður að vera fyrr en {{- maximum, datetime}}"
+        "exact": "Dagsetningin verður að vera nákvæmlega {{- maximum, datetime}}",
+        "inclusive": "Dagsetningin verður að vera {{- maximum, datetime}} eða fyrr",
+        "not_inclusive": "Dagsetningin verður að vera fyrir {{- maximum, datetime}}"
       }
     }
   },
-  "validations": {
+  "formats": {
     "email": "netfang",
-    "url": "slóð",
-    "uuid": "uuid",
+    "url": "vefslóð",
+    "emoji": "tjákn",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
     "cuid": "cuid",
-    "regex": "regluleg segð",
-    "datetime": "dagsetning og tími"
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "dagsetning og tími á ISO-sniði",
+    "date": "dagsetning á ISO-sniði",
+    "time": "tími á ISO-sniði",
+    "duration": "tímalengd á ISO-sniði",
+    "ipv4": "IPv4-vistfang",
+    "ipv6": "IPv6-vistfang",
+    "mac": "MAC-vistfang",
+    "cidrv4": "IPv4-vistfangabil",
+    "cidrv6": "IPv6-vistfangabil",
+    "base64": "base64-kóðaður strengur",
+    "base64url": "base64url-kóðaður strengur",
+    "json_string": "JSON-strengur",
+    "e164": "símanúmer á E.164-sniði",
+    "jwt": "JWT",
+    "hostname": "hýsilnafn",
+    "credit_card": "kreditkortanúmer",
+    "iban": "IBAN"
   },
   "types": {
-    "function": "fall",
-    "number": "tölu",
-    "string": "streng",
-    "nan": "nan",
-    "integer": "heiltölu",
-    "float": "kommutölu",
-    "boolean": "boolean",
-    "date": "dagsetningu",
-    "bigint": "stórri heiltölu",
+    "string": "texti",
+    "number": "tala",
+    "int": "heiltala",
+    "bigint": "stór heiltala",
+    "boolean": "sanngildi",
+    "symbol": "tákn",
     "undefined": "undefined",
-    "symbol": "symbol",
     "null": "null",
-    "array": "fylki",
-    "object": "hlut",
-    "unknown": "unknown",
-    "promise": "promise",
+    "nan": "NaN",
     "void": "void",
     "never": "never",
-    "map": "map",
-    "set": "set"
+    "date": "dagsetning",
+    "array": "fylki",
+    "tuple": "túpla",
+    "object": "hlutur",
+    "record": "record",
+    "map": "varp",
+    "set": "mengi",
+    "file": "skrá",
+    "function": "fall",
+    "promise": "promise"
   }
 }

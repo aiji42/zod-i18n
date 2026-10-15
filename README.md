@@ -37,8 +37,8 @@ await i18next.init({
 });
 z.config({ customError: zodI18nMap });
 
-z.string().email().safeParse("foo").error?.issues[0]?.message;
-// => "メールアドレスの形式が正しくありません"
+z.email().safeParse("foo").error?.issues[0]?.message;
+// => "メールアドレスの形式で入力してください。"
 ```
 
 If a key is missing, Zod's own message is used instead. That is either English or the built-in Zod locale you configured with `z.config(z.locales.xx())`.

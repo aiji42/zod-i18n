@@ -3,111 +3,181 @@
     "invalid_type": "{{expected}} erwartet, {{received}} erhalten",
     "invalid_type_received_undefined": "Darf nicht leer sein",
     "invalid_type_received_null": "Darf nicht leer sein",
-    "invalid_literal": "Ungültiger Literalwert, {{expected}} erwartet",
-    "unrecognized_keys": "Unbekannte Schlüssel im Objekt: {{- keys}}",
-    "invalid_union": "Ungültige Eingabe",
-    "invalid_union_discriminator": "Ungültiger Diskriminatorwert, {{- options}} erwartet",
-    "invalid_enum_value": "Ungültiger Enum-Wert. {{- options}} erwartet, '{{received}}' erhalten",
-    "invalid_arguments": "Ungültige Funktionsargumente",
-    "invalid_return_type": "Ungültiger Funktionsrückgabewert",
-    "invalid_date": "Ungültiges Datum",
-    "custom": "Ungültige Eingabe",
-    "invalid_intersection_types": "Schnittmengenergebnisse konnten nicht zusammengeführt werden",
-    "not_multiple_of": "Zahl muss ein Vielfaches von {{multipleOf}} sein",
-    "not_finite": "Zahl muss endlich sein",
-    "invalid_string": {
-      "email": "Ungültige {{validation}}",
-      "url": "Ungültige {{validation}}",
-      "uuid": "Ungültige {{validation}}",
-      "cuid": "Ungültige {{validation}}",
-      "regex": "Ungültig",
-      "datetime": "Ungültiger {{validation}}",
-      "startsWith": "Ungültige Eingabe: muss mit \"{{startsWith}}\" beginnen",
-      "endsWith": "Ungültige Eingabe: muss mit \"{{endsWith}}\" enden"
+    "invalid_value": "Ungültige Option: erwartet wird einer der Werte {{- options}}",
+    "invalid_value_single": "Ungültige Eingabe: {{- expected}} erwartet",
+    "invalid_format": {
+      "default": "Ungültiges Format: {{format}} erwartet",
+      "regex": "Ungültiges Format",
+      "starts_with": "Muss mit \"{{- prefix}}\" beginnen",
+      "ends_with": "Muss auf \"{{- suffix}}\" enden",
+      "includes": "Muss \"{{- includes}}\" enthalten",
+      "lowercase": "Muss in Kleinbuchstaben geschrieben sein",
+      "uppercase": "Muss in Großbuchstaben geschrieben sein"
     },
+    "not_multiple_of": "Zahl muss ein Vielfaches von {{divisor}} sein",
+    "unrecognized_keys_one": "Unbekannter Schlüssel im Objekt: {{- keys}}",
+    "unrecognized_keys_other": "Unbekannte Schlüssel im Objekt: {{- keys}}",
+    "invalid_key": "Ungültiger Schlüssel in {{origin}}",
+    "invalid_element": "Ungültiger Wert in {{origin}}",
+    "invalid_union": "Ungültige Eingabe",
+    "invalid_union_discriminator": "Ungültiger Diskriminatorwert: {{- options}} erwartet",
+    "custom": "Ungültige Eingabe",
     "too_small": {
-      "array": {
-        "exact": "Array muss genau {{minimum}} Element(e) enthalten",
-        "inclusive": "Array muss mindestens {{minimum}} Element(e) enthalten",
-        "not_inclusive": "Array muss mehr als {{minimum}} Element(e) enthalten"
-      },
       "string": {
-        "exact": "String muss genau {{minimum}} Zeichen enthalten",
-        "inclusive": "String muss mindestens {{minimum}} Zeichen enthalten",
-        "not_inclusive": "String muss mehr als {{minimum}} Zeichen enthalten"
+        "exact_one": "Text muss genau {{count}} Zeichen enthalten",
+        "exact_other": "Text muss genau {{count}} Zeichen enthalten",
+        "inclusive_one": "Text muss mindestens {{count}} Zeichen enthalten",
+        "inclusive_other": "Text muss mindestens {{count}} Zeichen enthalten",
+        "not_inclusive_one": "Text muss mehr als {{count}} Zeichen enthalten",
+        "not_inclusive_other": "Text muss mehr als {{count}} Zeichen enthalten"
       },
       "number": {
         "exact": "Zahl muss genau {{minimum}} sein",
-        "inclusive": "Zahl muss größer oder gleich {{minimum}} sein",
+        "inclusive": "Zahl muss mindestens {{minimum}} sein",
         "not_inclusive": "Zahl muss größer als {{minimum}} sein"
       },
+      "array": {
+        "exact_one": "Array muss genau {{count}} Element enthalten",
+        "exact_other": "Array muss genau {{count}} Elemente enthalten",
+        "inclusive_one": "Array muss mindestens {{count}} Element enthalten",
+        "inclusive_other": "Array muss mindestens {{count}} Elemente enthalten",
+        "not_inclusive_one": "Array muss mehr als {{count}} Element enthalten",
+        "not_inclusive_other": "Array muss mehr als {{count}} Elemente enthalten"
+      },
       "set": {
-        "exact": "Ungültige Eingabe",
-        "inclusive": "Ungültige Eingabe",
-        "not_inclusive": "Ungültige Eingabe"
+        "exact_one": "Set muss genau {{count}} Element enthalten",
+        "exact_other": "Set muss genau {{count}} Elemente enthalten",
+        "inclusive_one": "Set muss mindestens {{count}} Element enthalten",
+        "inclusive_other": "Set muss mindestens {{count}} Elemente enthalten",
+        "not_inclusive_one": "Set muss mehr als {{count}} Element enthalten",
+        "not_inclusive_other": "Set muss mehr als {{count}} Elemente enthalten"
+      },
+      "map": {
+        "exact_one": "Map muss genau {{count}} Eintrag enthalten",
+        "exact_other": "Map muss genau {{count}} Einträge enthalten",
+        "inclusive_one": "Map muss mindestens {{count}} Eintrag enthalten",
+        "inclusive_other": "Map muss mindestens {{count}} Einträge enthalten",
+        "not_inclusive_one": "Map muss mehr als {{count}} Eintrag enthalten",
+        "not_inclusive_other": "Map muss mehr als {{count}} Einträge enthalten"
+      },
+      "file": {
+        "exact_one": "Datei muss genau {{count}} Byte groß sein",
+        "exact_other": "Datei muss genau {{count}} Byte groß sein",
+        "inclusive_one": "Datei muss mindestens {{count}} Byte groß sein",
+        "inclusive_other": "Datei muss mindestens {{count}} Byte groß sein",
+        "not_inclusive_one": "Datei muss größer als {{count}} Byte sein",
+        "not_inclusive_other": "Datei muss größer als {{count}} Byte sein"
       },
       "date": {
         "exact": "Datum muss genau {{- minimum, datetime}} sein",
-        "inclusive": "Datum muss größer oder gleich {{- minimum, datetime}} sein",
-        "not_inclusive": "Datum muss größer als {{- minimum, datetime}} sein"
+        "inclusive": "Datum muss {{- minimum, datetime}} oder später sein",
+        "not_inclusive": "Datum muss nach {{- minimum, datetime}} liegen"
       }
     },
     "too_big": {
-      "array": {
-        "exact": "Array muss genau {{maximum}} Element(e) enthalten",
-        "inclusive": "Array darf höchstens {{maximum}} Element(e) enthalten",
-        "not_inclusive": "Array muss weniger als {{maximum}} Element(e) enthalten"
-      },
       "string": {
-        "exact": "String muss genau {{maximum}} Zeichen enthalten",
-        "inclusive": "String darf höchstens {{maximum}} Zeichen enthalten",
-        "not_inclusive": "String muss weniger als {{maximum}} Zeichen enthalten"
+        "exact_one": "Text muss genau {{count}} Zeichen enthalten",
+        "exact_other": "Text muss genau {{count}} Zeichen enthalten",
+        "inclusive_one": "Text darf höchstens {{count}} Zeichen enthalten",
+        "inclusive_other": "Text darf höchstens {{count}} Zeichen enthalten",
+        "not_inclusive_one": "Text muss weniger als {{count}} Zeichen enthalten",
+        "not_inclusive_other": "Text muss weniger als {{count}} Zeichen enthalten"
       },
       "number": {
         "exact": "Zahl muss genau {{maximum}} sein",
-        "inclusive": "Zahl muss kleiner oder gleich {{maximum}} sein",
+        "inclusive": "Zahl darf höchstens {{maximum}} sein",
         "not_inclusive": "Zahl muss kleiner als {{maximum}} sein"
       },
+      "array": {
+        "exact_one": "Array muss genau {{count}} Element enthalten",
+        "exact_other": "Array muss genau {{count}} Elemente enthalten",
+        "inclusive_one": "Array darf höchstens {{count}} Element enthalten",
+        "inclusive_other": "Array darf höchstens {{count}} Elemente enthalten",
+        "not_inclusive_one": "Array muss weniger als {{count}} Element enthalten",
+        "not_inclusive_other": "Array muss weniger als {{count}} Elemente enthalten"
+      },
       "set": {
-        "exact": "Ungültige Eingabe",
-        "inclusive": "Ungültige Eingabe",
-        "not_inclusive": "Ungültige Eingabe"
+        "exact_one": "Set muss genau {{count}} Element enthalten",
+        "exact_other": "Set muss genau {{count}} Elemente enthalten",
+        "inclusive_one": "Set darf höchstens {{count}} Element enthalten",
+        "inclusive_other": "Set darf höchstens {{count}} Elemente enthalten",
+        "not_inclusive_one": "Set muss weniger als {{count}} Element enthalten",
+        "not_inclusive_other": "Set muss weniger als {{count}} Elemente enthalten"
+      },
+      "map": {
+        "exact_one": "Map muss genau {{count}} Eintrag enthalten",
+        "exact_other": "Map muss genau {{count}} Einträge enthalten",
+        "inclusive_one": "Map darf höchstens {{count}} Eintrag enthalten",
+        "inclusive_other": "Map darf höchstens {{count}} Einträge enthalten",
+        "not_inclusive_one": "Map muss weniger als {{count}} Eintrag enthalten",
+        "not_inclusive_other": "Map muss weniger als {{count}} Einträge enthalten"
+      },
+      "file": {
+        "exact_one": "Datei muss genau {{count}} Byte groß sein",
+        "exact_other": "Datei muss genau {{count}} Byte groß sein",
+        "inclusive_one": "Datei darf höchstens {{count}} Byte groß sein",
+        "inclusive_other": "Datei darf höchstens {{count}} Byte groß sein",
+        "not_inclusive_one": "Datei muss kleiner als {{count}} Byte sein",
+        "not_inclusive_other": "Datei muss kleiner als {{count}} Byte sein"
       },
       "date": {
         "exact": "Datum muss genau {{- maximum, datetime}} sein",
-        "inclusive": "Datum muss kleiner oder gleich {{- maximum, datetime}} sein",
-        "not_inclusive": "Datum muss kleiner als {{- maximum, datetime}} sein"
+        "inclusive": "Datum muss {{- maximum, datetime}} oder früher sein",
+        "not_inclusive": "Datum muss vor {{- maximum, datetime}} liegen"
       }
     }
   },
-  "validations": {
+  "formats": {
     "email": "E-Mail-Adresse",
     "url": "URL",
+    "emoji": "Emoji",
     "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "Nano ID",
     "cuid": "CUID",
-    "regex": "Regex",
-    "datetime": "Datums- und Uhrzeitwert"
+    "cuid2": "CUID2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO-Datum mit Uhrzeit",
+    "date": "ISO-Datum",
+    "time": "ISO-Uhrzeit",
+    "duration": "ISO-Dauer",
+    "ipv4": "IPv4-Adresse",
+    "ipv6": "IPv6-Adresse",
+    "mac": "MAC-Adresse",
+    "cidrv4": "IPv4-Adressbereich",
+    "cidrv6": "IPv6-Adressbereich",
+    "base64": "Base64-codierter String",
+    "base64url": "Base64url-codierter String",
+    "json_string": "JSON-String",
+    "e164": "Telefonnummer im E.164-Format",
+    "jwt": "JWT",
+    "hostname": "Hostname",
+    "credit_card": "Kreditkartennummer",
+    "iban": "IBAN"
   },
   "types": {
-    "function": "Funktion",
+    "string": "Text",
     "number": "Zahl",
-    "string": "String",
-    "nan": "NaN",
-    "integer": "Ganzzahl",
-    "float": "Gleitkommazahl",
-    "boolean": "Boolean",
-    "date": "Datum",
-    "bigint": "Bigint",
-    "undefined": "Undefined",
+    "int": "Ganzzahl",
+    "bigint": "BigInt",
+    "boolean": "Wahrheitswert",
     "symbol": "Symbol",
-    "null": "Nullwert",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "Datum",
     "array": "Array",
+    "tuple": "Tupel",
     "object": "Objekt",
-    "unknown": "Unknown",
-    "promise": "Promise",
-    "void": "Void",
-    "never": "Never",
+    "record": "Record",
     "map": "Map",
-    "set": "Set"
+    "set": "Set",
+    "file": "Datei",
+    "function": "Funktion",
+    "promise": "Promise"
   }
 }

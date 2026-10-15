@@ -1,113 +1,183 @@
 {
   "errors": {
-    "invalid_type": "Ongeldig type: {{received}}. Type {{expected}} vereist",
-    "invalid_type_received_undefined": "Vereist",
-    "invalid_type_received_null": "Vereist",
-    "invalid_literal": "Ongeldige letterlijke waarde, vereist {{expected}}",
-    "unrecognized_keys": "Onbekende sleutel(s) in object: {{- keys}}",
-    "invalid_union": "Ongeldige invoer",
-    "invalid_union_discriminator": "Ongeldige discriminatorwaarde. vereist {{- options}}",
-    "invalid_enum_value": "Waarde '{{received}}' is ongeldig. Antwoordmogelijkheden zijn: {{- options}}",
-    "invalid_arguments": "Ongeldige functieargumenten",
-    "invalid_return_type": "Ongeldig functietype teruggegeven waarde",
-    "invalid_date": "Ongeldige datum",
-    "custom": "Ongeldige invoer",
-    "invalid_intersection_types": "Types konden niet worden samengevoegd",
-    "not_multiple_of": "Getal moet een veelvoud zijn van {{multipleOf}}",
-    "not_finite": "Getal moet finiet zijn",
-    "invalid_string": {
-      "email": "Ongeldige {{validation}}",
-      "url": "Ongeldige {{validation}}",
-      "uuid": "Ongeldige {{validation}}",
-      "cuid": "Ongeldige {{validation}}",
-      "regex": "Ongeldig",
-      "datetime": "Ongeldige {{validation}}",
-      "startsWith": "Ongeldige invoer: moet beginnen met \"{{startsWith}}\"",
-      "endsWith": "Ongeldige invoer: moet eindigen met \"{{endsWith}}\""
+    "invalid_type": "Ongeldig type: {{expected}} verwacht, {{received}} ontvangen",
+    "invalid_type_received_undefined": "Verplicht",
+    "invalid_type_received_null": "Verplicht",
+    "invalid_value": "Ongeldige optie: verwacht een van {{- options}}",
+    "invalid_value_single": "Ongeldige invoer: verwacht {{- expected}}",
+    "invalid_format": {
+      "default": "Ongeldig formaat: {{format}} verwacht",
+      "regex": "Ongeldig formaat",
+      "starts_with": "Moet beginnen met \"{{- prefix}}\"",
+      "ends_with": "Moet eindigen op \"{{- suffix}}\"",
+      "includes": "Moet \"{{- includes}}\" bevatten",
+      "lowercase": "Moet uit kleine letters bestaan",
+      "uppercase": "Moet uit hoofdletters bestaan"
     },
+    "not_multiple_of": "Getal moet een veelvoud zijn van {{divisor}}",
+    "unrecognized_keys_one": "Onbekende sleutel in object: {{- keys}}",
+    "unrecognized_keys_other": "Onbekende sleutels in object: {{- keys}}",
+    "invalid_key": "Ongeldige sleutel in {{origin}}",
+    "invalid_element": "Ongeldige waarde in {{origin}}",
+    "invalid_union": "Ongeldige invoer",
+    "invalid_union_discriminator": "Ongeldige discriminatorwaarde: verwacht {{- options}}",
+    "custom": "Ongeldige invoer",
     "too_small": {
-      "array": {
-        "exact": "Array moet precies {{minimum}} element(en) bevatten",
-        "inclusive": "Array moet minstens {{minimum}} element(en) bevatten",
-        "not_inclusive": "Array moet meer dan {{minimum}} element(en) bevatten"
-      },
       "string": {
-        "exact": "Tekst moet precies {{minimum}} karakter(s) bevatten",
-        "inclusive": "Tekst moet minstens {{minimum}} karakter(s) bevatten",
-        "not_inclusive": "Tekst moet meer dan {{minimum}} karakter(s) bevatten"
+        "exact_one": "Tekst moet precies {{count}} teken bevatten",
+        "exact_other": "Tekst moet precies {{count}} tekens bevatten",
+        "inclusive_one": "Tekst moet minstens {{count}} teken bevatten",
+        "inclusive_other": "Tekst moet minstens {{count}} tekens bevatten",
+        "not_inclusive_one": "Tekst moet meer dan {{count}} teken bevatten",
+        "not_inclusive_other": "Tekst moet meer dan {{count}} tekens bevatten"
       },
       "number": {
         "exact": "Getal moet precies {{minimum}} zijn",
         "inclusive": "Getal moet {{minimum}} of groter zijn",
         "not_inclusive": "Getal moet groter zijn dan {{minimum}}"
       },
+      "array": {
+        "exact_one": "Array moet precies {{count}} element bevatten",
+        "exact_other": "Array moet precies {{count}} elementen bevatten",
+        "inclusive_one": "Array moet minstens {{count}} element bevatten",
+        "inclusive_other": "Array moet minstens {{count}} elementen bevatten",
+        "not_inclusive_one": "Array moet meer dan {{count}} element bevatten",
+        "not_inclusive_other": "Array moet meer dan {{count}} elementen bevatten"
+      },
       "set": {
-        "exact": "Ongeldige invoer",
-        "inclusive": "Ongeldige invoer",
-        "not_inclusive": "Ongeldige invoer"
+        "exact_one": "Set moet precies {{count}} element bevatten",
+        "exact_other": "Set moet precies {{count}} elementen bevatten",
+        "inclusive_one": "Set moet minstens {{count}} element bevatten",
+        "inclusive_other": "Set moet minstens {{count}} elementen bevatten",
+        "not_inclusive_one": "Set moet meer dan {{count}} element bevatten",
+        "not_inclusive_other": "Set moet meer dan {{count}} elementen bevatten"
+      },
+      "map": {
+        "exact_one": "Map moet precies {{count}} item bevatten",
+        "exact_other": "Map moet precies {{count}} items bevatten",
+        "inclusive_one": "Map moet minstens {{count}} item bevatten",
+        "inclusive_other": "Map moet minstens {{count}} items bevatten",
+        "not_inclusive_one": "Map moet meer dan {{count}} item bevatten",
+        "not_inclusive_other": "Map moet meer dan {{count}} items bevatten"
+      },
+      "file": {
+        "exact_one": "Bestand moet precies {{count}} byte groot zijn",
+        "exact_other": "Bestand moet precies {{count}} bytes groot zijn",
+        "inclusive_one": "Bestand moet minstens {{count}} byte groot zijn",
+        "inclusive_other": "Bestand moet minstens {{count}} bytes groot zijn",
+        "not_inclusive_one": "Bestand moet groter zijn dan {{count}} byte",
+        "not_inclusive_other": "Bestand moet groter zijn dan {{count}} bytes"
       },
       "date": {
         "exact": "Datum moet precies {{- minimum, datetime}} zijn",
-        "inclusive": "Datum moet op of later dan {{- minimum, datetime}} zijn",
-        "not_inclusive": "Datum moet later dan {{- minimum, datetime}} zijn"
+        "inclusive": "Datum moet op of na {{- minimum, datetime}} liggen",
+        "not_inclusive": "Datum moet na {{- minimum, datetime}} liggen"
       }
     },
     "too_big": {
-      "array": {
-        "exact": "Array moet precies {{maximum}} element(en) bevatten",
-        "inclusive": "Array mag niet meer dan {{maximum}} element(en) bevatten",
-        "not_inclusive": "Array moet minder dan {{maximum}} element(en) bevatten"
-      },
       "string": {
-        "exact": "Tekst moet precies {{maximum}} karakter(s) bevatten",
-        "inclusive": "Tekst mag niet meer dan {{maximum}} karakter(s) bevatten",
-        "not_inclusive": "Tekst moet minder dan {{maximum}} karakter(s) bevatten"
+        "exact_one": "Tekst moet precies {{count}} teken bevatten",
+        "exact_other": "Tekst moet precies {{count}} tekens bevatten",
+        "inclusive_one": "Tekst mag maximaal {{count}} teken bevatten",
+        "inclusive_other": "Tekst mag maximaal {{count}} tekens bevatten",
+        "not_inclusive_one": "Tekst moet minder dan {{count}} teken bevatten",
+        "not_inclusive_other": "Tekst moet minder dan {{count}} tekens bevatten"
       },
       "number": {
         "exact": "Getal moet precies {{maximum}} zijn",
         "inclusive": "Getal moet {{maximum}} of kleiner zijn",
         "not_inclusive": "Getal moet kleiner zijn dan {{maximum}}"
       },
+      "array": {
+        "exact_one": "Array moet precies {{count}} element bevatten",
+        "exact_other": "Array moet precies {{count}} elementen bevatten",
+        "inclusive_one": "Array mag maximaal {{count}} element bevatten",
+        "inclusive_other": "Array mag maximaal {{count}} elementen bevatten",
+        "not_inclusive_one": "Array moet minder dan {{count}} element bevatten",
+        "not_inclusive_other": "Array moet minder dan {{count}} elementen bevatten"
+      },
       "set": {
-        "exact": "Ongeldige invoer",
-        "inclusive": "Ongeldige invoer",
-        "not_inclusive": "Ongeldige invoer"
+        "exact_one": "Set moet precies {{count}} element bevatten",
+        "exact_other": "Set moet precies {{count}} elementen bevatten",
+        "inclusive_one": "Set mag maximaal {{count}} element bevatten",
+        "inclusive_other": "Set mag maximaal {{count}} elementen bevatten",
+        "not_inclusive_one": "Set moet minder dan {{count}} element bevatten",
+        "not_inclusive_other": "Set moet minder dan {{count}} elementen bevatten"
+      },
+      "map": {
+        "exact_one": "Map moet precies {{count}} item bevatten",
+        "exact_other": "Map moet precies {{count}} items bevatten",
+        "inclusive_one": "Map mag maximaal {{count}} item bevatten",
+        "inclusive_other": "Map mag maximaal {{count}} items bevatten",
+        "not_inclusive_one": "Map moet minder dan {{count}} item bevatten",
+        "not_inclusive_other": "Map moet minder dan {{count}} items bevatten"
+      },
+      "file": {
+        "exact_one": "Bestand moet precies {{count}} byte groot zijn",
+        "exact_other": "Bestand moet precies {{count}} bytes groot zijn",
+        "inclusive_one": "Bestand mag maximaal {{count}} byte groot zijn",
+        "inclusive_other": "Bestand mag maximaal {{count}} bytes groot zijn",
+        "not_inclusive_one": "Bestand moet kleiner zijn dan {{count}} byte",
+        "not_inclusive_other": "Bestand moet kleiner zijn dan {{count}} bytes"
       },
       "date": {
         "exact": "Datum moet precies {{- maximum, datetime}} zijn",
-        "inclusive": "Datum moet op of eerder dan {{- maximum, datetime}} zijn",
-        "not_inclusive": "Datum moet eerder dan {{- maximum, datetime}} zijn"
+        "inclusive": "Datum moet op of vóór {{- maximum, datetime}} liggen",
+        "not_inclusive": "Datum moet vóór {{- maximum, datetime}} liggen"
       }
     }
   },
-  "validations": {
-    "email": "e-mail",
-    "url": "url",
-    "uuid": "uuid",
+  "formats": {
+    "email": "e-mailadres",
+    "url": "URL",
+    "emoji": "emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
     "cuid": "cuid",
-    "regex": "regex",
-    "datetime": "datumtijd"
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO-datum en -tijd",
+    "date": "ISO-datum",
+    "time": "ISO-tijd",
+    "duration": "ISO-duur",
+    "ipv4": "IPv4-adres",
+    "ipv6": "IPv6-adres",
+    "mac": "MAC-adres",
+    "cidrv4": "IPv4-bereik",
+    "cidrv6": "IPv6-bereik",
+    "base64": "base64-gecodeerde tekst",
+    "base64url": "base64url-gecodeerde tekst",
+    "json_string": "JSON-tekst",
+    "e164": "E.164-telefoonnummer",
+    "jwt": "JWT",
+    "hostname": "hostnaam",
+    "credit_card": "creditcardnummer",
+    "iban": "IBAN"
   },
   "types": {
-    "function": "functie",
-    "number": "nummer",
     "string": "tekst",
-    "nan": "nan",
-    "integer": "geheel getal",
-    "float": "kommagetal",
-    "boolean": "boolean",
-    "date": "datum",
+    "number": "getal",
+    "int": "geheel getal",
     "bigint": "bigint",
-    "undefined": "ongedefinieerd",
+    "boolean": "boolean",
     "symbol": "symbool",
+    "undefined": "undefined",
     "null": "null",
-    "array": "array",
-    "object": "object",
-    "unknown": "onbekend",
-    "promise": "promise",
+    "nan": "NaN",
     "void": "void",
     "never": "never",
+    "date": "datum",
+    "array": "array",
+    "tuple": "tuple",
+    "object": "object",
+    "record": "record",
     "map": "map",
-    "set": "set"
+    "set": "set",
+    "file": "bestand",
+    "function": "functie",
+    "promise": "promise"
   }
 }
