@@ -93,10 +93,14 @@ for (const locale of locales) {
   for (const [group, found] of pluralGroups) {
     const missing = categories.filter((c) => !found.has(c));
     if (missing.length > 0)
-      errors.push(`${locale}: "${group}" is missing plural form(s) ${missing.map((c) => `_${c}`).join(", ")}`);
+      errors.push(
+        `${locale}: "${group}" is missing plural form(s) ${missing.map((c) => `_${c}`).join(", ")}`,
+      );
     const extra = [...found].filter((c) => !(categories as string[]).includes(c));
     if (extra.length > 0)
-      errors.push(`${locale}: "${group}" has plural form(s) unused by ${locale}: ${extra.map((c) => `_${c}`).join(", ")}`);
+      errors.push(
+        `${locale}: "${group}" has plural form(s) unused by ${locale}: ${extra.map((c) => `_${c}`).join(", ")}`,
+      );
   }
 }
 

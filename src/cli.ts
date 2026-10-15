@@ -6,8 +6,7 @@ import { parseArgs } from "node:util";
 import pkg from "../package.json" with { type: "json" };
 
 const REPO = "aiji42/zod-i18n";
-const RAW_BASE =
-  process.env.ZOD_I18N_MAP_BASE_URL ?? `https://raw.githubusercontent.com/${REPO}`;
+const RAW_BASE = process.env.ZOD_I18N_MAP_BASE_URL ?? `https://raw.githubusercontent.com/${REPO}`;
 const DEFAULT_REF = `v${pkg.version}`;
 
 const HELP = `zod-i18n-map v${pkg.version}
@@ -103,7 +102,9 @@ const add = async (
   if (opts.json) console.log(JSON.stringify(results, null, 2));
   else
     for (const r of results)
-      console.log(`${r.locale}: ${r.status}${r.path ? ` -> ${r.path}` : ""}${r.ref ? ` (@${r.ref})` : ""}`);
+      console.log(
+        `${r.locale}: ${r.status}${r.path ? ` -> ${r.path}` : ""}${r.ref ? ` (@${r.ref})` : ""}`,
+      );
   return results.every((r) => r.status === "written" || r.status.startsWith("skipped")) ? 0 : 1;
 };
 
@@ -112,7 +113,9 @@ const check = async (
   opts: { ref: string; explicitRef: boolean; json: boolean },
 ): Promise<number> => {
   if (!file) {
-    console.error("Specify a local translation file, e.g. `npx zod-i18n-map check locales/ja/zod.json`.");
+    console.error(
+      "Specify a local translation file, e.g. `npx zod-i18n-map check locales/ja/zod.json`.",
+    );
     return 1;
   }
   const local = flattenKeys(JSON.parse(await readFile(file, "utf8")) as Json);
@@ -152,7 +155,13 @@ const main = async (): Promise<number> => {
   }
   switch (command) {
     case "add":
-      return add(args, { out: values.out, ref, explicitRef, force: values.force, json: values.json });
+      return add(args, {
+        out: values.out,
+        ref,
+        explicitRef,
+        force: values.force,
+        json: values.json,
+      });
     case "list": {
       const locales = await fetchLocales(ref, explicitRef);
       console.log(values.json ? JSON.stringify(locales) : locales.join("\n"));

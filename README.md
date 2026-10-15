@@ -1,320 +1,205 @@
-[![npm version](https://badge.fury.io/js/zod-i18n-map.svg)](https://badge.fury.io/js/zod-i18n-map)
-[![codecov](https://codecov.io/gh/aiji42/zod-i18n/branch/main/graph/badge.svg?token=XHRXA3C2D3)](https://codecov.io/gh/aiji42/zod-i18n)
+[![npm version](https://img.shields.io/npm/v/zod-i18n-map)](https://www.npmjs.com/package/zod-i18n-map)
 [![CI](https://github.com/aiji42/zod-i18n/actions/workflows/ci.yml/badge.svg)](https://github.com/aiji42/zod-i18n/actions/workflows/ci.yml)
 
 ![hero](https://raw.githubusercontent.com/aiji42/zod-i18n/main/images/hero.png)
 
-# Zod Internationalization
+# zod-i18n-map
 
-This library is used to translate Zod's default error messages.
+Translate [Zod](https://zod.dev) error messages with [i18next](https://www.i18next.com).
 
-## Installation
+Zod v4 ships built-in locales (`z.config(z.locales.ja())`). Those are global and use fixed wording. Use this library when you need any of the following:
+
+- **Your app chooses the language**: i18next picks it, and you can switch per user or per request on the server.
+- **You own the wording**: the translations are plain i18next JSON files in your repository.
+- **Field names in messages**: for example "Email is required" instead of "Required".
+- **Your own translation keys** on any schema, check or refinement, with access to values like `{{count}}`.
+
+> Using Zod v3? Stay on [`zod-i18n-map@2`](https://github.com/aiji42/zod-i18n/tree/v2.27.0).
+
+## Quick start
 
 ```bash
-yarn add zod-i18n-map i18next
+npm install zod-i18n-map i18next zod
+npx zod-i18n-map add en ja        # writes locales/en/zod.json and locales/ja/zod.json
 ```
 
-This library depends on `i18next`.
-
-## How to Use
+The translation files are **not** included in the npm package. The CLI copies them into your project, and from then on you edit them like any other resource file.
 
 ```ts
 import i18next from "i18next";
-import { z } from "zod";
+import * as z from "zod";
 import { zodI18nMap } from "zod-i18n-map";
-// Import your language translation files
-import translation from "zod-i18n-map/locales/es/zod.json";
+import ja from "./locales/ja/zod.json";
 
-// lng and resources key depend on your locale.
-i18next.init({
-  lng: "es",
-  resources: {
-    es: { zod: translation },
-  },
+await i18next.init({
+  lng: "ja",
+  resources: { ja: { zod: ja } },
 });
-z.setErrorMap(zodI18nMap);
+z.config({ customError: zodI18nMap });
 
-// export configured zod instance
-export { z }
+z.string().email().safeParse("foo").error?.issues[0]?.message;
+// => "メールアドレスの形式が正しくありません"
 ```
 
-Import wherever it's required
+If a key is missing, Zod's own message is used instead. That is either English or the built-in Zod locale you configured with `z.config(z.locales.xx())`.
 
-```ts
-import { z } from "./es-zod";
+## Translation files
 
-const schema = z.string().email();
-// Translated into Spanish (es)
-schema.parse("foo"); // => correo inválido
+```bash
+npx zod-i18n-map list                    # available locales
+npx zod-i18n-map add de fr               # -> locales/{locale}/zod.json
+npx zod-i18n-map add de --out public/locales/{locale}/zod.json
+npx zod-i18n-map add de --force          # overwrite an existing file
+npx zod-i18n-map check locales/de/zod.json   # keys added upstream since you copied it
 ```
 
-## `makeZodI18nMap`
+- By default, files come from the Git tag that matches your installed version, so they always match the key layout your version expects. Use `--ref <tag|branch|sha>` to pick another source.
+- Use `--json` to get machine-readable output.
+- The source files are in [`locales/`](./locales). You can also download them directly or load them at runtime from a CDN, e.g. with [i18next-http-backend](https://github.com/i18next/i18next-http-backend):
+  `https://cdn.jsdelivr.net/gh/aiji42/zod-i18n@v3.0.0/locales/ja/zod.json`
 
-Detailed customization is possible by using `makeZodI18nMap` and option values.
+**Available locales:** ar, bg, cs, de, en, es, fa, fi, fr, he, hr, hu, id, is, it, ja, ka, ko, lt, nb, nl, pl, pt, ro, ru, sk, sv, th, tr, uk, uz, vi, zh-CN, zh-TW.
+Something wrong or missing? Pull requests are welcome, see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-```ts
-export type MakeZodI18nMap = (option?: ZodI18nMapOption) => ZodErrorMap;
+## Usage
 
-export type ZodI18nMapOption = {
-  t?: i18n["t"];
-  ns?: string | readonly string[]; // See: `Namespace`
-  handlePath?: {
-    // See: `Handling object schema keys`
-    keyPrefix?: string;
-  };
-};
-```
+### Per request (servers, RSC, edge)
 
-### Namespace (`ns`)
-
-You can switch between translation files by specifying a namespace.
-This is useful in cases where the application handles validation messages for different purposes, e.g., validation messages for forms are for end users, while input value checks for API schemas are for developers.
-
-The default namespace is `zod`.
+You don't have to set the error map globally. Zod v4 accepts an error map for each parse:
 
 ```ts
-import i18next from "i18next";
-import { z } from "zod";
 import { makeZodI18nMap } from "zod-i18n-map";
 
-i18next.init({
-  lng: "en",
-  resources: {
-    en: {
-      zod: {
-        // default namespace
-        invalid_type: "Error: expected {{expected}}, received {{received}}",
-      },
-      formValidation: {
-        // custom namespace
-        invalid_type:
-          "it is expected to provide {{expected}} but you provided {{received}}",
-      },
-    },
-  },
-});
-
-// use default namespace
-z.setErrorMap(makeZodI18nMap());
-z.string().parse(1); // => Error: expected string, received number
-
-// select custom namespace
-z.setErrorMap(makeZodI18nMap({ ns: "formValidation" }));
-z.string().parse(1); // => it is expected to provide string but you provided number
+const error = makeZodI18nMap({ t: i18next.getFixedT(request.locale) });
+const result = schema.safeParse(body, { error });
 ```
 
-📝 **You can also specify multiple namespaces in an array.**
+`t` can be any i18next-compatible translate function: `i18next.t`, `getFixedT(...)`, or react-i18next's `useTranslation().t`.
 
-### Plurals
+### Your own keys for specific fields
 
-Messages using `{{maximum}}`, `{{minimum}}` or `{{keys}}` can be converted to the plural form.
+Use `i18nKey` (or `.key()` on a map you created) as the `error` of any schema or check. All the issue's values (`count`, `minimum`, `maximum`, `path`, ...) are available for interpolation:
 
-Keys are i18next compliant. (https://www.i18next.com/translation-function/plurals)
+```ts
+import { i18nKey } from "zod-i18n-map";
 
-```json
+// zod.json: { "password": { "too_short": "Use at least {{count}} characters" } }
+const password = z.string().min(8, { error: i18nKey("password.too_short") });
+
+// Keys from another namespace use i18next's `ns:key` syntax, extra values go in the 2nd argument
+const email = z.email({ error: i18nKey("form:email_invalid", { example: "you@example.com" }) });
+```
+
+For refinements, `params.i18n` works too:
+
+```ts
+z.string().refine((v) => v !== "admin", { params: { i18n: "username.reserved" } });
+z.string().refine(isAllowed, {
+  params: { i18n: { key: "username.not_allowed", values: { name: "admin" } } },
+});
+```
+
+If the custom key is missing, the default translation for that issue is used.
+
+### Field names in messages (`handlePath`)
+
+If the issue has a path, the `with_path` [context](https://www.i18next.com/translation-function/context) variant of a message is used when it exists. `{{path}}` holds the translated field name:
+
+```jsonc
+// locales/en/zod.json
 {
-  "exact_one": "String must contain exactly {{minimum}} character",
-  "exact_other": "String must contain exactly {{minimum}} characters"
+  "errors": {
+    "invalid_type_received_undefined": "Required",
+    "invalid_type_received_undefined_with_path": "{{- path}} is required"
+  },
+  "email": "Email address"
 }
 ```
 
 ```ts
-import i18next from "i18next";
-import { z } from "zod";
-import { zodI18nMap } from "zod-i18n-map";
-
-i18next.init({
-  lng: "en",
-  resources: {
-    en: {
-      zod: {
-        errors: {
-          too_big: {
-            string: {
-              exact_one: "String must contain exactly {{maximum}} character",
-              exact_other: "String must contain exactly {{maximum}} characters",
-            },
-          },
-        },
-      },
-    },
-  },
-});
-
-z.setErrorMap(zodI18nMap);
-
-z.string().length(1).safeParse("abc"); // => String must contain exactly 1 character
-
-z.string().length(5).safeParse("abcdefgh"); // => String must contain exactly 5 characters
+z.object({ email: z.email() }).parse({}); // => "Email address is required"
 ```
 
-### Custom errors
+- Field names are looked up by the joined path (`user.email`). If that key is missing, they are looked up again without array indices (`items.0.name` → `items.name`). If both are missing, the raw path is used.
+- Use `handlePath: { ns: "form", keyPrefix: "fields" }` to keep labels elsewhere. With that setting, `form:fields.user.email` is looked up.
+- Use `context: "..."` to change the context suffix, or `handlePath: false` to turn this off.
 
-You can translate also custom errors, for example errors from `refine`.
+### Plurals
 
-Create a key for the custom error in a namespace and add `i18n` to the refine second arg(see example)
+Messages that receive `{{count}}` use [i18next plurals](https://www.i18next.com/translation-function/plurals), so each language can use the right forms:
+
+```json
+{ "inclusive_one": "At least {{count}} character", "inclusive_other": "At least {{count}} characters" }
+```
+
+### Namespaces
+
+Messages are looked up in the `zod` namespace by default. Use a different namespace for each audience, for example end-user forms and developer-facing APIs:
 
 ```ts
-import i18next from "i18next";
-import { z } from "zod";
-import { makeZodI18nMap } from "zod-i18n-map";
-import translation from "zod-i18n-map/locales/en/zod.json";
-
-i18next.init({
-  lng: "en",
-  resources: {
-    en: {
-      zod: translation,
-      custom: {
-        my_error_key: "Something terrible",
-        my_error_key_with_value: "Something terrible {{msg}}",
-      },
-    },
-  },
-});
-
-z.setErrorMap(makeZodI18nMap({ ns: ["zod", "custom"] }));
-
-z.string()
-  .refine(() => false, { params: { i18n: "my_error_key" } })
-  .safeParse(""); // => Something terrible
-
-// Or
-
-z.string()
-  .refine(() => false, {
-    params: {
-      i18n: { key: "my_error_key_with_value", values: { msg: "happened" } },
-    },
-  })
-  .safeParse(""); // => Something terrible happened
+z.config({ customError: makeZodI18nMap({ ns: "formErrors" }) });
+// several namespaces are searched in order
+makeZodI18nMap({ ns: ["formErrors", "zod"] });
 ```
 
-### Handling object schema keys (`handlePath`)
-
-When dealing with structured data, such as when using Zod as a validator for form input values, it is common to generate a schema with `z.object`.
-You can handle the object's key in the message by preparing messages with the key in the `with_path` context.
+## API
 
 ```ts
-import i18next from "i18next";
-import { z } from "zod";
-import { zodI18nMap } from "zod-i18n-map";
+makeZodI18nMap(options?: {
+  t?: TranslateFunction;                 // default: i18next.t
+  ns?: string | readonly string[];       // default: "zod"
+  handlePath?: false | {
+    context?: string;                    // default: "with_path"
+    ns?: string | readonly string[];     // default: same as ns
+    keyPrefix?: string;
+  };
+}): ZodI18nMap
 
-i18next.init({
-  lng: "en",
-  resources: {
-    en: {
-      zod: {
-        errors: {
-          invalid_type: "Expected {{expected}}, received {{received}}",
-          invalid_type_with_path:
-            "{{path}} is expected {{expected}}, received {{received}}",
-        },
-        userName: "User's name",
-      },
-    },
-  },
-});
-
-z.setErrorMap(zodI18nMap);
-
-z.string().parse(1); // => Expected string, received number
-
-const schema = z.object({
-  userName: z.string(),
-});
-schema.parse({ userName: 1 }); // => User's name is expected string, received number
+zodI18nMap: ZodI18nMap                   // makeZodI18nMap() with defaults
+zodI18nMap.key(key, values?)             // error map that tries `key` first
+i18nKey(key, values?)                    // = zodI18nMap.key
 ```
 
-If `_with_path` is suffixed to the key of the message, that message will be adopted in the case of an object type schema.
-If there is no message key with `_with_path`, fall back to the normal error message.
+`ZodI18nMap` is a regular Zod v4 error map. You can use it in `z.config({ customError })`, in a parse's `{ error }`, or in a schema's `{ error }`.
 
-Object schema keys can be handled in the message with `{{path}}`.
-By preparing the translated data for the same key as the key in the object schema, the translated value will be output in `{{path}}`, otherwise the key will be output as is.
-It is possible to access nested translation data by specifying `handlePath.keyPrefix`.
+## Message keys
 
-```ts
-i18next.init({
-  lng: "en",
-  resources: {
-    en: {
-      zod: {
-        errors: {
-          invalid_type: "Expected {{expected}}, received {{received}}",
-          invalid_type_with_path:
-            "{{- path}} is expected {{expected}}, received {{received}}",
-        },
-      },
-      form: {
-        paths: {
-          userName: "User's name",
-        },
-      },
-    },
-  },
-});
+| Zod issue | Key | Variables |
+| --- | --- | --- |
+| `invalid_type` | `errors.invalid_type`<br>`errors.invalid_type_received_undefined`<br>`errors.invalid_type_received_null` | `expected`, `received` (translated via `types.*`) |
+| `invalid_value` | `errors.invalid_value`<br>`errors.invalid_value_single` (one allowed value, e.g. `z.literal`) | `options` / `expected` |
+| `invalid_format` | `errors.invalid_format.<format>`, otherwise `errors.invalid_format.default` | `format` (translated via `formats.*`), `pattern`, `prefix`, `suffix`, `includes` |
+| `too_small` / `too_big` | `errors.too_small.<origin>.<exact\|inclusive\|not_inclusive>`. Origins are `string`, `number` (incl. `int`, `bigint`), `array`, `set`, `map`, `file` and `date`. | `minimum` / `maximum`, `count` |
+| `not_multiple_of` | `errors.not_multiple_of` | `divisor` |
+| `unrecognized_keys` | `errors.unrecognized_keys` | `keys`, `count` |
+| `invalid_key` / `invalid_element` | `errors.invalid_key` / `errors.invalid_element` | `origin` |
+| `invalid_union` | `errors.invalid_union`<br>`errors.invalid_union_discriminator` | `options`, `discriminator` |
+| `custom` | `errors.custom`, or the key given via `params.i18n` | your `values` |
 
-z.setErrorMap(
-  makeZodI18nMap({
-    ns: ["zod", "form"],
-    handlePath: {
-      keyPrefix: "paths",
-    },
-  })
-);
-```
+Every message also receives `path` when `handlePath` is on. See [`locales/en/zod.json`](./locales/en/zod.json) for the full reference file.
 
-## Translation Files
+## Migrating from v2
 
-`zod-i18n-map` contains translation files for several locales.
+- **Zod v4 is required.** With `zod@3.25`, import from `zod/v4`.
+- **Setup:** replace `z.setErrorMap(zodI18nMap)` with `z.config({ customError: zodI18nMap })`.
+- **Translation files are no longer imported from the package.** Replace `import translation from "zod-i18n-map/locales/ja/zod.json"` with a file you get from `npx zod-i18n-map add ja`.
+- **Keys follow Zod v4 issue codes:**
+  - `invalid_string.*` → `invalid_format.*`
+  - `validations.*` → `formats.*`
+  - `invalid_enum_value` / `invalid_literal` → `invalid_value` / `invalid_value_single`
+  - `{{multipleOf}}` → `{{divisor}}`
+  - `invalid_date`, `invalid_arguments`, `invalid_return_type`, `invalid_intersection_types`, `not_finite` and the `too_small.set` / `too_big.set` "Invalid input" placeholders were removed or replaced, because Zod v4 no longer emits them.
+  - If you customized a v2 file, start from the new file and copy your wording over. `npx zod-i18n-map check` lists the keys you are missing.
+- **Locale codes:** `hr-HR` → `hr`, `uk-UA` → `uk`. (You choose the file name, so any i18next language code works.)
 
-- [Arabic(ar)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/ar/zod.json)
-- [Bulgarian(bg)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/bg/zod.json)
-- [Czech(cs)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/cs/zod.json)
-- [German(de)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/de/zod.json)
-- [English(en)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/en/zod.json)
-- [Spanish(es)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/es/zod.json)
-- [Persian(fa)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/fa/zod.json)
-- [Finnish(fi)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/fi/zod.json)
-- [French(fr)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/fr/zod.json)
-- [Hebrew(he)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/he/zod.json)
-- [Croatian(hr-Hr)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/hr-He/zod.json)
-- [Indonesian(id)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/id/zod.json)
-- [Icelandic(is)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/is/zod.json)
-- [Italian(it)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/it/zod.json)
-- [Japanese(ja)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/ja/zod.json)
-- [Korean(ko)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/ko/zod.json)
-- [Lithuanian(lt)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/lt/zod.json)
-- [Norwegian(nb)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/nb/zod.json)
-- [Dutch(nl)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/nl/zod.json)
-- [Polish(pl)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/pl/zod.json)
-- [Portuguese(pt)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/pt/zod.json)
-- [Romanian(ro)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/ro/zod.json)
-- [Russian(ru)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/ru/zod.json)
-- [Swedish(sv)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/sv/zod.json)
-- [Turkish(tr)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/tr/zod.json)
-- [Ukrainian(uk-UA)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/uk-UA/zod.json)
-- [Uzbek(uz)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/uz/zod.json)
-- Chinese
-  - [Simplified Chinese(zh-CN)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/zh-CN/zod.json)
-  - [Traditional Chinese(zh-TW)](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/zh-TW/zod.json)
+## For AI coding agents
 
-It is also possible to create and edit translation files. You can use [this English translation file](https://github.com/aiji42/zod-i18n/blob/main/packages/core/locales/en/zod.json) as a basis for rewriting it in your language.
-
-**If you have created a translation file for a language not yet in the repository, please send us a pull request.**
-
-## Use with `next-i18next`
-
-Many users will want to use it with `next-i18next` (i.e. on Next.js). [This example](https://github.com/aiji42/zod-i18n/tree/main/examples/with-next-i18next) summarizes how to use with it.
+The npm package includes [`llms.txt`](./llms.txt), a short and complete usage guide for coding agents: `node_modules/zod-i18n-map/llms.txt`. The CLI is non-interactive and supports `--json`.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/aiji42/zod-i18n/tree/main/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+See [CONTRIBUTING.md](./CONTRIBUTING.md). Translation fixes and new locales are especially welcome.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/aiji42/zod-i18n/tree/main/CONTRIBUTING.md) file for details
-
-## Contributors ✨
-
-![Contributors icons](https://contrib.nn.ci/api?repo=aiji42/zod-i18n)
+[MIT](./LICENSE)

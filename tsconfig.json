@@ -9,10 +9,11 @@
     "erasableSyntaxOnly": true,
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
+    "declaration": true,
     "isolatedDeclarations": true,
     "skipLibCheck": true,
     "noEmit": true,
     "types": ["node"]
   },
-  "include": ["src", "tests", "scripts", "*.config.ts"]
+  "include": ["src", "tests", "scripts"]
 }

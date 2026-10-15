@@ -2,7 +2,7 @@ import i18next, { createInstance } from "i18next";
 import { beforeEach, describe, expect, test } from "vitest";
 import * as z from "zod";
 import en from "../locales/en/zod.json" with { type: "json" };
-import { makeZodI18nMap, zodI18nMap } from "../src/index.ts";
+import { i18nKey, makeZodI18nMap, zodI18nMap } from "../src/index.ts";
 
 const messageOf = (schema: z.ZodType, input: unknown): string | undefined =>
   schema.safeParse(input).error?.issues[0]?.message;
@@ -123,9 +123,12 @@ describe("params.i18n", () => {
   });
 
   test("on refine with a key", () => {
-    expect(messageOf(z.string().refine(() => false, { params: { i18n: "plain" } }), "")).toBe(
-      "Something went wrong",
-    );
+    expect(
+      messageOf(
+        z.string().refine(() => false, { params: { i18n: "plain" } }),
+        "",
+      ),
+    ).toBe("Something went wrong");
   });
 
   test("on refine with values", () => {
@@ -135,18 +138,20 @@ describe("params.i18n", () => {
     expect(messageOf(schema, "")).toBe("Only admins may do this");
   });
 
-  test("on a built-in check, interpolating the issue's own values", () => {
-    expect(messageOf(z.string().min(8, { params: { i18n: "too_short" } }), "a")).toBe(
+  test("key() on a built-in check, interpolating the issue's own values", () => {
+    const map = makeZodI18nMap({ ns: ["zod", "custom"] });
+    expect(messageOf(z.string().min(8, { error: map.key("too_short") }), "a")).toBe(
       "Password needs 8+ characters",
     );
   });
 
-  test("on a schema", () => {
-    expect(messageOf(z.email({ params: { i18n: "plain" } }), "a")).toBe("Something went wrong");
+  test("i18nKey on a schema, with an ns-prefixed key and values", () => {
+    const schema = z.email({ error: i18nKey("custom:not_admin", { role: "editors" }) });
+    expect(messageOf(schema, "a")).toBe("Only editors may do this");
   });
 
-  test("falls back to the default key when the custom key is missing", () => {
-    expect(messageOf(z.string().min(2, { params: { i18n: "nope" } }), "a")).toBe(
+  test("key() falls back to the default message when the key is missing", () => {
+    expect(messageOf(z.string().min(2, { error: i18nKey("nope") }), "a")).toBe(
       "String must contain at least 2 characters",
     );
   });

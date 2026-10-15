@@ -26,7 +26,7 @@
   },
   "types": "./dist/index.d.ts",
   "bin": {
-    "zod-i18n-map": "./dist/cli.js"
+    "zod-i18n-map": "./dist/cli.mjs"
   },
   "files": [
     "dist",

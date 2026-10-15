@@ -29,13 +29,10 @@ export type ZodI18nMapOption = {
 };
 
 /**
- * Value accepted by `params.i18n`. Works on `.refine()` / `z.custom()` as well as on
- * any built-in schema or check, e.g. `z.string().min(8, { params: { i18n: "password.too_short" } })`.
- * The issue's own values (`count`, `minimum`, `path`, ...) are available for interpolation.
+ * Value accepted by `params.i18n` on `.refine()`, `.superRefine()` and `z.custom()`.
+ * For built-in schemas and checks use `error: zodI18nMap.key(...)` / `i18nKey(...)` instead.
  */
-export type CustomErrorParams =
-  | string
-  | { key: string; values?: Record<string, unknown> };
+export type CustomErrorParams = string | { key: string; values?: Record<string, unknown> };
 
 const DEFAULT_NS = "zod";
 const DEFAULT_CONTEXT = "with_path";
@@ -84,9 +81,7 @@ const toCount = (value: number | bigint): number | undefined => {
   return Number.isFinite(n) ? n : undefined;
 };
 
-const getCustomI18n = (
-  param: unknown,
-): { key: string; values: Record<string, unknown> } | undefined => {
+const getCustomI18n = (param: unknown): CustomI18n | undefined => {
   if (typeof param === "string") return { key: param, values: {} };
   if (isRecord(param) && typeof param.key === "string") {
     return {
@@ -97,11 +92,20 @@ const getCustomI18n = (
   return undefined;
 };
 
-export const makeZodI18nMap = (
-  option: ZodI18nMapOption = {},
-): z.$ZodErrorMap => {
-  const t: TranslateFunction =
-    option.t ?? ((key, options) => i18next.t(key as string, options));
+export type ZodI18nMap = z.$ZodErrorMap & {
+  /**
+   * Error map that translates with `key` first, for use as a schema or check `error`.
+   * The issue's own values (`count`, `minimum`, `path`, ...) are available for interpolation.
+   *
+   * @example z.string().min(8, { error: zodI18nMap.key("password.too_short") })
+   */
+  key: (key: string, values?: Record<string, unknown>) => z.$ZodErrorMap;
+};
+
+type CustomI18n = { key: string; values: Record<string, unknown> };
+
+export const makeZodI18nMap = (option: ZodI18nMapOption = {}): ZodI18nMap => {
+  const t: TranslateFunction = option.t ?? ((key, options) => i18next.t(key as string, options));
   const ns = option.ns ?? DEFAULT_NS;
   const handlePath =
     option.handlePath === false
@@ -112,47 +116,44 @@ export const makeZodI18nMap = (
           ...option.handlePath,
         };
 
-  const label = (key: string, defaultValue: string): string =>
-    String(t(key, { ns, defaultValue }));
+  const label = (key: string, defaultValue: string): string => String(t(key, { ns, defaultValue }));
 
-  return (issue) => {
-    const path = (issue.path ?? []).map(String);
-    const pathOptions =
-      handlePath && path.length > 0
-        ? {
-            context: handlePath.context,
-            path: t(
-              [path.join("."), path.filter((p) => !/^\d+$/.test(p)).join(".")]
-                .filter((key, i, keys) => key && keys.indexOf(key) === i)
-                .map((key) =>
-                  handlePath.keyPrefix ? `${handlePath.keyPrefix}.${key}` : key,
-                ),
-              { ns: handlePath.ns, defaultValue: path.join(".") },
-            ),
-          }
-        : {};
+  const build =
+    (forced?: CustomI18n): z.$ZodErrorMap =>
+    (issue) => {
+      const path = (issue.path ?? []).map(String);
+      const pathOptions =
+        handlePath && path.length > 0
+          ? {
+              context: handlePath.context,
+              path: t(
+                [path.join("."), path.filter((p) => !/^\d+$/.test(p)).join(".")]
+                  .filter((key, i, keys) => key && keys.indexOf(key) === i)
+                  .map((key) => (handlePath.keyPrefix ? `${handlePath.keyPrefix}.${key}` : key)),
+                { ns: handlePath.ns, defaultValue: path.join(".") },
+              ),
+            }
+          : {};
 
-    const { key, values } = resolve(issue, label);
-    const override = getCustomI18n(
-      issue.code === "custom"
-        ? issue.params?.i18n
-        : (issue.inst?._zod.def as { params?: { i18n?: unknown } } | undefined)
-            ?.params?.i18n,
-    );
-    if (issue.code === "custom" && !override) {
-      return translateOrUndefined(t, "errors.custom", pathOptions, ns);
-    }
-    if (!key && !override) return undefined;
+      const { key, values } = resolve(issue, label);
+      const override =
+        forced ?? (issue.code === "custom" ? getCustomI18n(issue.params?.i18n) : undefined);
+      if (issue.code === "custom" && !override) {
+        return translateOrUndefined(t, "errors.custom", pathOptions, ns);
+      }
+      if (!key && !override) return undefined;
 
-    return translateOrUndefined(
-      t,
-      [override?.key, ...(Array.isArray(key) ? key : [key])].filter(
-        (k): k is string => !!k,
-      ),
-      { ...values, ...override?.values, ...pathOptions },
-      ns,
-    );
-  };
+      return translateOrUndefined(
+        t,
+        [override?.key, ...(Array.isArray(key) ? key : [key])].filter((k): k is string => !!k),
+        { ...values, ...override?.values, ...pathOptions },
+        ns,
+      );
+    };
+
+  return Object.assign(build(), {
+    key: (key: string, values: Record<string, unknown> = {}) => build({ key, values }),
+  });
 };
 
 const translateOrUndefined = (
@@ -162,9 +163,7 @@ const translateOrUndefined = (
   ns: string | readonly string[],
 ): string | undefined => {
   const message = t(key, { ...values, ns, defaultValue: MISSING });
-  return typeof message === "string" && message !== MISSING
-    ? message
-    : undefined;
+  return typeof message === "string" && message !== MISSING ? message : undefined;
 };
 
 type Resolved = {
@@ -179,10 +178,8 @@ const resolve = (
   switch (issue.code) {
     case "invalid_type": {
       const received = getReceivedType(issue.input);
-      if (received === "undefined")
-        return { key: "errors.invalid_type_received_undefined" };
-      if (received === "null")
-        return { key: "errors.invalid_type_received_null" };
+      if (received === "undefined") return { key: "errors.invalid_type_received_undefined" };
+      if (received === "null") return { key: "errors.invalid_type_received_null" };
       return {
         key: "errors.invalid_type",
         values: {
@@ -208,16 +205,11 @@ const resolve = (
       const isSmall = issue.code === "too_small";
       const raw = isSmall ? issue.minimum : issue.maximum;
       const origin = normalizeOrigin(issue.origin);
-      const variant = issue.exact
-        ? "exact"
-        : issue.inclusive
-          ? "inclusive"
-          : "not_inclusive";
+      const variant = issue.exact ? "exact" : issue.inclusive ? "inclusive" : "not_inclusive";
       return {
         key: `errors.${issue.code}.${origin}.${variant}`,
         values: {
-          [isSmall ? "minimum" : "maximum"]:
-            origin === "date" ? new Date(Number(raw)) : raw,
+          [isSmall ? "minimum" : "maximum"]: origin === "date" ? new Date(Number(raw)) : raw,
           count: origin === "date" ? undefined : toCount(raw),
         },
       };
@@ -258,7 +250,7 @@ const resolve = (
       };
 
     case "invalid_union":
-      if (issue.options && issue.options.length > 0)
+      if (Array.isArray(issue.options) && issue.options.length > 0)
         return {
           key: "errors.invalid_union_discriminator",
           values: {
@@ -274,4 +266,7 @@ const resolve = (
 };
 
 /** Ready-to-use error map backed by the global `i18next` instance and the `zod` namespace. */
-export const zodI18nMap: z.$ZodErrorMap = makeZodI18nMap();
+export const zodI18nMap: ZodI18nMap = makeZodI18nMap();
+
+/** Shorthand for `zodI18nMap.key(...)` using the global `i18next` instance. */
+export const i18nKey: ZodI18nMap["key"] = zodI18nMap.key;
