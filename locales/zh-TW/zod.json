@@ -1,10 +1,10 @@
 {
   "errors": {
-    "invalid_type": "期望輸入的是{{expected}}，而輸入的是{{received}}",
+    "invalid_type": "應為{{expected}}，實際為{{received}}",
     "invalid_type_received_undefined": "此欄位為必填",
     "invalid_type_received_null": "此欄位為必填",
-    "invalid_value": "無效的選項，請輸入下列其中之一：{{- options}}",
-    "invalid_value_single": "無效的輸入，請輸入 {{- expected}}",
+    "invalid_value": "選項無效，請選擇下列其中之一：{{- options}}",
+    "invalid_value_single": "輸入無效，應為 {{- expected}}",
     "invalid_format": {
       "default": "{{format}}格式錯誤",
       "regex": "格式錯誤",
@@ -15,12 +15,12 @@
       "uppercase": "必須為大寫"
     },
     "not_multiple_of": "必須是 {{divisor}} 的倍數",
-    "unrecognized_keys": "無法識別物件的鍵：{{- keys}}",
+    "unrecognized_keys": "物件中包含無法識別的鍵：{{- keys}}",
     "invalid_key": "{{origin}}中的鍵無效",
     "invalid_element": "{{origin}}中的值無效",
-    "invalid_union": "無效的輸入",
-    "invalid_union_discriminator": "無效的識別值，請輸入下列其中之一：{{- options}}",
-    "custom": "無效的輸入",
+    "invalid_union": "輸入無效",
+    "invalid_union_discriminator": "識別值無效，請輸入下列其中之一：{{- options}}",
+    "custom": "輸入無效",
     "too_small": {
       "string": {
         "exact": "必須恰好包含 {{count}} 個字元",
@@ -54,7 +54,7 @@
       },
       "date": {
         "exact": "日期必須是 {{- minimum, datetime}}",
-        "inclusive": "日期必須晚於或等於 {{- minimum, datetime}}",
+        "inclusive": "日期不得早於 {{- minimum, datetime}}",
         "not_inclusive": "日期必須晚於 {{- minimum, datetime}}"
       }
     },
@@ -91,7 +91,7 @@
       },
       "date": {
         "exact": "日期必須是 {{- maximum, datetime}}",
-        "inclusive": "日期必須早於或等於 {{- maximum, datetime}}",
+        "inclusive": "日期不得晚於 {{- maximum, datetime}}",
         "not_inclusive": "日期必須早於 {{- maximum, datetime}}"
       }
     }
@@ -127,7 +127,7 @@
     "iban": "IBAN"
   },
   "types": {
-    "string": "字串",
+    "string": "文字",
     "number": "數字",
     "int": "整數",
     "bigint": "大整數",

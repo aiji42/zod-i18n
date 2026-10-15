@@ -1,13 +1,13 @@
 {
   "errors": {
-    "invalid_type": "预期输入为{{expected}}，而输入为{{received}}",
-    "invalid_type_received_undefined": "必填",
-    "invalid_type_received_null": "必填",
-    "invalid_value": "无效的选项，请输入以下值之一：{{- options}}",
-    "invalid_value_single": "无效的输入，请输入 {{- expected}}",
+    "invalid_type": "应为{{expected}}，实际为{{received}}",
+    "invalid_type_received_undefined": "此项为必填项",
+    "invalid_type_received_null": "此项为必填项",
+    "invalid_value": "选项无效，请选择以下值之一：{{- options}}",
+    "invalid_value_single": "输入无效，应为 {{- expected}}",
     "invalid_format": {
-      "default": "错误的{{format}}格式",
-      "regex": "错误的格式",
+      "default": "{{format}}格式不正确",
+      "regex": "格式不正确",
       "starts_with": "文本必须以 \"{{- prefix}}\" 开头",
       "ends_with": "文本必须以 \"{{- suffix}}\" 结尾",
       "includes": "文本必须包含 \"{{- includes}}\"",
@@ -18,9 +18,9 @@
     "unrecognized_keys": "对象中包含无法识别的键：{{- keys}}",
     "invalid_key": "{{origin}}中的键无效",
     "invalid_element": "{{origin}}中的值无效",
-    "invalid_union": "无效的输入",
-    "invalid_union_discriminator": "无效的标识值，请输入以下值之一：{{- options}}",
-    "custom": "无效的输入",
+    "invalid_union": "输入无效",
+    "invalid_union_discriminator": "标识值无效，请输入以下值之一：{{- options}}",
+    "custom": "输入无效",
     "too_small": {
       "string": {
         "exact": "文本长度必须为 {{count}} 个字符",
@@ -43,9 +43,9 @@
         "not_inclusive": "集合元素必须超过 {{count}} 个"
       },
       "map": {
-        "exact": "字典条目必须为 {{count}} 个",
-        "inclusive": "字典条目不得少于 {{count}} 个",
-        "not_inclusive": "字典条目必须超过 {{count}} 个"
+        "exact": "映射条目必须为 {{count}} 个",
+        "inclusive": "映射条目不得少于 {{count}} 个",
+        "not_inclusive": "映射条目必须超过 {{count}} 个"
       },
       "file": {
         "exact": "文件大小必须为 {{count}} 字节",
@@ -80,9 +80,9 @@
         "not_inclusive": "集合元素必须少于 {{count}} 个"
       },
       "map": {
-        "exact": "字典条目必须为 {{count}} 个",
-        "inclusive": "字典条目不得多于 {{count}} 个",
-        "not_inclusive": "字典条目必须少于 {{count}} 个"
+        "exact": "映射条目必须为 {{count}} 个",
+        "inclusive": "映射条目不得多于 {{count}} 个",
+        "not_inclusive": "映射条目必须少于 {{count}} 个"
       },
       "file": {
         "exact": "文件大小必须为 {{count}} 字节",
@@ -127,7 +127,7 @@
     "iban": "IBAN"
   },
   "types": {
-    "string": "字符串",
+    "string": "文本",
     "number": "数字",
     "int": "整数",
     "bigint": "大整数",
@@ -143,7 +143,7 @@
     "tuple": "元组",
     "object": "对象",
     "record": "记录",
-    "map": "字典",
+    "map": "映射",
     "set": "集合",
     "file": "文件",
     "function": "函数",

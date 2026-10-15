@@ -1,12 +1,14 @@
 {
   "errors": {
-    "invalid_type": "Tipe data seharusnya {{expected}}, tetapi diterima {{received}}",
+    "invalid_type": "Harus berupa {{expected}}, tetapi yang diterima berupa {{received}}",
     "invalid_type_received_undefined": "Wajib diisi",
     "invalid_type_received_null": "Wajib diisi",
     "invalid_value": "Pilihan tidak valid: harus salah satu dari {{- options}}",
-    "invalid_value_single": "Input tidak valid: seharusnya {{- expected}}",
+    "invalid_value_single": "Input tidak valid: harus {{- expected}}",
     "invalid_format": {
       "default": "Format {{format}} tidak valid",
+      "email": "Alamat email tidak valid",
+      "url": "URL tidak valid",
       "regex": "Format tidak valid",
       "starts_with": "Harus diawali dengan \"{{- prefix}}\"",
       "ends_with": "Harus diakhiri dengan \"{{- suffix}}\"",
@@ -14,12 +16,12 @@
       "lowercase": "Harus berupa huruf kecil",
       "uppercase": "Harus berupa huruf kapital"
     },
-    "not_multiple_of": "Angka harus kelipatan dari {{divisor}}",
+    "not_multiple_of": "Angka harus merupakan kelipatan {{divisor}}",
     "unrecognized_keys": "Kunci tidak dikenal pada objek: {{- keys}}",
     "invalid_key": "Kunci tidak valid pada {{origin}}",
     "invalid_element": "Nilai tidak valid pada {{origin}}",
     "invalid_union": "Input tidak valid",
-    "invalid_union_discriminator": "Nilai diskriminator tidak valid. Seharusnya {{- options}}",
+    "invalid_union_discriminator": "Nilai diskriminator tidak valid: harus salah satu dari {{- options}}",
     "custom": "Input tidak valid",
     "too_small": {
       "string": {
@@ -28,8 +30,8 @@
         "not_inclusive": "Teks harus terdiri dari lebih dari {{count}} karakter"
       },
       "number": {
-        "exact": "Angka harus tepat {{minimum}}",
-        "inclusive": "Angka harus lebih besar dari atau sama dengan {{minimum}}",
+        "exact": "Angka harus sama dengan {{minimum}}",
+        "inclusive": "Angka harus minimal {{minimum}}",
         "not_inclusive": "Angka harus lebih besar dari {{minimum}}"
       },
       "array": {
@@ -53,7 +55,7 @@
         "not_inclusive": "Ukuran file harus lebih dari {{count}} byte"
       },
       "date": {
-        "exact": "Tanggal harus tepat {{- minimum, datetime}}",
+        "exact": "Tanggal harus {{- minimum, datetime}}",
         "inclusive": "Tanggal harus pada atau setelah {{- minimum, datetime}}",
         "not_inclusive": "Tanggal harus setelah {{- minimum, datetime}}"
       }
@@ -65,8 +67,8 @@
         "not_inclusive": "Teks harus terdiri dari kurang dari {{count}} karakter"
       },
       "number": {
-        "exact": "Angka harus tepat {{maximum}}",
-        "inclusive": "Angka harus lebih kecil dari atau sama dengan {{maximum}}",
+        "exact": "Angka harus sama dengan {{maximum}}",
+        "inclusive": "Angka harus maksimal {{maximum}}",
         "not_inclusive": "Angka harus lebih kecil dari {{maximum}}"
       },
       "array": {
@@ -90,7 +92,7 @@
         "not_inclusive": "Ukuran file harus kurang dari {{count}} byte"
       },
       "date": {
-        "exact": "Tanggal harus tepat {{- maximum, datetime}}",
+        "exact": "Tanggal harus {{- maximum, datetime}}",
         "inclusive": "Tanggal harus pada atau sebelum {{- maximum, datetime}}",
         "not_inclusive": "Tanggal harus sebelum {{- maximum, datetime}}"
       }
