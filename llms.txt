@@ -10,6 +10,7 @@ Requirements: zod ^4 (or `zod/v4` from zod 3.25), i18next >= 23. ESM only. For Z
 2. `npx zod-i18n-map add <locale...>` writes `locales/<locale>/zod.json`.
    - Use `--out "<path with {locale}>"` to match the project's existing i18n layout, e.g. `public/locales/{locale}/zod.json` for next-i18next or http-backend.
    - Use `--force` to overwrite and `--json` for machine-readable output.
+   - If the project uses `i18next-icu`, add `--format icu` (ICU MessageFormat). `_with_path` contexts don't work with i18next-icu.
 3. Register the files as the `zod` namespace in i18next.
 4. Register the error map with `z.config({ customError: zodI18nMap })`. Use `customError`, not `localeError`, so that missing keys fall back to Zod's built-in message.
 
@@ -65,7 +66,7 @@ When an issue has a path, a `_with_path` context variant is used if it exists, e
 ## CLI
 
 - `npx zod-i18n-map list [--json]`
-- `npx zod-i18n-map add <locale...> [--out pattern] [--ref git-ref] [--force] [--json]`
+- `npx zod-i18n-map add <locale...> [--out pattern] [--ref git-ref] [--format i18next|icu] [--force] [--json]`
 - `npx zod-i18n-map check <file> [--json]`: lists keys missing compared to the upstream English file. It exits with code 1 if any are missing.
 
 ## Pitfalls

@@ -51,12 +51,15 @@ npx zod-i18n-map add de fr               # -> locales/{locale}/zod.json
 npx zod-i18n-map add de --out public/locales/{locale}/zod.json
 npx zod-i18n-map add de --force          # overwrite an existing file
 npx zod-i18n-map check locales/de/zod.json   # keys added upstream since you copied it
+npx zod-i18n-map add de --format icu     # ICU MessageFormat, for i18next-icu
 ```
 
 - By default, files come from the Git tag that matches your installed version, so they always match the key layout your version expects. Use `--ref <tag|branch|sha>` to pick another source.
 - Use `--json` to get machine-readable output.
 - The source files are in [`locales/`](./locales). You can also download them directly or load them at runtime from a CDN, e.g. with [i18next-http-backend](https://github.com/i18next/i18next-http-backend):
   `https://cdn.jsdelivr.net/gh/aiji42/zod-i18n@v3.0.0/locales/ja/zod.json`
+
+- If your app uses [i18next-icu](https://github.com/i18next/i18next-icu), use `--format icu`. The files are converted to ICU MessageFormat: `{name}`, `{minimum, date}`, and plurals merged into `{count, plural, ...}`. i18next contexts don't work with i18next-icu, so the `_with_path` variants are not used. `{path}` is still passed to every message.
 
 **Available locales:** ar, bg, cs, de, en, es, fa, fi, fr, he, hr, hu, id, is, it, ja, ka, ko, lt, nb, nl, pl, pt, ro, ru, sk, sv, th, tr, uk, uz, vi, zh-CN, zh-TW.
 Something wrong or missing? Pull requests are welcome, see [CONTRIBUTING.md](./CONTRIBUTING.md).

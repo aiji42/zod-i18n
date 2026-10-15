@@ -4,6 +4,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { parseArgs } from "node:util";
 import pkg from "../package.json" with { type: "json" };
+import { toIcu } from "./icu.ts";
 
 const REPO = "aiji42/zod-i18n";
 const RAW_BASE = process.env.ZOD_I18N_MAP_BASE_URL ?? `https://raw.githubusercontent.com/${REPO}`;
@@ -22,6 +23,7 @@ Usage:
 Options:
   -o, --out <pattern>  Output path; {locale} is replaced (default: "locales/{locale}/zod.json")
   -r, --ref <ref>      Git tag, branch or commit to fetch from (default: "${DEFAULT_REF}", falls back to "main")
+      --format <format>  "i18next" (default) or "icu" (ICU MessageFormat, for i18next-icu)
   -f, --force          Overwrite existing files
       --json           Machine-readable output
   -h, --help           Show this help
@@ -29,6 +31,7 @@ Options:
 Examples:
   npx zod-i18n-map add ja fr
   npx zod-i18n-map add de --out public/locales/{locale}/zod.json
+  npx zod-i18n-map add fr --format icu
   npx zod-i18n-map check locales/ja/zod.json
 `;
 
@@ -76,7 +79,14 @@ const flattenKeys = (obj: Json, prefix = "", out = new Set<string>()): Set<strin
 
 const add = async (
   locales: string[],
-  opts: { out: string; ref: string; explicitRef: boolean; force: boolean; json: boolean },
+  opts: {
+    out: string;
+    ref: string;
+    explicitRef: boolean;
+    force: boolean;
+    json: boolean;
+    format: "i18next" | "icu";
+  },
 ): Promise<number> => {
   if (locales.length === 0) {
     console.error("Specify at least one locale, e.g. `npx zod-i18n-map add ja`.");
@@ -95,7 +105,11 @@ const add = async (
       continue;
     }
     await mkdir(dirname(path), { recursive: true });
-    await writeFile(path, found.text);
+    const content =
+      opts.format === "icu"
+        ? `${JSON.stringify(toIcu(JSON.parse(found.text) as Json), null, 2)}\n`
+        : found.text;
+    await writeFile(path, content);
     results.push({ locale, status: "written", path, ref: found.ref });
   }
 
@@ -142,6 +156,7 @@ const main = async (): Promise<number> => {
       ref: { type: "string", short: "r" },
       force: { type: "boolean", short: "f", default: false },
       json: { type: "boolean", default: false },
+      format: { type: "string", default: "i18next" },
       help: { type: "boolean", short: "h", default: false },
     },
   });
@@ -155,7 +170,12 @@ const main = async (): Promise<number> => {
   }
   switch (command) {
     case "add":
+      if (values.format !== "i18next" && values.format !== "icu") {
+        console.error(`Unknown --format "${values.format}". Use "i18next" or "icu".`);
+        return 1;
+      }
       return add(args, {
+        format: values.format,
         out: values.out,
         ref,
         explicitRef,
