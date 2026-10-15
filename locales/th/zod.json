@@ -1,0 +1,152 @@
+{
+  "errors": {
+    "invalid_type": "ประเภทข้อมูลไม่ถูกต้อง: ต้องเป็น {{expected}} แต่ได้รับ {{received}}",
+    "invalid_type_received_undefined": "จำเป็นต้องกรอกข้อมูลนี้",
+    "invalid_type_received_null": "จำเป็นต้องกรอกข้อมูลนี้",
+    "invalid_value": "ตัวเลือกไม่ถูกต้อง: ต้องเป็นหนึ่งใน {{- options}}",
+    "invalid_value_single": "ข้อมูลไม่ถูกต้อง: ต้องเป็น {{- expected}}",
+    "invalid_format": {
+      "default": "รูปแบบ {{format}} ไม่ถูกต้อง",
+      "regex": "รูปแบบไม่ถูกต้อง",
+      "starts_with": "ต้องขึ้นต้นด้วย \"{{- prefix}}\"",
+      "ends_with": "ต้องลงท้ายด้วย \"{{- suffix}}\"",
+      "includes": "ต้องมี \"{{- includes}}\" อยู่ด้วย",
+      "lowercase": "ต้องเป็นตัวพิมพ์เล็ก",
+      "uppercase": "ต้องเป็นตัวพิมพ์ใหญ่"
+    },
+    "not_multiple_of": "ตัวเลขต้องเป็นพหุคูณของ {{divisor}}",
+    "unrecognized_keys": "พบคีย์ที่ไม่รู้จักในอ็อบเจ็กต์: {{- keys}}",
+    "invalid_key": "คีย์ใน {{origin}} ไม่ถูกต้อง",
+    "invalid_element": "ค่าใน {{origin}} ไม่ถูกต้อง",
+    "invalid_union": "ข้อมูลไม่ถูกต้อง",
+    "invalid_union_discriminator": "ค่าตัวจำแนกประเภท (discriminator) ไม่ถูกต้อง: ต้องเป็นหนึ่งใน {{- options}}",
+    "custom": "ข้อมูลไม่ถูกต้อง",
+    "too_small": {
+      "string": {
+        "exact": "ข้อความต้องมี {{count}} ตัวอักษรพอดี",
+        "inclusive": "ข้อความต้องมีอย่างน้อย {{count}} ตัวอักษร",
+        "not_inclusive": "ข้อความต้องมีมากกว่า {{count}} ตัวอักษร"
+      },
+      "number": {
+        "exact": "ตัวเลขต้องมีค่าเท่ากับ {{minimum}}",
+        "inclusive": "ตัวเลขต้องมีค่ามากกว่าหรือเท่ากับ {{minimum}}",
+        "not_inclusive": "ตัวเลขต้องมีค่ามากกว่า {{minimum}}"
+      },
+      "array": {
+        "exact": "อาร์เรย์ต้องมี {{count}} รายการพอดี",
+        "inclusive": "อาร์เรย์ต้องมีอย่างน้อย {{count}} รายการ",
+        "not_inclusive": "อาร์เรย์ต้องมีมากกว่า {{count}} รายการ"
+      },
+      "set": {
+        "exact": "เซตต้องมี {{count}} รายการพอดี",
+        "inclusive": "เซตต้องมีอย่างน้อย {{count}} รายการ",
+        "not_inclusive": "เซตต้องมีมากกว่า {{count}} รายการ"
+      },
+      "map": {
+        "exact": "แมปต้องมี {{count}} รายการพอดี",
+        "inclusive": "แมปต้องมีอย่างน้อย {{count}} รายการ",
+        "not_inclusive": "แมปต้องมีมากกว่า {{count}} รายการ"
+      },
+      "file": {
+        "exact": "ไฟล์ต้องมีขนาด {{count}} ไบต์พอดี",
+        "inclusive": "ไฟล์ต้องมีขนาดอย่างน้อย {{count}} ไบต์",
+        "not_inclusive": "ไฟล์ต้องมีขนาดมากกว่า {{count}} ไบต์"
+      },
+      "date": {
+        "exact": "วันที่ต้องเป็น {{- minimum, datetime}}",
+        "inclusive": "วันที่ต้องเป็น {{- minimum, datetime}} หรือหลังจากนั้น",
+        "not_inclusive": "วันที่ต้องอยู่หลัง {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact": "ข้อความต้องมี {{count}} ตัวอักษรพอดี",
+        "inclusive": "ข้อความต้องมีไม่เกิน {{count}} ตัวอักษร",
+        "not_inclusive": "ข้อความต้องมีน้อยกว่า {{count}} ตัวอักษร"
+      },
+      "number": {
+        "exact": "ตัวเลขต้องมีค่าเท่ากับ {{maximum}}",
+        "inclusive": "ตัวเลขต้องมีค่าน้อยกว่าหรือเท่ากับ {{maximum}}",
+        "not_inclusive": "ตัวเลขต้องมีค่าน้อยกว่า {{maximum}}"
+      },
+      "array": {
+        "exact": "อาร์เรย์ต้องมี {{count}} รายการพอดี",
+        "inclusive": "อาร์เรย์ต้องมีไม่เกิน {{count}} รายการ",
+        "not_inclusive": "อาร์เรย์ต้องมีน้อยกว่า {{count}} รายการ"
+      },
+      "set": {
+        "exact": "เซตต้องมี {{count}} รายการพอดี",
+        "inclusive": "เซตต้องมีไม่เกิน {{count}} รายการ",
+        "not_inclusive": "เซตต้องมีน้อยกว่า {{count}} รายการ"
+      },
+      "map": {
+        "exact": "แมปต้องมี {{count}} รายการพอดี",
+        "inclusive": "แมปต้องมีไม่เกิน {{count}} รายการ",
+        "not_inclusive": "แมปต้องมีน้อยกว่า {{count}} รายการ"
+      },
+      "file": {
+        "exact": "ไฟล์ต้องมีขนาด {{count}} ไบต์พอดี",
+        "inclusive": "ไฟล์ต้องมีขนาดไม่เกิน {{count}} ไบต์",
+        "not_inclusive": "ไฟล์ต้องมีขนาดน้อยกว่า {{count}} ไบต์"
+      },
+      "date": {
+        "exact": "วันที่ต้องเป็น {{- maximum, datetime}}",
+        "inclusive": "วันที่ต้องเป็น {{- maximum, datetime}} หรือก่อนหน้านั้น",
+        "not_inclusive": "วันที่ต้องอยู่ก่อน {{- maximum, datetime}}"
+      }
+    }
+  },
+  "formats": {
+    "email": "อีเมล",
+    "url": "URL",
+    "emoji": "อิโมจิ",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "วันที่และเวลาแบบ ISO",
+    "date": "วันที่แบบ ISO",
+    "time": "เวลาแบบ ISO",
+    "duration": "ช่วงเวลาแบบ ISO",
+    "ipv4": "ที่อยู่ IPv4",
+    "ipv6": "ที่อยู่ IPv6",
+    "mac": "ที่อยู่ MAC",
+    "cidrv4": "ช่วงที่อยู่ IPv4",
+    "cidrv6": "ช่วงที่อยู่ IPv6",
+    "base64": "ข้อความเข้ารหัส base64",
+    "base64url": "ข้อความเข้ารหัส base64url",
+    "json_string": "ข้อความ JSON",
+    "e164": "เบอร์โทรศัพท์ E.164",
+    "jwt": "JWT",
+    "hostname": "ชื่อโฮสต์",
+    "credit_card": "หมายเลขบัตรเครดิต",
+    "iban": "IBAN"
+  },
+  "types": {
+    "string": "ข้อความ",
+    "number": "ตัวเลข",
+    "int": "จำนวนเต็ม",
+    "bigint": "BigInt",
+    "boolean": "บูลีน",
+    "symbol": "สัญลักษณ์ (symbol)",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "วันที่",
+    "array": "อาร์เรย์",
+    "tuple": "ทูเพิล",
+    "object": "อ็อบเจ็กต์",
+    "record": "เรคคอร์ด",
+    "map": "แมป",
+    "set": "เซต",
+    "file": "ไฟล์",
+    "function": "ฟังก์ชัน",
+    "promise": "Promise"
+  }
+}

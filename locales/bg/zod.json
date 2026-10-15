@@ -1,113 +1,183 @@
 {
   "errors": {
-    "invalid_type": "Очаквано - {{expected}}, получено - {{received}}",
+    "invalid_type": "Очакван тип „{{expected}}“, получен тип „{{received}}“",
     "invalid_type_received_undefined": "Задължително поле",
     "invalid_type_received_null": "Задължително поле",
-    "invalid_literal": "Невалиден литерал, очаквано {{expected}}",
-    "unrecognized_keys": "Неразпознат(и) ключ(ове) в обекта: {{- keys}}",
-    "invalid_union": "Невалидно обединение",
-    "invalid_union_discriminator": "Невалидна стойност на дискриминатора. Очаквано {{- options}}",
-    "invalid_enum_value": "Невалидна стойност на enum. Очаквано {{- options}}, получено '{{received}}'",
-    "invalid_arguments": "Невалидни аргументи на функцията",
-    "invalid_return_type": "Невалиден тип на върнатата от функцията стойност",
-    "invalid_date": "Невалидна дата",
-    "custom": "Невалидни данни",
-    "invalid_intersection_types": "Резултатите от сечението не могат да бъдат обединени",
-    "not_multiple_of": "Числото трябва да бъде кратно на {{multipleOf}}",
-    "not_finite": "Числото трябва да бъде крайно",
-    "invalid_string": {
-      "email": "Невалиден {{validation}}",
-      "url": "Невалиден {{validation}}",
-      "uuid": "Невалиден {{validation}}",
-      "cuid": "Невалиден {{validation}}",
-      "regex": "Невалиден {{validation}}",
-      "datetime": "Невалидна {{validation}}",
-      "startsWith": "Невалидни данни: трябва да започва с \"{{startsWith}}\"",
-      "endsWith": "Невалидни данни: трябва да завършва с \"{{endsWith}}\""
+    "invalid_value": "Невалидна стойност: очаква се една от {{- options}}",
+    "invalid_value_single": "Невалидна стойност: очаква се {{- expected}}",
+    "invalid_format": {
+      "default": "Невалиден формат на {{format}}",
+      "regex": "Невалиден формат",
+      "starts_with": "Стойността трябва да започва с „{{- prefix}}“",
+      "ends_with": "Стойността трябва да завършва на „{{- suffix}}“",
+      "includes": "Стойността трябва да съдържа „{{- includes}}“",
+      "lowercase": "Стойността трябва да е с малки букви",
+      "uppercase": "Стойността трябва да е с главни букви"
     },
+    "not_multiple_of": "Числото трябва да бъде кратно на {{divisor}}",
+    "unrecognized_keys_one": "Неразпознат ключ в обекта: {{- keys}}",
+    "unrecognized_keys_other": "Неразпознати ключове в обекта: {{- keys}}",
+    "invalid_key": "Невалиден ключ в стойност от тип „{{origin}}“",
+    "invalid_element": "Невалиден елемент в стойност от тип „{{origin}}“",
+    "invalid_union": "Невалидна стойност",
+    "invalid_union_discriminator": "Невалидна стойност на дискриминатора. Очаква се {{- options}}",
+    "custom": "Невалидна стойност",
     "too_small": {
-      "array": {
-        "exact": "Масивът трябва да съдържа точно {{minimum}} елемент(а)",
-        "inclusive": "Масивът трябва да съдържа поне {{minimum}} елемент(а)",
-        "not_inclusive": "Масивът трябва да съдържа повече от {{minimum}} елемент(а)"
-      },
       "string": {
-        "exact": "Низът трябва да съдържа точно {{minimum}} знак(а)",
-        "inclusive": "Низът трябва да съдържа поне {{minimum}} знак(а)",
-        "not_inclusive": "Низът трябва да съдържа повече от {{minimum}} знак(а)"
+        "exact_one": "Низът трябва да съдържа точно {{count}} знак",
+        "exact_other": "Низът трябва да съдържа точно {{count}} знака",
+        "inclusive_one": "Низът трябва да съдържа поне {{count}} знак",
+        "inclusive_other": "Низът трябва да съдържа поне {{count}} знака",
+        "not_inclusive_one": "Низът трябва да съдържа повече от {{count}} знак",
+        "not_inclusive_other": "Низът трябва да съдържа повече от {{count}} знака"
       },
       "number": {
         "exact": "Числото трябва да бъде точно {{minimum}}",
         "inclusive": "Числото трябва да бъде по-голямо или равно на {{minimum}}",
         "not_inclusive": "Числото трябва да бъде по-голямо от {{minimum}}"
       },
+      "array": {
+        "exact_one": "Масивът трябва да съдържа точно {{count}} елемент",
+        "exact_other": "Масивът трябва да съдържа точно {{count}} елемента",
+        "inclusive_one": "Масивът трябва да съдържа поне {{count}} елемент",
+        "inclusive_other": "Масивът трябва да съдържа поне {{count}} елемента",
+        "not_inclusive_one": "Масивът трябва да съдържа повече от {{count}} елемент",
+        "not_inclusive_other": "Масивът трябва да съдържа повече от {{count}} елемента"
+      },
       "set": {
-        "exact": "Невалидни данни",
-        "inclusive": "Невалидни данни",
-        "not_inclusive": "Невалидни данни"
+        "exact_one": "Множеството трябва да съдържа точно {{count}} елемент",
+        "exact_other": "Множеството трябва да съдържа точно {{count}} елемента",
+        "inclusive_one": "Множеството трябва да съдържа поне {{count}} елемент",
+        "inclusive_other": "Множеството трябва да съдържа поне {{count}} елемента",
+        "not_inclusive_one": "Множеството трябва да съдържа повече от {{count}} елемент",
+        "not_inclusive_other": "Множеството трябва да съдържа повече от {{count}} елемента"
+      },
+      "map": {
+        "exact_one": "Хеш таблицата трябва да съдържа точно {{count}} запис",
+        "exact_other": "Хеш таблицата трябва да съдържа точно {{count}} записа",
+        "inclusive_one": "Хеш таблицата трябва да съдържа поне {{count}} запис",
+        "inclusive_other": "Хеш таблицата трябва да съдържа поне {{count}} записа",
+        "not_inclusive_one": "Хеш таблицата трябва да съдържа повече от {{count}} запис",
+        "not_inclusive_other": "Хеш таблицата трябва да съдържа повече от {{count}} записа"
+      },
+      "file": {
+        "exact_one": "Размерът на файла трябва да бъде точно {{count}} байт",
+        "exact_other": "Размерът на файла трябва да бъде точно {{count}} байта",
+        "inclusive_one": "Размерът на файла трябва да бъде поне {{count}} байт",
+        "inclusive_other": "Размерът на файла трябва да бъде поне {{count}} байта",
+        "not_inclusive_one": "Размерът на файла трябва да бъде повече от {{count}} байт",
+        "not_inclusive_other": "Размерът на файла трябва да бъде повече от {{count}} байта"
       },
       "date": {
         "exact": "Датата трябва да бъде точно {{- minimum, datetime}}",
-        "inclusive": "Датата трябва да бъде по-голяма или равна на {{- minimum, datetime}}",
-        "not_inclusive": "Датата трябва да бъде по-голяма от {{- minimum, datetime}}"
+        "inclusive": "Датата трябва да бъде не по-рано от {{- minimum, datetime}}",
+        "not_inclusive": "Датата трябва да бъде след {{- minimum, datetime}}"
       }
     },
     "too_big": {
-      "array": {
-        "exact": "Масивът трябва да съдържа точно {{maximum}} елемент(а)",
-        "inclusive": "Масивът трябва да съдържа най-много {{maximum}} елемент(а)",
-        "not_inclusive": "Масивът трябва да съдържа по-малко от {{maximum}} елемент(а)"
-      },
       "string": {
-        "exact": "Низът трябва да съдържа точно {{maximum}} знак(а)",
-        "inclusive": "Низът трябва да съдържа най-много {{maximum}} знак(а)",
-        "not_inclusive": "Низът трябва да съдържа по-малко от {{maximum}} знак(а)"
+        "exact_one": "Низът трябва да съдържа точно {{count}} знак",
+        "exact_other": "Низът трябва да съдържа точно {{count}} знака",
+        "inclusive_one": "Низът трябва да съдържа най-много {{count}} знак",
+        "inclusive_other": "Низът трябва да съдържа най-много {{count}} знака",
+        "not_inclusive_one": "Низът трябва да съдържа по-малко от {{count}} знак",
+        "not_inclusive_other": "Низът трябва да съдържа по-малко от {{count}} знака"
       },
       "number": {
         "exact": "Числото трябва да бъде точно {{maximum}}",
         "inclusive": "Числото трябва да бъде по-малко или равно на {{maximum}}",
         "not_inclusive": "Числото трябва да бъде по-малко от {{maximum}}"
       },
+      "array": {
+        "exact_one": "Масивът трябва да съдържа точно {{count}} елемент",
+        "exact_other": "Масивът трябва да съдържа точно {{count}} елемента",
+        "inclusive_one": "Масивът трябва да съдържа най-много {{count}} елемент",
+        "inclusive_other": "Масивът трябва да съдържа най-много {{count}} елемента",
+        "not_inclusive_one": "Масивът трябва да съдържа по-малко от {{count}} елемент",
+        "not_inclusive_other": "Масивът трябва да съдържа по-малко от {{count}} елемента"
+      },
       "set": {
-        "exact": "Невалидни данни",
-        "inclusive": "Невалидни данни",
-        "not_inclusive": "Невалидни данни"
+        "exact_one": "Множеството трябва да съдържа точно {{count}} елемент",
+        "exact_other": "Множеството трябва да съдържа точно {{count}} елемента",
+        "inclusive_one": "Множеството трябва да съдържа най-много {{count}} елемент",
+        "inclusive_other": "Множеството трябва да съдържа най-много {{count}} елемента",
+        "not_inclusive_one": "Множеството трябва да съдържа по-малко от {{count}} елемент",
+        "not_inclusive_other": "Множеството трябва да съдържа по-малко от {{count}} елемента"
+      },
+      "map": {
+        "exact_one": "Хеш таблицата трябва да съдържа точно {{count}} запис",
+        "exact_other": "Хеш таблицата трябва да съдържа точно {{count}} записа",
+        "inclusive_one": "Хеш таблицата трябва да съдържа най-много {{count}} запис",
+        "inclusive_other": "Хеш таблицата трябва да съдържа най-много {{count}} записа",
+        "not_inclusive_one": "Хеш таблицата трябва да съдържа по-малко от {{count}} запис",
+        "not_inclusive_other": "Хеш таблицата трябва да съдържа по-малко от {{count}} записа"
+      },
+      "file": {
+        "exact_one": "Размерът на файла трябва да бъде точно {{count}} байт",
+        "exact_other": "Размерът на файла трябва да бъде точно {{count}} байта",
+        "inclusive_one": "Размерът на файла трябва да бъде най-много {{count}} байт",
+        "inclusive_other": "Размерът на файла трябва да бъде най-много {{count}} байта",
+        "not_inclusive_one": "Размерът на файла трябва да бъде по-малко от {{count}} байт",
+        "not_inclusive_other": "Размерът на файла трябва да бъде по-малко от {{count}} байта"
       },
       "date": {
         "exact": "Датата трябва да бъде точно {{- maximum, datetime}}",
-        "inclusive": "Датата трябва да бъде по-малка или равна на {{- maximum, datetime}}",
-        "not_inclusive": "Датата трябва да бъде по-малка от {{- maximum, datetime}}"
+        "inclusive": "Датата трябва да бъде не по-късно от {{- maximum, datetime}}",
+        "not_inclusive": "Датата трябва да бъде преди {{- maximum, datetime}}"
       }
     }
   },
-  "validations": {
-    "email": "имейл",
+  "formats": {
+    "email": "имейл адрес",
     "url": "URL",
+    "emoji": "емоджи",
     "uuid": "UUID",
-    "cuid": "CUID",
-    "regex": "регулярен израз",
-    "datetime": "дата"
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "дата и час по ISO",
+    "date": "дата по ISO",
+    "time": "час по ISO",
+    "duration": "продължителност по ISO",
+    "ipv4": "IPv4 адрес",
+    "ipv6": "IPv6 адрес",
+    "mac": "MAC адрес",
+    "cidrv4": "IPv4 диапазон",
+    "cidrv6": "IPv6 диапазон",
+    "base64": "base64 низ",
+    "base64url": "base64url низ",
+    "json_string": "JSON низ",
+    "e164": "телефонен номер E.164",
+    "jwt": "JWT",
+    "hostname": "име на хост",
+    "credit_card": "номер на банкова карта",
+    "iban": "IBAN"
   },
   "types": {
-    "function": "функция",
-    "number": "число",
     "string": "низ",
-    "nan": "NaN",
-    "integer": "цяло число",
-    "float": "число с плаваща запетая",
-    "boolean": "булев тип",
-    "date": "дата",
+    "number": "число",
+    "int": "цяло число",
     "bigint": "bigint",
+    "boolean": "булева стойност",
+    "symbol": "symbol",
     "undefined": "undefined",
-    "symbol": "символ",
     "null": "null",
-    "array": "масив",
-    "object": "обект",
-    "unknown": "unknown",
-    "promise": "promise",
+    "nan": "NaN",
     "void": "void",
     "never": "never",
+    "date": "дата",
+    "array": "масив",
+    "tuple": "кортеж",
+    "object": "обект",
+    "record": "речник",
     "map": "хеш таблица",
-    "set": "множество"
+    "set": "множество",
+    "file": "файл",
+    "function": "функция",
+    "promise": "Promise"
   }
 }
