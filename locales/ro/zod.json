@@ -3,111 +3,212 @@
     "invalid_type": "Tipul de date așteptat era {{expected}}, s-a primit {{received}}",
     "invalid_type_received_undefined": "Obligatoriu",
     "invalid_type_received_null": "Obligatoriu",
-    "invalid_literal": "Valoare literală nevalidă, valoarea așteptată era {{expected}}",
-    "unrecognized_keys": "Chei/e nerecunoscută/e în obiect: {{- keys}}",
-    "invalid_union": "Intrare nevalidă",
-    "invalid_union_discriminator": "Valoare nevalidă pentru discriminant. Valori așteptate: {{- options}}",
-    "invalid_enum_value": "Valoare nevalidă pentru enum. Valori așteptate: {{- options}}, s-a primit: '{{received}}'",
-    "invalid_arguments": "Parametri nevalizi pentru funcție",
-    "invalid_return_type": "Tip de date returnat de funcție nevalid",
-    "invalid_date": "Dată nevalidă",
-    "custom": "Intrare nevalidă",
-    "invalid_intersection_types": "Rezultatele intersecției nu s-au putut îmbina",
-    "not_multiple_of": "Numărul trebuie să fie multiplu de {{multipleOf}}",
-    "not_finite": "Numărul trebuie să fie finit",
-    "invalid_string": {
-      "email": "{{validation}} nevalid",
-      "url": "{{validation}} nevalid",
-      "uuid": "{{validation}} nevalid",
-      "cuid": "{{validation}} nevalid",
-      "regex": "Nevalid",
-      "datetime": "{{validation}} nevalid",
-      "startsWith": "Intrare nevalidă: trebuie să înceapă cu \"{{startsWith}}\"",
-      "endsWith": "Intrare nevalidă: trebuie să se termine cu \"{{endsWith}}\""
+    "invalid_value": "Opțiune nevalidă: se aștepta una dintre valorile {{- options}}",
+    "invalid_value_single": "Valoare nevalidă: se aștepta {{- expected}}",
+    "invalid_format": {
+      "default": "Format nevalid pentru {{format}}",
+      "regex": "Format nevalid",
+      "starts_with": "Trebuie să înceapă cu \"{{- prefix}}\"",
+      "ends_with": "Trebuie să se termine cu \"{{- suffix}}\"",
+      "includes": "Trebuie să conțină \"{{- includes}}\"",
+      "lowercase": "Trebuie să conțină doar litere mici",
+      "uppercase": "Trebuie să conțină doar litere mari"
     },
+    "not_multiple_of": "Numărul trebuie să fie multiplu de {{divisor}}",
+    "unrecognized_keys_one": "Cheie nerecunoscută în obiect: {{- keys}}",
+    "unrecognized_keys_few": "Chei nerecunoscute în obiect: {{- keys}}",
+    "unrecognized_keys_other": "Chei nerecunoscute în obiect: {{- keys}}",
+    "invalid_key": "Cheie nevalidă în valoarea de tip {{origin}}",
+    "invalid_element": "Element nevalid în valoarea de tip {{origin}}",
+    "invalid_union": "Valoare nevalidă",
+    "invalid_union_discriminator": "Valoare nevalidă pentru discriminant. Valori așteptate: {{- options}}",
+    "custom": "Valoare nevalidă",
     "too_small": {
-      "array": {
-        "exact": "Lista trebuie să conțină exact {{minimum}} element(e)",
-        "inclusive": "Lista trebuie să conțină cel puțin {{minimum}} element(e)",
-        "not_inclusive": "Lista trebuie să conțină mai mult decât {{minimum}} element(e)"
-      },
       "string": {
-        "exact": "Șirul trebuie să conțină exact {{minimum}} caracter(e)",
-        "inclusive": "Șirul trebuie să conțină cel puțin {{minimum}} caracter(e)",
-        "not_inclusive": "Șirul trebuie să conțină peste {{minimum}} caracter(e)"
+        "exact_one": "Textul trebuie să conțină exact {{count}} caracter",
+        "exact_few": "Textul trebuie să conțină exact {{count}} caractere",
+        "exact_other": "Textul trebuie să conțină exact {{count}} de caractere",
+        "inclusive_one": "Textul trebuie să conțină cel puțin {{count}} caracter",
+        "inclusive_few": "Textul trebuie să conțină cel puțin {{count}} caractere",
+        "inclusive_other": "Textul trebuie să conțină cel puțin {{count}} de caractere",
+        "not_inclusive_one": "Textul trebuie să conțină mai mult de {{count}} caracter",
+        "not_inclusive_few": "Textul trebuie să conțină mai mult de {{count}} caractere",
+        "not_inclusive_other": "Textul trebuie să conțină mai mult de {{count}} de caractere"
       },
       "number": {
         "exact": "Numărul trebuie să fie exact {{minimum}}",
         "inclusive": "Numărul trebuie să fie mai mare sau egal cu {{minimum}}",
-        "not_inclusive": "Numărul trebuie să fie strict mai mare decât {{minimum}}"
+        "not_inclusive": "Numărul trebuie să fie mai mare decât {{minimum}}"
+      },
+      "array": {
+        "exact_one": "Lista trebuie să conțină exact {{count}} element",
+        "exact_few": "Lista trebuie să conțină exact {{count}} elemente",
+        "exact_other": "Lista trebuie să conțină exact {{count}} de elemente",
+        "inclusive_one": "Lista trebuie să conțină cel puțin {{count}} element",
+        "inclusive_few": "Lista trebuie să conțină cel puțin {{count}} elemente",
+        "inclusive_other": "Lista trebuie să conțină cel puțin {{count}} de elemente",
+        "not_inclusive_one": "Lista trebuie să conțină mai mult de {{count}} element",
+        "not_inclusive_few": "Lista trebuie să conțină mai mult de {{count}} elemente",
+        "not_inclusive_other": "Lista trebuie să conțină mai mult de {{count}} de elemente"
       },
       "set": {
-        "exact": "Intrare nevalidă",
-        "inclusive": "Intrare nevalidă",
-        "not_inclusive": "Intrare nevalidă"
+        "exact_one": "Mulțimea trebuie să conțină exact {{count}} element",
+        "exact_few": "Mulțimea trebuie să conțină exact {{count}} elemente",
+        "exact_other": "Mulțimea trebuie să conțină exact {{count}} de elemente",
+        "inclusive_one": "Mulțimea trebuie să conțină cel puțin {{count}} element",
+        "inclusive_few": "Mulțimea trebuie să conțină cel puțin {{count}} elemente",
+        "inclusive_other": "Mulțimea trebuie să conțină cel puțin {{count}} de elemente",
+        "not_inclusive_one": "Mulțimea trebuie să conțină mai mult de {{count}} element",
+        "not_inclusive_few": "Mulțimea trebuie să conțină mai mult de {{count}} elemente",
+        "not_inclusive_other": "Mulțimea trebuie să conțină mai mult de {{count}} de elemente"
+      },
+      "map": {
+        "exact_one": "Dicționarul trebuie să conțină exact {{count}} intrare",
+        "exact_few": "Dicționarul trebuie să conțină exact {{count}} intrări",
+        "exact_other": "Dicționarul trebuie să conțină exact {{count}} de intrări",
+        "inclusive_one": "Dicționarul trebuie să conțină cel puțin {{count}} intrare",
+        "inclusive_few": "Dicționarul trebuie să conțină cel puțin {{count}} intrări",
+        "inclusive_other": "Dicționarul trebuie să conțină cel puțin {{count}} de intrări",
+        "not_inclusive_one": "Dicționarul trebuie să conțină mai mult de {{count}} intrare",
+        "not_inclusive_few": "Dicționarul trebuie să conțină mai mult de {{count}} intrări",
+        "not_inclusive_other": "Dicționarul trebuie să conțină mai mult de {{count}} de intrări"
+      },
+      "file": {
+        "exact_one": "Fișierul trebuie să aibă exact {{count}} octet",
+        "exact_few": "Fișierul trebuie să aibă exact {{count}} octeți",
+        "exact_other": "Fișierul trebuie să aibă exact {{count}} de octeți",
+        "inclusive_one": "Fișierul trebuie să aibă cel puțin {{count}} octet",
+        "inclusive_few": "Fișierul trebuie să aibă cel puțin {{count}} octeți",
+        "inclusive_other": "Fișierul trebuie să aibă cel puțin {{count}} de octeți",
+        "not_inclusive_one": "Fișierul trebuie să aibă mai mult de {{count}} octet",
+        "not_inclusive_few": "Fișierul trebuie să aibă mai mult de {{count}} octeți",
+        "not_inclusive_other": "Fișierul trebuie să aibă mai mult de {{count}} de octeți"
       },
       "date": {
-        "exact": "Data trebuie să fie exact {{- minimum, datetime}}",
-        "inclusive": "Data trebuie să fie mai mare sau egală cu {{- minimum, datetime}}",
-        "not_inclusive": "Data trebuie să fie strict mai mare decât {{- minimum, datetime}}"
+        "exact": "Data trebuie să fie {{- minimum, datetime}}",
+        "inclusive": "Data trebuie să fie {{- minimum, datetime}} sau ulterioară",
+        "not_inclusive": "Data trebuie să fie ulterioară datei de {{- minimum, datetime}}"
       }
     },
     "too_big": {
-      "array": {
-        "exact": "Lista trebuie să conțină exact {{maximum}} element(e)",
-        "inclusive": "Lista trebuie să conțină cel mult {{maximum}} element(e)",
-        "not_inclusive": "Lista trebuie să conțină mai puțin de {{maximum}} element(e)"
-      },
       "string": {
-        "exact": "Șirul trebuie să conțină exact {{maximum}} caracter(e)",
-        "inclusive": "Șirul trebuie să conțină cel mult {{maximum}} caracter(e)",
-        "not_inclusive": "Șirul trebuie să conțină mai puțin de {{maximum}} caracter(e)"
+        "exact_one": "Textul trebuie să conțină exact {{count}} caracter",
+        "exact_few": "Textul trebuie să conțină exact {{count}} caractere",
+        "exact_other": "Textul trebuie să conțină exact {{count}} de caractere",
+        "inclusive_one": "Textul trebuie să conțină cel mult {{count}} caracter",
+        "inclusive_few": "Textul trebuie să conțină cel mult {{count}} caractere",
+        "inclusive_other": "Textul trebuie să conțină cel mult {{count}} de caractere",
+        "not_inclusive_one": "Textul trebuie să conțină mai puțin de {{count}} caracter",
+        "not_inclusive_few": "Textul trebuie să conțină mai puțin de {{count}} caractere",
+        "not_inclusive_other": "Textul trebuie să conțină mai puțin de {{count}} de caractere"
       },
       "number": {
         "exact": "Numărul trebuie să fie exact {{maximum}}",
         "inclusive": "Numărul trebuie să fie mai mic sau egal cu {{maximum}}",
-        "not_inclusive": "Numărul trebuie să fie strict mai mic decât {{maximum}}"
+        "not_inclusive": "Numărul trebuie să fie mai mic decât {{maximum}}"
+      },
+      "array": {
+        "exact_one": "Lista trebuie să conțină exact {{count}} element",
+        "exact_few": "Lista trebuie să conțină exact {{count}} elemente",
+        "exact_other": "Lista trebuie să conțină exact {{count}} de elemente",
+        "inclusive_one": "Lista trebuie să conțină cel mult {{count}} element",
+        "inclusive_few": "Lista trebuie să conțină cel mult {{count}} elemente",
+        "inclusive_other": "Lista trebuie să conțină cel mult {{count}} de elemente",
+        "not_inclusive_one": "Lista trebuie să conțină mai puțin de {{count}} element",
+        "not_inclusive_few": "Lista trebuie să conțină mai puțin de {{count}} elemente",
+        "not_inclusive_other": "Lista trebuie să conțină mai puțin de {{count}} de elemente"
       },
       "set": {
-        "exact": "Intrare nevalidă",
-        "inclusive": "Intrare nevalidă",
-        "not_inclusive": "Intrare nevalidă"
+        "exact_one": "Mulțimea trebuie să conțină exact {{count}} element",
+        "exact_few": "Mulțimea trebuie să conțină exact {{count}} elemente",
+        "exact_other": "Mulțimea trebuie să conțină exact {{count}} de elemente",
+        "inclusive_one": "Mulțimea trebuie să conțină cel mult {{count}} element",
+        "inclusive_few": "Mulțimea trebuie să conțină cel mult {{count}} elemente",
+        "inclusive_other": "Mulțimea trebuie să conțină cel mult {{count}} de elemente",
+        "not_inclusive_one": "Mulțimea trebuie să conțină mai puțin de {{count}} element",
+        "not_inclusive_few": "Mulțimea trebuie să conțină mai puțin de {{count}} elemente",
+        "not_inclusive_other": "Mulțimea trebuie să conțină mai puțin de {{count}} de elemente"
+      },
+      "map": {
+        "exact_one": "Dicționarul trebuie să conțină exact {{count}} intrare",
+        "exact_few": "Dicționarul trebuie să conțină exact {{count}} intrări",
+        "exact_other": "Dicționarul trebuie să conțină exact {{count}} de intrări",
+        "inclusive_one": "Dicționarul trebuie să conțină cel mult {{count}} intrare",
+        "inclusive_few": "Dicționarul trebuie să conțină cel mult {{count}} intrări",
+        "inclusive_other": "Dicționarul trebuie să conțină cel mult {{count}} de intrări",
+        "not_inclusive_one": "Dicționarul trebuie să conțină mai puțin de {{count}} intrare",
+        "not_inclusive_few": "Dicționarul trebuie să conțină mai puțin de {{count}} intrări",
+        "not_inclusive_other": "Dicționarul trebuie să conțină mai puțin de {{count}} de intrări"
+      },
+      "file": {
+        "exact_one": "Fișierul trebuie să aibă exact {{count}} octet",
+        "exact_few": "Fișierul trebuie să aibă exact {{count}} octeți",
+        "exact_other": "Fișierul trebuie să aibă exact {{count}} de octeți",
+        "inclusive_one": "Fișierul trebuie să aibă cel mult {{count}} octet",
+        "inclusive_few": "Fișierul trebuie să aibă cel mult {{count}} octeți",
+        "inclusive_other": "Fișierul trebuie să aibă cel mult {{count}} de octeți",
+        "not_inclusive_one": "Fișierul trebuie să aibă mai puțin de {{count}} octet",
+        "not_inclusive_few": "Fișierul trebuie să aibă mai puțin de {{count}} octeți",
+        "not_inclusive_other": "Fișierul trebuie să aibă mai puțin de {{count}} de octeți"
       },
       "date": {
-        "exact": "Data trebuie să fie exact {{- maximum, datetime}}",
-        "inclusive": "Data trebuie să fie mai mică sau egală cu {{- maximum, datetime}}",
-        "not_inclusive": "Data trebuie să fie strict mai mică decât {{- maximum, datetime}}"
+        "exact": "Data trebuie să fie {{- maximum, datetime}}",
+        "inclusive": "Data trebuie să fie {{- maximum, datetime}} sau anterioară",
+        "not_inclusive": "Data trebuie să fie anterioară datei de {{- maximum, datetime}}"
       }
     }
   },
-  "validations": {
-    "email": "E-mail",
+  "formats": {
+    "email": "adresă de e-mail",
     "url": "URL",
+    "emoji": "emoji",
     "uuid": "UUID",
-    "cuid": "CUID",
-    "regex": "Regex",
-    "datetime": "Dată și timp"
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "dată și oră ISO",
+    "date": "dată ISO",
+    "time": "oră ISO",
+    "duration": "durată ISO",
+    "ipv4": "adresă IPv4",
+    "ipv6": "adresă IPv6",
+    "mac": "adresă MAC",
+    "cidrv4": "interval IPv4",
+    "cidrv6": "interval IPv6",
+    "base64": "șir codificat în base64",
+    "base64url": "șir codificat în base64url",
+    "json_string": "șir JSON",
+    "e164": "număr de telefon E.164",
+    "jwt": "JWT",
+    "hostname": "nume de gazdă",
+    "credit_card": "număr de card de credit",
+    "iban": "IBAN"
   },
   "types": {
-    "function": "funcție",
+    "string": "text",
     "number": "număr",
-    "string": "șir de caractere",
-    "nan": "NaN",
-    "integer": "număr întreg",
-    "float": "număr zecimal",
-    "boolean": "boolean",
-    "date": "dată",
+    "int": "număr întreg",
     "bigint": "număr întreg mare",
-    "undefined": "nedefinit",
+    "boolean": "boolean",
     "symbol": "simbol",
+    "undefined": "nedefinit",
     "null": "nul",
-    "array": "listă",
-    "object": "obiect",
-    "unknown": "necunoscut",
-    "promise": "promisiune",
-    "void": "vid",
+    "nan": "NaN",
+    "void": "void",
     "never": "never",
-    "map": "map",
-    "set": "mulțime"
+    "date": "dată",
+    "array": "listă",
+    "tuple": "tuplu",
+    "object": "obiect",
+    "record": "înregistrare",
+    "map": "dicționar",
+    "set": "mulțime",
+    "file": "fișier",
+    "function": "funcție",
+    "promise": "promisiune"
   }
 }

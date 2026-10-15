@@ -3,111 +3,212 @@
     "invalid_type": "Se esperaba {{expected}}, se recibió {{received}}",
     "invalid_type_received_undefined": "Requerido",
     "invalid_type_received_null": "Requerido",
-    "invalid_literal": "Valor literal inválido, se esperaba {{expected}}",
-    "unrecognized_keys": "Llave(s) no reconocida(s) en el objeto: {{- keys}}",
+    "invalid_value": "Opción inválida: se esperaba uno de estos valores: {{- options}}",
+    "invalid_value_single": "Valor inválido: se esperaba {{- expected}}",
+    "invalid_format": {
+      "default": "Formato de {{format}} inválido",
+      "regex": "Formato inválido",
+      "starts_with": "Debe comenzar con \"{{- prefix}}\"",
+      "ends_with": "Debe terminar con \"{{- suffix}}\"",
+      "includes": "Debe incluir \"{{- includes}}\"",
+      "lowercase": "Debe estar en minúsculas",
+      "uppercase": "Debe estar en mayúsculas"
+    },
+    "not_multiple_of": "El número debe ser múltiplo de {{divisor}}",
+    "unrecognized_keys_one": "Clave no reconocida en el objeto: {{- keys}}",
+    "unrecognized_keys_many": "Claves no reconocidas en el objeto: {{- keys}}",
+    "unrecognized_keys_other": "Claves no reconocidas en el objeto: {{- keys}}",
+    "invalid_key": "Clave inválida en el valor de tipo {{origin}}",
+    "invalid_element": "Elemento inválido en el valor de tipo {{origin}}",
     "invalid_union": "Entrada inválida",
     "invalid_union_discriminator": "Valor discriminador inválido. Se esperaba {{- options}}",
-    "invalid_enum_value": "Valor inválido. Se esperaba {{- options}}, se recibió '{{received}}'",
-    "invalid_arguments": "Argumentos de función inválidos",
-    "invalid_return_type": "Tipo de retorno de función inválido",
-    "invalid_date": "Fecha inválida",
     "custom": "Entrada inválida",
-    "invalid_intersection_types": "Valores de intersección no pudieron ser mezclados",
-    "not_multiple_of": "Número debe ser múltiplo de {{multipleOf}}",
-    "not_finite": "Número no puede ser infinito",
-    "invalid_string": {
-      "email": "{{validation}} inválido",
-      "url": "{{validation}} inválido",
-      "uuid": "{{validation}} inválido",
-      "cuid": "{{validation}} inválido",
-      "regex": "Inválido",
-      "datetime": "{{validation}} inválida",
-      "startsWith": "Entrada inválida: debe comenzar con \"{{startsWith}}\"",
-      "endsWith": "Entrada inválida: debe finalizar con \"{{endsWith}}\""
-    },
     "too_small": {
-      "array": {
-        "exact": "La lista debe contener exactamente {{minimum}} elemento(s)",
-        "inclusive": "La lista debe contener al menos {{minimum}} elemento(s)",
-        "not_inclusive": "La lista debe contener más de {{minimum}} elemento(s)"
-      },
       "string": {
-        "exact": "El texto debe contener exactamente {{minimum}} carácter(es)",
-        "inclusive": "El texto debe contener al menos {{minimum}} carácter(es)",
-        "not_inclusive": "El texto debe contener más de {{minimum}} carácter(es)"
+        "exact_one": "El texto debe contener exactamente {{count}} carácter",
+        "exact_many": "El texto debe contener exactamente {{count}} caracteres",
+        "exact_other": "El texto debe contener exactamente {{count}} caracteres",
+        "inclusive_one": "El texto debe contener al menos {{count}} carácter",
+        "inclusive_many": "El texto debe contener al menos {{count}} caracteres",
+        "inclusive_other": "El texto debe contener al menos {{count}} caracteres",
+        "not_inclusive_one": "El texto debe contener más de {{count}} carácter",
+        "not_inclusive_many": "El texto debe contener más de {{count}} caracteres",
+        "not_inclusive_other": "El texto debe contener más de {{count}} caracteres"
       },
       "number": {
         "exact": "El número debe ser exactamente {{minimum}}",
-        "inclusive": "El número debe ser mayor o igual a {{minimum}}",
+        "inclusive": "El número debe ser mayor o igual que {{minimum}}",
         "not_inclusive": "El número debe ser mayor que {{minimum}}"
       },
+      "array": {
+        "exact_one": "La lista debe contener exactamente {{count}} elemento",
+        "exact_many": "La lista debe contener exactamente {{count}} elementos",
+        "exact_other": "La lista debe contener exactamente {{count}} elementos",
+        "inclusive_one": "La lista debe contener al menos {{count}} elemento",
+        "inclusive_many": "La lista debe contener al menos {{count}} elementos",
+        "inclusive_other": "La lista debe contener al menos {{count}} elementos",
+        "not_inclusive_one": "La lista debe contener más de {{count}} elemento",
+        "not_inclusive_many": "La lista debe contener más de {{count}} elementos",
+        "not_inclusive_other": "La lista debe contener más de {{count}} elementos"
+      },
       "set": {
-        "exact": "Entrada inválida",
-        "inclusive": "Entrada inválida",
-        "not_inclusive": "Entrada inválida"
+        "exact_one": "El conjunto debe contener exactamente {{count}} elemento",
+        "exact_many": "El conjunto debe contener exactamente {{count}} elementos",
+        "exact_other": "El conjunto debe contener exactamente {{count}} elementos",
+        "inclusive_one": "El conjunto debe contener al menos {{count}} elemento",
+        "inclusive_many": "El conjunto debe contener al menos {{count}} elementos",
+        "inclusive_other": "El conjunto debe contener al menos {{count}} elementos",
+        "not_inclusive_one": "El conjunto debe contener más de {{count}} elemento",
+        "not_inclusive_many": "El conjunto debe contener más de {{count}} elementos",
+        "not_inclusive_other": "El conjunto debe contener más de {{count}} elementos"
+      },
+      "map": {
+        "exact_one": "El mapa debe contener exactamente {{count}} entrada",
+        "exact_many": "El mapa debe contener exactamente {{count}} entradas",
+        "exact_other": "El mapa debe contener exactamente {{count}} entradas",
+        "inclusive_one": "El mapa debe contener al menos {{count}} entrada",
+        "inclusive_many": "El mapa debe contener al menos {{count}} entradas",
+        "inclusive_other": "El mapa debe contener al menos {{count}} entradas",
+        "not_inclusive_one": "El mapa debe contener más de {{count}} entrada",
+        "not_inclusive_many": "El mapa debe contener más de {{count}} entradas",
+        "not_inclusive_other": "El mapa debe contener más de {{count}} entradas"
+      },
+      "file": {
+        "exact_one": "El archivo debe tener exactamente {{count}} byte",
+        "exact_many": "El archivo debe tener exactamente {{count}} bytes",
+        "exact_other": "El archivo debe tener exactamente {{count}} bytes",
+        "inclusive_one": "El archivo debe tener al menos {{count}} byte",
+        "inclusive_many": "El archivo debe tener al menos {{count}} bytes",
+        "inclusive_other": "El archivo debe tener al menos {{count}} bytes",
+        "not_inclusive_one": "El archivo debe tener más de {{count}} byte",
+        "not_inclusive_many": "El archivo debe tener más de {{count}} bytes",
+        "not_inclusive_other": "El archivo debe tener más de {{count}} bytes"
       },
       "date": {
-        "exact": "La fecha debe ser exactamente {{- minimum, datetime}}",
-        "inclusive": "La fecha debe ser mayor o igual al {{- minimum, datetime}}",
-        "not_inclusive": "La fecha debe ser mayor que el {{- minimum, datetime}}"
+        "exact": "La fecha debe ser el {{- minimum, datetime}}",
+        "inclusive": "La fecha debe ser igual o posterior al {{- minimum, datetime}}",
+        "not_inclusive": "La fecha debe ser posterior al {{- minimum, datetime}}"
       }
     },
     "too_big": {
-      "array": {
-        "exact": "La lista debe contener exactamente {{maximum}} elemento(s)",
-        "inclusive": "La lista debe contener como máximo {{maximum}} elemento(s)",
-        "not_inclusive": "La lista debe contener menos que {{maximum}} elemento(s)"
-      },
       "string": {
-        "exact": "El texto debe contener exactamente {{maximum}} carácter(es)",
-        "inclusive": "El texto debe contener como máximo {{maximum}} carácter(es)",
-        "not_inclusive": "El texto debe contener menos de {{maximum}} carácter(es)"
+        "exact_one": "El texto debe contener exactamente {{count}} carácter",
+        "exact_many": "El texto debe contener exactamente {{count}} caracteres",
+        "exact_other": "El texto debe contener exactamente {{count}} caracteres",
+        "inclusive_one": "El texto debe contener como máximo {{count}} carácter",
+        "inclusive_many": "El texto debe contener como máximo {{count}} caracteres",
+        "inclusive_other": "El texto debe contener como máximo {{count}} caracteres",
+        "not_inclusive_one": "El texto debe contener menos de {{count}} carácter",
+        "not_inclusive_many": "El texto debe contener menos de {{count}} caracteres",
+        "not_inclusive_other": "El texto debe contener menos de {{count}} caracteres"
       },
       "number": {
         "exact": "El número debe ser exactamente {{maximum}}",
-        "inclusive": "El número debe ser menor o igual a {{maximum}}",
+        "inclusive": "El número debe ser menor o igual que {{maximum}}",
         "not_inclusive": "El número debe ser menor que {{maximum}}"
       },
+      "array": {
+        "exact_one": "La lista debe contener exactamente {{count}} elemento",
+        "exact_many": "La lista debe contener exactamente {{count}} elementos",
+        "exact_other": "La lista debe contener exactamente {{count}} elementos",
+        "inclusive_one": "La lista debe contener como máximo {{count}} elemento",
+        "inclusive_many": "La lista debe contener como máximo {{count}} elementos",
+        "inclusive_other": "La lista debe contener como máximo {{count}} elementos",
+        "not_inclusive_one": "La lista debe contener menos de {{count}} elemento",
+        "not_inclusive_many": "La lista debe contener menos de {{count}} elementos",
+        "not_inclusive_other": "La lista debe contener menos de {{count}} elementos"
+      },
       "set": {
-        "exact": "Entrada inválida",
-        "inclusive": "Entrada inválida",
-        "not_inclusive": "Entrada inválida"
+        "exact_one": "El conjunto debe contener exactamente {{count}} elemento",
+        "exact_many": "El conjunto debe contener exactamente {{count}} elementos",
+        "exact_other": "El conjunto debe contener exactamente {{count}} elementos",
+        "inclusive_one": "El conjunto debe contener como máximo {{count}} elemento",
+        "inclusive_many": "El conjunto debe contener como máximo {{count}} elementos",
+        "inclusive_other": "El conjunto debe contener como máximo {{count}} elementos",
+        "not_inclusive_one": "El conjunto debe contener menos de {{count}} elemento",
+        "not_inclusive_many": "El conjunto debe contener menos de {{count}} elementos",
+        "not_inclusive_other": "El conjunto debe contener menos de {{count}} elementos"
+      },
+      "map": {
+        "exact_one": "El mapa debe contener exactamente {{count}} entrada",
+        "exact_many": "El mapa debe contener exactamente {{count}} entradas",
+        "exact_other": "El mapa debe contener exactamente {{count}} entradas",
+        "inclusive_one": "El mapa debe contener como máximo {{count}} entrada",
+        "inclusive_many": "El mapa debe contener como máximo {{count}} entradas",
+        "inclusive_other": "El mapa debe contener como máximo {{count}} entradas",
+        "not_inclusive_one": "El mapa debe contener menos de {{count}} entrada",
+        "not_inclusive_many": "El mapa debe contener menos de {{count}} entradas",
+        "not_inclusive_other": "El mapa debe contener menos de {{count}} entradas"
+      },
+      "file": {
+        "exact_one": "El archivo debe tener exactamente {{count}} byte",
+        "exact_many": "El archivo debe tener exactamente {{count}} bytes",
+        "exact_other": "El archivo debe tener exactamente {{count}} bytes",
+        "inclusive_one": "El archivo debe tener como máximo {{count}} byte",
+        "inclusive_many": "El archivo debe tener como máximo {{count}} bytes",
+        "inclusive_other": "El archivo debe tener como máximo {{count}} bytes",
+        "not_inclusive_one": "El archivo debe tener menos de {{count}} byte",
+        "not_inclusive_many": "El archivo debe tener menos de {{count}} bytes",
+        "not_inclusive_other": "El archivo debe tener menos de {{count}} bytes"
       },
       "date": {
-        "exact": "La fecha debe ser exactamente {{- maximum, datetime}}",
-        "inclusive": "La fecha debe ser menor o igual al {{- maximum, datetime}}",
-        "not_inclusive": "La fecha debe ser menor que el {{- maximum, datetime}}"
+        "exact": "La fecha debe ser el {{- maximum, datetime}}",
+        "inclusive": "La fecha debe ser igual o anterior al {{- maximum, datetime}}",
+        "not_inclusive": "La fecha debe ser anterior al {{- maximum, datetime}}"
       }
     }
   },
-  "validations": {
-    "email": "correo",
-    "url": "enlace",
-    "uuid": "uuid",
+  "formats": {
+    "email": "correo electrónico",
+    "url": "URL",
+    "emoji": "emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
     "cuid": "cuid",
-    "regex": "expresión regular",
-    "datetime": "fecha"
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "fecha y hora ISO",
+    "date": "fecha ISO",
+    "time": "hora ISO",
+    "duration": "duración ISO",
+    "ipv4": "dirección IPv4",
+    "ipv6": "dirección IPv6",
+    "mac": "dirección MAC",
+    "cidrv4": "rango IPv4",
+    "cidrv6": "rango IPv6",
+    "base64": "cadena codificada en base64",
+    "base64url": "cadena codificada en base64url",
+    "json_string": "cadena JSON",
+    "e164": "número de teléfono E.164",
+    "jwt": "JWT",
+    "hostname": "nombre de host",
+    "credit_card": "número de tarjeta de crédito",
+    "iban": "IBAN"
   },
   "types": {
-    "function": "función",
-    "number": "número",
     "string": "texto",
-    "nan": "valor no númerico",
-    "integer": "entero",
-    "float": "decimal",
-    "boolean": "booleano",
-    "date": "fecha",
+    "number": "número",
+    "int": "número entero",
     "bigint": "entero grande",
-    "undefined": "indefinido",
+    "boolean": "booleano",
     "symbol": "símbolo",
+    "undefined": "indefinido",
     "null": "nulo",
-    "array": "lista",
-    "object": "objeto",
-    "unknown": "desconocido",
-    "promise": "promesa",
+    "nan": "NaN",
     "void": "void",
-    "never": "nunca",
+    "never": "never",
+    "date": "fecha",
+    "array": "lista",
+    "tuple": "tupla",
+    "object": "objeto",
+    "record": "registro",
     "map": "mapa",
-    "set": "conjunto"
+    "set": "conjunto",
+    "file": "archivo",
+    "function": "función",
+    "promise": "promesa"
   }
 }

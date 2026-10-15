@@ -1,113 +1,214 @@
 {
   "errors": {
-    "invalid_type": "Le type « {{expected}} » est attendu mais « {{received}} » a été reçu",
+    "invalid_type": "Le type « {{expected}} » est attendu mais « {{received}} » a été reçu",
     "invalid_type_received_undefined": "Obligatoire",
     "invalid_type_received_null": "Obligatoire",
-    "invalid_literal": "La valeur doit être {{expected}}",
-    "unrecognized_keys": "Une ou plusieurs clé(s) non reconnue(s) dans l'objet : {{- keys}}",
-    "invalid_union": "Champ non valide",
-    "invalid_union_discriminator": "La valeur du discriminateur est non valide. Options attendues : {{- options}}",
-    "invalid_enum_value": "La valeur « {{received}} » n'existe pas dans les options : {{- options}}",
-    "invalid_arguments": "Les arguments de la fonction sont non valides",
-    "invalid_return_type": "Le type de retour de la fonction n'est pas valide",
-    "invalid_date": "La date est non valide",
-    "custom": "Champ non valide",
-    "invalid_intersection_types": "Les résultats d'intersection n'ont pas pu être fusionnés",
-    "not_multiple_of": "Le nombre doit être un multiple de {{multipleOf}}",
-    "not_finite": "Le nombre doit être fini",
-    "invalid_string": {
-      "email": "{{validation}} non valide",
-      "url": "{{validation}} non valide",
-      "uuid": "{{validation}} non valide",
-      "cuid": "{{validation}} non valide",
-      "regex": "{{validation}} non valide",
-      "datetime": "{{validation}} non valide",
-      "startsWith": "Le champ doit commencer par « {{startsWith}} »",
-      "endsWith": "Le champ doit se terminer par « {{endsWith}} »"
+    "invalid_value": "Option non valide : valeur attendue parmi {{- options}}",
+    "invalid_value_single": "Valeur non valide : {{- expected}} est attendu",
+    "invalid_format": {
+      "default": "{{format}} non valide",
+      "regex": "Format non valide",
+      "starts_with": "La valeur doit commencer par « {{- prefix}} »",
+      "ends_with": "La valeur doit se terminer par « {{- suffix}} »",
+      "includes": "La valeur doit contenir « {{- includes}} »",
+      "lowercase": "La valeur doit être en minuscules",
+      "uppercase": "La valeur doit être en majuscules"
     },
+    "not_multiple_of": "Le nombre doit être un multiple de {{divisor}}",
+    "unrecognized_keys_one": "Clé non reconnue dans l'objet : {{- keys}}",
+    "unrecognized_keys_many": "Clés non reconnues dans l'objet : {{- keys}}",
+    "unrecognized_keys_other": "Clés non reconnues dans l'objet : {{- keys}}",
+    "invalid_key": "Clé non valide dans la valeur de type « {{origin}} »",
+    "invalid_element": "Élément non valide dans la valeur de type « {{origin}} »",
+    "invalid_union": "Champ non valide",
+    "invalid_union_discriminator": "Valeur du discriminateur non valide. Options attendues : {{- options}}",
+    "custom": "Champ non valide",
     "too_small": {
-      "array": {
-        "exact": "La liste doit contenir exactement {{minimum}} élément(s)",
-        "inclusive": "La liste doit contenir au moins {{minimum}} élément(s)",
-        "not_inclusive": "La liste doit contenir plus de {{minimum}} élément(s)"
-      },
       "string": {
-        "exact": "La chaîne doit contenir exactement {{minimum}} caractère(s)",
-        "inclusive": "La chaîne doit contenir au moins {{minimum}} caractère(s)",
-        "not_inclusive": "La chaîne doit contenir plus de {{minimum}} caractère(s)"
+        "exact_one": "Le texte doit contenir exactement {{count}} caractère",
+        "exact_many": "Le texte doit contenir exactement {{count}} caractères",
+        "exact_other": "Le texte doit contenir exactement {{count}} caractères",
+        "inclusive_one": "Le texte doit contenir au moins {{count}} caractère",
+        "inclusive_many": "Le texte doit contenir au moins {{count}} caractères",
+        "inclusive_other": "Le texte doit contenir au moins {{count}} caractères",
+        "not_inclusive_one": "Le texte doit contenir plus de {{count}} caractère",
+        "not_inclusive_many": "Le texte doit contenir plus de {{count}} caractères",
+        "not_inclusive_other": "Le texte doit contenir plus de {{count}} caractères"
       },
       "number": {
-        "exact": "Le nombre doit être égal à {{minimum}}",
-        "inclusive": "Le nombre doit être supérieur ou égal à {{minimum}}",
-        "not_inclusive": "Le nombre doit être supérieur à {{minimum}}"
+        "exact": "Le nombre doit être égal à {{minimum}}",
+        "inclusive": "Le nombre doit être supérieur ou égal à {{minimum}}",
+        "not_inclusive": "Le nombre doit être supérieur à {{minimum}}"
+      },
+      "array": {
+        "exact_one": "La liste doit contenir exactement {{count}} élément",
+        "exact_many": "La liste doit contenir exactement {{count}} éléments",
+        "exact_other": "La liste doit contenir exactement {{count}} éléments",
+        "inclusive_one": "La liste doit contenir au moins {{count}} élément",
+        "inclusive_many": "La liste doit contenir au moins {{count}} éléments",
+        "inclusive_other": "La liste doit contenir au moins {{count}} éléments",
+        "not_inclusive_one": "La liste doit contenir plus de {{count}} élément",
+        "not_inclusive_many": "La liste doit contenir plus de {{count}} éléments",
+        "not_inclusive_other": "La liste doit contenir plus de {{count}} éléments"
       },
       "set": {
-        "exact": "Champ non valide",
-        "inclusive": "Champ non valide",
-        "not_inclusive": "Champ non valide"
+        "exact_one": "L'ensemble doit contenir exactement {{count}} élément",
+        "exact_many": "L'ensemble doit contenir exactement {{count}} éléments",
+        "exact_other": "L'ensemble doit contenir exactement {{count}} éléments",
+        "inclusive_one": "L'ensemble doit contenir au moins {{count}} élément",
+        "inclusive_many": "L'ensemble doit contenir au moins {{count}} éléments",
+        "inclusive_other": "L'ensemble doit contenir au moins {{count}} éléments",
+        "not_inclusive_one": "L'ensemble doit contenir plus de {{count}} élément",
+        "not_inclusive_many": "L'ensemble doit contenir plus de {{count}} éléments",
+        "not_inclusive_other": "L'ensemble doit contenir plus de {{count}} éléments"
+      },
+      "map": {
+        "exact_one": "Le dictionnaire doit contenir exactement {{count}} entrée",
+        "exact_many": "Le dictionnaire doit contenir exactement {{count}} entrées",
+        "exact_other": "Le dictionnaire doit contenir exactement {{count}} entrées",
+        "inclusive_one": "Le dictionnaire doit contenir au moins {{count}} entrée",
+        "inclusive_many": "Le dictionnaire doit contenir au moins {{count}} entrées",
+        "inclusive_other": "Le dictionnaire doit contenir au moins {{count}} entrées",
+        "not_inclusive_one": "Le dictionnaire doit contenir plus de {{count}} entrée",
+        "not_inclusive_many": "Le dictionnaire doit contenir plus de {{count}} entrées",
+        "not_inclusive_other": "Le dictionnaire doit contenir plus de {{count}} entrées"
+      },
+      "file": {
+        "exact_one": "Le fichier doit faire exactement {{count}} octet",
+        "exact_many": "Le fichier doit faire exactement {{count}} octets",
+        "exact_other": "Le fichier doit faire exactement {{count}} octets",
+        "inclusive_one": "Le fichier doit faire au moins {{count}} octet",
+        "inclusive_many": "Le fichier doit faire au moins {{count}} octets",
+        "inclusive_other": "Le fichier doit faire au moins {{count}} octets",
+        "not_inclusive_one": "Le fichier doit faire plus de {{count}} octet",
+        "not_inclusive_many": "Le fichier doit faire plus de {{count}} octets",
+        "not_inclusive_other": "Le fichier doit faire plus de {{count}} octets"
       },
       "date": {
-        "exact": "La date doit être égale au {{- minimum, datetime}}",
-        "inclusive": "La date doit être ultérieure ou égale au {{- minimum, datetime}}",
-        "not_inclusive": "La date doit être ultérieure au {{- minimum, datetime}}"
+        "exact": "La date doit être le {{- minimum, datetime}}",
+        "inclusive": "La date doit être au plus tôt le {{- minimum, datetime}}",
+        "not_inclusive": "La date doit être postérieure au {{- minimum, datetime}}"
       }
     },
     "too_big": {
-      "array": {
-        "exact": "La liste doit contenir exactement {{maximum}} élément(s)",
-        "inclusive": "La liste doit contenir au plus {{maximum}} élément(s)",
-        "not_inclusive": "La liste doit contenir moins de {{maximum}} élément(s)"
-      },
       "string": {
-        "exact": "La chaîne doit contenir exactement {{maximum}} caractère(s)",
-        "inclusive": "La chaîne doit contenir au plus {{maximum}} caractère(s)",
-        "not_inclusive": "La chaîne doit contenir moins de {{maximum}} caractère(s)"
+        "exact_one": "Le texte doit contenir exactement {{count}} caractère",
+        "exact_many": "Le texte doit contenir exactement {{count}} caractères",
+        "exact_other": "Le texte doit contenir exactement {{count}} caractères",
+        "inclusive_one": "Le texte doit contenir au plus {{count}} caractère",
+        "inclusive_many": "Le texte doit contenir au plus {{count}} caractères",
+        "inclusive_other": "Le texte doit contenir au plus {{count}} caractères",
+        "not_inclusive_one": "Le texte doit contenir moins de {{count}} caractère",
+        "not_inclusive_many": "Le texte doit contenir moins de {{count}} caractères",
+        "not_inclusive_other": "Le texte doit contenir moins de {{count}} caractères"
       },
       "number": {
-        "exact": "Le nombre doit être égal à {{maximum}}",
-        "inclusive": "Le nombre doit être inférieur ou égal à {{maximum}}",
-        "not_inclusive": "Le nombre doit être inférieur à {{maximum}}"
+        "exact": "Le nombre doit être égal à {{maximum}}",
+        "inclusive": "Le nombre doit être inférieur ou égal à {{maximum}}",
+        "not_inclusive": "Le nombre doit être inférieur à {{maximum}}"
+      },
+      "array": {
+        "exact_one": "La liste doit contenir exactement {{count}} élément",
+        "exact_many": "La liste doit contenir exactement {{count}} éléments",
+        "exact_other": "La liste doit contenir exactement {{count}} éléments",
+        "inclusive_one": "La liste doit contenir au plus {{count}} élément",
+        "inclusive_many": "La liste doit contenir au plus {{count}} éléments",
+        "inclusive_other": "La liste doit contenir au plus {{count}} éléments",
+        "not_inclusive_one": "La liste doit contenir moins de {{count}} élément",
+        "not_inclusive_many": "La liste doit contenir moins de {{count}} éléments",
+        "not_inclusive_other": "La liste doit contenir moins de {{count}} éléments"
       },
       "set": {
-        "exact": "Champ non valide",
-        "inclusive": "Champ non valide",
-        "not_inclusive": "Champ non valide"
+        "exact_one": "L'ensemble doit contenir exactement {{count}} élément",
+        "exact_many": "L'ensemble doit contenir exactement {{count}} éléments",
+        "exact_other": "L'ensemble doit contenir exactement {{count}} éléments",
+        "inclusive_one": "L'ensemble doit contenir au plus {{count}} élément",
+        "inclusive_many": "L'ensemble doit contenir au plus {{count}} éléments",
+        "inclusive_other": "L'ensemble doit contenir au plus {{count}} éléments",
+        "not_inclusive_one": "L'ensemble doit contenir moins de {{count}} élément",
+        "not_inclusive_many": "L'ensemble doit contenir moins de {{count}} éléments",
+        "not_inclusive_other": "L'ensemble doit contenir moins de {{count}} éléments"
+      },
+      "map": {
+        "exact_one": "Le dictionnaire doit contenir exactement {{count}} entrée",
+        "exact_many": "Le dictionnaire doit contenir exactement {{count}} entrées",
+        "exact_other": "Le dictionnaire doit contenir exactement {{count}} entrées",
+        "inclusive_one": "Le dictionnaire doit contenir au plus {{count}} entrée",
+        "inclusive_many": "Le dictionnaire doit contenir au plus {{count}} entrées",
+        "inclusive_other": "Le dictionnaire doit contenir au plus {{count}} entrées",
+        "not_inclusive_one": "Le dictionnaire doit contenir moins de {{count}} entrée",
+        "not_inclusive_many": "Le dictionnaire doit contenir moins de {{count}} entrées",
+        "not_inclusive_other": "Le dictionnaire doit contenir moins de {{count}} entrées"
+      },
+      "file": {
+        "exact_one": "Le fichier doit faire exactement {{count}} octet",
+        "exact_many": "Le fichier doit faire exactement {{count}} octets",
+        "exact_other": "Le fichier doit faire exactement {{count}} octets",
+        "inclusive_one": "Le fichier doit faire au plus {{count}} octet",
+        "inclusive_many": "Le fichier doit faire au plus {{count}} octets",
+        "inclusive_other": "Le fichier doit faire au plus {{count}} octets",
+        "not_inclusive_one": "Le fichier doit faire moins de {{count}} octet",
+        "not_inclusive_many": "Le fichier doit faire moins de {{count}} octets",
+        "not_inclusive_other": "Le fichier doit faire moins de {{count}} octets"
       },
       "date": {
-        "exact": "La date doit être égale au {{- maximum, datetime}}",
-        "inclusive": "La date doit être antérieure ou égale au {{- maximum, datetime}}",
+        "exact": "La date doit être le {{- maximum, datetime}}",
+        "inclusive": "La date doit être au plus tard le {{- maximum, datetime}}",
         "not_inclusive": "La date doit être antérieure au {{- maximum, datetime}}"
       }
     }
   },
-  "validations": {
-    "email": "e-mail",
-    "url": "lien",
+  "formats": {
+    "email": "Adresse e-mail",
+    "url": "URL",
+    "emoji": "Emoji",
     "uuid": "UUID",
-    "cuid": "CUID",
-    "regex": "expression régulière",
-    "datetime": "horodate"
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "Date et heure ISO",
+    "date": "Date ISO",
+    "time": "Heure ISO",
+    "duration": "Durée ISO",
+    "ipv4": "Adresse IPv4",
+    "ipv6": "Adresse IPv6",
+    "mac": "Adresse MAC",
+    "cidrv4": "Plage IPv4",
+    "cidrv6": "Plage IPv6",
+    "base64": "Chaîne encodée en base64",
+    "base64url": "Chaîne encodée en base64url",
+    "json_string": "Chaîne JSON",
+    "e164": "Numéro de téléphone E.164",
+    "jwt": "JWT",
+    "hostname": "Nom d'hôte",
+    "credit_card": "Numéro de carte de crédit",
+    "iban": "IBAN"
   },
   "types": {
-    "function": "fonction",
+    "string": "texte",
     "number": "nombre",
-    "string": "chaîne de caractères",
-    "nan": "NaN",
-    "integer": "entier",
-    "float": "décimal",
-    "boolean": "booléen",
-    "date": "date",
+    "int": "entier",
     "bigint": "grand entier",
-    "undefined": "undefined",
+    "boolean": "booléen",
     "symbol": "symbole",
+    "undefined": "undefined",
     "null": "null",
-    "array": "liste",
-    "object": "objet",
-    "unknown": "inconnu",
-    "promise": "promise",
+    "nan": "NaN",
     "void": "void",
     "never": "never",
-    "map": "map",
-    "set": "ensemble"
+    "date": "date",
+    "array": "liste",
+    "tuple": "tuple",
+    "object": "objet",
+    "record": "enregistrement",
+    "map": "dictionnaire",
+    "set": "ensemble",
+    "file": "fichier",
+    "function": "fonction",
+    "promise": "promesse"
   }
 }

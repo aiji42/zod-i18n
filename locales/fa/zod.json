@@ -1,113 +1,153 @@
 {
   "errors": {
-    "invalid_type": "نوع مورد انتظار {{expected}}, نوع دریافت شده {{received}}",
-    "invalid_type_received_undefined": "الزامی",
-    "invalid_type_received_null": "الزامی",
-    "invalid_literal": "مقدار دقیق نامعتبر, مورد انتظار {{expected}}",
-    "unrecognized_keys": "کلید(ها) شناسایی نشده در آبجکت: {{- keys}}",
-    "invalid_union": "مقدار ورودی نامعتبر",
-    "invalid_union_discriminator": "مقدار جدا کننده نامعتبر, مورد انتظار {{- options}}",
-    "invalid_enum_value": "مقدار نامعتبر, مورد انتظار {{- options}}, دریافت شده '{{received}}'",
-    "invalid_arguments": "مقدار ورودی تابع نامعتبر است",
-    "invalid_return_type": "نوع خروجی تابع نامعتبر است",
-    "invalid_date": "تاریخ نامعتبر",
-    "custom": "ورودی نامعتبر",
-    "invalid_intersection_types": "امکان اشتراک گیری نیست",
-    "not_multiple_of": "عدد موردنظر باید مضرب {{multipleOf}} باشد",
-    "not_finite": "عدد باید متناهی باشد",
-    "invalid_string": {
-      "email": "{{validation}} نامعتبر",
-      "url": "{{validation}} نامعتبر",
-      "uuid": "{{validation}} نامعتبر",
-      "cuid": "{{validation}} نامعتبر",
-      "regex": "نامعتبر",
-      "datetime": "{{validation}} نامعتبر",
-      "startsWith": "ورودی نامعتبر: باید با \"{{startsWith}}\" شروع شود",
-      "endsWith": "ورودی نامعتبر: باید با \"{{endsWith}}\" به اتمام برسد"
+    "invalid_type": "{{expected}} مورد انتظار بود، {{received}} دریافت شد",
+    "invalid_type_received_undefined": "الزامی است",
+    "invalid_type_received_null": "الزامی است",
+    "invalid_value": "گزینهٔ نامعتبر: باید یکی از {{- options}} باشد",
+    "invalid_value_single": "ورودی نامعتبر: باید {{- expected}} باشد",
+    "invalid_format": {
+      "default": "{{format}} نامعتبر است",
+      "regex": "قالب نامعتبر است",
+      "starts_with": "باید با \"{{- prefix}}\" شروع شود",
+      "ends_with": "باید با \"{{- suffix}}\" تمام شود",
+      "includes": "باید شامل \"{{- includes}}\" باشد",
+      "lowercase": "باید با حروف کوچک باشد",
+      "uppercase": "باید با حروف بزرگ باشد"
     },
+    "not_multiple_of": "عدد باید مضربی از {{divisor}} باشد",
+    "unrecognized_keys_one": "کلید ناشناخته در شیء: {{- keys}}",
+    "unrecognized_keys_other": "کلیدهای ناشناخته در شیء: {{- keys}}",
+    "invalid_key": "کلید نامعتبر در {{origin}}",
+    "invalid_element": "مقدار نامعتبر در {{origin}}",
+    "invalid_union": "ورودی نامعتبر",
+    "invalid_union_discriminator": "مقدار تفکیک‌کنندهٔ نامعتبر. مورد انتظار: {{- options}}",
+    "custom": "ورودی نامعتبر",
     "too_small": {
-      "array": {
-        "exact": "آرایه باید دقیقا {{minimum}} عضو داشته باشد",
-        "inclusive": "آرایه باید حداقل {{minimum}} عضو داشته باشد",
-        "not_inclusive": "آرابه باید بیش از  {{minimum}} عضو داشته باشد"
-      },
       "string": {
-        "exact": "رشته باید دقیقا {{minimum}} کلمه‌ای باشد",
-        "inclusive": "رشته باید حداقل {{minimum}} کلمه‌ای باشد",
-        "not_inclusive": "رشته باید بیش از {minimum}} کلمه باشد"
+        "exact": "متن باید دقیقاً {{count}} کاراکتر داشته باشد",
+        "inclusive": "متن باید حداقل {{count}} کاراکتر داشته باشد",
+        "not_inclusive": "متن باید بیش از {{count}} کاراکتر داشته باشد"
       },
       "number": {
-        "exact": "عدد باید دقیقا برابر با {{minimum}} باشد",
-        "inclusive": "عدد باید بزرگتر یا مساوی {{minimum}} باشد",
-        "not_inclusive": "عدد باید بزرگتر از {{minimum}} باشد"
+        "exact": "عدد باید دقیقاً {{minimum}} باشد",
+        "inclusive": "عدد باید بزرگ‌تر یا مساوی {{minimum}} باشد",
+        "not_inclusive": "عدد باید بزرگ‌تر از {{minimum}} باشد"
+      },
+      "array": {
+        "exact": "آرایه باید دقیقاً {{count}} عضو داشته باشد",
+        "inclusive": "آرایه باید حداقل {{count}} عضو داشته باشد",
+        "not_inclusive": "آرایه باید بیش از {{count}} عضو داشته باشد"
       },
       "set": {
-        "exact": "ورودی نامعتبر",
-        "inclusive": "ورودی نامعتبر",
-        "not_inclusive": "ورودی نامعتبر"
+        "exact": "مجموعه باید دقیقاً {{count}} عضو داشته باشد",
+        "inclusive": "مجموعه باید حداقل {{count}} عضو داشته باشد",
+        "not_inclusive": "مجموعه باید بیش از {{count}} عضو داشته باشد"
+      },
+      "map": {
+        "exact": "نگاشت باید دقیقاً {{count}} مدخل داشته باشد",
+        "inclusive": "نگاشت باید حداقل {{count}} مدخل داشته باشد",
+        "not_inclusive": "نگاشت باید بیش از {{count}} مدخل داشته باشد"
+      },
+      "file": {
+        "exact": "حجم فایل باید دقیقاً {{count}} بایت باشد",
+        "inclusive": "حجم فایل باید حداقل {{count}} بایت باشد",
+        "not_inclusive": "حجم فایل باید بیشتر از {{count}} بایت باشد"
       },
       "date": {
-        "exact": "تاریخ باید دقیقا {{- minimum, datetime}} باشد",
-        "inclusive": "تاریخ باید بزرگتر یا برابر {{- minimum, datetime}} باشد",
-        "not_inclusive": "تاریخ باید بیشتر از {{- minimum, datetime}} باشد"
+        "exact": "تاریخ باید دقیقاً {{- minimum, datetime}} باشد",
+        "inclusive": "تاریخ باید {{- minimum, datetime}} یا پس از آن باشد",
+        "not_inclusive": "تاریخ باید پس از {{- minimum, datetime}} باشد"
       }
     },
     "too_big": {
-      "array": {
-        "exact": "آرایه باید دقیقا {{maximum}} عضو باشد",
-        "inclusive": "آرایه باید حداکثر {{maximum}} عضو داشته باشد",
-        "not_inclusive": "آرایه باید کمتر از {{maximum}} عضو داشته باشد"
-      },
       "string": {
-        "exact": "رشته باید دقیقا دارای {{maximum}} کلمه باشد",
-        "inclusive": "رشته حداکثر باید دارای  {{maximum}} کلمه داشته‌ باشد",
-        "not_inclusive": "آرایه باید کمتر از {{maximum}} کلمه باشد"
+        "exact": "متن باید دقیقاً {{count}} کاراکتر داشته باشد",
+        "inclusive": "متن باید حداکثر {{count}} کاراکتر داشته باشد",
+        "not_inclusive": "متن باید کمتر از {{count}} کاراکتر داشته باشد"
       },
       "number": {
-        "exact": "عدد باید دقیقا {{maximum}} باشد",
-        "inclusive": "عدد باید کمتر یا مساوی {{maximum}} باشد",
-        "not_inclusive": "عدد باید کمتر از {{maximum}} باشد"
+        "exact": "عدد باید دقیقاً {{maximum}} باشد",
+        "inclusive": "عدد باید کوچک‌تر یا مساوی {{maximum}} باشد",
+        "not_inclusive": "عدد باید کوچک‌تر از {{maximum}} باشد"
+      },
+      "array": {
+        "exact": "آرایه باید دقیقاً {{count}} عضو داشته باشد",
+        "inclusive": "آرایه باید حداکثر {{count}} عضو داشته باشد",
+        "not_inclusive": "آرایه باید کمتر از {{count}} عضو داشته باشد"
       },
       "set": {
-        "exact": "ورودی نامعتبر",
-        "inclusive": "ورودی نامعتبر",
-        "not_inclusive": "ورودی نامعتبر"
+        "exact": "مجموعه باید دقیقاً {{count}} عضو داشته باشد",
+        "inclusive": "مجموعه باید حداکثر {{count}} عضو داشته باشد",
+        "not_inclusive": "مجموعه باید کمتر از {{count}} عضو داشته باشد"
+      },
+      "map": {
+        "exact": "نگاشت باید دقیقاً {{count}} مدخل داشته باشد",
+        "inclusive": "نگاشت باید حداکثر {{count}} مدخل داشته باشد",
+        "not_inclusive": "نگاشت باید کمتر از {{count}} مدخل داشته باشد"
+      },
+      "file": {
+        "exact": "حجم فایل باید دقیقاً {{count}} بایت باشد",
+        "inclusive": "حجم فایل باید حداکثر {{count}} بایت باشد",
+        "not_inclusive": "حجم فایل باید کمتر از {{count}} بایت باشد"
       },
       "date": {
-        "exact": "تاریخ باید دقیقا {{- maximum, datetime}} باشد",
-        "inclusive": "تاریخ باید کوچکتر یا برابر {{- maximum, datetime}} باشد",
-        "not_inclusive": "تاریخ باید کوچتر از {{- maximum, datetime}} باشد"
+        "exact": "تاریخ باید دقیقاً {{- maximum, datetime}} باشد",
+        "inclusive": "تاریخ باید {{- maximum, datetime}} یا پیش از آن باشد",
+        "not_inclusive": "تاریخ باید پیش از {{- maximum, datetime}} باشد"
       }
     }
   },
-  "validations": {
-    "email": "ایمیل",
-    "url": "آدرس اینترنتی",
-    "uuid": "uuid",
+  "formats": {
+    "email": "آدرس ایمیل",
+    "url": "آدرس URL",
+    "emoji": "ایموجی",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
     "cuid": "cuid",
-    "regex": "عبارت منظم",
-    "datetime": "تاریخ و زمان"
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "تاریخ و زمان ISO",
+    "date": "تاریخ ISO",
+    "time": "زمان ISO",
+    "duration": "مدت‌زمان ISO",
+    "ipv4": "آدرس IPv4",
+    "ipv6": "آدرس IPv6",
+    "mac": "آدرس MAC",
+    "cidrv4": "محدودهٔ IPv4",
+    "cidrv6": "محدودهٔ IPv6",
+    "base64": "رشتهٔ base64",
+    "base64url": "رشتهٔ base64url",
+    "json_string": "رشتهٔ JSON",
+    "e164": "شماره تلفن E.164",
+    "jwt": "JWT",
+    "hostname": "نام میزبان",
+    "credit_card": "شماره کارت اعتباری",
+    "iban": "شماره IBAN"
   },
   "types": {
-    "function": "تابع",
+    "string": "متن",
     "number": "عدد",
-    "string": "رشته",
-    "nan": "ناعدد",
-    "integer": "عدد صحیح",
-    "float": "عدد اعشار",
-    "boolean": "بولی",
+    "int": "عدد صحیح",
+    "bigint": "عدد صحیح بزرگ",
+    "boolean": "مقدار بولی",
+    "symbol": "Symbol",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
     "date": "تاریخ",
-    "bigint": "عددبزرگ",
-    "undefined": "تعریف‌نشده",
-    "symbol": "نماد",
-    "null": "خالی",
     "array": "آرایه",
-    "object": "شی",
-    "unknown": "ناشناخته",
-    "promise": "پرامیس",
-    "void": "تهی",
-    "never": "هرگز",
-    "map": "دیکشنری",
-    "set": "مجموعه"
+    "tuple": "تاپل",
+    "object": "شیء",
+    "record": "رکورد",
+    "map": "نگاشت",
+    "set": "مجموعه",
+    "file": "فایل",
+    "function": "تابع",
+    "promise": "Promise"
   }
 }

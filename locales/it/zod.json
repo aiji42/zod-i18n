@@ -1,113 +1,214 @@
 {
   "errors": {
-    "invalid_type": "Atteso {{expected}}, ricevuto {{received}}",
+    "invalid_type": "Il valore deve essere di tipo {{expected}}, ma è di tipo {{received}}",
     "invalid_type_received_undefined": "Obbligatorio",
     "invalid_type_received_null": "Obbligatorio",
-    "invalid_literal": "Valore literal non valido, atteso {{expected}}",
-    "unrecognized_keys": "Campo/i non riconosciuto nell'oggetto: {{- keys}}",
+    "invalid_value": "Opzione non valida: è atteso uno dei valori {{- options}}",
+    "invalid_value_single": "Valore non valido: è atteso {{- expected}}",
+    "invalid_format": {
+      "default": "Formato di {{format}} non valido",
+      "regex": "Formato non valido",
+      "starts_with": "Deve iniziare con \"{{- prefix}}\"",
+      "ends_with": "Deve terminare con \"{{- suffix}}\"",
+      "includes": "Deve contenere \"{{- includes}}\"",
+      "lowercase": "Deve essere in minuscolo",
+      "uppercase": "Deve essere in maiuscolo"
+    },
+    "not_multiple_of": "Il numero deve essere un multiplo di {{divisor}}",
+    "unrecognized_keys_one": "Chiave non riconosciuta nell'oggetto: {{- keys}}",
+    "unrecognized_keys_many": "Chiavi non riconosciute nell'oggetto: {{- keys}}",
+    "unrecognized_keys_other": "Chiavi non riconosciute nell'oggetto: {{- keys}}",
+    "invalid_key": "Chiave non valida nel valore di tipo {{origin}}",
+    "invalid_element": "Elemento non valido nel valore di tipo {{origin}}",
     "invalid_union": "Input non valido",
     "invalid_union_discriminator": "Valore discriminante non valido. Atteso {{- options}}",
-    "invalid_enum_value": "Valore dell'enum non valido. Atteso {{- options}}, ricevuto '{{received}}'",
-    "invalid_arguments": "Argomenti della funzione non validi",
-    "invalid_return_type": "Tipo di ritorno della funzione non valido",
-    "invalid_date": "Data non valida",
     "custom": "Input non valido",
-    "invalid_intersection_types": "Il risultato dell'intersezione non può essere unito",
-    "not_multiple_of": "Il numero deve essere un multiplo di {{multipleOf}}",
-    "not_finite": "Il numero deve essere finito",
-    "invalid_string": {
-      "email": "{{validation}} non valida",
-      "url": "{{validation}} non valido",
-      "uuid": "{{validation}} non valido",
-      "cuid": "{{validation}} non valido",
-      "regex": "Non valida",
-      "datetime": "{{validation}} non valido",
-      "startsWith": "Input non valido: deve iniziare con \"{{startsWith}}\"",
-      "endsWith": "Input non valido: deve finire con \"{{endsWith}}\""
-    },
     "too_small": {
-      "array": {
-        "exact": "L'array deve contenere esattamente {{minimum}} elementi",
-        "inclusive": "L'array deve contenere almeno {{minimum}} elementi",
-        "not_inclusive": "L'array deve contenere più di {{minimum}} elementi"
-      },
       "string": {
-        "exact": "La stringa deve contenere esattamente {{minimum}} caratteri",
-        "inclusive": "La stringa deve contenere almeno {{minimum}} caratteri",
-        "not_inclusive": "La stringa deve contenere più di {{minimum}} caratteri"
+        "exact_one": "Il testo deve contenere esattamente {{count}} carattere",
+        "exact_many": "Il testo deve contenere esattamente {{count}} caratteri",
+        "exact_other": "Il testo deve contenere esattamente {{count}} caratteri",
+        "inclusive_one": "Il testo deve contenere almeno {{count}} carattere",
+        "inclusive_many": "Il testo deve contenere almeno {{count}} caratteri",
+        "inclusive_other": "Il testo deve contenere almeno {{count}} caratteri",
+        "not_inclusive_one": "Il testo deve contenere più di {{count}} carattere",
+        "not_inclusive_many": "Il testo deve contenere più di {{count}} caratteri",
+        "not_inclusive_other": "Il testo deve contenere più di {{count}} caratteri"
       },
       "number": {
         "exact": "Il numero deve essere esattamente {{minimum}}",
         "inclusive": "Il numero deve essere maggiore o uguale a {{minimum}}",
         "not_inclusive": "Il numero deve essere maggiore di {{minimum}}"
       },
+      "array": {
+        "exact_one": "La lista deve contenere esattamente {{count}} elemento",
+        "exact_many": "La lista deve contenere esattamente {{count}} elementi",
+        "exact_other": "La lista deve contenere esattamente {{count}} elementi",
+        "inclusive_one": "La lista deve contenere almeno {{count}} elemento",
+        "inclusive_many": "La lista deve contenere almeno {{count}} elementi",
+        "inclusive_other": "La lista deve contenere almeno {{count}} elementi",
+        "not_inclusive_one": "La lista deve contenere più di {{count}} elemento",
+        "not_inclusive_many": "La lista deve contenere più di {{count}} elementi",
+        "not_inclusive_other": "La lista deve contenere più di {{count}} elementi"
+      },
       "set": {
-        "exact": "Input non valido",
-        "inclusive": "Input non valido",
-        "not_inclusive": "Input non valido"
+        "exact_one": "L'insieme deve contenere esattamente {{count}} elemento",
+        "exact_many": "L'insieme deve contenere esattamente {{count}} elementi",
+        "exact_other": "L'insieme deve contenere esattamente {{count}} elementi",
+        "inclusive_one": "L'insieme deve contenere almeno {{count}} elemento",
+        "inclusive_many": "L'insieme deve contenere almeno {{count}} elementi",
+        "inclusive_other": "L'insieme deve contenere almeno {{count}} elementi",
+        "not_inclusive_one": "L'insieme deve contenere più di {{count}} elemento",
+        "not_inclusive_many": "L'insieme deve contenere più di {{count}} elementi",
+        "not_inclusive_other": "L'insieme deve contenere più di {{count}} elementi"
+      },
+      "map": {
+        "exact_one": "La mappa deve contenere esattamente {{count}} voce",
+        "exact_many": "La mappa deve contenere esattamente {{count}} voci",
+        "exact_other": "La mappa deve contenere esattamente {{count}} voci",
+        "inclusive_one": "La mappa deve contenere almeno {{count}} voce",
+        "inclusive_many": "La mappa deve contenere almeno {{count}} voci",
+        "inclusive_other": "La mappa deve contenere almeno {{count}} voci",
+        "not_inclusive_one": "La mappa deve contenere più di {{count}} voce",
+        "not_inclusive_many": "La mappa deve contenere più di {{count}} voci",
+        "not_inclusive_other": "La mappa deve contenere più di {{count}} voci"
+      },
+      "file": {
+        "exact_one": "Il file deve essere di esattamente {{count}} byte",
+        "exact_many": "Il file deve essere di esattamente {{count}} byte",
+        "exact_other": "Il file deve essere di esattamente {{count}} byte",
+        "inclusive_one": "Il file deve essere di almeno {{count}} byte",
+        "inclusive_many": "Il file deve essere di almeno {{count}} byte",
+        "inclusive_other": "Il file deve essere di almeno {{count}} byte",
+        "not_inclusive_one": "Il file deve essere superiore a {{count}} byte",
+        "not_inclusive_many": "Il file deve essere superiore a {{count}} byte",
+        "not_inclusive_other": "Il file deve essere superiore a {{count}} byte"
       },
       "date": {
-        "exact": "La data deve essere esattamente {{- minimum, datetime}}",
-        "inclusive": "La data deve essere maggiore di o uguale a {{- minimum, datetime}}",
-        "not_inclusive": "La data deve essere maggiore {{- minimum, datetime}}"
+        "exact": "La data deve essere il {{- minimum, datetime}}",
+        "inclusive": "La data deve essere uguale o successiva al {{- minimum, datetime}}",
+        "not_inclusive": "La data deve essere successiva al {{- minimum, datetime}}"
       }
     },
     "too_big": {
-      "array": {
-        "exact": "L'array deve contenere esattamente {{maximum}} elementi",
-        "inclusive": "L'array deve contenere al massimo {{maximum}} elementi",
-        "not_inclusive": "L'array deve contenere meno di {{maximum}} elementi"
-      },
       "string": {
-        "exact": "La stringa deve contenere esattamente {{maximum}} caratteri",
-        "inclusive": "La stringa deve contenere al massimo {{maximum}} caratteri",
-        "not_inclusive": "La stringa deve contenere meno di {{maximum}} caratteri"
+        "exact_one": "Il testo deve contenere esattamente {{count}} carattere",
+        "exact_many": "Il testo deve contenere esattamente {{count}} caratteri",
+        "exact_other": "Il testo deve contenere esattamente {{count}} caratteri",
+        "inclusive_one": "Il testo deve contenere al massimo {{count}} carattere",
+        "inclusive_many": "Il testo deve contenere al massimo {{count}} caratteri",
+        "inclusive_other": "Il testo deve contenere al massimo {{count}} caratteri",
+        "not_inclusive_one": "Il testo deve contenere meno di {{count}} carattere",
+        "not_inclusive_many": "Il testo deve contenere meno di {{count}} caratteri",
+        "not_inclusive_other": "Il testo deve contenere meno di {{count}} caratteri"
       },
       "number": {
         "exact": "Il numero deve essere esattamente {{maximum}}",
-        "inclusive": "Il numero deve essere minore di o uguale a {{maximum}}",
+        "inclusive": "Il numero deve essere minore o uguale a {{maximum}}",
         "not_inclusive": "Il numero deve essere minore di {{maximum}}"
       },
+      "array": {
+        "exact_one": "La lista deve contenere esattamente {{count}} elemento",
+        "exact_many": "La lista deve contenere esattamente {{count}} elementi",
+        "exact_other": "La lista deve contenere esattamente {{count}} elementi",
+        "inclusive_one": "La lista deve contenere al massimo {{count}} elemento",
+        "inclusive_many": "La lista deve contenere al massimo {{count}} elementi",
+        "inclusive_other": "La lista deve contenere al massimo {{count}} elementi",
+        "not_inclusive_one": "La lista deve contenere meno di {{count}} elemento",
+        "not_inclusive_many": "La lista deve contenere meno di {{count}} elementi",
+        "not_inclusive_other": "La lista deve contenere meno di {{count}} elementi"
+      },
       "set": {
-        "exact": "Input non valido",
-        "inclusive": "Input non valido",
-        "not_inclusive": "Input non valido"
+        "exact_one": "L'insieme deve contenere esattamente {{count}} elemento",
+        "exact_many": "L'insieme deve contenere esattamente {{count}} elementi",
+        "exact_other": "L'insieme deve contenere esattamente {{count}} elementi",
+        "inclusive_one": "L'insieme deve contenere al massimo {{count}} elemento",
+        "inclusive_many": "L'insieme deve contenere al massimo {{count}} elementi",
+        "inclusive_other": "L'insieme deve contenere al massimo {{count}} elementi",
+        "not_inclusive_one": "L'insieme deve contenere meno di {{count}} elemento",
+        "not_inclusive_many": "L'insieme deve contenere meno di {{count}} elementi",
+        "not_inclusive_other": "L'insieme deve contenere meno di {{count}} elementi"
+      },
+      "map": {
+        "exact_one": "La mappa deve contenere esattamente {{count}} voce",
+        "exact_many": "La mappa deve contenere esattamente {{count}} voci",
+        "exact_other": "La mappa deve contenere esattamente {{count}} voci",
+        "inclusive_one": "La mappa deve contenere al massimo {{count}} voce",
+        "inclusive_many": "La mappa deve contenere al massimo {{count}} voci",
+        "inclusive_other": "La mappa deve contenere al massimo {{count}} voci",
+        "not_inclusive_one": "La mappa deve contenere meno di {{count}} voce",
+        "not_inclusive_many": "La mappa deve contenere meno di {{count}} voci",
+        "not_inclusive_other": "La mappa deve contenere meno di {{count}} voci"
+      },
+      "file": {
+        "exact_one": "Il file deve essere di esattamente {{count}} byte",
+        "exact_many": "Il file deve essere di esattamente {{count}} byte",
+        "exact_other": "Il file deve essere di esattamente {{count}} byte",
+        "inclusive_one": "Il file deve essere di al massimo {{count}} byte",
+        "inclusive_many": "Il file deve essere di al massimo {{count}} byte",
+        "inclusive_other": "Il file deve essere di al massimo {{count}} byte",
+        "not_inclusive_one": "Il file deve essere inferiore a {{count}} byte",
+        "not_inclusive_many": "Il file deve essere inferiore a {{count}} byte",
+        "not_inclusive_other": "Il file deve essere inferiore a {{count}} byte"
       },
       "date": {
-        "exact": "La data deve essere esattamente {{- maximum, datetime}}",
-        "inclusive": "La data deve essere minore di o uguale a {{- maximum, datetime}}",
-        "not_inclusive": "La data deve essere minore di {{- maximum, datetime}}"
+        "exact": "La data deve essere il {{- maximum, datetime}}",
+        "inclusive": "La data deve essere uguale o precedente al {{- maximum, datetime}}",
+        "not_inclusive": "La data deve essere precedente al {{- maximum, datetime}}"
       }
     }
   },
-  "validations": {
-    "email": "email",
-    "url": "url",
-    "uuid": "uuid",
+  "formats": {
+    "email": "indirizzo email",
+    "url": "URL",
+    "emoji": "emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
     "cuid": "cuid",
-    "regex": "regex",
-    "datetime": "datetime"
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "data e ora ISO",
+    "date": "data ISO",
+    "time": "ora ISO",
+    "duration": "durata ISO",
+    "ipv4": "indirizzo IPv4",
+    "ipv6": "indirizzo IPv6",
+    "mac": "indirizzo MAC",
+    "cidrv4": "intervallo IPv4",
+    "cidrv6": "intervallo IPv6",
+    "base64": "stringa codificata in base64",
+    "base64url": "stringa codificata in base64url",
+    "json_string": "stringa JSON",
+    "e164": "numero di telefono E.164",
+    "jwt": "JWT",
+    "hostname": "nome host",
+    "credit_card": "numero di carta di credito",
+    "iban": "IBAN"
   },
   "types": {
-    "function": "function",
-    "number": "number",
-    "string": "string",
-    "nan": "nan",
-    "integer": "integer",
-    "float": "float",
-    "boolean": "boolean",
-    "date": "date",
-    "bigint": "bigint",
+    "string": "testo",
+    "number": "numero",
+    "int": "numero intero",
+    "bigint": "intero grande",
+    "boolean": "booleano",
+    "symbol": "simbolo",
     "undefined": "undefined",
-    "symbol": "symbol",
     "null": "null",
-    "array": "array",
-    "object": "object",
-    "unknown": "unknown",
-    "promise": "promise",
+    "nan": "NaN",
     "void": "void",
     "never": "never",
-    "map": "map",
-    "set": "set"
+    "date": "data",
+    "array": "lista",
+    "tuple": "tupla",
+    "object": "oggetto",
+    "record": "record",
+    "map": "mappa",
+    "set": "insieme",
+    "file": "file",
+    "function": "funzione",
+    "promise": "promise"
   }
 }
