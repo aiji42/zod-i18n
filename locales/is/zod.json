@@ -7,6 +7,23 @@
     "invalid_value_single": "Ógilt inntak: á að vera {{- expected}}",
     "invalid_format": {
       "default": "Ógilt snið: á að vera {{format}}",
+      "email": "Ógilt netfang",
+      "url": "Ógild vefslóð",
+      "emoji": "Má aðeins innihalda tjákn",
+      "uuid": "Ógilt UUID",
+      "guid": "Ógilt GUID",
+      "datetime": "Ógild dagsetning og tími (á að vera á ISO-sniði)",
+      "date": "Ógild dagsetning (á að vera á ISO-sniði)",
+      "time": "Ógildur tími (á að vera á ISO-sniði)",
+      "duration": "Ógild tímalengd (á að vera á ISO-sniði)",
+      "ipv4": "Ógilt IPv4-vistfang",
+      "ipv6": "Ógilt IPv6-vistfang",
+      "mac": "Ógilt MAC-vistfang",
+      "json_string": "Ógilt JSON",
+      "e164": "Ógilt símanúmer (á að vera á E.164-sniði)",
+      "hostname": "Ógilt hýsilnafn",
+      "credit_card": "Ógilt kreditkortanúmer",
+      "iban": "Ógilt IBAN-númer",
       "regex": "Ógilt snið",
       "starts_with": "Verður að byrja á \"{{- prefix}}\"",
       "ends_with": "Verður að enda á \"{{- suffix}}\"",
@@ -53,12 +70,12 @@
         "not_inclusive_other": "Mengið verður að innihalda fleiri en {{count}} stök"
       },
       "map": {
-        "exact_one": "Varpið verður að innihalda nákvæmlega {{count}} færslu",
-        "exact_other": "Varpið verður að innihalda nákvæmlega {{count}} færslur",
-        "inclusive_one": "Varpið verður að innihalda að minnsta kosti {{count}} færslu",
-        "inclusive_other": "Varpið verður að innihalda að minnsta kosti {{count}} færslur",
-        "not_inclusive_one": "Varpið verður að innihalda fleiri en {{count}} færslu",
-        "not_inclusive_other": "Varpið verður að innihalda fleiri en {{count}} færslur"
+        "exact_one": "Vörpunin verður að innihalda nákvæmlega {{count}} færslu",
+        "exact_other": "Vörpunin verður að innihalda nákvæmlega {{count}} færslur",
+        "inclusive_one": "Vörpunin verður að innihalda að minnsta kosti {{count}} færslu",
+        "inclusive_other": "Vörpunin verður að innihalda að minnsta kosti {{count}} færslur",
+        "not_inclusive_one": "Vörpunin verður að innihalda fleiri en {{count}} færslu",
+        "not_inclusive_other": "Vörpunin verður að innihalda fleiri en {{count}} færslur"
       },
       "file": {
         "exact_one": "Skráin verður að vera nákvæmlega {{count}} bæti",
@@ -105,12 +122,12 @@
         "not_inclusive_other": "Mengið verður að innihalda færri en {{count}} stök"
       },
       "map": {
-        "exact_one": "Varpið verður að innihalda nákvæmlega {{count}} færslu",
-        "exact_other": "Varpið verður að innihalda nákvæmlega {{count}} færslur",
-        "inclusive_one": "Varpið má innihalda í mesta lagi {{count}} færslu",
-        "inclusive_other": "Varpið má innihalda í mesta lagi {{count}} færslur",
-        "not_inclusive_one": "Varpið verður að innihalda færri en {{count}} færslu",
-        "not_inclusive_other": "Varpið verður að innihalda færri en {{count}} færslur"
+        "exact_one": "Vörpunin verður að innihalda nákvæmlega {{count}} færslu",
+        "exact_other": "Vörpunin verður að innihalda nákvæmlega {{count}} færslur",
+        "inclusive_one": "Vörpunin má innihalda í mesta lagi {{count}} færslu",
+        "inclusive_other": "Vörpunin má innihalda í mesta lagi {{count}} færslur",
+        "not_inclusive_one": "Vörpunin verður að innihalda færri en {{count}} færslu",
+        "not_inclusive_other": "Vörpunin verður að innihalda færri en {{count}} færslur"
       },
       "file": {
         "exact_one": "Skráin verður að vera nákvæmlega {{count}} bæti",
@@ -148,9 +165,9 @@
     "mac": "MAC-vistfang",
     "cidrv4": "IPv4-vistfangabil",
     "cidrv6": "IPv6-vistfangabil",
-    "base64": "base64-kóðaður strengur",
-    "base64url": "base64url-kóðaður strengur",
-    "json_string": "JSON-strengur",
+    "base64": "base64-kóðaður texti",
+    "base64url": "base64url-kóðaður texti",
+    "json_string": "JSON-texti",
     "e164": "símanúmer á E.164-sniði",
     "jwt": "JWT",
     "hostname": "hýsilnafn",
@@ -174,7 +191,7 @@
     "tuple": "túpla",
     "object": "hlutur",
     "record": "record",
-    "map": "varp",
+    "map": "vörpun",
     "set": "mengi",
     "file": "skrá",
     "function": "fall",

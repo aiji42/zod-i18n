@@ -1,12 +1,31 @@
 {
   "errors": {
-    "invalid_type": "Förväntade {{expected}}, fick {{received}}",
+    "invalid_type": "Ogiltig typ: förväntat {{expected}}, fick {{received}}",
     "invalid_type_received_undefined": "Obligatoriskt",
     "invalid_type_received_null": "Obligatoriskt",
-    "invalid_value": "Ogiltigt alternativ: förväntade ett av {{- options}}",
-    "invalid_value_single": "Ogiltig inmatning: förväntade {{- expected}}",
+    "invalid_value": "Ogiltigt val: förväntat ett av {{- options}}",
+    "invalid_value_single": "Ogiltigt värde: förväntat {{- expected}}",
     "invalid_format": {
-      "default": "Ogiltigt format: förväntade {{format}}",
+      "default": "Ogiltigt format: förväntat {{format}}",
+      "email": "Ogiltig e-postadress",
+      "url": "Ogiltig URL",
+      "emoji": "Får bara innehålla emojier",
+      "uuid": "Ogiltigt UUID",
+      "guid": "Ogiltigt GUID",
+      "datetime": "Ogiltig tidsstämpel (förväntat ISO-format)",
+      "date": "Ogiltigt datum (förväntat ISO-format)",
+      "time": "Ogiltigt klockslag (förväntat ISO-format)",
+      "duration": "Ogiltig varaktighet (förväntat ISO-format)",
+      "ipv4": "Ogiltig IPv4-adress",
+      "ipv6": "Ogiltig IPv6-adress",
+      "mac": "Ogiltig MAC-adress",
+      "cidrv4": "Ogiltigt IPv4-intervall",
+      "cidrv6": "Ogiltigt IPv6-intervall",
+      "json_string": "Ogiltig JSON",
+      "e164": "Ogiltigt telefonnummer (förväntat E.164-format)",
+      "hostname": "Ogiltigt värdnamn",
+      "credit_card": "Ogiltigt kreditkortsnummer",
+      "iban": "Ogiltigt IBAN",
       "regex": "Ogiltigt format",
       "starts_with": "Måste börja med \"{{- prefix}}\"",
       "ends_with": "Måste sluta med \"{{- suffix}}\"",
@@ -20,7 +39,7 @@
     "invalid_key": "Ogiltig nyckel i {{origin}}",
     "invalid_element": "Ogiltigt värde i {{origin}}",
     "invalid_union": "Ogiltig inmatning",
-    "invalid_union_discriminator": "Ogiltigt diskriminatorvärde: förväntade {{- options}}",
+    "invalid_union_discriminator": "Ogiltigt diskriminatorvärde: förväntat {{- options}}",
     "custom": "Ogiltig inmatning",
     "too_small": {
       "string": {
@@ -70,7 +89,7 @@
       },
       "date": {
         "exact": "Datumet måste vara exakt {{- minimum, datetime}}",
-        "inclusive": "Datumet måste vara {{- minimum, datetime}} eller senare",
+        "inclusive": "Datumet får inte vara före {{- minimum, datetime}}",
         "not_inclusive": "Datumet måste vara efter {{- minimum, datetime}}"
       }
     },
@@ -122,7 +141,7 @@
       },
       "date": {
         "exact": "Datumet måste vara exakt {{- maximum, datetime}}",
-        "inclusive": "Datumet måste vara {{- maximum, datetime}} eller tidigare",
+        "inclusive": "Datumet får inte vara efter {{- maximum, datetime}}",
         "not_inclusive": "Datumet måste vara före {{- maximum, datetime}}"
       }
     }
@@ -148,9 +167,9 @@
     "mac": "MAC-adress",
     "cidrv4": "IPv4-intervall",
     "cidrv6": "IPv6-intervall",
-    "base64": "base64-kodad sträng",
-    "base64url": "base64url-kodad sträng",
-    "json_string": "JSON-sträng",
+    "base64": "base64-kodad text",
+    "base64url": "base64url-kodad text",
+    "json_string": "JSON-text",
     "e164": "E.164-telefonnummer",
     "jwt": "JWT",
     "hostname": "värdnamn",

@@ -1,12 +1,19 @@
 {
   "errors": {
-    "invalid_type": "Forventet {{expected}}, mottok {{received}}",
+    "invalid_type": "Ugyldig type: forventet {{expected}}, fikk {{received}}",
     "invalid_type_received_undefined": "Påkrevd",
     "invalid_type_received_null": "Påkrevd",
     "invalid_value": "Ugyldig valg: forventet én av {{- options}}",
     "invalid_value_single": "Ugyldig verdi: forventet {{- expected}}",
     "invalid_format": {
       "default": "Ugyldig {{format}}",
+      "emoji": "Kan bare inneholde emoji",
+      "datetime": "Ugyldig dato og klokkeslett (forventet ISO-format)",
+      "date": "Ugyldig dato (forventet ISO-format)",
+      "time": "Ugyldig klokkeslett (forventet ISO-format)",
+      "duration": "Ugyldig varighet (forventet ISO-format)",
+      "json_string": "Ugyldig JSON",
+      "e164": "Ugyldig telefonnummer (forventet E.164-format)",
       "regex": "Ugyldig format",
       "starts_with": "Må starte med \"{{- prefix}}\"",
       "ends_with": "Må slutte med \"{{- suffix}}\"",
@@ -24,12 +31,12 @@
     "custom": "Ugyldig inndata",
     "too_small": {
       "string": {
-        "exact_one": "Strengen må inneholde nøyaktig {{count}} tegn",
-        "exact_other": "Strengen må inneholde nøyaktig {{count}} tegn",
-        "inclusive_one": "Strengen må inneholde minst {{count}} tegn",
-        "inclusive_other": "Strengen må inneholde minst {{count}} tegn",
-        "not_inclusive_one": "Strengen må inneholde mer enn {{count}} tegn",
-        "not_inclusive_other": "Strengen må inneholde mer enn {{count}} tegn"
+        "exact_one": "Teksten må inneholde nøyaktig {{count}} tegn",
+        "exact_other": "Teksten må inneholde nøyaktig {{count}} tegn",
+        "inclusive_one": "Teksten må inneholde minst {{count}} tegn",
+        "inclusive_other": "Teksten må inneholde minst {{count}} tegn",
+        "not_inclusive_one": "Teksten må inneholde mer enn {{count}} tegn",
+        "not_inclusive_other": "Teksten må inneholde mer enn {{count}} tegn"
       },
       "number": {
         "exact": "Tallet må være nøyaktig {{minimum}}",
@@ -53,12 +60,12 @@
         "not_inclusive_other": "Mengden må inneholde mer enn {{count}} elementer"
       },
       "map": {
-        "exact_one": "Map-en må inneholde nøyaktig {{count}} oppføring",
-        "exact_other": "Map-en må inneholde nøyaktig {{count}} oppføringer",
-        "inclusive_one": "Map-en må inneholde minst {{count}} oppføring",
-        "inclusive_other": "Map-en må inneholde minst {{count}} oppføringer",
-        "not_inclusive_one": "Map-en må inneholde mer enn {{count}} oppføring",
-        "not_inclusive_other": "Map-en må inneholde mer enn {{count}} oppføringer"
+        "exact_one": "Tilordningen må inneholde nøyaktig {{count}} oppføring",
+        "exact_other": "Tilordningen må inneholde nøyaktig {{count}} oppføringer",
+        "inclusive_one": "Tilordningen må inneholde minst {{count}} oppføring",
+        "inclusive_other": "Tilordningen må inneholde minst {{count}} oppføringer",
+        "not_inclusive_one": "Tilordningen må inneholde mer enn {{count}} oppføring",
+        "not_inclusive_other": "Tilordningen må inneholde mer enn {{count}} oppføringer"
       },
       "file": {
         "exact_one": "Filen må være nøyaktig {{count}} byte",
@@ -70,18 +77,18 @@
       },
       "date": {
         "exact": "Datoen må være nøyaktig {{- minimum, datetime}}",
-        "inclusive": "Datoen må være {{- minimum, datetime}} eller senere",
+        "inclusive": "Datoen kan ikke være før {{- minimum, datetime}}",
         "not_inclusive": "Datoen må være etter {{- minimum, datetime}}"
       }
     },
     "too_big": {
       "string": {
-        "exact_one": "Strengen må inneholde nøyaktig {{count}} tegn",
-        "exact_other": "Strengen må inneholde nøyaktig {{count}} tegn",
-        "inclusive_one": "Strengen kan inneholde maksimalt {{count}} tegn",
-        "inclusive_other": "Strengen kan inneholde maksimalt {{count}} tegn",
-        "not_inclusive_one": "Strengen må inneholde færre enn {{count}} tegn",
-        "not_inclusive_other": "Strengen må inneholde færre enn {{count}} tegn"
+        "exact_one": "Teksten må inneholde nøyaktig {{count}} tegn",
+        "exact_other": "Teksten må inneholde nøyaktig {{count}} tegn",
+        "inclusive_one": "Teksten kan inneholde maksimalt {{count}} tegn",
+        "inclusive_other": "Teksten kan inneholde maksimalt {{count}} tegn",
+        "not_inclusive_one": "Teksten må inneholde færre enn {{count}} tegn",
+        "not_inclusive_other": "Teksten må inneholde færre enn {{count}} tegn"
       },
       "number": {
         "exact": "Tallet må være nøyaktig {{maximum}}",
@@ -105,12 +112,12 @@
         "not_inclusive_other": "Mengden må inneholde færre enn {{count}} elementer"
       },
       "map": {
-        "exact_one": "Map-en må inneholde nøyaktig {{count}} oppføring",
-        "exact_other": "Map-en må inneholde nøyaktig {{count}} oppføringer",
-        "inclusive_one": "Map-en kan inneholde maksimalt {{count}} oppføring",
-        "inclusive_other": "Map-en kan inneholde maksimalt {{count}} oppføringer",
-        "not_inclusive_one": "Map-en må inneholde færre enn {{count}} oppføring",
-        "not_inclusive_other": "Map-en må inneholde færre enn {{count}} oppføringer"
+        "exact_one": "Tilordningen må inneholde nøyaktig {{count}} oppføring",
+        "exact_other": "Tilordningen må inneholde nøyaktig {{count}} oppføringer",
+        "inclusive_one": "Tilordningen kan inneholde maksimalt {{count}} oppføring",
+        "inclusive_other": "Tilordningen kan inneholde maksimalt {{count}} oppføringer",
+        "not_inclusive_one": "Tilordningen må inneholde færre enn {{count}} oppføring",
+        "not_inclusive_other": "Tilordningen må inneholde færre enn {{count}} oppføringer"
       },
       "file": {
         "exact_one": "Filen må være nøyaktig {{count}} byte",
@@ -122,7 +129,7 @@
       },
       "date": {
         "exact": "Datoen må være nøyaktig {{- maximum, datetime}}",
-        "inclusive": "Datoen må være {{- maximum, datetime}} eller tidligere",
+        "inclusive": "Datoen kan ikke være etter {{- maximum, datetime}}",
         "not_inclusive": "Datoen må være før {{- maximum, datetime}}"
       }
     }
@@ -148,9 +155,9 @@
     "mac": "MAC-adresse",
     "cidrv4": "IPv4-område",
     "cidrv6": "IPv6-område",
-    "base64": "base64-kodet streng",
-    "base64url": "base64url-kodet streng",
-    "json_string": "JSON-streng",
+    "base64": "base64-kodet tekst",
+    "base64url": "base64url-kodet tekst",
+    "json_string": "JSON-tekst",
     "e164": "E.164-telefonnummer",
     "jwt": "JWT",
     "hostname": "vertsnavn",
@@ -158,7 +165,7 @@
     "iban": "IBAN"
   },
   "types": {
-    "string": "streng",
+    "string": "tekst",
     "number": "tall",
     "int": "heltall",
     "bigint": "bigint",
@@ -174,7 +181,7 @@
     "tuple": "tuppel",
     "object": "objekt",
     "record": "record",
-    "map": "map",
+    "map": "tilordning",
     "set": "mengde",
     "file": "fil",
     "function": "funksjon",
