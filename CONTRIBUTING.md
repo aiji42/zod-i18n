@@ -28,6 +28,8 @@ The translations are shown to the end users of forms and APIs, so prefer clear, 
 - it uses only variables that exist for each key (e.g. `{{count}}`, `{{- options}}`)
 - plural keys (`_one`, `_few`, `_other`, ...) match the plural categories of that language. If your language doesn't inflect, use the plain key without a suffix.
 
+If the generic `errors.invalid_format.default` ("Invalid {{format}}") can't be grammatical for every format label in your language, add specific keys for the common formats, e.g. `errors.invalid_format.email`. Every key under `formats.*` can have one of these.
+
 Keep `{{- name}}` (with the dash) wherever the English file uses it. The dash disables HTML escaping for values that can contain quotes.
 
 ## Code

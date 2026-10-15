@@ -1,98 +1,98 @@
 {
   "errors": {
-    "invalid_type": "{{expected}}が必要ですが、{{received}}が入力されました。",
+    "invalid_type": "{{received}}ではなく{{expected}}を入力してください。",
     "invalid_type_received_undefined": "必須項目です。",
     "invalid_type_received_null": "必須項目です。",
-    "invalid_value": "無効な値です。{{- options}}のいずれかを入力してください。",
-    "invalid_value_single": "無効な値です。{{- expected}}を入力してください。",
+    "invalid_value": "{{- options}}のいずれかを指定してください。",
+    "invalid_value_single": "{{- expected}}を指定してください。",
     "invalid_format": {
       "default": "{{format}}の形式で入力してください。",
-      "regex": "入力形式が間違っています。",
-      "starts_with": "\"{{- prefix}}\"で始まる文字列である必要があります。",
-      "ends_with": "\"{{- suffix}}\"で終わる文字列である必要があります。",
-      "includes": "\"{{- includes}}\"を含む文字列である必要があります。",
+      "regex": "入力形式が正しくありません。",
+      "starts_with": "\"{{- prefix}}\"で始まる値を入力してください。",
+      "ends_with": "\"{{- suffix}}\"で終わる値を入力してください。",
+      "includes": "\"{{- includes}}\"を含む値を入力してください。",
       "lowercase": "小文字で入力してください。",
       "uppercase": "大文字で入力してください。"
     },
-    "not_multiple_of": "{{divisor}}の倍数である必要があります。",
-    "unrecognized_keys": "オブジェクトに認識できないキー（{{- keys}}）があります。",
-    "invalid_key": "{{origin}}に無効なキーがあります。",
-    "invalid_element": "{{origin}}に無効な値があります。",
-    "invalid_union": "入力形式が間違っています。",
-    "invalid_union_discriminator": "無効な識別子です。{{- options}}のいずれかを入力してください。",
-    "custom": "入力形式が間違っています。",
+    "not_multiple_of": "{{divisor}}の倍数を入力してください。",
+    "unrecognized_keys": "不明なキー（{{- keys}}）が含まれています。",
+    "invalid_key": "{{origin}}に無効なキーが含まれています。",
+    "invalid_element": "{{origin}}に無効な値が含まれています。",
+    "invalid_union": "入力内容が正しくありません。",
+    "invalid_union_discriminator": "{{- options}}のいずれかを指定してください。",
+    "custom": "入力内容が正しくありません。",
     "too_small": {
       "string": {
         "exact": "{{count}}文字で入力してください。",
         "inclusive": "{{count}}文字以上で入力してください。",
-        "not_inclusive": "{{count}}文字より長く入力してください。"
+        "not_inclusive": "{{count}}文字を超える長さで入力してください。"
       },
       "number": {
-        "exact": "{{minimum}}である必要があります。",
-        "inclusive": "{{minimum}}以上の数値である必要があります。",
-        "not_inclusive": "{{minimum}}より大きな数値である必要があります。"
+        "exact": "{{minimum}}を入力してください。",
+        "inclusive": "{{minimum}}以上の数値を入力してください。",
+        "not_inclusive": "{{minimum}}より大きい数値を入力してください。"
       },
       "array": {
-        "exact": "要素はちょうど{{count}}個である必要があります。",
-        "inclusive": "要素は{{count}}個以上である必要があります。",
-        "not_inclusive": "要素は{{count}}個より多い必要があります。"
+        "exact": "項目を{{count}}個指定してください。",
+        "inclusive": "項目を{{count}}個以上指定してください。",
+        "not_inclusive": "項目を{{count}}個より多く指定してください。"
       },
       "set": {
-        "exact": "要素はちょうど{{count}}個である必要があります。",
-        "inclusive": "要素は{{count}}個以上である必要があります。",
-        "not_inclusive": "要素は{{count}}個より多い必要があります。"
+        "exact": "項目を{{count}}個指定してください。",
+        "inclusive": "項目を{{count}}個以上指定してください。",
+        "not_inclusive": "項目を{{count}}個より多く指定してください。"
       },
       "map": {
-        "exact": "エントリはちょうど{{count}}件である必要があります。",
-        "inclusive": "エントリは{{count}}件以上である必要があります。",
-        "not_inclusive": "エントリは{{count}}件より多い必要があります。"
+        "exact": "エントリを{{count}}件指定してください。",
+        "inclusive": "エントリを{{count}}件以上指定してください。",
+        "not_inclusive": "エントリを{{count}}件より多く指定してください。"
       },
       "file": {
-        "exact": "ファイルサイズは{{count}}バイトである必要があります。",
-        "inclusive": "ファイルサイズは{{count}}バイト以上である必要があります。",
-        "not_inclusive": "ファイルサイズは{{count}}バイトより大きい必要があります。"
+        "exact": "ファイルサイズを{{count}}バイトにしてください。",
+        "inclusive": "ファイルサイズを{{count}}バイト以上にしてください。",
+        "not_inclusive": "ファイルサイズを{{count}}バイトより大きくしてください。"
       },
       "date": {
-        "exact": "{{- minimum, datetime}}の日時である必要があります。",
-        "inclusive": "{{- minimum, datetime}}以降の日時である必要があります。",
-        "not_inclusive": "{{- minimum, datetime}}より後の日時である必要があります。"
+        "exact": "{{- minimum, datetime}}を指定してください。",
+        "inclusive": "{{- minimum, datetime}}以降の日付を指定してください。",
+        "not_inclusive": "{{- minimum, datetime}}より後の日付を指定してください。"
       }
     },
     "too_big": {
       "string": {
         "exact": "{{count}}文字で入力してください。",
         "inclusive": "{{count}}文字以下で入力してください。",
-        "not_inclusive": "{{count}}文字より短く入力してください。"
+        "not_inclusive": "{{count}}文字未満で入力してください。"
       },
       "number": {
-        "exact": "{{maximum}}である必要があります。",
-        "inclusive": "{{maximum}}以下の数値である必要があります。",
-        "not_inclusive": "{{maximum}}より小さな数値である必要があります。"
+        "exact": "{{maximum}}を入力してください。",
+        "inclusive": "{{maximum}}以下の数値を入力してください。",
+        "not_inclusive": "{{maximum}}より小さい数値を入力してください。"
       },
       "array": {
-        "exact": "要素はちょうど{{count}}個である必要があります。",
-        "inclusive": "要素は{{count}}個以下である必要があります。",
-        "not_inclusive": "要素は{{count}}個より少ない必要があります。"
+        "exact": "項目を{{count}}個指定してください。",
+        "inclusive": "項目は{{count}}個以下にしてください。",
+        "not_inclusive": "項目は{{count}}個未満にしてください。"
       },
       "set": {
-        "exact": "要素はちょうど{{count}}個である必要があります。",
-        "inclusive": "要素は{{count}}個以下である必要があります。",
-        "not_inclusive": "要素は{{count}}個より少ない必要があります。"
+        "exact": "項目を{{count}}個指定してください。",
+        "inclusive": "項目は{{count}}個以下にしてください。",
+        "not_inclusive": "項目は{{count}}個未満にしてください。"
       },
       "map": {
-        "exact": "エントリはちょうど{{count}}件である必要があります。",
-        "inclusive": "エントリは{{count}}件以下である必要があります。",
-        "not_inclusive": "エントリは{{count}}件より少ない必要があります。"
+        "exact": "エントリを{{count}}件指定してください。",
+        "inclusive": "エントリは{{count}}件以下にしてください。",
+        "not_inclusive": "エントリは{{count}}件未満にしてください。"
       },
       "file": {
-        "exact": "ファイルサイズは{{count}}バイトである必要があります。",
-        "inclusive": "ファイルサイズは{{count}}バイト以下である必要があります。",
-        "not_inclusive": "ファイルサイズは{{count}}バイトより小さい必要があります。"
+        "exact": "ファイルサイズを{{count}}バイトにしてください。",
+        "inclusive": "ファイルサイズを{{count}}バイト以下にしてください。",
+        "not_inclusive": "ファイルサイズを{{count}}バイト未満にしてください。"
       },
       "date": {
-        "exact": "{{- maximum, datetime}}の日時である必要があります。",
-        "inclusive": "{{- maximum, datetime}}以前の日時である必要があります。",
-        "not_inclusive": "{{- maximum, datetime}}より前の日時である必要があります。"
+        "exact": "{{- maximum, datetime}}を指定してください。",
+        "inclusive": "{{- maximum, datetime}}以前の日付を指定してください。",
+        "not_inclusive": "{{- maximum, datetime}}より前の日付を指定してください。"
       }
     }
   },
@@ -138,7 +138,7 @@
     "nan": "NaN",
     "void": "void",
     "never": "never",
-    "date": "日時",
+    "date": "日付",
     "array": "配列",
     "tuple": "タプル",
     "object": "オブジェクト",

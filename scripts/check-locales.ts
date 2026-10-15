@@ -51,6 +51,16 @@ for (const [key, message] of reference) {
   referenceVars.set(base, vars);
 }
 
+// Optional per-format overrides (e.g. `errors.invalid_format.email`) let languages with
+// grammatical gender avoid the generic "Invalid {{format}}" template.
+const optionalVars = new Map<string, Set<string>>();
+const formatDefaultVars = referenceVars.get("errors.invalid_format.default") ?? new Set();
+for (const key of reference.keys())
+  if (key.startsWith("formats.")) {
+    const override = `errors.invalid_format.${key.slice("formats.".length)}`;
+    if (!referenceVars.has(override)) optionalVars.set(override, formatDefaultVars);
+  }
+
 const errors: string[] = [];
 
 for (const locale of locales) {
@@ -69,7 +79,7 @@ for (const locale of locales) {
   for (const [key, message] of messages) {
     const base = baseKey(key);
     present.add(base);
-    const allowed = referenceVars.get(base);
+    const allowed = referenceVars.get(base) ?? optionalVars.get(base);
     if (!allowed) {
       errors.push(`${locale}: unknown key "${key}"`);
       continue;
