@@ -3,111 +3,212 @@
     "invalid_type": "Očekivano: {{expected}}, uneseno: {{received}}",
     "invalid_type_received_undefined": "Obvezno polje",
     "invalid_type_received_null": "Obvezno polje",
-    "invalid_literal": "Neispravna literalna vrijednost, očekivano {{expected}}",
-    "unrecognized_keys": "Neprepoznat(i) ključ(evi) u objektu: {{- keys}}",
-    "invalid_union": "Neispravan unos",
-    "invalid_union_discriminator": "Neispravna vrijednost diskriminatora. Očekivano {{- options}}",
-    "invalid_enum_value": "Neispravna vrijednost enumeracije. Očekivano {{- options}}, uneseno '{{received}}'",
-    "invalid_arguments": "Neispravni argumenti funkcije",
-    "invalid_return_type": "Neispravan tip povratne vrijednosti",
-    "invalid_date": "Neispravan datum",
-    "custom": "Neispravan unos",
-    "invalid_intersection_types": "Rezultati presjecanja nisu se mogli spojiti",
-    "not_multiple_of": "Broj mora biti višekratnik od {{multipleOf}}",
-    "not_finite": "Broj mora biti konačan",
-    "invalid_string": {
-      "email": "Neispravan {{validation}}",
-      "url": "Neispravan {{validation}}",
-      "uuid": "Neispravan {{validation}}",
-      "cuid": "Neispravan {{validation}}",
-      "regex": "Neispravno",
-      "datetime": "Neispravan {{validation}}",
-      "startsWith": "Neispravan unos: mora započeti s \"{{startsWith}}\"",
-      "endsWith": "Neispravan unos: mora završiti s \"{{endsWith}}\""
+    "invalid_value": "Neispravna vrijednost: očekuje se jedno od {{- options}}",
+    "invalid_value_single": "Neispravna vrijednost: očekuje se {{- expected}}",
+    "invalid_format": {
+      "default": "Neispravan format: očekuje se {{format}}",
+      "regex": "Neispravan format",
+      "starts_with": "Mora započinjati s \"{{- prefix}}\"",
+      "ends_with": "Mora završavati s \"{{- suffix}}\"",
+      "includes": "Mora sadržavati \"{{- includes}}\"",
+      "lowercase": "Smije sadržavati samo mala slova",
+      "uppercase": "Smije sadržavati samo velika slova"
     },
+    "not_multiple_of": "Broj mora biti višekratnik od {{divisor}}",
+    "unrecognized_keys_one": "Neprepoznat ključ u objektu: {{- keys}}",
+    "unrecognized_keys_few": "Neprepoznati ključevi u objektu: {{- keys}}",
+    "unrecognized_keys_other": "Neprepoznati ključevi u objektu: {{- keys}}",
+    "invalid_key": "Neispravan ključ u vrijednosti tipa {{origin}}",
+    "invalid_element": "Neispravna stavka u vrijednosti tipa {{origin}}",
+    "invalid_union": "Neispravan unos",
+    "invalid_union_discriminator": "Neispravna vrijednost diskriminatora. Očekuje se {{- options}}",
+    "custom": "Neispravan unos",
     "too_small": {
-      "array": {
-        "exact": "Niz mora sadržavati točno {{minimum}} element(a)",
-        "inclusive": "Niz mora sadržavati barem {{minimum}} element(a)",
-        "not_inclusive": "Niz mora sadržavati više od {{minimum}} element(a)"
-      },
       "string": {
-        "exact": "Tekst mora sadržavati točno {{minimum}} znak(ova)",
-        "inclusive": "Tekst mora sadržavati barem {{minimum}} znak(ova)",
-        "not_inclusive": "Tekst mora sadržavati više od {{minimum}} znak(ova)"
+        "exact_one": "Tekst mora sadržavati točno {{count}} znak",
+        "exact_few": "Tekst mora sadržavati točno {{count}} znaka",
+        "exact_other": "Tekst mora sadržavati točno {{count}} znakova",
+        "inclusive_one": "Tekst mora sadržavati najmanje {{count}} znak",
+        "inclusive_few": "Tekst mora sadržavati najmanje {{count}} znaka",
+        "inclusive_other": "Tekst mora sadržavati najmanje {{count}} znakova",
+        "not_inclusive_one": "Tekst mora sadržavati više od {{count}} znaka",
+        "not_inclusive_few": "Tekst mora sadržavati više od {{count}} znaka",
+        "not_inclusive_other": "Tekst mora sadržavati više od {{count}} znakova"
       },
       "number": {
         "exact": "Broj mora biti točno {{minimum}}",
         "inclusive": "Broj mora biti veći od ili jednak {{minimum}}",
         "not_inclusive": "Broj mora biti veći od {{minimum}}"
       },
+      "array": {
+        "exact_one": "Niz mora sadržavati točno {{count}} element",
+        "exact_few": "Niz mora sadržavati točno {{count}} elementa",
+        "exact_other": "Niz mora sadržavati točno {{count}} elemenata",
+        "inclusive_one": "Niz mora sadržavati najmanje {{count}} element",
+        "inclusive_few": "Niz mora sadržavati najmanje {{count}} elementa",
+        "inclusive_other": "Niz mora sadržavati najmanje {{count}} elemenata",
+        "not_inclusive_one": "Niz mora sadržavati više od {{count}} elementa",
+        "not_inclusive_few": "Niz mora sadržavati više od {{count}} elementa",
+        "not_inclusive_other": "Niz mora sadržavati više od {{count}} elemenata"
+      },
       "set": {
-        "exact": "Neispravan unos",
-        "inclusive": "Neispravan unos",
-        "not_inclusive": "Neispravan unos"
+        "exact_one": "Skup mora sadržavati točno {{count}} stavku",
+        "exact_few": "Skup mora sadržavati točno {{count}} stavke",
+        "exact_other": "Skup mora sadržavati točno {{count}} stavki",
+        "inclusive_one": "Skup mora sadržavati najmanje {{count}} stavku",
+        "inclusive_few": "Skup mora sadržavati najmanje {{count}} stavke",
+        "inclusive_other": "Skup mora sadržavati najmanje {{count}} stavki",
+        "not_inclusive_one": "Skup mora sadržavati više od {{count}} stavke",
+        "not_inclusive_few": "Skup mora sadržavati više od {{count}} stavke",
+        "not_inclusive_other": "Skup mora sadržavati više od {{count}} stavki"
+      },
+      "map": {
+        "exact_one": "Mapa mora sadržavati točno {{count}} unos",
+        "exact_few": "Mapa mora sadržavati točno {{count}} unosa",
+        "exact_other": "Mapa mora sadržavati točno {{count}} unosa",
+        "inclusive_one": "Mapa mora sadržavati najmanje {{count}} unos",
+        "inclusive_few": "Mapa mora sadržavati najmanje {{count}} unosa",
+        "inclusive_other": "Mapa mora sadržavati najmanje {{count}} unosa",
+        "not_inclusive_one": "Mapa mora sadržavati više od {{count}} unosa",
+        "not_inclusive_few": "Mapa mora sadržavati više od {{count}} unosa",
+        "not_inclusive_other": "Mapa mora sadržavati više od {{count}} unosa"
+      },
+      "file": {
+        "exact_one": "Datoteka mora imati točno {{count}} bajt",
+        "exact_few": "Datoteka mora imati točno {{count}} bajta",
+        "exact_other": "Datoteka mora imati točno {{count}} bajtova",
+        "inclusive_one": "Datoteka mora imati najmanje {{count}} bajt",
+        "inclusive_few": "Datoteka mora imati najmanje {{count}} bajta",
+        "inclusive_other": "Datoteka mora imati najmanje {{count}} bajtova",
+        "not_inclusive_one": "Datoteka mora biti veća od {{count}} bajta",
+        "not_inclusive_few": "Datoteka mora biti veća od {{count}} bajta",
+        "not_inclusive_other": "Datoteka mora biti veća od {{count}} bajtova"
       },
       "date": {
         "exact": "Datum mora biti točno {{- minimum, datetime}}",
-        "inclusive": "Datum mora biti veći od ili jednak {{- minimum, datetime}}",
-        "not_inclusive": "Datum mora biti veći od {{- minimum, datetime}}"
+        "inclusive": "Datum ne smije biti prije {{- minimum, datetime}}",
+        "not_inclusive": "Datum mora biti nakon {{- minimum, datetime}}"
       }
     },
     "too_big": {
-      "array": {
-        "exact": "Niz mora sadržavati točno {{maximum}} element(a)",
-        "inclusive": "Niz mora sadržavati najviše {{maximum}} element(a)",
-        "not_inclusive": "Niz mora sadržavati manje od {{maximum}} element(a)"
-      },
       "string": {
-        "exact": "Tekst mora sadržavati točno {{maximum}} znak(ova)",
-        "inclusive": "Tekst mora sadržavati najviše {{maximum}} znak(ova)",
-        "not_inclusive": "Tekst mora sadržavati manje od {{maximum}} znak(ova)"
+        "exact_one": "Tekst mora sadržavati točno {{count}} znak",
+        "exact_few": "Tekst mora sadržavati točno {{count}} znaka",
+        "exact_other": "Tekst mora sadržavati točno {{count}} znakova",
+        "inclusive_one": "Tekst smije sadržavati najviše {{count}} znak",
+        "inclusive_few": "Tekst smije sadržavati najviše {{count}} znaka",
+        "inclusive_other": "Tekst smije sadržavati najviše {{count}} znakova",
+        "not_inclusive_one": "Tekst mora sadržavati manje od {{count}} znaka",
+        "not_inclusive_few": "Tekst mora sadržavati manje od {{count}} znaka",
+        "not_inclusive_other": "Tekst mora sadržavati manje od {{count}} znakova"
       },
       "number": {
         "exact": "Broj mora biti točno {{maximum}}",
         "inclusive": "Broj mora biti manji od ili jednak {{maximum}}",
         "not_inclusive": "Broj mora biti manji od {{maximum}}"
       },
+      "array": {
+        "exact_one": "Niz mora sadržavati točno {{count}} element",
+        "exact_few": "Niz mora sadržavati točno {{count}} elementa",
+        "exact_other": "Niz mora sadržavati točno {{count}} elemenata",
+        "inclusive_one": "Niz smije sadržavati najviše {{count}} element",
+        "inclusive_few": "Niz smije sadržavati najviše {{count}} elementa",
+        "inclusive_other": "Niz smije sadržavati najviše {{count}} elemenata",
+        "not_inclusive_one": "Niz mora sadržavati manje od {{count}} elementa",
+        "not_inclusive_few": "Niz mora sadržavati manje od {{count}} elementa",
+        "not_inclusive_other": "Niz mora sadržavati manje od {{count}} elemenata"
+      },
       "set": {
-        "exact": "Neispravan unos",
-        "inclusive": "Neispravan unos",
-        "not_inclusive": "Neispravan unos"
+        "exact_one": "Skup mora sadržavati točno {{count}} stavku",
+        "exact_few": "Skup mora sadržavati točno {{count}} stavke",
+        "exact_other": "Skup mora sadržavati točno {{count}} stavki",
+        "inclusive_one": "Skup smije sadržavati najviše {{count}} stavku",
+        "inclusive_few": "Skup smije sadržavati najviše {{count}} stavke",
+        "inclusive_other": "Skup smije sadržavati najviše {{count}} stavki",
+        "not_inclusive_one": "Skup mora sadržavati manje od {{count}} stavke",
+        "not_inclusive_few": "Skup mora sadržavati manje od {{count}} stavke",
+        "not_inclusive_other": "Skup mora sadržavati manje od {{count}} stavki"
+      },
+      "map": {
+        "exact_one": "Mapa mora sadržavati točno {{count}} unos",
+        "exact_few": "Mapa mora sadržavati točno {{count}} unosa",
+        "exact_other": "Mapa mora sadržavati točno {{count}} unosa",
+        "inclusive_one": "Mapa smije sadržavati najviše {{count}} unos",
+        "inclusive_few": "Mapa smije sadržavati najviše {{count}} unosa",
+        "inclusive_other": "Mapa smije sadržavati najviše {{count}} unosa",
+        "not_inclusive_one": "Mapa mora sadržavati manje od {{count}} unosa",
+        "not_inclusive_few": "Mapa mora sadržavati manje od {{count}} unosa",
+        "not_inclusive_other": "Mapa mora sadržavati manje od {{count}} unosa"
+      },
+      "file": {
+        "exact_one": "Datoteka mora imati točno {{count}} bajt",
+        "exact_few": "Datoteka mora imati točno {{count}} bajta",
+        "exact_other": "Datoteka mora imati točno {{count}} bajtova",
+        "inclusive_one": "Datoteka smije imati najviše {{count}} bajt",
+        "inclusive_few": "Datoteka smije imati najviše {{count}} bajta",
+        "inclusive_other": "Datoteka smije imati najviše {{count}} bajtova",
+        "not_inclusive_one": "Datoteka mora biti manja od {{count}} bajta",
+        "not_inclusive_few": "Datoteka mora biti manja od {{count}} bajta",
+        "not_inclusive_other": "Datoteka mora biti manja od {{count}} bajtova"
       },
       "date": {
         "exact": "Datum mora biti točno {{- maximum, datetime}}",
-        "inclusive": "Datum mora biti manji od ili jednak {{- maximum, datetime}}",
-        "not_inclusive": "Datum mora biti manji od {{- maximum, datetime}}"
+        "inclusive": "Datum ne smije biti nakon {{- maximum, datetime}}",
+        "not_inclusive": "Datum mora biti prije {{- maximum, datetime}}"
       }
     }
   },
-  "validations": {
-    "email": "email",
-    "url": "url",
-    "uuid": "uuid",
+  "formats": {
+    "email": "email adresa",
+    "url": "URL",
+    "emoji": "emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
     "cuid": "cuid",
-    "regex": "regex",
-    "datetime": "datum i vrijeme"
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO datum i vrijeme",
+    "date": "ISO datum",
+    "time": "ISO vrijeme",
+    "duration": "ISO trajanje",
+    "ipv4": "IPv4 adresa",
+    "ipv6": "IPv6 adresa",
+    "mac": "MAC adresa",
+    "cidrv4": "IPv4 raspon",
+    "cidrv6": "IPv6 raspon",
+    "base64": "tekst kodiran u base64",
+    "base64url": "tekst kodiran u base64url",
+    "json_string": "JSON tekst",
+    "e164": "telefonski broj u formatu E.164",
+    "jwt": "JWT",
+    "hostname": "naziv hosta",
+    "credit_card": "broj kreditne kartice",
+    "iban": "IBAN"
   },
   "types": {
-    "function": "funkcija",
-    "number": "broj",
     "string": "tekst",
-    "nan": "nan",
-    "integer": "broj",
-    "float": "decimalni broj",
-    "boolean": "boolean",
-    "date": "datum",
-    "bigint": "broj",
-    "undefined": "nedefinirana vrijednost",
+    "number": "broj",
+    "int": "cijeli broj",
+    "bigint": "veliki cijeli broj",
+    "boolean": "logička vrijednost",
     "symbol": "simbol",
+    "undefined": "nedefinirana vrijednost",
     "null": "null",
-    "array": "niz",
-    "object": "objekt",
-    "unknown": "nepoznato",
-    "promise": "promise",
+    "nan": "NaN",
     "void": "void",
-    "never": "nikad",
+    "never": "never",
+    "date": "datum",
+    "array": "niz",
+    "tuple": "n-torka",
+    "object": "objekt",
+    "record": "zapis",
     "map": "mapa",
-    "set": "set"
+    "set": "skup",
+    "file": "datoteka",
+    "function": "funkcija",
+    "promise": "Promise"
   }
 }
