@@ -1,105 +1,105 @@
 {
   "errors": {
-    "invalid_type": "Kutilgan tur: {{expected}}, qabul qilingan tur: {{received}}",
+    "invalid_type": "Notoʻgʻri tur: {{expected}} kutilgan, {{received}} kiritilgan",
     "invalid_type_received_undefined": "Majburiy maydon",
     "invalid_type_received_null": "Majburiy maydon",
-    "invalid_value": "Noto'g'ri qiymat. Quyidagilardan biri kutilgan: {{- options}}",
-    "invalid_value_single": "Noto'g'ri qiymat. Kutilgan: {{- expected}}",
+    "invalid_value": "Notoʻgʻri qiymat. Quyidagilardan biri boʻlishi kerak: {{- options}}",
+    "invalid_value_single": "Qiymat {{- expected}} boʻlishi kerak",
     "invalid_format": {
-      "default": "Noto'g'ri {{format}}",
-      "regex": "Noto'g'ri format",
+      "default": "Notoʻgʻri {{format}}",
+      "regex": "Notoʻgʻri format",
       "starts_with": "\"{{- prefix}}\" bilan boshlanishi kerak",
       "ends_with": "\"{{- suffix}}\" bilan tugashi kerak",
-      "includes": "Tarkibida \"{{- includes}}\" bo'lishi kerak",
-      "lowercase": "Faqat kichik harflardan iborat bo'lishi kerak",
-      "uppercase": "Faqat katta harflardan iborat bo'lishi kerak"
+      "includes": "Tarkibida \"{{- includes}}\" boʻlishi kerak",
+      "lowercase": "Faqat kichik harflardan iborat boʻlishi kerak",
+      "uppercase": "Faqat katta harflardan iborat boʻlishi kerak"
     },
-    "not_multiple_of": "Son {{divisor}} ga karrali bo'lishi kerak",
-    "unrecognized_keys_one": "Obyektda noma'lum kalit: {{- keys}}",
-    "unrecognized_keys_other": "Obyektda noma'lum kalitlar: {{- keys}}",
-    "invalid_key": "Noto'g'ri kalit ({{origin}} ichida)",
-    "invalid_element": "Noto'g'ri qiymat ({{origin}} ichida)",
-    "invalid_union": "Noto'g'ri qiymat",
-    "invalid_union_discriminator": "Diskriminator qiymati noto'g'ri. Kutilgan: {{- options}}",
-    "custom": "Noto'g'ri qiymat",
+    "not_multiple_of": "Son {{divisor}}-ga karrali boʻlishi kerak",
+    "unrecognized_keys_one": "Obyektda nomaʼlum kalit bor: {{- keys}}",
+    "unrecognized_keys_other": "Obyektda nomaʼlum kalitlar bor: {{- keys}}",
+    "invalid_key": "Notoʻgʻri kalit ({{origin}} ichida)",
+    "invalid_element": "Notoʻgʻri qiymat ({{origin}} ichida)",
+    "invalid_union": "Notoʻgʻri qiymat",
+    "invalid_union_discriminator": "Ajratuvchi maydon qiymati notoʻgʻri. Quyidagilardan biri boʻlishi kerak: {{- options}}",
+    "custom": "Notoʻgʻri qiymat",
     "too_small": {
       "string": {
-        "exact": "Satr aynan {{count}} ta belgidan iborat bo'lishi kerak",
-        "inclusive": "Satr kamida {{count}} ta belgidan iborat bo'lishi kerak",
-        "not_inclusive": "Satr {{count}} ta belgidan ko'p bo'lishi kerak"
+        "exact": "Matn aynan {{count}} ta belgidan iborat boʻlishi kerak",
+        "inclusive": "Matn kamida {{count}} ta belgidan iborat boʻlishi kerak",
+        "not_inclusive": "Matnda {{count}} tadan ortiq belgi boʻlishi kerak"
       },
       "number": {
-        "exact": "Son aynan {{minimum}} bo'lishi kerak",
-        "inclusive": "Son {{minimum}} dan katta yoki unga teng bo'lishi kerak",
-        "not_inclusive": "Son {{minimum}} dan katta bo'lishi kerak"
+        "exact": "Son aynan {{minimum}} boʻlishi kerak",
+        "inclusive": "Son kamida {{minimum}} boʻlishi kerak",
+        "not_inclusive": "Son {{minimum}}-dan katta boʻlishi kerak"
       },
       "array": {
-        "exact": "Massivda aynan {{count}} ta element bo'lishi kerak",
-        "inclusive": "Massivda kamida {{count}} ta element bo'lishi kerak",
-        "not_inclusive": "Massivda {{count}} tadan ortiq element bo'lishi kerak"
+        "exact": "Massivda aynan {{count}} ta element boʻlishi kerak",
+        "inclusive": "Massivda kamida {{count}} ta element boʻlishi kerak",
+        "not_inclusive": "Massivda {{count}} tadan ortiq element boʻlishi kerak"
       },
       "set": {
-        "exact": "To'plamda aynan {{count}} ta element bo'lishi kerak",
-        "inclusive": "To'plamda kamida {{count}} ta element bo'lishi kerak",
-        "not_inclusive": "To'plamda {{count}} tadan ortiq element bo'lishi kerak"
+        "exact": "Toʻplamda aynan {{count}} ta element boʻlishi kerak",
+        "inclusive": "Toʻplamda kamida {{count}} ta element boʻlishi kerak",
+        "not_inclusive": "Toʻplamda {{count}} tadan ortiq element boʻlishi kerak"
       },
       "map": {
-        "exact": "Xesh jadvalida aynan {{count}} ta yozuv bo'lishi kerak",
-        "inclusive": "Xesh jadvalida kamida {{count}} ta yozuv bo'lishi kerak",
-        "not_inclusive": "Xesh jadvalida {{count}} tadan ortiq yozuv bo'lishi kerak"
+        "exact": "Map tarkibida aynan {{count}} ta element boʻlishi kerak",
+        "inclusive": "Map tarkibida kamida {{count}} ta element boʻlishi kerak",
+        "not_inclusive": "Map tarkibida {{count}} tadan ortiq element boʻlishi kerak"
       },
       "file": {
-        "exact": "Fayl hajmi aynan {{count}} bayt bo'lishi kerak",
-        "inclusive": "Fayl hajmi kamida {{count}} bayt bo'lishi kerak",
-        "not_inclusive": "Fayl hajmi {{count}} baytdan katta bo'lishi kerak"
+        "exact": "Fayl hajmi aynan {{count}} bayt boʻlishi kerak",
+        "inclusive": "Fayl hajmi kamida {{count}} bayt boʻlishi kerak",
+        "not_inclusive": "Fayl hajmi {{count}} baytdan katta boʻlishi kerak"
       },
       "date": {
-        "exact": "Sana aynan {{- minimum, datetime}} bo'lishi kerak",
-        "inclusive": "Sana {{- minimum, datetime}} yoki undan keyin bo'lishi kerak",
-        "not_inclusive": "Sana {{- minimum, datetime}} dan keyin bo'lishi kerak"
+        "exact": "Sana aynan {{- minimum, datetime}} boʻlishi kerak",
+        "inclusive": "Sana {{- minimum, datetime}} yoki undan keyin boʻlishi kerak",
+        "not_inclusive": "Sana {{- minimum, datetime}}-dan keyin boʻlishi kerak"
       }
     },
     "too_big": {
       "string": {
-        "exact": "Satr aynan {{count}} ta belgidan iborat bo'lishi kerak",
-        "inclusive": "Satr ko'pi bilan {{count}} ta belgidan iborat bo'lishi kerak",
-        "not_inclusive": "Satr {{count}} ta belgidan kam bo'lishi kerak"
+        "exact": "Matn aynan {{count}} ta belgidan iborat boʻlishi kerak",
+        "inclusive": "Matn koʻpi bilan {{count}} ta belgidan iborat boʻlishi kerak",
+        "not_inclusive": "Matnda {{count}} tadan kam belgi boʻlishi kerak"
       },
       "number": {
-        "exact": "Son aynan {{maximum}} bo'lishi kerak",
-        "inclusive": "Son {{maximum}} dan kichik yoki unga teng bo'lishi kerak",
-        "not_inclusive": "Son {{maximum}} dan kichik bo'lishi kerak"
+        "exact": "Son aynan {{maximum}} boʻlishi kerak",
+        "inclusive": "Son koʻpi bilan {{maximum}} boʻlishi kerak",
+        "not_inclusive": "Son {{maximum}}-dan kichik boʻlishi kerak"
       },
       "array": {
-        "exact": "Massivda aynan {{count}} ta element bo'lishi kerak",
-        "inclusive": "Massivda ko'pi bilan {{count}} ta element bo'lishi kerak",
-        "not_inclusive": "Massivda {{count}} tadan kam element bo'lishi kerak"
+        "exact": "Massivda aynan {{count}} ta element boʻlishi kerak",
+        "inclusive": "Massivda koʻpi bilan {{count}} ta element boʻlishi kerak",
+        "not_inclusive": "Massivda {{count}} tadan kam element boʻlishi kerak"
       },
       "set": {
-        "exact": "To'plamda aynan {{count}} ta element bo'lishi kerak",
-        "inclusive": "To'plamda ko'pi bilan {{count}} ta element bo'lishi kerak",
-        "not_inclusive": "To'plamda {{count}} tadan kam element bo'lishi kerak"
+        "exact": "Toʻplamda aynan {{count}} ta element boʻlishi kerak",
+        "inclusive": "Toʻplamda koʻpi bilan {{count}} ta element boʻlishi kerak",
+        "not_inclusive": "Toʻplamda {{count}} tadan kam element boʻlishi kerak"
       },
       "map": {
-        "exact": "Xesh jadvalida aynan {{count}} ta yozuv bo'lishi kerak",
-        "inclusive": "Xesh jadvalida ko'pi bilan {{count}} ta yozuv bo'lishi kerak",
-        "not_inclusive": "Xesh jadvalida {{count}} tadan kam yozuv bo'lishi kerak"
+        "exact": "Map tarkibida aynan {{count}} ta element boʻlishi kerak",
+        "inclusive": "Map tarkibida koʻpi bilan {{count}} ta element boʻlishi kerak",
+        "not_inclusive": "Map tarkibida {{count}} tadan kam element boʻlishi kerak"
       },
       "file": {
-        "exact": "Fayl hajmi aynan {{count}} bayt bo'lishi kerak",
-        "inclusive": "Fayl hajmi ko'pi bilan {{count}} bayt bo'lishi kerak",
-        "not_inclusive": "Fayl hajmi {{count}} baytdan kichik bo'lishi kerak"
+        "exact": "Fayl hajmi aynan {{count}} bayt boʻlishi kerak",
+        "inclusive": "Fayl hajmi koʻpi bilan {{count}} bayt boʻlishi kerak",
+        "not_inclusive": "Fayl hajmi {{count}} baytdan kichik boʻlishi kerak"
       },
       "date": {
-        "exact": "Sana aynan {{- maximum, datetime}} bo'lishi kerak",
-        "inclusive": "Sana {{- maximum, datetime}} yoki undan oldin bo'lishi kerak",
-        "not_inclusive": "Sana {{- maximum, datetime}} dan oldin bo'lishi kerak"
+        "exact": "Sana aynan {{- maximum, datetime}} boʻlishi kerak",
+        "inclusive": "Sana {{- maximum, datetime}} yoki undan oldin boʻlishi kerak",
+        "not_inclusive": "Sana {{- maximum, datetime}}-dan oldin boʻlishi kerak"
       }
     }
   },
   "formats": {
     "email": "elektron pochta manzili",
-    "url": "URL",
+    "url": "URL manzil",
     "emoji": "emoji",
     "uuid": "UUID",
     "guid": "GUID",
@@ -116,11 +116,11 @@
     "ipv4": "IPv4 manzil",
     "ipv6": "IPv6 manzil",
     "mac": "MAC manzil",
-    "cidrv4": "IPv4 diapazon",
-    "cidrv6": "IPv6 diapazon",
-    "base64": "base64 kodlangan satr",
-    "base64url": "base64url kodlangan satr",
-    "json_string": "JSON satr",
+    "cidrv4": "IPv4 manzillar diapazoni",
+    "cidrv6": "IPv6 manzillar diapazoni",
+    "base64": "base64 kodlangan matn",
+    "base64url": "base64url kodlangan matn",
+    "json_string": "JSON matn",
     "e164": "E.164 telefon raqami",
     "jwt": "JWT",
     "hostname": "xost nomi",
@@ -128,7 +128,7 @@
     "iban": "IBAN"
   },
   "types": {
-    "string": "satr",
+    "string": "matn",
     "number": "son",
     "int": "butun son",
     "bigint": "katta butun son",
@@ -143,9 +143,9 @@
     "array": "massiv",
     "tuple": "kortej",
     "object": "obyekt",
-    "record": "lug'at",
-    "map": "xesh jadvali",
-    "set": "to'plam",
+    "record": "lugʻat",
+    "map": "Map",
+    "set": "toʻplam",
     "file": "fayl",
     "function": "funksiya",
     "promise": "Promise"

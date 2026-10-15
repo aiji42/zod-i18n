@@ -162,7 +162,13 @@ const translateOrUndefined = (
   values: Record<string, unknown>,
   ns: string | readonly string[],
 ): string | undefined => {
-  const message = t(key, { ...values, ns, defaultValue: MISSING });
+  // Messages are plain text, not HTML: escaping would turn labels like "nom d'hôte" into "nom d&#39;hôte".
+  const message = t(key, {
+    ...values,
+    ns,
+    defaultValue: MISSING,
+    interpolation: { escapeValue: false },
+  });
   return typeof message === "string" && message !== MISSING ? message : undefined;
 };
 

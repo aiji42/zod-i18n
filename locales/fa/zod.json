@@ -1,10 +1,10 @@
 {
   "errors": {
-    "invalid_type": "{{expected}} مورد انتظار بود، {{received}} دریافت شد",
-    "invalid_type_received_undefined": "الزامی است",
-    "invalid_type_received_null": "الزامی است",
-    "invalid_value": "گزینهٔ نامعتبر: باید یکی از {{- options}} باشد",
-    "invalid_value_single": "ورودی نامعتبر: باید {{- expected}} باشد",
+    "invalid_type": "مقدار باید از نوع {{expected}} باشد، اما {{received}} دریافت شد",
+    "invalid_type_received_undefined": "این فیلد الزامی است",
+    "invalid_type_received_null": "این فیلد الزامی است",
+    "invalid_value": "مقدار باید یکی از این موارد باشد: {{- options}}",
+    "invalid_value_single": "مقدار باید {{- expected}} باشد",
     "invalid_format": {
       "default": "{{format}} نامعتبر است",
       "regex": "قالب نامعتبر است",
@@ -15,13 +15,13 @@
       "uppercase": "باید با حروف بزرگ باشد"
     },
     "not_multiple_of": "عدد باید مضربی از {{divisor}} باشد",
-    "unrecognized_keys_one": "کلید ناشناخته در شیء: {{- keys}}",
-    "unrecognized_keys_other": "کلیدهای ناشناخته در شیء: {{- keys}}",
-    "invalid_key": "کلید نامعتبر در {{origin}}",
-    "invalid_element": "مقدار نامعتبر در {{origin}}",
-    "invalid_union": "ورودی نامعتبر",
-    "invalid_union_discriminator": "مقدار تفکیک‌کنندهٔ نامعتبر. مورد انتظار: {{- options}}",
-    "custom": "ورودی نامعتبر",
+    "unrecognized_keys_one": "شیء شامل کلید ناشناخته است: {{- keys}}",
+    "unrecognized_keys_other": "شیء شامل کلیدهای ناشناخته است: {{- keys}}",
+    "invalid_key": "{{origin}} شامل کلید نامعتبر است",
+    "invalid_element": "{{origin}} شامل مقدار نامعتبر است",
+    "invalid_union": "ورودی نامعتبر است",
+    "invalid_union_discriminator": "مقدار فیلد تفکیک‌کننده نامعتبر است. باید یکی از این موارد باشد: {{- options}}",
+    "custom": "ورودی نامعتبر است",
     "too_small": {
       "string": {
         "exact": "متن باید دقیقاً {{count}} کاراکتر داشته باشد",
@@ -30,7 +30,7 @@
       },
       "number": {
         "exact": "عدد باید دقیقاً {{minimum}} باشد",
-        "inclusive": "عدد باید بزرگ‌تر یا مساوی {{minimum}} باشد",
+        "inclusive": "عدد باید حداقل {{minimum}} باشد",
         "not_inclusive": "عدد باید بزرگ‌تر از {{minimum}} باشد"
       },
       "array": {
@@ -51,7 +51,7 @@
       "file": {
         "exact": "حجم فایل باید دقیقاً {{count}} بایت باشد",
         "inclusive": "حجم فایل باید حداقل {{count}} بایت باشد",
-        "not_inclusive": "حجم فایل باید بیشتر از {{count}} بایت باشد"
+        "not_inclusive": "حجم فایل باید بیش از {{count}} بایت باشد"
       },
       "date": {
         "exact": "تاریخ باید دقیقاً {{- minimum, datetime}} باشد",
@@ -67,7 +67,7 @@
       },
       "number": {
         "exact": "عدد باید دقیقاً {{maximum}} باشد",
-        "inclusive": "عدد باید کوچک‌تر یا مساوی {{maximum}} باشد",
+        "inclusive": "عدد باید حداکثر {{maximum}} باشد",
         "not_inclusive": "عدد باید کوچک‌تر از {{maximum}} باشد"
       },
       "array": {
@@ -116,16 +116,16 @@
     "ipv4": "آدرس IPv4",
     "ipv6": "آدرس IPv6",
     "mac": "آدرس MAC",
-    "cidrv4": "محدودهٔ IPv4",
-    "cidrv6": "محدودهٔ IPv6",
-    "base64": "رشتهٔ base64",
-    "base64url": "رشتهٔ base64url",
-    "json_string": "رشتهٔ JSON",
-    "e164": "شماره تلفن E.164",
+    "cidrv4": "محدودهٔ آدرس IPv4",
+    "cidrv6": "محدودهٔ آدرس IPv6",
+    "base64": "متن کدگذاری‌شده با base64",
+    "base64url": "متن کدگذاری‌شده با base64url",
+    "json_string": "متن JSON",
+    "e164": "شمارهٔ تلفن E.164",
     "jwt": "JWT",
     "hostname": "نام میزبان",
-    "credit_card": "شماره کارت اعتباری",
-    "iban": "شماره IBAN"
+    "credit_card": "شمارهٔ کارت اعتباری",
+    "iban": "شمارهٔ IBAN"
   },
   "types": {
     "string": "متن",

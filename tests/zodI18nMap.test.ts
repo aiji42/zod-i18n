@@ -82,6 +82,21 @@ describe("English messages", () => {
   });
 });
 
+test("inserted labels are not HTML-escaped", async () => {
+  await i18next.init({
+    lng: "fr",
+    resources: {
+      fr: {
+        zod: {
+          errors: { invalid_format: { default: "{{format}} non valide" } },
+          formats: { hostname: "nom d'hôte" },
+        },
+      },
+    },
+  });
+  expect(messageOf(z.hostname(), "-")).toBe("nom d'hôte non valide");
+});
+
 describe("fallback", () => {
   test("missing keys defer to Zod's own message", async () => {
     await i18next.init({ lng: "en", resources: { en: { zod: {} } } });

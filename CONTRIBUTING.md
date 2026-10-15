@@ -30,7 +30,7 @@ The translations are shown to the end users of forms and APIs, so prefer clear, 
 
 If the generic `errors.invalid_format.default` ("Invalid {{format}}") can't be grammatical for every format label in your language, add specific keys for the common formats, e.g. `errors.invalid_format.email`. Every key under `formats.*` can have one of these.
 
-Keep `{{- name}}` (with the dash) wherever the English file uses it. The dash disables HTML escaping for values that can contain quotes.
+Messages are plain text: the library turns off i18next's HTML escaping, so `{{name}}` and `{{- name}}` behave the same. Keep the English file's form for consistency.
 
 ## Code
 

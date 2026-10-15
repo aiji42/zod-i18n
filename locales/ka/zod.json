@@ -1,10 +1,10 @@
 {
   "errors": {
-    "invalid_type": "მოსალოდნელი იყო {{expected}}, მიღებულია {{received}}",
-    "invalid_type_received_undefined": "სავალდებულოა",
-    "invalid_type_received_null": "სავალდებულოა",
-    "invalid_value": "არასწორი მნიშვნელობა. მოსალოდნელი იყო ერთ-ერთი: {{- options}}",
-    "invalid_value_single": "არასწორი მონაცემი. მოსალოდნელი იყო {{- expected}}",
+    "invalid_type": "მოსალოდნელი ტიპი: {{expected}}, მიღებული ტიპი: {{received}}",
+    "invalid_type_received_undefined": "ველი სავალდებულოა",
+    "invalid_type_received_null": "ველი სავალდებულოა",
+    "invalid_value": "არასწორი მნიშვნელობა. უნდა იყოს ერთ-ერთი შემდეგიდან: {{- options}}",
+    "invalid_value_single": "მნიშვნელობა უნდა იყოს {{- expected}}",
     "invalid_format": {
       "default": "არასწორი {{format}}",
       "regex": "არასწორი ფორმატი",
@@ -17,20 +17,20 @@
     "not_multiple_of": "რიცხვი უნდა იყოს {{divisor}}-ის ჯერადი",
     "unrecognized_keys_one": "ობიექტში უცნობი გასაღებია: {{- keys}}",
     "unrecognized_keys_other": "ობიექტში უცნობი გასაღებებია: {{- keys}}",
-    "invalid_key": "არასწორი გასაღები {{origin}}-ში",
-    "invalid_element": "არასწორი მნიშვნელობა {{origin}}-ში",
-    "invalid_union": "არასწორი მონაცემი",
-    "invalid_union_discriminator": "დისკრიმინატორის არასწორი მნიშვნელობა. მოსალოდნელი იყო: {{- options}}",
-    "custom": "არასწორი მონაცემი",
+    "invalid_key": "{{origin}} შეიცავს არასწორ გასაღებს",
+    "invalid_element": "{{origin}} შეიცავს არასწორ მნიშვნელობას",
+    "invalid_union": "არასწორი მნიშვნელობა",
+    "invalid_union_discriminator": "დისკრიმინატორის არასწორი მნიშვნელობა. უნდა იყოს ერთ-ერთი შემდეგიდან: {{- options}}",
+    "custom": "არასწორი მნიშვნელობა",
     "too_small": {
       "string": {
-        "exact": "სტრიქონი უნდა შეიცავდეს ზუსტად {{count}} სიმბოლოს",
-        "inclusive": "სტრიქონი უნდა შეიცავდეს მინიმუმ {{count}} სიმბოლოს",
-        "not_inclusive": "სტრიქონი უნდა შეიცავდეს {{count}}-ზე მეტ სიმბოლოს"
+        "exact": "ტექსტი უნდა შეიცავდეს ზუსტად {{count}} სიმბოლოს",
+        "inclusive": "ტექსტი უნდა შეიცავდეს მინიმუმ {{count}} სიმბოლოს",
+        "not_inclusive": "ტექსტი უნდა შეიცავდეს {{count}}-ზე მეტ სიმბოლოს"
       },
       "number": {
         "exact": "რიცხვი უნდა იყოს ზუსტად {{minimum}}",
-        "inclusive": "რიცხვი უნდა იყოს {{minimum}}-ის ტოლი ან მეტი",
+        "inclusive": "რიცხვი უნდა იყოს მინიმუმ {{minimum}}",
         "not_inclusive": "რიცხვი უნდა იყოს {{minimum}}-ზე მეტი"
       },
       "array": {
@@ -44,9 +44,9 @@
         "not_inclusive": "სიმრავლე უნდა შეიცავდეს {{count}}-ზე მეტ ელემენტს"
       },
       "map": {
-        "exact": "Map უნდა შეიცავდეს ზუსტად {{count}} ჩანაწერს",
-        "inclusive": "Map უნდა შეიცავდეს მინიმუმ {{count}} ჩანაწერს",
-        "not_inclusive": "Map უნდა შეიცავდეს {{count}}-ზე მეტ ჩანაწერს"
+        "exact": "Map უნდა შეიცავდეს ზუსტად {{count}} ელემენტს",
+        "inclusive": "Map უნდა შეიცავდეს მინიმუმ {{count}} ელემენტს",
+        "not_inclusive": "Map უნდა შეიცავდეს {{count}}-ზე მეტ ელემენტს"
       },
       "file": {
         "exact": "ფაილის ზომა უნდა იყოს ზუსტად {{count}} ბაიტი",
@@ -61,13 +61,13 @@
     },
     "too_big": {
       "string": {
-        "exact": "სტრიქონი უნდა შეიცავდეს ზუსტად {{count}} სიმბოლოს",
-        "inclusive": "სტრიქონი უნდა შეიცავდეს მაქსიმუმ {{count}} სიმბოლოს",
-        "not_inclusive": "სტრიქონი უნდა შეიცავდეს {{count}}-ზე ნაკლებ სიმბოლოს"
+        "exact": "ტექსტი უნდა შეიცავდეს ზუსტად {{count}} სიმბოლოს",
+        "inclusive": "ტექსტი უნდა შეიცავდეს მაქსიმუმ {{count}} სიმბოლოს",
+        "not_inclusive": "ტექსტი უნდა შეიცავდეს {{count}}-ზე ნაკლებ სიმბოლოს"
       },
       "number": {
         "exact": "რიცხვი უნდა იყოს ზუსტად {{maximum}}",
-        "inclusive": "რიცხვი უნდა იყოს {{maximum}}-ის ტოლი ან ნაკლები",
+        "inclusive": "რიცხვი უნდა იყოს მაქსიმუმ {{maximum}}",
         "not_inclusive": "რიცხვი უნდა იყოს {{maximum}}-ზე ნაკლები"
       },
       "array": {
@@ -81,9 +81,9 @@
         "not_inclusive": "სიმრავლე უნდა შეიცავდეს {{count}}-ზე ნაკლებ ელემენტს"
       },
       "map": {
-        "exact": "Map უნდა შეიცავდეს ზუსტად {{count}} ჩანაწერს",
-        "inclusive": "Map უნდა შეიცავდეს მაქსიმუმ {{count}} ჩანაწერს",
-        "not_inclusive": "Map უნდა შეიცავდეს {{count}}-ზე ნაკლებ ჩანაწერს"
+        "exact": "Map უნდა შეიცავდეს ზუსტად {{count}} ელემენტს",
+        "inclusive": "Map უნდა შეიცავდეს მაქსიმუმ {{count}} ელემენტს",
+        "not_inclusive": "Map უნდა შეიცავდეს {{count}}-ზე ნაკლებ ელემენტს"
       },
       "file": {
         "exact": "ფაილის ზომა უნდა იყოს ზუსტად {{count}} ბაიტი",
@@ -116,11 +116,11 @@
     "ipv4": "IPv4 მისამართი",
     "ipv6": "IPv6 მისამართი",
     "mac": "MAC მისამართი",
-    "cidrv4": "IPv4 დიაპაზონი",
-    "cidrv6": "IPv6 დიაპაზონი",
-    "base64": "base64-ით კოდირებული სტრიქონი",
-    "base64url": "base64url-ით კოდირებული სტრიქონი",
-    "json_string": "JSON სტრიქონი",
+    "cidrv4": "IPv4 მისამართების დიაპაზონი",
+    "cidrv6": "IPv6 მისამართების დიაპაზონი",
+    "base64": "base64-ით კოდირებული ტექსტი",
+    "base64url": "base64url-ით კოდირებული ტექსტი",
+    "json_string": "JSON ტექსტი",
     "e164": "E.164 ფორმატის ტელეფონის ნომერი",
     "jwt": "JWT",
     "hostname": "ჰოსტის სახელი",
@@ -128,11 +128,11 @@
     "iban": "IBAN"
   },
   "types": {
-    "string": "სტრიქონი",
+    "string": "ტექსტი",
     "number": "რიცხვი",
     "int": "მთელი რიცხვი",
     "bigint": "დიდი მთელი რიცხვი (BigInt)",
-    "boolean": "ბულის ტიპი",
+    "boolean": "ლოგიკური მნიშვნელობა",
     "symbol": "Symbol",
     "undefined": "undefined",
     "null": "null",
@@ -148,6 +148,6 @@
     "set": "სიმრავლე",
     "file": "ფაილი",
     "function": "ფუნქცია",
-    "promise": "პრომისი"
+    "promise": "Promise"
   }
 }

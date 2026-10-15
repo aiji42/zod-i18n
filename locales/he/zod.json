@@ -1,18 +1,21 @@
 {
   "errors": {
-    "invalid_type": "צפוי {{expected}}, התקבל {{received}}",
+    "invalid_type": "הערך חייב להיות מסוג {{expected}}, אך התקבל ערך מסוג {{received}}",
     "invalid_type_received_undefined": "שדה חובה",
     "invalid_type_received_null": "שדה חובה",
-    "invalid_value": "אפשרות לא תקינה: צפוי אחד מהערכים {{- options}}",
-    "invalid_value_single": "קלט לא תקין: צפוי {{- expected}}",
+    "invalid_value": "הערך חייב להיות אחד מהבאים: {{- options}}",
+    "invalid_value_single": "הערך חייב להיות {{- expected}}",
     "invalid_format": {
       "default": "פורמט {{format}} לא תקין",
-      "regex": "פורמט לא תקין",
-      "starts_with": "חייב להתחיל ב-\"{{- prefix}}\"",
-      "ends_with": "חייב להסתיים ב-\"{{- suffix}}\"",
-      "includes": "חייב לכלול את \"{{- includes}}\"",
-      "lowercase": "חייב להיות באותיות קטנות",
-      "uppercase": "חייב להיות באותיות גדולות"
+      "email": "כתובת אימייל לא תקינה",
+      "url": "כתובת URL לא תקינה",
+      "e164": "מספר טלפון לא תקין (נדרש פורמט E.164)",
+      "regex": "הפורמט לא תקין",
+      "starts_with": "הערך חייב להתחיל ב-\"{{- prefix}}\"",
+      "ends_with": "הערך חייב להסתיים ב-\"{{- suffix}}\"",
+      "includes": "הערך חייב לכלול את \"{{- includes}}\"",
+      "lowercase": "הערך חייב להיות באותיות קטנות",
+      "uppercase": "הערך חייב להיות באותיות גדולות"
     },
     "not_multiple_of": "המספר חייב להיות כפולה של {{divisor}}",
     "unrecognized_keys_one": "מפתח לא מזוהה באובייקט: {{- keys}}",
@@ -20,9 +23,9 @@
     "unrecognized_keys_other": "מפתחות לא מזוהים באובייקט: {{- keys}}",
     "invalid_key": "מפתח לא תקין ב{{origin}}",
     "invalid_element": "ערך לא תקין ב{{origin}}",
-    "invalid_union": "קלט לא תקין",
-    "invalid_union_discriminator": "ערך מזהה לא תקין. צפוי {{- options}}",
-    "custom": "קלט לא תקין",
+    "invalid_union": "הערך לא תקין",
+    "invalid_union_discriminator": "ערך מבחין לא תקין. הערך חייב להיות אחד מהבאים: {{- options}}",
+    "custom": "הערך לא תקין",
     "too_small": {
       "string": {
         "exact_one": "הטקסט חייב להכיל בדיוק תו אחד",
@@ -37,7 +40,7 @@
       },
       "number": {
         "exact": "המספר חייב להיות בדיוק {{minimum}}",
-        "inclusive": "המספר חייב להיות גדול או שווה ל-{{minimum}}",
+        "inclusive": "המספר חייב להיות לפחות {{minimum}}",
         "not_inclusive": "המספר חייב להיות גדול מ-{{minimum}}"
       },
       "array": {
@@ -63,15 +66,15 @@
         "not_inclusive_other": "הקבוצה חייבת להכיל יותר מ-{{count}} פריטים"
       },
       "map": {
-        "exact_one": "המפה חייבת להכיל בדיוק רשומה אחת",
-        "exact_two": "המפה חייבת להכיל בדיוק {{count}} רשומות",
-        "exact_other": "המפה חייבת להכיל בדיוק {{count}} רשומות",
-        "inclusive_one": "המפה חייבת להכיל לפחות רשומה אחת",
-        "inclusive_two": "המפה חייבת להכיל לפחות {{count}} רשומות",
-        "inclusive_other": "המפה חייבת להכיל לפחות {{count}} רשומות",
-        "not_inclusive_one": "המפה חייבת להכיל יותר מרשומה אחת",
-        "not_inclusive_two": "המפה חייבת להכיל יותר מ-{{count}} רשומות",
-        "not_inclusive_other": "המפה חייבת להכיל יותר מ-{{count}} רשומות"
+        "exact_one": "המפה חייבת להכיל בדיוק פריט אחד",
+        "exact_two": "המפה חייבת להכיל בדיוק {{count}} פריטים",
+        "exact_other": "המפה חייבת להכיל בדיוק {{count}} פריטים",
+        "inclusive_one": "המפה חייבת להכיל לפחות פריט אחד",
+        "inclusive_two": "המפה חייבת להכיל לפחות {{count}} פריטים",
+        "inclusive_other": "המפה חייבת להכיל לפחות {{count}} פריטים",
+        "not_inclusive_one": "המפה חייבת להכיל יותר מפריט אחד",
+        "not_inclusive_two": "המפה חייבת להכיל יותר מ-{{count}} פריטים",
+        "not_inclusive_other": "המפה חייבת להכיל יותר מ-{{count}} פריטים"
       },
       "file": {
         "exact_one": "גודל הקובץ חייב להיות בדיוק בייט אחד",
@@ -104,7 +107,7 @@
       },
       "number": {
         "exact": "המספר חייב להיות בדיוק {{maximum}}",
-        "inclusive": "המספר חייב להיות קטן או שווה ל-{{maximum}}",
+        "inclusive": "המספר חייב להיות לכל היותר {{maximum}}",
         "not_inclusive": "המספר חייב להיות קטן מ-{{maximum}}"
       },
       "array": {
@@ -130,15 +133,15 @@
         "not_inclusive_other": "הקבוצה חייבת להכיל פחות מ-{{count}} פריטים"
       },
       "map": {
-        "exact_one": "המפה חייבת להכיל בדיוק רשומה אחת",
-        "exact_two": "המפה חייבת להכיל בדיוק {{count}} רשומות",
-        "exact_other": "המפה חייבת להכיל בדיוק {{count}} רשומות",
-        "inclusive_one": "המפה חייבת להכיל לכל היותר רשומה אחת",
-        "inclusive_two": "המפה חייבת להכיל לכל היותר {{count}} רשומות",
-        "inclusive_other": "המפה חייבת להכיל לכל היותר {{count}} רשומות",
-        "not_inclusive_one": "המפה חייבת להכיל פחות מרשומה אחת",
-        "not_inclusive_two": "המפה חייבת להכיל פחות מ-{{count}} רשומות",
-        "not_inclusive_other": "המפה חייבת להכיל פחות מ-{{count}} רשומות"
+        "exact_one": "המפה חייבת להכיל בדיוק פריט אחד",
+        "exact_two": "המפה חייבת להכיל בדיוק {{count}} פריטים",
+        "exact_other": "המפה חייבת להכיל בדיוק {{count}} פריטים",
+        "inclusive_one": "המפה חייבת להכיל לכל היותר פריט אחד",
+        "inclusive_two": "המפה חייבת להכיל לכל היותר {{count}} פריטים",
+        "inclusive_other": "המפה חייבת להכיל לכל היותר {{count}} פריטים",
+        "not_inclusive_one": "המפה חייבת להכיל פחות מפריט אחד",
+        "not_inclusive_two": "המפה חייבת להכיל פחות מ-{{count}} פריטים",
+        "not_inclusive_other": "המפה חייבת להכיל פחות מ-{{count}} פריטים"
       },
       "file": {
         "exact_one": "גודל הקובץ חייב להיות בדיוק בייט אחד",
@@ -177,8 +180,8 @@
     "ipv4": "כתובת IPv4",
     "ipv6": "כתובת IPv6",
     "mac": "כתובת MAC",
-    "cidrv4": "טווח IPv4",
-    "cidrv6": "טווח IPv6",
+    "cidrv4": "טווח כתובות IPv4",
+    "cidrv6": "טווח כתובות IPv6",
     "base64": "טקסט בקידוד base64",
     "base64url": "טקסט בקידוד base64url",
     "json_string": "טקסט JSON",

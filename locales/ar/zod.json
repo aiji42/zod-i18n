@@ -1,13 +1,16 @@
 {
   "errors": {
-    "invalid_type": "المتوقع {{expected}}، لكن تم استلام {{received}}",
-    "invalid_type_received_undefined": "مطلوب",
-    "invalid_type_received_null": "مطلوب",
-    "invalid_value": "خيار غير صالح: المتوقع أحد الخيارات {{- options}}",
-    "invalid_value_single": "مدخل غير صالح: المتوقع {{- expected}}",
+    "invalid_type": "نوع غير صالح: المتوقع {{expected}}، والمُدخل {{received}}",
+    "invalid_type_received_undefined": "هذا الحقل مطلوب",
+    "invalid_type_received_null": "هذا الحقل مطلوب",
+    "invalid_value": "يجب أن تكون القيمة إحدى القيم التالية: {{- options}}",
+    "invalid_value_single": "يجب أن تكون القيمة {{- expected}}",
     "invalid_format": {
       "default": "صيغة {{format}} غير صالحة",
-      "regex": "صيغة غير صالحة",
+      "email": "عنوان البريد الإلكتروني غير صالح",
+      "url": "الرابط غير صالح",
+      "e164": "رقم الهاتف غير صالح (يجب أن يكون بمعيار E.164)",
+      "regex": "الصيغة غير صالحة",
       "starts_with": "يجب أن يبدأ بـ \"{{- prefix}}\"",
       "ends_with": "يجب أن ينتهي بـ \"{{- suffix}}\"",
       "includes": "يجب أن يتضمن \"{{- includes}}\"",
@@ -23,9 +26,9 @@
     "unrecognized_keys_other": "مفاتيح غير معروفة في الكائن: {{- keys}}",
     "invalid_key": "مفتاح غير صالح في {{origin}}",
     "invalid_element": "قيمة غير صالحة في {{origin}}",
-    "invalid_union": "مدخل غير صالح",
-    "invalid_union_discriminator": "قيمة مميِّزة غير صالحة. المتوقع {{- options}}",
-    "custom": "مدخل غير صالح",
+    "invalid_union": "القيمة المُدخلة غير صالحة",
+    "invalid_union_discriminator": "قيمة الحقل المميِّز غير صالحة. يجب أن تكون إحدى القيم التالية: {{- options}}",
+    "custom": "القيمة المُدخلة غير صالحة",
     "too_small": {
       "string": {
         "exact_zero": "يجب أن يحتوي النص على {{count}} حرف بالضبط",
@@ -49,7 +52,7 @@
       },
       "number": {
         "exact": "يجب أن يكون الرقم {{minimum}} بالضبط",
-        "inclusive": "يجب أن يكون الرقم أكبر من أو يساوي {{minimum}}",
+        "inclusive": "يجب ألا يقل الرقم عن {{minimum}}",
         "not_inclusive": "يجب أن يكون الرقم أكبر من {{minimum}}"
       },
       "array": {
@@ -114,17 +117,17 @@
       },
       "file": {
         "exact_zero": "يجب أن يكون حجم الملف {{count}} بايت بالضبط",
-        "exact_one": "يجب أن يكون حجم الملف بايت واحد بالضبط",
+        "exact_one": "يجب أن يكون حجم الملف بايتًا واحدًا بالضبط",
         "exact_two": "يجب أن يكون حجم الملف بايتين بالضبط",
         "exact_few": "يجب أن يكون حجم الملف {{count}} بايتات بالضبط",
         "exact_many": "يجب أن يكون حجم الملف {{count}} بايتًا بالضبط",
         "exact_other": "يجب أن يكون حجم الملف {{count}} بايت بالضبط",
-        "inclusive_zero": "يجب أن يكون حجم الملف {{count}} بايت على الأقل",
-        "inclusive_one": "يجب أن يكون حجم الملف بايت واحد على الأقل",
-        "inclusive_two": "يجب أن يكون حجم الملف بايتين على الأقل",
-        "inclusive_few": "يجب أن يكون حجم الملف {{count}} بايتات على الأقل",
-        "inclusive_many": "يجب أن يكون حجم الملف {{count}} بايتًا على الأقل",
-        "inclusive_other": "يجب أن يكون حجم الملف {{count}} بايت على الأقل",
+        "inclusive_zero": "يجب ألا يقل حجم الملف عن {{count}} بايت",
+        "inclusive_one": "يجب ألا يقل حجم الملف عن بايت واحد",
+        "inclusive_two": "يجب ألا يقل حجم الملف عن بايتين",
+        "inclusive_few": "يجب ألا يقل حجم الملف عن {{count}} بايتات",
+        "inclusive_many": "يجب ألا يقل حجم الملف عن {{count}} بايتًا",
+        "inclusive_other": "يجب ألا يقل حجم الملف عن {{count}} بايت",
         "not_inclusive_zero": "يجب أن يكون حجم الملف أكبر من {{count}} بايت",
         "not_inclusive_one": "يجب أن يكون حجم الملف أكبر من بايت واحد",
         "not_inclusive_two": "يجب أن يكون حجم الملف أكبر من بايتين",
@@ -161,8 +164,8 @@
       },
       "number": {
         "exact": "يجب أن يكون الرقم {{maximum}} بالضبط",
-        "inclusive": "يجب أن يكون الرقم أصغر من أو يساوي {{maximum}}",
-        "not_inclusive": "يجب أن يكون الرقم أصغر من {{maximum}}"
+        "inclusive": "يجب ألا يزيد الرقم على {{maximum}}",
+        "not_inclusive": "يجب أن يكون الرقم أقل من {{maximum}}"
       },
       "array": {
         "exact_zero": "يجب أن تحتوي المصفوفة على {{count}} عنصر بالضبط",
@@ -226,23 +229,23 @@
       },
       "file": {
         "exact_zero": "يجب أن يكون حجم الملف {{count}} بايت بالضبط",
-        "exact_one": "يجب أن يكون حجم الملف بايت واحد بالضبط",
+        "exact_one": "يجب أن يكون حجم الملف بايتًا واحدًا بالضبط",
         "exact_two": "يجب أن يكون حجم الملف بايتين بالضبط",
         "exact_few": "يجب أن يكون حجم الملف {{count}} بايتات بالضبط",
         "exact_many": "يجب أن يكون حجم الملف {{count}} بايتًا بالضبط",
         "exact_other": "يجب أن يكون حجم الملف {{count}} بايت بالضبط",
-        "inclusive_zero": "يجب أن يكون حجم الملف {{count}} بايت على الأكثر",
-        "inclusive_one": "يجب أن يكون حجم الملف بايت واحد على الأكثر",
-        "inclusive_two": "يجب أن يكون حجم الملف بايتين على الأكثر",
-        "inclusive_few": "يجب أن يكون حجم الملف {{count}} بايتات على الأكثر",
-        "inclusive_many": "يجب أن يكون حجم الملف {{count}} بايتًا على الأكثر",
-        "inclusive_other": "يجب أن يكون حجم الملف {{count}} بايت على الأكثر",
-        "not_inclusive_zero": "يجب أن يكون حجم الملف أصغر من {{count}} بايت",
-        "not_inclusive_one": "يجب أن يكون حجم الملف أصغر من بايت واحد",
-        "not_inclusive_two": "يجب أن يكون حجم الملف أصغر من بايتين",
-        "not_inclusive_few": "يجب أن يكون حجم الملف أصغر من {{count}} بايتات",
-        "not_inclusive_many": "يجب أن يكون حجم الملف أصغر من {{count}} بايتًا",
-        "not_inclusive_other": "يجب أن يكون حجم الملف أصغر من {{count}} بايت"
+        "inclusive_zero": "يجب ألا يزيد حجم الملف على {{count}} بايت",
+        "inclusive_one": "يجب ألا يزيد حجم الملف على بايت واحد",
+        "inclusive_two": "يجب ألا يزيد حجم الملف على بايتين",
+        "inclusive_few": "يجب ألا يزيد حجم الملف على {{count}} بايتات",
+        "inclusive_many": "يجب ألا يزيد حجم الملف على {{count}} بايتًا",
+        "inclusive_other": "يجب ألا يزيد حجم الملف على {{count}} بايت",
+        "not_inclusive_zero": "يجب أن يكون حجم الملف أقل من {{count}} بايت",
+        "not_inclusive_one": "يجب أن يكون حجم الملف أقل من بايت واحد",
+        "not_inclusive_two": "يجب أن يكون حجم الملف أقل من بايتين",
+        "not_inclusive_few": "يجب أن يكون حجم الملف أقل من {{count}} بايتات",
+        "not_inclusive_many": "يجب أن يكون حجم الملف أقل من {{count}} بايتًا",
+        "not_inclusive_other": "يجب أن يكون حجم الملف أقل من {{count}} بايت"
       },
       "date": {
         "exact": "يجب أن يكون التاريخ {{- maximum, datetime}} بالضبط",
@@ -252,7 +255,7 @@
     }
   },
   "formats": {
-    "email": "بريد إلكتروني",
+    "email": "عنوان بريد إلكتروني",
     "url": "رابط URL",
     "emoji": "رمز تعبيري",
     "uuid": "UUID",
@@ -277,7 +280,7 @@
     "json_string": "نص JSON",
     "e164": "رقم هاتف بمعيار E.164",
     "jwt": "JWT",
-    "hostname": "اسم المضيف",
+    "hostname": "اسم مضيف",
     "credit_card": "رقم بطاقة ائتمان",
     "iban": "IBAN"
   },
@@ -288,7 +291,7 @@
     "bigint": "عدد صحيح كبير",
     "boolean": "قيمة منطقية",
     "symbol": "رمز (Symbol)",
-    "undefined": "قيمة غير معرّفة",
+    "undefined": "undefined",
     "null": "null",
     "nan": "NaN",
     "void": "void",

@@ -72,5 +72,5 @@ When an issue has a path, a `_with_path` context variant is used if it exists, e
 ## Pitfalls
 
 - Don't import `zod-i18n-map/locales/...`. Those paths existed only in v2.
-- Use `{{- var}}` (unescaped) for values that may contain quotes, otherwise i18next HTML-escapes them.
+- Messages are plain text. The map turns off i18next HTML escaping, so render them as text (React does), never as HTML.
 - With React/Next.js, initialise i18next before any schema is parsed, and register the map once at module scope.

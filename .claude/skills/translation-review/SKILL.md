@@ -14,7 +14,6 @@ description: Review or update a zod-i18n-map locale file (locales/<code>/zod.jso
      - "discriminator" translated as social discrimination
    - **Grammar:** templates must stay correct with every `types.*` / `formats.*` label inserted, including grammatical case and gender.
    - **Plurals:** `node -e 'console.log(new Intl.PluralRules("<code>").resolvedOptions().pluralCategories)'`. Use exactly those suffixes, or plain keys if the only category is `other`.
-   - Keep `{{- var}}` where en has it.
    - Use the same terminology and punctuation style throughout the file.
 4. Run `pnpm locales:check` (add `--write` for a new locale). It must report no problems for the locale.
 5. Render a few real messages to proofread in context, e.g. a scratch script using `makeZodI18nMap` with `i18next.init({ lng: "<code>", resources: { "<code>": { zod: file } } })`.
