@@ -4,6 +4,16 @@ import * as z from "zod";
 import en from "../locales/en/zod.json" with { type: "json" };
 import { i18nKey, makeZodI18nMap, translateIssue, zodI18nMap } from "../src/index.ts";
 
+// Feature probes, so the suite also runs against older Zod versions in the CI matrix.
+const probeIssue = (schema: z.ZodType, input: unknown) =>
+  schema.safeParse(input, { error: makeZodI18nMap({ t: () => "x" }) }).error?.issues[0];
+/** Zod >= 4.4 keeps properties added by the error map, which translateIssue relies on. */
+const keepsIssueMeta = "zodI18n" in (probeIssue(z.string(), 1) ?? {});
+/** Older Zod versions don't report the allowed values of a discriminated union. */
+const reportsDiscriminatorOptions =
+  "options" in
+  (probeIssue(z.discriminatedUnion("k", [z.object({ k: z.literal("a") })]), { k: "b" }) ?? {});
+
 const messageOf = (schema: z.ZodType, input: unknown): string | undefined =>
   schema.safeParse(input).error?.issues[0]?.message;
 
@@ -30,7 +40,6 @@ describe("English messages", () => {
     ["email", z.email(), "x", "Invalid email address"],
     ["url", z.url(), "x", "Invalid URL"],
     ["iso date", z.iso.date(), "x", "Invalid ISO date"],
-    ["unknown format falls back to raw name", z.hash("md5"), "x", "Invalid md5_hex"],
     ["regex", z.string().regex(/a/), "b", "Invalid format"],
     ["startsWith", z.string().startsWith("a'b"), "x", `Must start with "a'b"`],
     ["endsWith", z.string().endsWith("z"), "x", 'Must end with "z"'],
@@ -66,7 +75,9 @@ describe("English messages", () => {
       "discriminated union",
       z.discriminatedUnion("k", [z.object({ k: z.literal("a") }), z.object({ k: z.literal("b") })]),
       { k: "c" },
-      'Invalid discriminator value. Expected "a" | "b"',
+      reportsDiscriminatorOptions
+        ? 'Invalid discriminator value. Expected "a" | "b"'
+        : "Invalid input",
     ],
     ["invalid_key", z.record(z.string().min(2), z.number()), { a: 1 }, "Invalid key in record"],
     ["refine", z.string().refine(() => false), "", "Invalid input"],
@@ -89,12 +100,18 @@ test("inserted labels are not HTML-escaped", async () => {
       fr: {
         zod: {
           errors: { invalid_format: { default: "{{format}} non valide" } },
-          formats: { hostname: "nom d'hôte" },
+          formats: { email: "adresse d'e-mail" },
         },
       },
     },
   });
-  expect(messageOf(z.hostname(), "-")).toBe("nom d'hôte non valide");
+  expect(messageOf(z.email(), "-")).toBe("adresse d'e-mail non valide");
+});
+
+test("formats without a label fall back to the raw format name", async () => {
+  const { email: _, ...formats } = en.formats;
+  await i18next.init({ lng: "en", resources: { en: { zod: { ...en, formats } } } });
+  expect(messageOf(z.email(), "x")).toBe("Invalid email");
 });
 
 describe("fallback", () => {
@@ -236,7 +253,12 @@ describe("per-request translation", () => {
   });
 });
 
-describe("translateIssue (render-time translation)", () => {
+test.skipIf(keepsIssueMeta)("translateIssue is a no-op on Zod < 4.4", () => {
+  const issue = z.string().safeParse(1).error?.issues[0];
+  expect(issue && translateIssue(issue)).toBe(issue?.message);
+});
+
+describe.skipIf(!keepsIssueMeta)("translateIssue (render-time translation)", () => {
   const ja = {
     errors: {
       invalid_type: "{{expected}}を入力してください（{{received}}）",

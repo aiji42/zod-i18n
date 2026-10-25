@@ -89,7 +89,7 @@ import { translateIssue } from "zod-i18n-map";
 {result.error.issues.map((issue) => <p key={issue.path.join(".")}>{translateIssue(issue)}</p>)}
 ```
 
-This works because the map stores a small `zodI18n` field on each issue it handles, with the received type and any `i18nKey`. So the message can be rebuilt in full, field names included. Issues whose message came from your own `error` string are returned unchanged. With a custom map, use `map.translate(issue)`.
+This needs Zod 4.4 or later; on older versions it returns `issue.message` unchanged. It works because the map stores a small `zodI18n` field on each issue it handles, with the received type and any `i18nKey`. So the message can be rebuilt in full, field names included. Issues whose message came from your own `error` string are returned unchanged. With a custom map, use `map.translate(issue)`.
 
 ### Your own keys for specific fields
 

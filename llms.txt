@@ -36,7 +36,7 @@ schema.safeParse(input, { error: makeZodI18nMap({ t: i18next.getFixedT(locale) }
 
 ## Language switch with errors already on screen
 
-Render `translateIssue(issue)` (or `map.translate(issue)`) instead of `issue.message`. It re-translates in the current language using the `zodI18n` metadata the map stores on each issue.
+Render `translateIssue(issue)` (or `map.translate(issue)`) instead of `issue.message`. It re-translates in the current language using the `zodI18n` metadata the map stores on each issue. Requires Zod >= 4.4; on older versions it returns `issue.message` unchanged.
 
 ## Custom messages
 

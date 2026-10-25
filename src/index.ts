@@ -235,7 +235,12 @@ const resolve = (
       const isSmall = issue.code === "too_small";
       const raw = isSmall ? issue.minimum : issue.maximum;
       const origin = normalizeOrigin(issue.origin);
-      const variant = issue.exact ? "exact" : issue.inclusive ? "inclusive" : "not_inclusive";
+      // Zod < 4.4 omits `inclusive` on size checks; only an explicit `false` means exclusive.
+      const variant = issue.exact
+        ? "exact"
+        : issue.inclusive === false
+          ? "not_inclusive"
+          : "inclusive";
       return {
         key: `errors.${issue.code}.${origin}.${variant}`,
         values: {

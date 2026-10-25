@@ -32,3 +32,28 @@ jobs:
       - run: pnpm locales:check
       - run: pnpm test
       - run: pnpm build
+      - run: pnpm smoke
+
+  compat:
+    name: Compat (zod ${{ matrix.zod }}, i18next ${{ matrix.i18next }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Oldest supported: Zod v4 API via the zod/v4 subpath of zod 3.25
+          - { zod: "~3.25.0", i18next: "23", subpath: "1" }
+          - { zod: "4.0.0", i18next: "latest", subpath: "" }
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm add -D zod@${{ matrix.zod }} i18next@${{ matrix.i18next }}
+      # integrations.test.ts needs current react-i18next, which needs a current i18next
+      - run: pnpm vitest run tests/zodI18nMap.test.ts tests/icu.test.ts tests/cli.test.ts
+        env:
+          ZOD_V4_SUBPATH: ${{ matrix.subpath }}
