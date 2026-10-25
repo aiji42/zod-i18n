@@ -61,7 +61,7 @@ npx zod-i18n-map add de --format icu     # ICU MessageFormat, for i18next-icu
 
 - If your app uses [i18next-icu](https://github.com/i18next/i18next-icu), use `--format icu`. The files are converted to ICU MessageFormat: `{name}`, `{minimum, date}`, and plurals merged into `{count, plural, ...}`. i18next contexts don't work with i18next-icu, so the `_with_path` variants are not used. `{path}` is still passed to every message.
 
-**Available locales:** ar, bg, cs, de, en, es, fa, fi, fr, he, hr, hu, id, is, it, ja, ka, ko, lt, nb, nl, pl, pt, ro, ru, sk, sv, th, tr, uk, uz, vi, zh-CN, zh-TW.
+**Available locales:** ar, bg, cs, de, en, es, fa, fi, fr, he, hr, hu, id, is, it, ja, ka, ko, lt, nb, nl, pl, pt-BR, ro, ru, sk, sv, th, tr, uk, uz, vi, zh-CN, zh-TW.
 Something wrong or missing? Pull requests are welcome, see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## Usage
@@ -207,7 +207,7 @@ Every message also receives `path` when `handlePath` is on. See [`locales/en/zod
   - `{{multipleOf}}` → `{{divisor}}`
   - `invalid_date`, `invalid_arguments`, `invalid_return_type`, `invalid_intersection_types`, `not_finite` and the `too_small.set` / `too_big.set` "Invalid input" placeholders were removed or replaced, because Zod v4 no longer emits them.
   - If you customized a v2 file, start from the new file and copy your wording over. `npx zod-i18n-map check` lists the keys you are missing.
-- **Locale codes:** `hr-HR` → `hr`, `uk-UA` → `uk`. (You choose the file name, so any i18next language code works.)
+- **Locale codes:** `hr-HR` → `hr`, `uk-UA` → `uk`, `pt` → `pt-BR` (it was always Brazilian Portuguese; European Portuguese is now `pt-PT`). (You choose the file name, so any i18next language code works.)
 
 ## For AI coding agents
 
