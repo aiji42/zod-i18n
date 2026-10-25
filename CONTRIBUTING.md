@@ -49,4 +49,4 @@ Pull requests are squash-merged, and the **PR title** becomes the commit message
 - `feat!: ...` or a `BREAKING CHANGE:` footer: released as a major version
 - `docs:`, `chore:`, `test:`, `refactor:`: no release
 
-Releases are automated with [release-please](https://github.com/googleapis/release-please). It keeps a release PR open, and merging that PR publishes to npm.
+Releases are automated with [release-please](https://github.com/googleapis/release-please). It keeps a release PR open. Merging that PR stages the version on npm, and a maintainer approves it with 2FA to make it public.

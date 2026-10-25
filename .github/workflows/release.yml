@@ -1,6 +1,8 @@
 # Merging to main keeps a "chore(main): release x.y.z" PR up to date (versions + CHANGELOG
-# from Conventional Commits). Merging that PR tags the release and publishes to npm.
-# Publishing uses npm trusted publishing (OIDC): no NPM_TOKEN secret is needed.
+# from Conventional Commits). Merging that PR tags the release and *stages* it on npm.
+# Publishing uses npm trusted publishing (OIDC, no NPM_TOKEN) with staged publishing only:
+# the version goes public after a maintainer approves it with 2FA, e.g.
+#   npm stage approve <stage-id>   (the id is printed in this job's log)
 name: Release
 
 on:
@@ -38,6 +40,6 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
-      # Trusted publishing (OIDC) needs npm >= 11.5.1
+      # Trusted publishing and `npm stage` need a current npm
       - run: npm install -g npm@latest
-      - run: npm publish --provenance --access public
+      - run: npm stage publish --provenance --access public
