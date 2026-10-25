@@ -7,6 +7,7 @@
     "invalid_value_single": "Ogiltigt värde: förväntat {{- expected}}",
     "invalid_format": {
       "default": "Ogiltigt format: förväntat {{format}}",
+      "template_literal": "Ogiltig inmatning",
       "email": "Ogiltig e-postadress",
       "url": "Ogiltig URL",
       "emoji": "Får bara innehålla emojier",
@@ -174,7 +175,11 @@
     "jwt": "JWT",
     "hostname": "värdnamn",
     "credit_card": "kreditkortsnummer",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "hexadecimal text",
+    "hash": "hash",
+    "currency_code": "valutakod",
+    "template_literal": "inmatning"
   },
   "types": {
     "string": "text",

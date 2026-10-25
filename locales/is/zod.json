@@ -172,7 +172,11 @@
     "jwt": "JWT",
     "hostname": "hýsilnafn",
     "credit_card": "kreditkortanúmer",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "texti í sextándakerfi",
+    "hash": "tætigildi",
+    "currency_code": "gjaldmiðilskóði",
+    "template_literal": "inntak"
   },
   "types": {
     "string": "texti",

@@ -206,7 +206,11 @@
     "jwt": "JWT",
     "hostname": "nom d'amfitrió",
     "credit_card": "número de targeta de crèdit",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "text hexadecimal",
+    "hash": "hash",
+    "currency_code": "codi de moneda",
+    "template_literal": "valor"
   },
   "types": {
     "string": "text",

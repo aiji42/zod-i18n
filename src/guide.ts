@@ -1,15 +1,8 @@
 /** Texts the CLI hands to coding agents: translation instructions and the user-facing skill. */
-
-const pluralCategories = (locale: string): string[] => {
-  try {
-    return new Intl.PluralRules(locale).resolvedOptions().pluralCategories;
-  } catch {
-    return ["other"];
-  }
-};
+import { pluralCategories } from "./validate.ts";
 
 export const translationGuide = (locale: string, file: string): string => {
-  const categories = pluralCategories(locale);
+  const categories = pluralCategories(locale) ?? ["other"];
   const plurals =
     categories.length === 1
       ? `"${locale}" has a single plural category, so replace every \`_one\`/\`_other\` pair with one plain key (e.g. \`inclusive_one\` + \`inclusive_other\` -> \`inclusive\`).`

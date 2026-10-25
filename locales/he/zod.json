@@ -189,7 +189,11 @@
     "jwt": "JWT",
     "hostname": "שם מארח",
     "credit_card": "מספר כרטיס אשראי",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "טקסט הקסדצימלי",
+    "hash": "ערך גיבוב",
+    "currency_code": "קוד מטבע",
+    "template_literal": "ערך"
   },
   "types": {
     "string": "טקסט",

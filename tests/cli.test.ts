@@ -58,7 +58,8 @@ test("list", async () => {
 test("add falls back from the version tag to main and writes the file", async () => {
   const { code, stdout } = await cli("add", "ja", "--json");
   expect(code).toBe(0);
-  expect(requested).toContain(`/v${pkg.version}/locales/ja/zod.json`);
+  expect(requested).toContain(`/v${pkg.version}/locales/index.json`);
+  expect(requested).toContain("/main/locales/ja/zod.json");
   expect(JSON.parse(stdout)[0]).toMatchObject({ locale: "ja", status: "written", ref: "main" });
   expect(await readFile(join(dir, "locales/ja/zod.json"), "utf8")).toBe(
     await readFile(join(ROOT, "locales/ja/zod.json"), "utf8"),
@@ -125,4 +126,10 @@ test("skill installs the Agent Skill", async () => {
   expect(skill).toMatch(/^---\nname: zod-i18n-map\ndescription: /);
   expect((await cli("skill")).code).toBe(1); // exists
   expect((await cli("skill", "--out", "agents/zod/SKILL.md")).code).toBe(0);
+});
+
+test("add refuses several locales into one file", async () => {
+  const { code, stderr } = await cli("add", "en", "ja", "--out", "src/zod.json");
+  expect(code).toBe(1);
+  expect(stderr).toMatch(/must contain \{locale\}/);
 });

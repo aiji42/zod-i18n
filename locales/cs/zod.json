@@ -223,7 +223,11 @@
     "jwt": "JWT",
     "hostname": "názvu hostitele",
     "credit_card": "čísla platební karty",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "hexadecimálního řetězce",
+    "hash": "hashe",
+    "currency_code": "kódu měny",
+    "template_literal": "hodnoty"
   },
   "types": {
     "string": "text",

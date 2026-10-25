@@ -139,7 +139,11 @@
     "jwt": "JWT",
     "hostname": "nama hos",
     "credit_card": "nombor kad kredit",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "teks heksadesimal",
+    "hash": "hash",
+    "currency_code": "kod mata wang",
+    "template_literal": "input"
   },
   "types": {
     "string": "teks",

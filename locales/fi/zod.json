@@ -162,7 +162,11 @@
     "jwt": "JWT",
     "hostname": "isäntänimi",
     "credit_card": "luottokortin numero",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "heksadesimaaliteksti",
+    "hash": "tiiviste",
+    "currency_code": "valuuttakoodi",
+    "template_literal": "syöte"
   },
   "types": {
     "string": "teksti",

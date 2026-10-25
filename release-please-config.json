@@ -4,5 +4,6 @@
   "include-component-in-tag": false,
   "packages": {
     ".": {}
-  }
+  },
+  "last-release-sha": "a747c683f02751e62983a7fbf82f8c20bc8bb6b9"
 }

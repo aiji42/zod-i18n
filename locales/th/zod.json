@@ -133,7 +133,11 @@
     "jwt": "JWT",
     "hostname": "ชื่อโฮสต์",
     "credit_card": "หมายเลขบัตรเครดิต",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "ข้อความเลขฐานสิบหก",
+    "hash": "แฮช",
+    "currency_code": "รหัสสกุลเงิน",
+    "template_literal": "ข้อมูล"
   },
   "types": {
     "string": "ข้อความ",

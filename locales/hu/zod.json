@@ -129,7 +129,11 @@
     "jwt": "JWT",
     "hostname": "hosztnév",
     "credit_card": "bankkártyaszám",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "hexadecimális szöveg",
+    "hash": "hash",
+    "currency_code": "pénznemkód",
+    "template_literal": "érték"
   },
   "types": {
     "string": "szöveg",

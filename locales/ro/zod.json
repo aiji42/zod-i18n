@@ -197,7 +197,11 @@
     "jwt": "JWT",
     "hostname": "nume de gazdă",
     "credit_card": "număr de card de credit",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "text hexazecimal",
+    "hash": "hash",
+    "currency_code": "cod de monedă",
+    "template_literal": "valoare"
   },
   "types": {
     "string": "text",

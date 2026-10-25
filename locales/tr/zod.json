@@ -129,7 +129,11 @@
     "jwt": "JWT",
     "hostname": "ana bilgisayar adı",
     "credit_card": "kredi kartı numarası",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "onaltılık metin",
+    "hash": "hash",
+    "currency_code": "para birimi kodu",
+    "template_literal": "değer"
   },
   "types": {
     "string": "metin",

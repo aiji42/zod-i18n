@@ -6,7 +6,7 @@ import { parseArgs } from "node:util";
 import pkg from "../package.json" with { type: "json" };
 import { SKILL_MD, translationGuide } from "./guide.ts";
 import { toIcu } from "./icu.ts";
-import { type Json, validateLocale } from "./validate.ts";
+import { type Json, pluralCategories, validateLocale } from "./validate.ts";
 
 const REPO = "aiji42/zod-i18n";
 const RAW_BASE = process.env.ZOD_I18N_MAP_BASE_URL ?? `https://raw.githubusercontent.com/${REPO}`;
@@ -61,16 +61,30 @@ const fetchText = async (path: string, ref: string): Promise<string | null> => {
   return res.text();
 };
 
-/** Fetch from the pinned ref first so files match the installed version; fall back to main. */
+let resolvedRef: Promise<string> | undefined;
+
+/**
+ * The pinned ref (the tag of the installed version) if it exists, otherwise "main".
+ * Resolved once per run, so later fetches don't repeat the fallback round trip.
+ */
+const resolveRef = ({
+  ref,
+  explicitRef,
+}: Pick<Options, "ref" | "explicitRef">): Promise<string> => {
+  resolvedRef ??= (async () => {
+    if (explicitRef || ref === "main") return ref;
+    return (await fetchText("locales/index.json", ref)) === null ? "main" : ref;
+  })();
+  return resolvedRef;
+};
+
 const fetchWithFallback = async (
   path: string,
-  { ref, explicitRef }: Pick<Options, "ref" | "explicitRef">,
+  opts: Pick<Options, "ref" | "explicitRef">,
 ): Promise<{ text: string; ref: string } | null> => {
+  const ref = await resolveRef(opts);
   const text = await fetchText(path, ref);
-  if (text !== null) return { text, ref };
-  if (explicitRef || ref === "main") return null;
-  const fallback = await fetchText(path, "main");
-  return fallback === null ? null : { text: fallback, ref: "main" };
+  return text === null ? null : { text, ref };
 };
 
 const fetchJson = async <T>(path: string, opts: Options): Promise<{ data: T; ref: string }> => {
@@ -89,28 +103,31 @@ const add = async (locales: string[], opts: Options): Promise<number> => {
     console.error("Specify at least one locale, e.g. `npx zod-i18n-map add ja`.");
     return 1;
   }
-  const results: { locale: string; status: string; path?: string; ref?: string }[] = [];
-  for (const locale of locales) {
-    const path = resolve((opts.out ?? DEFAULT_OUT).replaceAll("{locale}", locale));
-    if (existsSync(path) && !opts.force) {
-      results.push({ locale, status: "skipped (exists, use --force)", path });
-      continue;
-    }
-    const found = await fetchWithFallback(`locales/${locale}/zod.json`, opts);
-    if (!found) {
-      results.push({
-        locale,
-        status: `not available (see \`npx zod-i18n-map list\`, or create it with \`npx zod-i18n-map scaffold ${locale}\`)`,
-      });
-      continue;
-    }
-    const content =
-      opts.format === "icu"
-        ? `${JSON.stringify(toIcu(JSON.parse(found.text) as Json), null, 2)}\n`
-        : found.text;
-    await writeOutput(path, content);
-    results.push({ locale, status: "written", path, ref: found.ref });
+  const pattern = opts.out ?? DEFAULT_OUT;
+  if (locales.length > 1 && !pattern.includes("{locale}")) {
+    console.error(`--out must contain {locale} when adding several locales (got "${pattern}").`);
+    return 1;
   }
+  type Result = { locale: string; status: string; path?: string; ref?: string };
+  const results = await Promise.all(
+    locales.map(async (locale): Promise<Result> => {
+      const path = resolve(pattern.replaceAll("{locale}", locale));
+      if (existsSync(path) && !opts.force)
+        return { locale, status: "skipped (exists, use --force)", path };
+      const found = await fetchWithFallback(`locales/${locale}/zod.json`, opts);
+      if (!found)
+        return {
+          locale,
+          status: `not available (see \`npx zod-i18n-map list\`, or create it with \`npx zod-i18n-map scaffold ${locale}\`)`,
+        };
+      const content =
+        opts.format === "icu"
+          ? `${JSON.stringify(toIcu(JSON.parse(found.text) as Json), null, 2)}\n`
+          : found.text;
+      await writeOutput(path, content);
+      return { locale, status: "written", path, ref: found.ref };
+    }),
+  );
 
   if (opts.json) console.log(JSON.stringify(results, null, 2));
   else
@@ -123,7 +140,8 @@ const add = async (locales: string[], opts: Options): Promise<number> => {
 
 /** `locales/pt-BR/zod.json` -> `pt-BR`, `i18n/de.json` -> `de`. */
 const inferLocale = (file: string): string | undefined => {
-  const looksLikeCode = (s: string) => /^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$/i.test(s);
+  const looksLikeCode = (s: string) =>
+    /^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$/i.test(s) && pluralCategories(s) !== undefined;
   const fromName = basename(file).replace(/\.json$/, "");
   if (fromName !== "zod" && looksLikeCode(fromName)) return fromName;
   const fromDir = basename(dirname(resolve(file)));

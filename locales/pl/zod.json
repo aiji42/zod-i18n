@@ -223,7 +223,11 @@
     "jwt": "JWT",
     "hostname": "nazwy hosta",
     "credit_card": "numeru karty płatniczej",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "ciągu szesnastkowego",
+    "hash": "skrótu",
+    "currency_code": "kodu waluty",
+    "template_literal": "wartości"
   },
   "types": {
     "string": "tekst",

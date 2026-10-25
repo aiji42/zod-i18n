@@ -206,7 +206,11 @@
     "jwt": "JWT",
     "hostname": "resursdatora nosaukums",
     "credit_card": "kredītkartes numurs",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "heksadecimāls teksts",
+    "hash": "jaucējvērtība",
+    "currency_code": "valūtas kods",
+    "template_literal": "ievade"
   },
   "types": {
     "string": "teksts",

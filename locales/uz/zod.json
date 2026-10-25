@@ -125,7 +125,11 @@
     "jwt": "JWT",
     "hostname": "xost nomi",
     "credit_card": "kredit karta raqami",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "oʻn oltilik matn",
+    "hash": "xesh",
+    "currency_code": "valyuta kodi",
+    "template_literal": "qiymat"
   },
   "types": {
     "string": "matn",

@@ -197,7 +197,11 @@
     "jwt": "JWT",
     "hostname": "nom d’hôte",
     "credit_card": "numéro de carte bancaire",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "texte hexadécimal",
+    "hash": "hachage",
+    "currency_code": "code de devise",
+    "template_literal": "valeur"
   },
   "types": {
     "string": "texte",

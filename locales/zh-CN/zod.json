@@ -124,7 +124,11 @@
     "jwt": "JWT",
     "hostname": "主机名",
     "credit_card": "信用卡号",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "十六进制字符串",
+    "hash": "哈希值",
+    "currency_code": "货币代码",
+    "template_literal": "输入"
   },
   "types": {
     "string": "文本",

@@ -125,7 +125,11 @@
     "jwt": "JWT",
     "hostname": "نام میزبان",
     "credit_card": "شمارهٔ کارت اعتباری",
-    "iban": "شمارهٔ IBAN"
+    "iban": "شمارهٔ IBAN",
+    "hex": "متن هگزادسیمال",
+    "hash": "هش",
+    "currency_code": "کد ارز",
+    "template_literal": "ورودی"
   },
   "types": {
     "string": "متن",

@@ -155,7 +155,11 @@
     "jwt": "JWT",
     "hostname": "hostname",
     "credit_card": "credit card number",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "hexadecimal string",
+    "hash": "hash",
+    "currency_code": "currency code",
+    "template_literal": "input"
   },
   "types": {
     "string": "string",

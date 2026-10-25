@@ -131,7 +131,11 @@
     "jwt": "JWT",
     "hostname": "হোস্টনেম",
     "credit_card": "ক্রেডিট কার্ড নম্বর",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "হেক্সাডেসিমাল টেক্সট",
+    "hash": "হ্যাশ",
+    "currency_code": "মুদ্রার কোড",
+    "template_literal": "ইনপুট"
   },
   "types": {
     "string": "টেক্সট",

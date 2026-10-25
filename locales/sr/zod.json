@@ -195,7 +195,11 @@
     "jwt": "JWT",
     "hostname": "име хоста",
     "credit_card": "број кредитне картице",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "хексадецимални текст",
+    "hash": "хеш",
+    "currency_code": "код валуте",
+    "template_literal": "вредност"
   },
   "types": {
     "string": "текст",

@@ -126,7 +126,11 @@
     "jwt": "JWT",
     "hostname": "nama host",
     "credit_card": "nomor kartu kredit",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "teks heksadesimal",
+    "hash": "hash",
+    "currency_code": "kode mata uang",
+    "template_literal": "input"
   },
   "types": {
     "string": "teks",

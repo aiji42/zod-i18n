@@ -162,7 +162,11 @@
     "jwt": "JWT",
     "hostname": "vertsnavn",
     "credit_card": "kredittkortnummer",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "heksadesimal tekst",
+    "hash": "hash",
+    "currency_code": "valutakode",
+    "template_literal": "inndata"
   },
   "types": {
     "string": "tekst",

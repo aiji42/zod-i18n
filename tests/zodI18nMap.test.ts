@@ -305,3 +305,70 @@ describe.skipIf(!keepsIssueMeta)("translateIssue (render-time translation)", () 
     expect(issue && translateIssue(issue)).toBe("my own message");
   });
 });
+
+describe("review regressions", () => {
+  test("a field named like a subtree of the namespace falls back to the raw path", async () => {
+    await i18next.init({
+      lng: "en",
+      resources: {
+        en: {
+          zod: {
+            ...en,
+            errors: {
+              ...en.errors,
+              invalid_type_received_undefined_with_path: "{{- path}} is required",
+            },
+          },
+        },
+      },
+    });
+    expect(messagesOf(z.object({ errors: z.string(), types: z.string() }), {})).toEqual([
+      ["errors", "errors is required"],
+      ["types", "types is required"],
+    ]);
+  });
+
+  test("hash, hex, template literal and currency formats have labels", () => {
+    expect(messageOf(z.hex(), "zz")).toBe("Invalid hexadecimal string");
+    expect(messageOf(z.hash("sha256"), "x")).toBe("Invalid hash");
+    expect(messageOf(z.templateLiteral(["a", z.number()]), "b")).toBe("Invalid input");
+  });
+
+  test("handlePath options passed as undefined keep their defaults", async () => {
+    await i18next.init({
+      lng: "en",
+      resources: {
+        en: {
+          zod: {
+            ...en,
+            errors: {
+              ...en.errors,
+              invalid_type_received_undefined_with_path: "{{- path}} is required",
+            },
+            fields: { name: "Name" },
+          },
+        },
+      },
+    });
+    z.config({
+      customError: makeZodI18nMap({
+        handlePath: { keyPrefix: "fields", ns: undefined, context: undefined },
+      }),
+    });
+    expect(messageOf(z.object({ name: z.string() }), {})).toBe("Name is required");
+  });
+
+  test("no sentinel default values reach saveMissing handlers", async () => {
+    const saved: unknown[] = [];
+    const i = (await import("i18next")).createInstance();
+    await i.init({
+      lng: "en",
+      resources: { en: { zod: {} } },
+      saveMissing: true,
+      missingKeyHandler: (_lngs, _ns, key, value) => saved.push([key, value]),
+    });
+    const issue = z.email().safeParse("x", { error: makeZodI18nMap({ t: i.t }) }).error?.issues[0];
+    expect(issue?.message).toBe("Invalid email address"); // Zod's own message
+    expect(JSON.stringify(saved)).not.toMatch(/zod-i18n-map|\\u0000/);
+  });
+});

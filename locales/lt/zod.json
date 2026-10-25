@@ -223,7 +223,11 @@
     "jwt": "JWT",
     "hostname": "pagrindinio kompiuterio vardas",
     "credit_card": "kredito kortelės numeris",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "šešioliktainis tekstas",
+    "hash": "maišos reikšmė",
+    "currency_code": "valiutos kodas",
+    "template_literal": "reikšmė"
   },
   "types": {
     "string": "tekstas",

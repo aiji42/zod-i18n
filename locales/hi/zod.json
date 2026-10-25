@@ -162,7 +162,11 @@
     "jwt": "JWT",
     "hostname": "होस्टनेम",
     "credit_card": "क्रेडिट कार्ड नंबर",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "हेक्साडेसिमल टेक्स्ट",
+    "hash": "हैश",
+    "currency_code": "मुद्रा कोड",
+    "template_literal": "इनपुट"
   },
   "types": {
     "string": "टेक्स्ट",

@@ -126,7 +126,11 @@
     "jwt": "JWT",
     "hostname": "tên máy chủ",
     "credit_card": "số thẻ tín dụng",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "văn bản thập lục phân",
+    "hash": "mã băm",
+    "currency_code": "mã tiền tệ",
+    "template_literal": "giá trị"
   },
   "types": {
     "string": "văn bản",

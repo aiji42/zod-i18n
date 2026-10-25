@@ -36,8 +36,23 @@ export type CustomErrorParams = string | { key: string; values?: Record<string, 
 
 const DEFAULT_NS = "zod";
 const DEFAULT_CONTEXT = "with_path";
-// Returned by `t` only when none of the keys exist, so we can defer to Zod's own message.
-const MISSING = "\u0000zod-i18n-map:missing\u0000";
+const HASH_FORMAT = /^(md5|sha1|sha256|sha384|sha512)_(hex|base64|base64url)$/;
+
+/**
+ * Look up the first existing key. Returns `undefined` when none exists, detected the way
+ * i18next reports it (it returns the key itself), so no sentinel `defaultValue` leaks into
+ * `saveMissing` backends. Object values (a label key that is really a subtree) count as missing.
+ */
+const lookup = (
+  t: TranslateFunction,
+  keys: string[],
+  options: Record<string, unknown>,
+): string | undefined => {
+  const result = t(keys, { ...options, returnObjects: true });
+  if (typeof result !== "string") return undefined;
+  const missing = keys.some((key) => result === key || result.endsWith(`:${key}`));
+  return missing ? undefined : result;
+};
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null && !Array.isArray(value);
@@ -118,16 +133,17 @@ const META = "zodI18n";
 export const makeZodI18nMap = (option: ZodI18nMapOption = {}): ZodI18nMap => {
   const t: TranslateFunction = option.t ?? ((key, options) => i18next.t(key as string, options));
   const ns = option.ns ?? DEFAULT_NS;
+  // Explicit `undefined` options fall back to the defaults (a spread would erase them).
   const handlePath =
     option.handlePath === false
       ? null
       : {
-          context: DEFAULT_CONTEXT,
-          ns,
-          ...option.handlePath,
+          context: option.handlePath?.context ?? DEFAULT_CONTEXT,
+          ns: option.handlePath?.ns ?? ns,
+          keyPrefix: option.handlePath?.keyPrefix,
         };
 
-  const label = (key: string, defaultValue: string): string => String(t(key, { ns, defaultValue }));
+  const label = (key: string, fallback: string): string => lookup(t, [key], { ns }) ?? fallback;
 
   const build =
     (forced?: CustomI18n): z.$ZodErrorMap =>
@@ -137,12 +153,14 @@ export const makeZodI18nMap = (option: ZodI18nMapOption = {}): ZodI18nMap => {
         handlePath && path.length > 0
           ? {
               context: handlePath.context,
-              path: t(
-                [path.join("."), path.filter((p) => !/^\d+$/.test(p)).join(".")]
-                  .filter((key, i, keys) => key && keys.indexOf(key) === i)
-                  .map((key) => (handlePath.keyPrefix ? `${handlePath.keyPrefix}.${key}` : key)),
-                { ns: handlePath.ns, defaultValue: path.join(".") },
-              ),
+              path:
+                lookup(
+                  t,
+                  [path.join("."), path.filter((p) => !/^\d+$/.test(p)).join(".")]
+                    .filter((key, i, keys) => key && keys.indexOf(key) === i)
+                    .map((key) => (handlePath.keyPrefix ? `${handlePath.keyPrefix}.${key}` : key)),
+                  { ns: handlePath.ns },
+                ) ?? path.join("."),
             }
           : {};
 
@@ -157,13 +175,15 @@ export const makeZodI18nMap = (option: ZodI18nMapOption = {}): ZodI18nMap => {
       const override =
         meta.custom ?? (issue.code === "custom" ? getCustomI18n(issue.params?.i18n) : undefined);
       if (issue.code === "custom" && !override) {
-        return translateOrUndefined(t, "errors.custom", pathOptions, ns);
+        return translateOrUndefined(t, ["errors.custom"], pathOptions, ns);
       }
       if (!key && !override) return undefined;
 
       return translateOrUndefined(
         t,
-        [override?.key, ...(Array.isArray(key) ? key : [key])].filter((k): k is string => !!k),
+        [override?.key, ...(Array.isArray(key) ? key : [key])].filter(
+          (k, i, keys): k is string => !!k && keys.indexOf(k) === i,
+        ),
         { ...values, ...override?.values, ...pathOptions },
         ns,
       );
@@ -182,19 +202,12 @@ export const makeZodI18nMap = (option: ZodI18nMapOption = {}): ZodI18nMap => {
 
 const translateOrUndefined = (
   t: TranslateFunction,
-  key: string | string[],
+  keys: string[],
   values: Record<string, unknown>,
   ns: string | readonly string[],
-): string | undefined => {
+): string | undefined =>
   // Messages are plain text, not HTML: escaping would turn labels like "nom d'hôte" into "nom d&#39;hôte".
-  const message = t(key, {
-    ...values,
-    ns,
-    defaultValue: MISSING,
-    interpolation: { escapeValue: false },
-  });
-  return typeof message === "string" && message !== MISSING ? message : undefined;
-};
+  lookup(t, keys, { ...values, ns, interpolation: { escapeValue: false } });
 
 type Resolved = {
   key: string | string[] | undefined;
@@ -252,11 +265,17 @@ const resolve = (
 
     case "invalid_format": {
       const format = issue.format;
+      // z.hash() formats like "sha256_hex" share one "hash" label and override key.
+      const group = HASH_FORMAT.test(format) ? "hash" : format;
       const extra = issue as { prefix?: string; suffix?: string; includes?: string };
       return {
-        key: [`errors.invalid_format.${format}`, "errors.invalid_format.default"],
+        key: [
+          `errors.invalid_format.${format}`,
+          `errors.invalid_format.${group}`,
+          "errors.invalid_format.default",
+        ],
         values: {
-          format: label(`formats.${format}`, format),
+          format: label(`formats.${group}`, format),
           pattern: issue.pattern,
           prefix: extra.prefix,
           suffix: extra.suffix,

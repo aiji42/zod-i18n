@@ -124,7 +124,11 @@
     "jwt": "JWT",
     "hostname": "호스트 이름",
     "credit_card": "신용카드 번호",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "16진수 문자열",
+    "hash": "해시",
+    "currency_code": "통화 코드",
+    "template_literal": "입력 값"
   },
   "types": {
     "string": "텍스트",

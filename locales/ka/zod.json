@@ -125,7 +125,11 @@
     "jwt": "JWT",
     "hostname": "ჰოსტის სახელი",
     "credit_card": "საკრედიტო ბარათის ნომერი",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "თექვსმეტობითი ტექსტი",
+    "hash": "ჰეში",
+    "currency_code": "ვალუტის კოდი",
+    "template_literal": "მნიშვნელობა"
   },
   "types": {
     "string": "ტექსტი",

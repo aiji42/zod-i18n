@@ -282,7 +282,11 @@
     "jwt": "JWT",
     "hostname": "اسم مضيف",
     "credit_card": "رقم بطاقة ائتمان",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "نص سداسي عشري",
+    "hash": "قيمة تجزئة",
+    "currency_code": "رمز عملة",
+    "template_literal": "قيمة مُدخلة"
   },
   "types": {
     "string": "نص",

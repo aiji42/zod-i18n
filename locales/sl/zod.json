@@ -226,7 +226,11 @@
     "jwt": "JWT",
     "hostname": "ime gostitelja",
     "credit_card": "številka kreditne kartice",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "šestnajstiško besedilo",
+    "hash": "zgoščena vrednost",
+    "currency_code": "koda valute",
+    "template_literal": "vrednost"
   },
   "types": {
     "string": "besedilo",

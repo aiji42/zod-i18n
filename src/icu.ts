@@ -1,6 +1,5 @@
-type Json = { [key: string]: Json } | string;
+import { type Json, PLURAL } from "./validate.ts";
 
-const PLURAL_SUFFIX = /^(.*)_(zero|one|two|few|many|other)$/;
 const ICU_PLURAL_ORDER = ["zero", "one", "two", "few", "many", "other"];
 
 /** `{{- name}}` / `{{name}}` / `{{- name, datetime}}` -> `{name}` / `{name, date}`; escape ICU syntax chars. */
@@ -24,9 +23,10 @@ export const toIcu = (obj: Json): Json => {
   const out: { [key: string]: Json } = {};
   const plurals = new Map<string, Map<string, string>>();
   for (const [key, value] of Object.entries(obj)) {
-    const match = typeof value === "string" ? key.match(PLURAL_SUFFIX) : null;
+    const match = typeof value === "string" ? key.match(PLURAL) : null;
     if (match) {
-      const [, base, category] = match as unknown as [string, string, string];
+      const base = key.replace(PLURAL, "");
+      const category = match[1] as string;
       const forms = plurals.get(base) ?? new Map<string, string>();
       forms.set(category, convertMessage(value as string));
       plurals.set(base, forms);

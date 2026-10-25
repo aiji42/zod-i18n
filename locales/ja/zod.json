@@ -7,6 +7,7 @@
     "invalid_value_single": "{{- expected}}を指定してください。",
     "invalid_format": {
       "default": "{{format}}の形式で入力してください。",
+      "template_literal": "入力内容が正しくありません。",
       "regex": "入力形式が正しくありません。",
       "starts_with": "\"{{- prefix}}\"で始まる値を入力してください。",
       "ends_with": "\"{{- suffix}}\"で終わる値を入力してください。",
@@ -124,7 +125,11 @@
     "jwt": "JWT",
     "hostname": "ホスト名",
     "credit_card": "クレジットカード番号",
-    "iban": "IBAN"
+    "iban": "IBAN",
+    "hex": "16進数文字列",
+    "hash": "ハッシュ値",
+    "currency_code": "通貨コード",
+    "template_literal": "入力内容"
   },
   "types": {
     "string": "文字列",
