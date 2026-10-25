@@ -328,11 +328,15 @@ describe("review regressions", () => {
     ]);
   });
 
-  test("hash, hex, template literal and currency formats have labels", () => {
-    expect(messageOf(z.hex(), "zz")).toBe("Invalid hexadecimal string");
-    expect(messageOf(z.hash("sha256"), "x")).toBe("Invalid hash");
-    expect(messageOf(z.templateLiteral(["a", z.number()]), "b")).toBe("Invalid input");
-  });
+  // z.hex()/z.hash() don't exist in older Zod versions (CI compat matrix).
+  test.skipIf(typeof z.hex !== "function" || typeof z.hash !== "function")(
+    "hash, hex, template literal and currency formats have labels",
+    () => {
+      expect(messageOf(z.hex(), "zz")).toBe("Invalid hexadecimal string");
+      expect(messageOf(z.hash("sha256"), "x")).toBe("Invalid hash");
+      expect(messageOf(z.templateLiteral(["a", z.number()]), "b")).toBe("Invalid input");
+    },
+  );
 
   test("handlePath options passed as undefined keep their defaults", async () => {
     await i18next.init({

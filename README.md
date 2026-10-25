@@ -14,7 +14,7 @@ Zod v4 ships built-in locales (`z.config(z.locales.ja())`). Those are global and
 - **Field names in messages**: for example "Email is required" instead of "Required".
 - **Your own translation keys** on any schema, check or refinement, with access to values like `{{count}}`.
 
-> Using Zod v3? Stay on [`zod-i18n-map@2`](https://github.com/aiji42/zod-i18n/tree/v2.27.0).
+> Using Zod v3? Stay on [`zod-i18n-map@2`](https://github.com/aiji42/zod-i18n/tree/zod-i18n-map-v2.27.0).
 
 ## Quick start
 
