@@ -48,9 +48,14 @@ const lookup = (
   keys: string[],
   options: Record<string, unknown>,
 ): string | undefined => {
-  const result = t(keys, { ...options, returnObjects: true });
+  // Our keys are always dot-separated, whatever `keySeparator` the app configured (#219).
+  const result = t(keys, { ...options, keySeparator: ".", returnObjects: true });
   if (typeof result !== "string") return undefined;
-  const missing = keys.some((key) => result === key || result.endsWith(`:${key}`));
+  // i18next returns the key on a miss, possibly prefixed by the namespace (`zod:key`) or by
+  // the `keyPrefix` of a `getFixedT` function (`validation.key`, #217).
+  const missing = keys.some(
+    (key) => result === key || result.endsWith(`:${key}`) || result.endsWith(`.${key}`),
+  );
   return missing ? undefined : result;
 };
 
