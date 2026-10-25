@@ -1,0 +1,223 @@
+{
+  "errors": {
+    "invalid_type": "Неисправан тип: очекује се „{{expected}}“, унето „{{received}}“",
+    "invalid_type_received_undefined": "Обавезно поље",
+    "invalid_type_received_null": "Обавезно поље",
+    "invalid_value": "Неисправна вредност: очекује се једна од вредности {{- options}}",
+    "invalid_value_single": "Неисправна вредност: очекује се {{- expected}}",
+    "invalid_format": {
+      "default": "Неисправан формат: очекује се {{format}}",
+      "email": "Неисправна адреса е-поште",
+      "url": "Неисправан URL",
+      "uuid": "Неисправан UUID",
+      "datetime": "Неисправан датум и време (очекује се ISO формат)",
+      "date": "Неисправан датум (формат ГГГГ-ММ-ДД)",
+      "time": "Неисправно време (очекује се ISO формат)",
+      "ipv4": "Неисправна IPv4 адреса",
+      "ipv6": "Неисправна IPv6 адреса",
+      "e164": "Неисправан број телефона (формат E.164)",
+      "regex": "Неисправан формат",
+      "starts_with": "Вредност мора почињати са „{{- prefix}}“",
+      "ends_with": "Вредност се мора завршавати са „{{- suffix}}“",
+      "includes": "Вредност мора садржати „{{- includes}}“",
+      "lowercase": "Вредност сме садржати само мала слова",
+      "uppercase": "Вредност сме садржати само велика слова"
+    },
+    "not_multiple_of": "Број мора бити дељив са {{divisor}}",
+    "unrecognized_keys_one": "Непознат кључ у објекту: {{- keys}}",
+    "unrecognized_keys_few": "Непознати кључеви у објекту: {{- keys}}",
+    "unrecognized_keys_other": "Непознати кључеви у објекту: {{- keys}}",
+    "invalid_key": "Неисправан кључ у вредности типа „{{origin}}“",
+    "invalid_element": "Неисправна ставка у вредности типа „{{origin}}“",
+    "invalid_union": "Неисправна вредност",
+    "invalid_union_discriminator": "Неисправна вредност: очекује се једна од вредности {{- options}}",
+    "custom": "Неисправна вредност",
+    "too_small": {
+      "string": {
+        "exact_one": "Текст мора садржати тачно {{count}} знак",
+        "exact_few": "Текст мора садржати тачно {{count}} знака",
+        "exact_other": "Текст мора садржати тачно {{count}} знакова",
+        "inclusive_one": "Текст мора садржати најмање {{count}} знак",
+        "inclusive_few": "Текст мора садржати најмање {{count}} знака",
+        "inclusive_other": "Текст мора садржати најмање {{count}} знакова",
+        "not_inclusive_one": "Текст мора садржати више од {{count}} знака",
+        "not_inclusive_few": "Текст мора садржати више од {{count}} знака",
+        "not_inclusive_other": "Текст мора садржати више од {{count}} знакова"
+      },
+      "number": {
+        "exact": "Број мора бити тачно {{minimum}}",
+        "inclusive": "Број мора бити најмање {{minimum}}",
+        "not_inclusive": "Број мора бити већи од {{minimum}}"
+      },
+      "array": {
+        "exact_one": "Листа мора садржати тачно {{count}} ставку",
+        "exact_few": "Листа мора садржати тачно {{count}} ставке",
+        "exact_other": "Листа мора садржати тачно {{count}} ставки",
+        "inclusive_one": "Листа мора садржати најмање {{count}} ставку",
+        "inclusive_few": "Листа мора садржати најмање {{count}} ставке",
+        "inclusive_other": "Листа мора садржати најмање {{count}} ставки",
+        "not_inclusive_one": "Листа мора садржати више од {{count}} ставке",
+        "not_inclusive_few": "Листа мора садржати више од {{count}} ставке",
+        "not_inclusive_other": "Листа мора садржати више од {{count}} ставки"
+      },
+      "set": {
+        "exact_one": "Скуп мора садржати тачно {{count}} елемент",
+        "exact_few": "Скуп мора садржати тачно {{count}} елемента",
+        "exact_other": "Скуп мора садржати тачно {{count}} елемената",
+        "inclusive_one": "Скуп мора садржати најмање {{count}} елемент",
+        "inclusive_few": "Скуп мора садржати најмање {{count}} елемента",
+        "inclusive_other": "Скуп мора садржати најмање {{count}} елемената",
+        "not_inclusive_one": "Скуп мора садржати више од {{count}} елемента",
+        "not_inclusive_few": "Скуп мора садржати више од {{count}} елемента",
+        "not_inclusive_other": "Скуп мора садржати више од {{count}} елемената"
+      },
+      "map": {
+        "exact_one": "Мапа мора садржати тачно {{count}} унос",
+        "exact_few": "Мапа мора садржати тачно {{count}} уноса",
+        "exact_other": "Мапа мора садржати тачно {{count}} уноса",
+        "inclusive_one": "Мапа мора садржати најмање {{count}} унос",
+        "inclusive_few": "Мапа мора садржати најмање {{count}} уноса",
+        "inclusive_other": "Мапа мора садржати најмање {{count}} уноса",
+        "not_inclusive_one": "Мапа мора садржати више од {{count}} уноса",
+        "not_inclusive_few": "Мапа мора садржати више од {{count}} уноса",
+        "not_inclusive_other": "Мапа мора садржати више од {{count}} уноса"
+      },
+      "file": {
+        "exact_one": "Датотека мора имати тачно {{count}} бајт",
+        "exact_few": "Датотека мора имати тачно {{count}} бајта",
+        "exact_other": "Датотека мора имати тачно {{count}} бајтова",
+        "inclusive_one": "Датотека мора имати најмање {{count}} бајт",
+        "inclusive_few": "Датотека мора имати најмање {{count}} бајта",
+        "inclusive_other": "Датотека мора имати најмање {{count}} бајтова",
+        "not_inclusive_one": "Датотека мора имати више од {{count}} бајта",
+        "not_inclusive_few": "Датотека мора имати више од {{count}} бајта",
+        "not_inclusive_other": "Датотека мора имати више од {{count}} бајтова"
+      },
+      "date": {
+        "exact": "Датум мора бити {{- minimum, datetime}}",
+        "inclusive": "Датум не сме бити пре {{- minimum, datetime}}",
+        "not_inclusive": "Датум мора бити после {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact_one": "Текст мора садржати тачно {{count}} знак",
+        "exact_few": "Текст мора садржати тачно {{count}} знака",
+        "exact_other": "Текст мора садржати тачно {{count}} знакова",
+        "inclusive_one": "Текст сме садржати највише {{count}} знак",
+        "inclusive_few": "Текст сме садржати највише {{count}} знака",
+        "inclusive_other": "Текст сме садржати највише {{count}} знакова",
+        "not_inclusive_one": "Текст мора садржати мање од {{count}} знака",
+        "not_inclusive_few": "Текст мора садржати мање од {{count}} знака",
+        "not_inclusive_other": "Текст мора садржати мање од {{count}} знакова"
+      },
+      "number": {
+        "exact": "Број мора бити тачно {{maximum}}",
+        "inclusive": "Број сме бити највише {{maximum}}",
+        "not_inclusive": "Број мора бити мањи од {{maximum}}"
+      },
+      "array": {
+        "exact_one": "Листа мора садржати тачно {{count}} ставку",
+        "exact_few": "Листа мора садржати тачно {{count}} ставке",
+        "exact_other": "Листа мора садржати тачно {{count}} ставки",
+        "inclusive_one": "Листа сме садржати највише {{count}} ставку",
+        "inclusive_few": "Листа сме садржати највише {{count}} ставке",
+        "inclusive_other": "Листа сме садржати највише {{count}} ставки",
+        "not_inclusive_one": "Листа мора садржати мање од {{count}} ставке",
+        "not_inclusive_few": "Листа мора садржати мање од {{count}} ставке",
+        "not_inclusive_other": "Листа мора садржати мање од {{count}} ставки"
+      },
+      "set": {
+        "exact_one": "Скуп мора садржати тачно {{count}} елемент",
+        "exact_few": "Скуп мора садржати тачно {{count}} елемента",
+        "exact_other": "Скуп мора садржати тачно {{count}} елемената",
+        "inclusive_one": "Скуп сме садржати највише {{count}} елемент",
+        "inclusive_few": "Скуп сме садржати највише {{count}} елемента",
+        "inclusive_other": "Скуп сме садржати највише {{count}} елемената",
+        "not_inclusive_one": "Скуп мора садржати мање од {{count}} елемента",
+        "not_inclusive_few": "Скуп мора садржати мање од {{count}} елемента",
+        "not_inclusive_other": "Скуп мора садржати мање од {{count}} елемената"
+      },
+      "map": {
+        "exact_one": "Мапа мора садржати тачно {{count}} унос",
+        "exact_few": "Мапа мора садржати тачно {{count}} уноса",
+        "exact_other": "Мапа мора садржати тачно {{count}} уноса",
+        "inclusive_one": "Мапа сме садржати највише {{count}} унос",
+        "inclusive_few": "Мапа сме садржати највише {{count}} уноса",
+        "inclusive_other": "Мапа сме садржати највише {{count}} уноса",
+        "not_inclusive_one": "Мапа мора садржати мање од {{count}} уноса",
+        "not_inclusive_few": "Мапа мора садржати мање од {{count}} уноса",
+        "not_inclusive_other": "Мапа мора садржати мање од {{count}} уноса"
+      },
+      "file": {
+        "exact_one": "Датотека мора имати тачно {{count}} бајт",
+        "exact_few": "Датотека мора имати тачно {{count}} бајта",
+        "exact_other": "Датотека мора имати тачно {{count}} бајтова",
+        "inclusive_one": "Датотека сме имати највише {{count}} бајт",
+        "inclusive_few": "Датотека сме имати највише {{count}} бајта",
+        "inclusive_other": "Датотека сме имати највише {{count}} бајтова",
+        "not_inclusive_one": "Датотека мора имати мање од {{count}} бајта",
+        "not_inclusive_few": "Датотека мора имати мање од {{count}} бајта",
+        "not_inclusive_other": "Датотека мора имати мање од {{count}} бајтова"
+      },
+      "date": {
+        "exact": "Датум мора бити {{- maximum, datetime}}",
+        "inclusive": "Датум не сме бити после {{- maximum, datetime}}",
+        "not_inclusive": "Датум мора бити пре {{- maximum, datetime}}"
+      }
+    }
+  },
+  "formats": {
+    "email": "адреса е-поште",
+    "url": "URL",
+    "emoji": "емоџи",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO датум и време",
+    "date": "ISO датум",
+    "time": "ISO време",
+    "duration": "ISO трајање",
+    "ipv4": "IPv4 адреса",
+    "ipv6": "IPv6 адреса",
+    "mac": "MAC адреса",
+    "cidrv4": "IPv4 опсег",
+    "cidrv6": "IPv6 опсег",
+    "base64": "текст кодиран у Base64",
+    "base64url": "текст кодиран у Base64URL",
+    "json_string": "JSON текст",
+    "e164": "број телефона у формату E.164",
+    "jwt": "JWT",
+    "hostname": "име хоста",
+    "credit_card": "број кредитне картице",
+    "iban": "IBAN"
+  },
+  "types": {
+    "string": "текст",
+    "number": "број",
+    "int": "цео број",
+    "bigint": "велики цео број",
+    "boolean": "логичка вредност",
+    "symbol": "симбол",
+    "undefined": "недефинисана вредност",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "датум",
+    "array": "листа",
+    "tuple": "торка",
+    "object": "објекат",
+    "record": "објекат",
+    "map": "мапа",
+    "set": "скуп",
+    "file": "датотека",
+    "function": "функција",
+    "promise": "Promise"
+  }
+}
