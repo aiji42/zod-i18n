@@ -1,6 +1,6 @@
 {
   "name": "zod-i18n-map",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Translate Zod error messages with i18next. Bring your own translation files.",
   "keywords": [
     "zod",
