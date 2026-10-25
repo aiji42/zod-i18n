@@ -17,24 +17,36 @@ export const translationGuide = (locale: string, file: string): string => {
 
   return `Translate ${file} into "${locale}". It is currently a copy of the English reference.
 
-These are Zod validation messages shown to the end users of forms and APIs.
+These are Zod validation messages. They are shown to the end users of forms and APIs, usually next to the field they belong to.
 Write them like a careful native UX writer would.
 
 Rules:
 1. Keep every key. Translate only the values.
 2. Keep every {{variable}} exactly as written, including the "-" in {{- name}} and ", datetime" in {{- minimum, datetime}}. Never translate the names inside the braces.
-3. ${plurals}
-4. Pick one natural register for UI validation messages and use it in every message. Keep punctuation consistent (English uses no trailing period).
-5. Use end-user words: "string" means text, "array" means list. For dates, say before/after rather than smaller/greater.
+3. ${plurals} Within one group, use either all the suffixed keys or a single plain key. Don't mix them. A plain key is fine whenever every plural form would be the same text.
+4. Pick one natural register for UI validation messages and use it in every message.
+   - Keep punctuation consistent. English uses no trailing period.
+   - Don't name the field. Messages are shown next to it, so use subject-less phrasing or a generic subject like "value".
+   - Required fields: say "This field is required" or similar.
+5. Use end-user words:
+   - "string" means text, "array" means list.
+   - For dates, say before/after rather than smaller/greater.
+   - Developer-only names (symbol, bigint, void, never, promise, function, tuple, NaN) may stay in English when your language has no common equivalent. Choose one way and apply it everywhere.
+   - For map and set, use a neutral word for a collection of entries or items, not a word with another everyday meaning (like a geographic map).
 6. Values inserted into templates are translated labels:
    - {{expected}}, {{received}} and {{origin}} come from "types.*"
    - {{format}} comes from "formats.*"
-   Every template must stay grammatical with every label. If "errors.invalid_format.default" can't be, add specific keys such as "errors.invalid_format.email" (any key under "formats" is allowed) with the same variables.
+   Write labels as bare nouns in their dictionary form, in lowercase where your language allows it. Every template must stay grammatical with every label it can receive, including agreement in case, gender or noun class:
+   - Don't start a template with a variable, because labels are lowercase.
+   - If agreement is a problem, restructure the template so the label stands alone. For example, use "Invalid value (expected: {{expected}})" or "Must be {{expected}}" rather than agreeing adjectives.
+   - For formats only, you may add specific keys such as "errors.invalid_format.email" (any key under "formats" is allowed) with the same variables as "errors.invalid_format.default".
 7. Don't add keys that aren't in the English file, except the invalid_format overrides above.
 
 When done, run:
   npx zod-i18n-map check ${file} --locale ${locale}
-Fix every reported problem and run it again until it passes.`;
+Fix every reported problem and run it again until it passes.
+- check verifies structure: keys (including override names), {{variables}}, empty messages and plural suffixes.
+- check can't judge wording. Before finishing, reread every message with real values inserted.`;
 };
 
 export const SKILL_MD = `---
