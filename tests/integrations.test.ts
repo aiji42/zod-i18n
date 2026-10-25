@@ -136,3 +136,60 @@ describe("i18next options people commonly set", () => {
     ).toBe("Expected string, received number");
   });
 });
+
+describe("i18next configurations", () => {
+  test("a custom keySeparator in the app's i18next config (#219)", async () => {
+    const i = createInstance();
+    await i.init({
+      lng: "en",
+      keySeparator: "|",
+      resources: { en: { zod: await loadLocale("en") } },
+    });
+    expect(messages(i)).toEqual([
+      "String must contain at least 3 characters",
+      "Invalid email address",
+    ]);
+  });
+
+  test("getFixedT with a keyPrefix, falling back to Zod for missing keys (#217)", async () => {
+    const i = createInstance();
+    await i.init({
+      lng: "en",
+      resources: {
+        en: { common: { validation: { errors: { invalid_type: "Need {{expected}}" } } } },
+      },
+    });
+    const error = makeZodI18nMap({ t: i.getFixedT(null, "common", "validation"), ns: "common" });
+    expect(z.string().safeParse(1, { error }).error?.issues[0]?.message).toBe("Need string");
+    expect(z.email().safeParse("x", { error }).error?.issues[0]?.message).toBe(
+      "Invalid email address",
+    );
+  });
+
+  test("plurals combined with the with_path context (#221)", async () => {
+    const i = createInstance();
+    await i.init({
+      lng: "en",
+      resources: {
+        en: {
+          zod: {
+            errors: {
+              too_small: {
+                string: {
+                  inclusive_with_path_one: "{{- path}}: at least {{count}} character",
+                  inclusive_with_path_other: "{{- path}}: at least {{count}} characters",
+                },
+              },
+            },
+            name: "Name",
+          },
+        },
+      },
+    });
+    const error = makeZodI18nMap({ t: i.t });
+    const msg = (min: number) =>
+      z.object({ name: z.string().min(min) }).safeParse({ name: "" }, { error }).error?.issues[0]
+        ?.message;
+    expect([msg(1), msg(3)]).toEqual(["Name: at least 1 character", "Name: at least 3 characters"]);
+  });
+});
