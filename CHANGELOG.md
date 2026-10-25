@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/aiji42/zod-i18n/compare/v3.0.0...v3.0.1) (2026-10-25)
+
+
+### Bug Fixes
+
+* work with a custom keySeparator and getFixedT keyPrefix ([#231](https://github.com/aiji42/zod-i18n/issues/231)) ([6225487](https://github.com/aiji42/zod-i18n/commit/6225487604fcb75e5baab36d9422f4f5fefc8ca0))
+
 ## [3.0.0](https://github.com/aiji42/zod-i18n/compare/v2.27.0...v3.0.0) (2026-10-25)
 
 
