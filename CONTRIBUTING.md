@@ -16,7 +16,7 @@ pnpm check         # lint, typecheck, locale validation, tests and build
 
 - **Fix a translation:** edit the file and open a pull request. Please explain why the new wording is better. Native speakers are the best reviewers.
 - **Add a locale:**
-  1. Copy `locales/en/zod.json` to `locales/<code>/zod.json`, using an [i18next language code](https://www.i18next.com/how-to/faq#how-should-the-language-codes-be-formatted), e.g. `pt-BR`.
+  1. Run `node src/cli.ts scaffold <code> --ref main`, or copy `locales/en/zod.json` to `locales/<code>/zod.json`, using an [i18next language code](https://www.i18next.com/how-to/faq#how-should-the-language-codes-be-formatted), e.g. `pt-BR`.
   2. Translate it.
   3. Run `pnpm locales:check --write`. This validates the file and registers the code in `locales/index.json`.
 

@@ -71,7 +71,9 @@ When an issue has a path, a `_with_path` context variant is used if it exists, e
 
 - `npx zod-i18n-map list [--json]`
 - `npx zod-i18n-map add <locale...> [--out pattern] [--ref git-ref] [--format i18next|icu] [--force] [--json]`
-- `npx zod-i18n-map check <file> [--json]`: lists keys missing compared to the upstream English file. It exits with code 1 if any are missing.
+- `npx zod-i18n-map check <file> [--locale code] [--json]`: validates a translation file against the upstream English file. It reports missing keys, unknown keys and variables, empty messages, and plural suffixes that don't match the language. It exits with code 1 on any finding. The locale is inferred from paths like `locales/<code>/zod.json`.
+- `npx zod-i18n-map scaffold <locale> [--out pattern] [--json]`: for a language that isn't available. It copies the English file to the output path and prints translation rules. Translate the file, then run `check` until it passes.
+- `npx zod-i18n-map skill [--out path]`: installs an Agent Skill (SKILL.md) for this library. The default location is `.claude/skills/zod-i18n-map/SKILL.md`.
 
 ## Pitfalls
 

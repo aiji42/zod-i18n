@@ -1,41 +1,58 @@
 #!/usr/bin/env node
 import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { dirname, resolve } from "node:path";
+import { basename, dirname, resolve } from "node:path";
 import { parseArgs } from "node:util";
 import pkg from "../package.json" with { type: "json" };
+import { SKILL_MD, translationGuide } from "./guide.ts";
 import { toIcu } from "./icu.ts";
+import { type Json, validateLocale } from "./validate.ts";
 
 const REPO = "aiji42/zod-i18n";
 const RAW_BASE = process.env.ZOD_I18N_MAP_BASE_URL ?? `https://raw.githubusercontent.com/${REPO}`;
 const DEFAULT_REF = `v${pkg.version}`;
+const DEFAULT_OUT = "locales/{locale}/zod.json";
+const DEFAULT_SKILL_OUT = ".claude/skills/zod-i18n-map/SKILL.md";
 
 const HELP = `zod-i18n-map v${pkg.version}
 
-Download Zod error message translations into your project.
+Copy Zod error message translations into your project.
 The files are yours to edit: they are plain i18next JSON resources.
 
 Usage:
-  npx zod-i18n-map add <locale...> [options]   Download translation files
-  npx zod-i18n-map list [--json]               List available locales
-  npx zod-i18n-map check <file> [options]      Report keys missing from a local file
+  npx zod-i18n-map add <locale...>       Download translation files
+  npx zod-i18n-map list                  List available locales
+  npx zod-i18n-map check <file>          Validate a translation file (missing keys, variables, plurals)
+  npx zod-i18n-map scaffold <locale>     Start a new language: copy the English file and print
+                                         translation rules for you or your coding agent
+  npx zod-i18n-map skill                 Install an Agent Skill that teaches coding agents this library
 
 Options:
-  -o, --out <pattern>  Output path; {locale} is replaced (default: "locales/{locale}/zod.json")
-  -r, --ref <ref>      Git tag, branch or commit to fetch from (default: "${DEFAULT_REF}", falls back to "main")
+  -o, --out <path>       Output path. {locale} is replaced.
+                         add/scaffold default: "${DEFAULT_OUT}". skill default: "${DEFAULT_SKILL_OUT}"
+  -r, --ref <ref>        Git tag, branch or commit to fetch from (default: "${DEFAULT_REF}", falls back to "main")
+  -l, --locale <code>    Language of the file for check (default: inferred from the path)
       --format <format>  "i18next" (default) or "icu" (ICU MessageFormat, for i18next-icu)
-  -f, --force          Overwrite existing files
-      --json           Machine-readable output
-  -h, --help           Show this help
+  -f, --force            Overwrite existing files
+      --json             Machine-readable output
+  -h, --help             Show this help
 
 Examples:
   npx zod-i18n-map add ja fr
   npx zod-i18n-map add de --out public/locales/{locale}/zod.json
   npx zod-i18n-map add fr --format icu
-  npx zod-i18n-map check locales/ja/zod.json
+  npx zod-i18n-map scaffold sw && npx zod-i18n-map check locales/sw/zod.json
 `;
 
-type Json = { [key: string]: Json } | string;
+type Options = {
+  out?: string;
+  ref: string;
+  explicitRef: boolean;
+  force: boolean;
+  json: boolean;
+  format: "i18next" | "icu";
+  locale?: string;
+};
 
 const fetchText = async (path: string, ref: string): Promise<string | null> => {
   const res = await fetch(`${RAW_BASE}/${ref}/${path}`);
@@ -47,8 +64,7 @@ const fetchText = async (path: string, ref: string): Promise<string | null> => {
 /** Fetch from the pinned ref first so files match the installed version; fall back to main. */
 const fetchWithFallback = async (
   path: string,
-  ref: string,
-  explicitRef: boolean,
+  { ref, explicitRef }: Pick<Options, "ref" | "explicitRef">,
 ): Promise<{ text: string; ref: string } | null> => {
   const text = await fetchText(path, ref);
   if (text !== null) return { text, ref };
@@ -57,59 +73,42 @@ const fetchWithFallback = async (
   return fallback === null ? null : { text: fallback, ref: "main" };
 };
 
-const fetchLocales = async (ref: string, explicitRef: boolean): Promise<string[]> => {
-  const found = await fetchWithFallback("locales/index.json", ref, explicitRef);
-  if (!found) throw new Error(`Could not find locales/index.json at ref "${ref}"`);
-  return JSON.parse(found.text) as string[];
+const fetchJson = async <T>(path: string, opts: Options): Promise<{ data: T; ref: string }> => {
+  const found = await fetchWithFallback(path, opts);
+  if (!found) throw new Error(`Could not fetch ${path} at ref "${opts.ref}"`);
+  return { data: JSON.parse(found.text) as T, ref: found.ref };
 };
 
-const PLURAL_SUFFIX = /_(zero|one|two|few|many|other)$/;
-
-/** Flatten to dotted keys, folding plural variants (`_one`, `_other`, ...) into their base key. */
-const flattenKeys = (obj: Json, prefix = "", out = new Set<string>()): Set<string> => {
-  if (typeof obj === "string") {
-    out.add(prefix.replace(PLURAL_SUFFIX, ""));
-    return out;
-  }
-  for (const [key, value] of Object.entries(obj)) {
-    flattenKeys(value, prefix ? `${prefix}.${key}` : key, out);
-  }
-  return out;
+const writeOutput = async (path: string, content: string) => {
+  await mkdir(dirname(path), { recursive: true });
+  await writeFile(path, content);
 };
 
-const add = async (
-  locales: string[],
-  opts: {
-    out: string;
-    ref: string;
-    explicitRef: boolean;
-    force: boolean;
-    json: boolean;
-    format: "i18next" | "icu";
-  },
-): Promise<number> => {
+const add = async (locales: string[], opts: Options): Promise<number> => {
   if (locales.length === 0) {
     console.error("Specify at least one locale, e.g. `npx zod-i18n-map add ja`.");
     return 1;
   }
   const results: { locale: string; status: string; path?: string; ref?: string }[] = [];
   for (const locale of locales) {
-    const path = resolve(opts.out.replaceAll("{locale}", locale));
+    const path = resolve((opts.out ?? DEFAULT_OUT).replaceAll("{locale}", locale));
     if (existsSync(path) && !opts.force) {
       results.push({ locale, status: "skipped (exists, use --force)", path });
       continue;
     }
-    const found = await fetchWithFallback(`locales/${locale}/zod.json`, opts.ref, opts.explicitRef);
+    const found = await fetchWithFallback(`locales/${locale}/zod.json`, opts);
     if (!found) {
-      results.push({ locale, status: "not found (run `npx zod-i18n-map list`)" });
+      results.push({
+        locale,
+        status: `not available (see \`npx zod-i18n-map list\`, or create it with \`npx zod-i18n-map scaffold ${locale}\`)`,
+      });
       continue;
     }
-    await mkdir(dirname(path), { recursive: true });
     const content =
       opts.format === "icu"
         ? `${JSON.stringify(toIcu(JSON.parse(found.text) as Json), null, 2)}\n`
         : found.text;
-    await writeFile(path, content);
+    await writeOutput(path, content);
     results.push({ locale, status: "written", path, ref: found.ref });
   }
 
@@ -122,38 +121,93 @@ const add = async (
   return results.every((r) => r.status === "written" || r.status.startsWith("skipped")) ? 0 : 1;
 };
 
-const check = async (
-  file: string | undefined,
-  opts: { ref: string; explicitRef: boolean; json: boolean },
-): Promise<number> => {
+/** `locales/pt-BR/zod.json` -> `pt-BR`, `i18n/de.json` -> `de`. */
+const inferLocale = (file: string): string | undefined => {
+  const looksLikeCode = (s: string) => /^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$/i.test(s);
+  const fromName = basename(file).replace(/\.json$/, "");
+  if (fromName !== "zod" && looksLikeCode(fromName)) return fromName;
+  const fromDir = basename(dirname(resolve(file)));
+  return looksLikeCode(fromDir) ? fromDir : undefined;
+};
+
+const check = async (file: string | undefined, opts: Options): Promise<number> => {
   if (!file) {
-    console.error(
-      "Specify a local translation file, e.g. `npx zod-i18n-map check locales/ja/zod.json`.",
-    );
+    console.error("Specify a translation file, e.g. `npx zod-i18n-map check locales/ja/zod.json`.");
     return 1;
   }
-  const local = flattenKeys(JSON.parse(await readFile(file, "utf8")) as Json);
-  const found = await fetchWithFallback("locales/en/zod.json", opts.ref, opts.explicitRef);
-  if (!found) throw new Error(`Could not fetch the reference locale at ref "${opts.ref}"`);
-  const reference = flattenKeys(JSON.parse(found.text) as Json);
-  const missing = [...reference].filter((k) => !local.has(k));
-
-  if (opts.json) console.log(JSON.stringify({ file, ref: found.ref, missing }, null, 2));
-  else if (missing.length === 0) console.log(`${file}: up to date with ${found.ref}`);
-  else {
-    console.log(`${file}: ${missing.length} key(s) missing compared to ${found.ref}`);
-    for (const key of missing) console.log(`  - ${key}`);
-    console.log("Missing keys fall back to Zod's built-in message.");
+  const locale = opts.locale ?? inferLocale(file);
+  if (!locale) {
+    console.error(`Could not infer the language of ${file}; pass --locale <code>.`);
+    return 1;
   }
-  return missing.length === 0 ? 0 : 1;
+  let messages: Json;
+  try {
+    messages = JSON.parse(await readFile(file, "utf8")) as Json;
+  } catch (e) {
+    console.error(`${file}: ${(e as Error).message}`);
+    return 1;
+  }
+  const { data: reference, ref } = await fetchJson<Json>("locales/en/zod.json", opts);
+  const { missing, problems } = validateLocale(reference, messages, locale);
+  const ok = missing.length === 0 && problems.length === 0;
+
+  if (opts.json) console.log(JSON.stringify({ file, locale, ref, ok, missing, problems }, null, 2));
+  else if (ok) console.log(`${file} (${locale}): OK, up to date with ${ref}`);
+  else {
+    console.log(`${file} (${locale}) compared to ${ref}:`);
+    for (const p of problems) console.log(`  ✖ ${p}`);
+    for (const key of missing) console.log(`  - missing "${key}" (falls back to Zod's message)`);
+  }
+  return ok ? 0 : 1;
+};
+
+const scaffold = async (locale: string | undefined, opts: Options): Promise<number> => {
+  if (!locale) {
+    console.error("Specify a language code, e.g. `npx zod-i18n-map scaffold sw`.");
+    return 1;
+  }
+  const { data: available } = await fetchJson<string[]>("locales/index.json", opts);
+  if (available.includes(locale) && !opts.force) {
+    console.error(`"${locale}" is already available: run \`npx zod-i18n-map add ${locale}\`.`);
+    return 1;
+  }
+  const out = (opts.out ?? DEFAULT_OUT).replaceAll("{locale}", locale);
+  const path = resolve(out);
+  if (existsSync(path) && !opts.force) {
+    console.error(`${out} already exists (use --force to overwrite).`);
+    return 1;
+  }
+  const found = await fetchWithFallback("locales/en/zod.json", opts);
+  if (!found) throw new Error(`Could not fetch the English reference at ref "${opts.ref}"`);
+  await writeOutput(path, found.text);
+
+  const instructions = translationGuide(locale, out);
+  if (opts.json)
+    console.log(JSON.stringify({ locale, path, ref: found.ref, instructions }, null, 2));
+  else console.log(`Wrote the English reference to ${out}.\n\n${instructions}`);
+  return 0;
+};
+
+const skill = async (opts: Options): Promise<number> => {
+  const out = opts.out ?? DEFAULT_SKILL_OUT;
+  const path = resolve(out);
+  if (existsSync(path) && !opts.force) {
+    console.error(`${out} already exists (use --force to overwrite).`);
+    return 1;
+  }
+  await writeOutput(path, SKILL_MD);
+  if (opts.json) console.log(JSON.stringify({ path }));
+  else console.log(`Wrote ${out}`);
+  return 0;
 };
 
 const main = async (): Promise<number> => {
   const { values, positionals } = parseArgs({
     allowPositionals: true,
     options: {
-      out: { type: "string", short: "o", default: "locales/{locale}/zod.json" },
+      out: { type: "string", short: "o" },
       ref: { type: "string", short: "r" },
+      locale: { type: "string", short: "l" },
       force: { type: "boolean", short: "f", default: false },
       json: { type: "boolean", default: false },
       format: { type: "string", default: "i18next" },
@@ -161,34 +215,38 @@ const main = async (): Promise<number> => {
     },
   });
   const [command, ...args] = positionals;
-  const ref = values.ref ?? DEFAULT_REF;
-  const explicitRef = values.ref !== undefined;
-
   if (values.help || !command) {
     console.log(HELP);
     return 0;
   }
+  if (values.format !== "i18next" && values.format !== "icu") {
+    console.error(`Unknown --format "${values.format}". Use "i18next" or "icu".`);
+    return 1;
+  }
+  const opts: Options = {
+    out: values.out,
+    ref: values.ref ?? DEFAULT_REF,
+    explicitRef: values.ref !== undefined,
+    force: values.force,
+    json: values.json,
+    format: values.format,
+    locale: values.locale,
+  };
+
   switch (command) {
     case "add":
-      if (values.format !== "i18next" && values.format !== "icu") {
-        console.error(`Unknown --format "${values.format}". Use "i18next" or "icu".`);
-        return 1;
-      }
-      return add(args, {
-        format: values.format,
-        out: values.out,
-        ref,
-        explicitRef,
-        force: values.force,
-        json: values.json,
-      });
+      return add(args, opts);
     case "list": {
-      const locales = await fetchLocales(ref, explicitRef);
-      console.log(values.json ? JSON.stringify(locales) : locales.join("\n"));
+      const { data } = await fetchJson<string[]>("locales/index.json", opts);
+      console.log(opts.json ? JSON.stringify(data) : data.join("\n"));
       return 0;
     }
     case "check":
-      return check(args[0], { ref, explicitRef, json: values.json });
+      return check(args[0], opts);
+    case "scaffold":
+      return scaffold(args[0], opts);
+    case "skill":
+      return skill(opts);
     default:
       console.error(`Unknown command: ${command}\n\n${HELP}`);
       return 1;

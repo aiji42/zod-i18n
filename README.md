@@ -50,7 +50,7 @@ npx zod-i18n-map list                    # available locales
 npx zod-i18n-map add de fr               # -> locales/{locale}/zod.json
 npx zod-i18n-map add de --out public/locales/{locale}/zod.json
 npx zod-i18n-map add de --force          # overwrite an existing file
-npx zod-i18n-map check locales/de/zod.json   # keys added upstream since you copied it
+npx zod-i18n-map check locales/de/zod.json   # validate: missing keys, unknown variables, plural forms
 npx zod-i18n-map add de --format icu     # ICU MessageFormat, for i18next-icu
 ```
 
@@ -209,9 +209,23 @@ Every message also receives `path` when `handlePath` is on. See [`locales/en/zod
   - If you customized a v2 file, start from the new file and copy your wording over. `npx zod-i18n-map check` lists the keys you are missing.
 - **Locale codes:** `hr-HR` → `hr`, `uk-UA` → `uk`, `pt` → `pt-BR` (it was always Brazilian Portuguese; European Portuguese is now `pt-PT`). (You choose the file name, so any i18next language code works.)
 
+## Any language, with your coding agent
+
+The translation files belong to you, so a language that isn't listed is one command away:
+
+```bash
+npx zod-i18n-map scaffold sw     # copies the English file and prints translation rules for Swahili
+# ...let your coding agent (or a human) translate locales/sw/zod.json...
+npx zod-i18n-map check locales/sw/zod.json   # verifies keys, {{variables}} and the plural forms Swahili needs
+```
+
+The rules that `scaffold` prints are written for agents. They cover which variables must stay intact, which plural suffixes the language requires (from `Intl.PluralRules`) and how to keep templates grammatical. `check` turns those rules into a pass/fail result the agent can loop on. Run `check` after editing any translation file, too.
+
 ## For AI coding agents
 
-The npm package includes [`llms.txt`](./llms.txt), a short and complete usage guide for coding agents: `node_modules/zod-i18n-map/llms.txt`. The CLI is non-interactive and supports `--json`.
+- **`llms.txt`:** the npm package includes a short, complete usage guide at `node_modules/zod-i18n-map/llms.txt`.
+- **Agent Skill:** `npx zod-i18n-map skill` installs [`SKILL.md`](https://agentskills.io) at `.claude/skills/zod-i18n-map/`. Use `--out` for other agents' skill directories. With the skill installed, "localize our form validation errors" is something your agent knows how to do with this library.
+- **CLI:** every command is non-interactive, supports `--json`, and signals failure through its exit code.
 
 ## Contributing
 

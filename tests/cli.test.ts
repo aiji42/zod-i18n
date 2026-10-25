@@ -77,7 +77,7 @@ test("add skips existing files unless --force, and honours --out", async () => {
 test("add reports unknown locales with a non-zero exit code", async () => {
   const { code, stdout } = await cli("add", "xx");
   expect(code).toBe(1);
-  expect(stdout).toMatch(/not found/);
+  expect(stdout).toMatch(/not available.*scaffold xx/);
 });
 
 test("add --format icu", async () => {
@@ -86,13 +86,43 @@ test("add --format icu", async () => {
   expect(ru.errors.too_small.string.inclusive).toMatch(/^\{count, plural, one \{/);
 });
 
-test("check reports missing keys", async () => {
+test("check reports missing keys and real problems", async () => {
   const file = join(dir, "partial.json");
-  await writeFile(file, JSON.stringify({ errors: { custom: "x" } }));
-  const missing = await cli("check", file, "--json");
-  expect(missing.code).toBe(1);
-  expect(JSON.parse(missing.stdout).missing).toContain("errors.invalid_type");
+  await writeFile(file, JSON.stringify({ errors: { custom: "{{oops}}" } }));
+  const result = await cli("check", file, "--locale", "de", "--json");
+  expect(result.code).toBe(1);
+  const report = JSON.parse(result.stdout);
+  expect(report.missing).toContain("errors.invalid_type");
+  expect(report.problems).toContain('"errors.custom" uses unknown variable {{oops}}');
 
   const complete = await cli("check", join(dir, "locales/ja/zod.json"));
   expect(complete.code).toBe(0);
+  expect(complete.stdout).toMatch(/\(ja\): OK/);
+});
+
+test("scaffold copies the English reference and prints rules for the language", async () => {
+  expect((await cli("scaffold", "ja")).code).toBe(1); // already available
+
+  const { code, stdout } = await cli("scaffold", "sw", "--json");
+  expect(code).toBe(0);
+  const { path, instructions } = JSON.parse(stdout);
+  expect(await readFile(path, "utf8")).toBe(
+    await readFile(join(ROOT, "locales/en/zod.json"), "utf8"),
+  );
+  expect(instructions).toMatch(/`_one`, `_other`/);
+  expect(instructions).toMatch(/npx zod-i18n-map check locales\/sw\/zod.json --locale sw/);
+
+  // An untranslated scaffold is structurally valid, so `check` passes once plurals fit the language.
+  expect((await cli("check", path)).code).toBe(0);
+  const ja = await cli("scaffold", "ja-Kana", "--json");
+  expect(JSON.parse(ja.stdout).instructions).toMatch(/single plural category/);
+});
+
+test("skill installs the Agent Skill", async () => {
+  const { code } = await cli("skill");
+  expect(code).toBe(0);
+  const skill = await readFile(join(dir, ".claude/skills/zod-i18n-map/SKILL.md"), "utf8");
+  expect(skill).toMatch(/^---\nname: zod-i18n-map\ndescription: /);
+  expect((await cli("skill")).code).toBe(1); // exists
+  expect((await cli("skill", "--out", "agents/zod/SKILL.md")).code).toBe(0);
 });
