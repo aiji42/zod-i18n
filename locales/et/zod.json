@@ -1,0 +1,194 @@
+{
+  "errors": {
+    "invalid_type": "Vale tüüp: oodatud {{expected}}, saadud {{received}}",
+    "invalid_type_received_undefined": "Kohustuslik väli",
+    "invalid_type_received_null": "Kohustuslik väli",
+    "invalid_value": "Vigane valik: lubatud on {{- options}}",
+    "invalid_value_single": "Vigane väärtus: lubatud on {{- expected}}",
+    "invalid_format": {
+      "default": "Vigane {{format}}",
+      "emoji": "Tohib sisaldada ainult emojisid",
+      "datetime": "Vigane kuupäev ja kellaaeg (oodatakse ISO-vormingut)",
+      "date": "Vigane kuupäev (oodatakse ISO-vormingut)",
+      "time": "Vigane kellaaeg (oodatakse ISO-vormingut)",
+      "duration": "Vigane kestus (oodatakse ISO-vormingut)",
+      "json_string": "Vigane JSON",
+      "e164": "Vigane telefoninumber (oodatakse E.164-vormingut)",
+      "regex": "Vigane vorming",
+      "starts_with": "Peab algama tekstiga „{{- prefix}}“",
+      "ends_with": "Peab lõppema tekstiga „{{- suffix}}“",
+      "includes": "Peab sisaldama teksti „{{- includes}}“",
+      "lowercase": "Tohib sisaldada ainult väiketähti",
+      "uppercase": "Tohib sisaldada ainult suurtähti"
+    },
+    "not_multiple_of": "Arv peab olema arvu {{divisor}} kordne",
+    "unrecognized_keys_one": "Tundmatu võti objektis: {{- keys}}",
+    "unrecognized_keys_other": "Tundmatud võtmed objektis: {{- keys}}",
+    "invalid_key": "Vigane võti ({{origin}})",
+    "invalid_element": "Vigane väärtus ({{origin}})",
+    "invalid_union": "Vigane sisend",
+    "invalid_union_discriminator": "Vigane eristaja väärtus: lubatud on {{- options}}",
+    "custom": "Vigane sisend",
+    "too_small": {
+      "string": {
+        "exact_one": "Tekstis peab olema täpselt {{count}} märk",
+        "exact_other": "Tekstis peab olema täpselt {{count}} märki",
+        "inclusive_one": "Tekstis peab olema vähemalt {{count}} märk",
+        "inclusive_other": "Tekstis peab olema vähemalt {{count}} märki",
+        "not_inclusive_one": "Tekstis peab olema rohkem kui {{count}} märk",
+        "not_inclusive_other": "Tekstis peab olema rohkem kui {{count}} märki"
+      },
+      "number": {
+        "exact": "Arv peab olema täpselt {{minimum}}",
+        "inclusive": "Arv peab olema vähemalt {{minimum}}",
+        "not_inclusive": "Arv peab olema suurem kui {{minimum}}"
+      },
+      "array": {
+        "exact_one": "Loendis peab olema täpselt {{count}} element",
+        "exact_other": "Loendis peab olema täpselt {{count}} elementi",
+        "inclusive_one": "Loendis peab olema vähemalt {{count}} element",
+        "inclusive_other": "Loendis peab olema vähemalt {{count}} elementi",
+        "not_inclusive_one": "Loendis peab olema rohkem kui {{count}} element",
+        "not_inclusive_other": "Loendis peab olema rohkem kui {{count}} elementi"
+      },
+      "set": {
+        "exact_one": "Hulgas peab olema täpselt {{count}} element",
+        "exact_other": "Hulgas peab olema täpselt {{count}} elementi",
+        "inclusive_one": "Hulgas peab olema vähemalt {{count}} element",
+        "inclusive_other": "Hulgas peab olema vähemalt {{count}} elementi",
+        "not_inclusive_one": "Hulgas peab olema rohkem kui {{count}} element",
+        "not_inclusive_other": "Hulgas peab olema rohkem kui {{count}} elementi"
+      },
+      "map": {
+        "exact_one": "Vastenduses peab olema täpselt {{count}} kirje",
+        "exact_other": "Vastenduses peab olema täpselt {{count}} kirjet",
+        "inclusive_one": "Vastenduses peab olema vähemalt {{count}} kirje",
+        "inclusive_other": "Vastenduses peab olema vähemalt {{count}} kirjet",
+        "not_inclusive_one": "Vastenduses peab olema rohkem kui {{count}} kirje",
+        "not_inclusive_other": "Vastenduses peab olema rohkem kui {{count}} kirjet"
+      },
+      "file": {
+        "exact_one": "Faili suurus peab olema täpselt {{count}} bait",
+        "exact_other": "Faili suurus peab olema täpselt {{count}} baiti",
+        "inclusive_one": "Faili suurus peab olema vähemalt {{count}} bait",
+        "inclusive_other": "Faili suurus peab olema vähemalt {{count}} baiti",
+        "not_inclusive_one": "Faili suurus peab olema suurem kui {{count}} bait",
+        "not_inclusive_other": "Faili suurus peab olema suurem kui {{count}} baiti"
+      },
+      "date": {
+        "exact": "Kuupäev peab olema täpselt {{- minimum, datetime}}",
+        "inclusive": "Kuupäev ei tohi olla varasem kui {{- minimum, datetime}}",
+        "not_inclusive": "Kuupäev peab olema hilisem kui {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact_one": "Tekstis peab olema täpselt {{count}} märk",
+        "exact_other": "Tekstis peab olema täpselt {{count}} märki",
+        "inclusive_one": "Tekstis võib olla kõige rohkem {{count}} märk",
+        "inclusive_other": "Tekstis võib olla kõige rohkem {{count}} märki",
+        "not_inclusive_one": "Tekstis peab olema vähem kui {{count}} märk",
+        "not_inclusive_other": "Tekstis peab olema vähem kui {{count}} märki"
+      },
+      "number": {
+        "exact": "Arv peab olema täpselt {{maximum}}",
+        "inclusive": "Arv ei tohi olla suurem kui {{maximum}}",
+        "not_inclusive": "Arv peab olema väiksem kui {{maximum}}"
+      },
+      "array": {
+        "exact_one": "Loendis peab olema täpselt {{count}} element",
+        "exact_other": "Loendis peab olema täpselt {{count}} elementi",
+        "inclusive_one": "Loendis võib olla kõige rohkem {{count}} element",
+        "inclusive_other": "Loendis võib olla kõige rohkem {{count}} elementi",
+        "not_inclusive_one": "Loendis peab olema vähem kui {{count}} element",
+        "not_inclusive_other": "Loendis peab olema vähem kui {{count}} elementi"
+      },
+      "set": {
+        "exact_one": "Hulgas peab olema täpselt {{count}} element",
+        "exact_other": "Hulgas peab olema täpselt {{count}} elementi",
+        "inclusive_one": "Hulgas võib olla kõige rohkem {{count}} element",
+        "inclusive_other": "Hulgas võib olla kõige rohkem {{count}} elementi",
+        "not_inclusive_one": "Hulgas peab olema vähem kui {{count}} element",
+        "not_inclusive_other": "Hulgas peab olema vähem kui {{count}} elementi"
+      },
+      "map": {
+        "exact_one": "Vastenduses peab olema täpselt {{count}} kirje",
+        "exact_other": "Vastenduses peab olema täpselt {{count}} kirjet",
+        "inclusive_one": "Vastenduses võib olla kõige rohkem {{count}} kirje",
+        "inclusive_other": "Vastenduses võib olla kõige rohkem {{count}} kirjet",
+        "not_inclusive_one": "Vastenduses peab olema vähem kui {{count}} kirje",
+        "not_inclusive_other": "Vastenduses peab olema vähem kui {{count}} kirjet"
+      },
+      "file": {
+        "exact_one": "Faili suurus peab olema täpselt {{count}} bait",
+        "exact_other": "Faili suurus peab olema täpselt {{count}} baiti",
+        "inclusive_one": "Faili suurus võib olla kõige rohkem {{count}} bait",
+        "inclusive_other": "Faili suurus võib olla kõige rohkem {{count}} baiti",
+        "not_inclusive_one": "Faili suurus peab olema väiksem kui {{count}} bait",
+        "not_inclusive_other": "Faili suurus peab olema väiksem kui {{count}} baiti"
+      },
+      "date": {
+        "exact": "Kuupäev peab olema täpselt {{- maximum, datetime}}",
+        "inclusive": "Kuupäev ei tohi olla hilisem kui {{- maximum, datetime}}",
+        "not_inclusive": "Kuupäev peab olema varasem kui {{- maximum, datetime}}"
+      }
+    }
+  },
+  "formats": {
+    "email": "e-posti aadress",
+    "url": "URL",
+    "emoji": "emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "Nano ID",
+    "cuid": "CUID",
+    "cuid2": "CUID2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO-kuupäev ja kellaaeg",
+    "date": "ISO-kuupäev",
+    "time": "ISO-kellaaeg",
+    "duration": "ISO-kestus",
+    "ipv4": "IPv4-aadress",
+    "ipv6": "IPv6-aadress",
+    "mac": "MAC-aadress",
+    "cidrv4": "IPv4-aadressivahemik",
+    "cidrv6": "IPv6-aadressivahemik",
+    "base64": "Base64-kodeeritud tekst",
+    "base64url": "Base64url-kodeeritud tekst",
+    "json_string": "JSON-tekst",
+    "e164": "E.164-vormingus telefoninumber",
+    "jwt": "JWT",
+    "hostname": "hostinimi",
+    "credit_card": "krediitkaardi number",
+    "iban": "IBAN",
+    "hex": "kuueteistkümnendtekst",
+    "hash": "räsi",
+    "currency_code": "valuutakood",
+    "template_literal": "sisend"
+  },
+  "types": {
+    "string": "tekst",
+    "number": "arv",
+    "int": "täisarv",
+    "bigint": "suur täisarv",
+    "boolean": "tõeväärtus",
+    "symbol": "sümbol",
+    "undefined": "määramata",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "kuupäev",
+    "array": "loend",
+    "tuple": "ennik",
+    "object": "objekt",
+    "record": "objekt",
+    "map": "vastendus",
+    "set": "hulk",
+    "file": "fail",
+    "function": "funktsioon",
+    "promise": "Promise"
+  }
+}

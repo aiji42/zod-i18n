@@ -1,0 +1,171 @@
+{
+  "errors": {
+    "invalid_type": "Mesti {{expected}}, bukan {{received}}",
+    "invalid_type_received_undefined": "Wajib diisi",
+    "invalid_type_received_null": "Wajib diisi",
+    "invalid_value": "Pilihan tidak sah: mesti salah satu daripada {{- options}}",
+    "invalid_value_single": "Nilai tidak sah: mesti {{- expected}}",
+    "invalid_format": {
+      "default": "Format {{format}} tidak sah",
+      "email": "Alamat e-mel tidak sah",
+      "url": "URL tidak sah",
+      "emoji": "Mesti mengandungi emoji sahaja",
+      "uuid": "UUID tidak sah",
+      "datetime": "Tarikh dan masa tidak sah (mesti dalam format ISO)",
+      "date": "Tarikh tidak sah (mesti dalam format ISO)",
+      "time": "Masa tidak sah (mesti dalam format ISO)",
+      "duration": "Tempoh tidak sah (mesti dalam format ISO)",
+      "ipv4": "Alamat IPv4 tidak sah",
+      "ipv6": "Alamat IPv6 tidak sah",
+      "mac": "Alamat MAC tidak sah",
+      "json_string": "JSON tidak sah",
+      "e164": "Nombor telefon tidak sah (mesti dalam format E.164)",
+      "hostname": "Nama hos tidak sah",
+      "credit_card": "Nombor kad kredit tidak sah",
+      "regex": "Format tidak sah",
+      "starts_with": "Mesti bermula dengan \"{{- prefix}}\"",
+      "ends_with": "Mesti berakhir dengan \"{{- suffix}}\"",
+      "includes": "Mesti mengandungi \"{{- includes}}\"",
+      "lowercase": "Mesti dalam huruf kecil",
+      "uppercase": "Mesti dalam huruf besar"
+    },
+    "not_multiple_of": "Nombor mesti gandaan {{divisor}}",
+    "unrecognized_keys": "Kunci tidak dikenali dalam objek: {{- keys}}",
+    "invalid_key": "Kunci tidak sah dalam {{origin}}",
+    "invalid_element": "Nilai tidak sah dalam {{origin}}",
+    "invalid_union": "Input tidak sah",
+    "invalid_union_discriminator": "Nilai diskriminator tidak sah: mesti salah satu daripada {{- options}}",
+    "custom": "Input tidak sah",
+    "too_small": {
+      "string": {
+        "exact": "Teks mesti mengandungi tepat {{count}} aksara",
+        "inclusive": "Teks mesti mengandungi sekurang-kurangnya {{count}} aksara",
+        "not_inclusive": "Teks mesti mengandungi lebih daripada {{count}} aksara"
+      },
+      "number": {
+        "exact": "Nombor mesti sama dengan {{minimum}}",
+        "inclusive": "Nombor mesti sekurang-kurangnya {{minimum}}",
+        "not_inclusive": "Nombor mesti lebih besar daripada {{minimum}}"
+      },
+      "array": {
+        "exact": "Senarai mesti mengandungi tepat {{count}} item",
+        "inclusive": "Senarai mesti mengandungi sekurang-kurangnya {{count}} item",
+        "not_inclusive": "Senarai mesti mengandungi lebih daripada {{count}} item"
+      },
+      "set": {
+        "exact": "Set mesti mengandungi tepat {{count}} item",
+        "inclusive": "Set mesti mengandungi sekurang-kurangnya {{count}} item",
+        "not_inclusive": "Set mesti mengandungi lebih daripada {{count}} item"
+      },
+      "map": {
+        "exact": "Map mesti mengandungi tepat {{count}} entri",
+        "inclusive": "Map mesti mengandungi sekurang-kurangnya {{count}} entri",
+        "not_inclusive": "Map mesti mengandungi lebih daripada {{count}} entri"
+      },
+      "file": {
+        "exact": "Saiz fail mesti tepat {{count}} bait",
+        "inclusive": "Saiz fail mesti sekurang-kurangnya {{count}} bait",
+        "not_inclusive": "Saiz fail mesti lebih daripada {{count}} bait"
+      },
+      "date": {
+        "exact": "Tarikh mesti {{- minimum, datetime}}",
+        "inclusive": "Tarikh mesti pada atau selepas {{- minimum, datetime}}",
+        "not_inclusive": "Tarikh mesti selepas {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact": "Teks mesti mengandungi tepat {{count}} aksara",
+        "inclusive": "Teks tidak boleh melebihi {{count}} aksara",
+        "not_inclusive": "Teks mesti mengandungi kurang daripada {{count}} aksara"
+      },
+      "number": {
+        "exact": "Nombor mesti sama dengan {{maximum}}",
+        "inclusive": "Nombor tidak boleh melebihi {{maximum}}",
+        "not_inclusive": "Nombor mesti kurang daripada {{maximum}}"
+      },
+      "array": {
+        "exact": "Senarai mesti mengandungi tepat {{count}} item",
+        "inclusive": "Senarai tidak boleh melebihi {{count}} item",
+        "not_inclusive": "Senarai mesti mengandungi kurang daripada {{count}} item"
+      },
+      "set": {
+        "exact": "Set mesti mengandungi tepat {{count}} item",
+        "inclusive": "Set tidak boleh melebihi {{count}} item",
+        "not_inclusive": "Set mesti mengandungi kurang daripada {{count}} item"
+      },
+      "map": {
+        "exact": "Map mesti mengandungi tepat {{count}} entri",
+        "inclusive": "Map tidak boleh melebihi {{count}} entri",
+        "not_inclusive": "Map mesti mengandungi kurang daripada {{count}} entri"
+      },
+      "file": {
+        "exact": "Saiz fail mesti tepat {{count}} bait",
+        "inclusive": "Saiz fail tidak boleh melebihi {{count}} bait",
+        "not_inclusive": "Saiz fail mesti kurang daripada {{count}} bait"
+      },
+      "date": {
+        "exact": "Tarikh mesti {{- maximum, datetime}}",
+        "inclusive": "Tarikh mesti pada atau sebelum {{- maximum, datetime}}",
+        "not_inclusive": "Tarikh mesti sebelum {{- maximum, datetime}}"
+      }
+    }
+  },
+  "formats": {
+    "email": "alamat e-mel",
+    "url": "URL",
+    "emoji": "emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "tarikh dan masa ISO",
+    "date": "tarikh ISO",
+    "time": "masa ISO",
+    "duration": "tempoh ISO",
+    "ipv4": "alamat IPv4",
+    "ipv6": "alamat IPv6",
+    "mac": "alamat MAC",
+    "cidrv4": "julat IPv4",
+    "cidrv6": "julat IPv6",
+    "base64": "teks berkod base64",
+    "base64url": "teks berkod base64url",
+    "json_string": "teks JSON",
+    "e164": "nombor telefon E.164",
+    "jwt": "JWT",
+    "hostname": "nama hos",
+    "credit_card": "nombor kad kredit",
+    "iban": "IBAN",
+    "hex": "teks heksadesimal",
+    "hash": "hash",
+    "currency_code": "kod mata wang",
+    "template_literal": "input"
+  },
+  "types": {
+    "string": "teks",
+    "number": "nombor",
+    "int": "integer",
+    "bigint": "integer besar",
+    "boolean": "boolean",
+    "symbol": "simbol",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "tarikh",
+    "array": "senarai",
+    "tuple": "tuple",
+    "object": "objek",
+    "record": "objek",
+    "map": "map",
+    "set": "set",
+    "file": "fail",
+    "function": "fungsi",
+    "promise": "promise"
+  }
+}

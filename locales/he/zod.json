@@ -1,0 +1,221 @@
+{
+  "errors": {
+    "invalid_type": "הערך חייב להיות מסוג {{expected}}, אך התקבל ערך מסוג {{received}}",
+    "invalid_type_received_undefined": "שדה חובה",
+    "invalid_type_received_null": "שדה חובה",
+    "invalid_value": "הערך חייב להיות אחד מהבאים: {{- options}}",
+    "invalid_value_single": "הערך חייב להיות {{- expected}}",
+    "invalid_format": {
+      "default": "פורמט {{format}} לא תקין",
+      "email": "כתובת אימייל לא תקינה",
+      "url": "כתובת URL לא תקינה",
+      "e164": "מספר טלפון לא תקין (נדרש פורמט E.164)",
+      "regex": "הפורמט לא תקין",
+      "starts_with": "הערך חייב להתחיל ב-\"{{- prefix}}\"",
+      "ends_with": "הערך חייב להסתיים ב-\"{{- suffix}}\"",
+      "includes": "הערך חייב לכלול את \"{{- includes}}\"",
+      "lowercase": "הערך חייב להיות באותיות קטנות",
+      "uppercase": "הערך חייב להיות באותיות גדולות"
+    },
+    "not_multiple_of": "המספר חייב להיות כפולה של {{divisor}}",
+    "unrecognized_keys_one": "מפתח לא מזוהה באובייקט: {{- keys}}",
+    "unrecognized_keys_two": "מפתחות לא מזוהים באובייקט: {{- keys}}",
+    "unrecognized_keys_other": "מפתחות לא מזוהים באובייקט: {{- keys}}",
+    "invalid_key": "מפתח לא תקין ב{{origin}}",
+    "invalid_element": "ערך לא תקין ב{{origin}}",
+    "invalid_union": "הערך לא תקין",
+    "invalid_union_discriminator": "ערך מבחין לא תקין. הערך חייב להיות אחד מהבאים: {{- options}}",
+    "custom": "הערך לא תקין",
+    "too_small": {
+      "string": {
+        "exact_one": "הטקסט חייב להכיל בדיוק תו אחד",
+        "exact_two": "הטקסט חייב להכיל בדיוק {{count}} תווים",
+        "exact_other": "הטקסט חייב להכיל בדיוק {{count}} תווים",
+        "inclusive_one": "הטקסט חייב להכיל לפחות תו אחד",
+        "inclusive_two": "הטקסט חייב להכיל לפחות {{count}} תווים",
+        "inclusive_other": "הטקסט חייב להכיל לפחות {{count}} תווים",
+        "not_inclusive_one": "הטקסט חייב להכיל יותר מתו אחד",
+        "not_inclusive_two": "הטקסט חייב להכיל יותר מ-{{count}} תווים",
+        "not_inclusive_other": "הטקסט חייב להכיל יותר מ-{{count}} תווים"
+      },
+      "number": {
+        "exact": "המספר חייב להיות בדיוק {{minimum}}",
+        "inclusive": "המספר חייב להיות לפחות {{minimum}}",
+        "not_inclusive": "המספר חייב להיות גדול מ-{{minimum}}"
+      },
+      "array": {
+        "exact_one": "המערך חייב להכיל בדיוק פריט אחד",
+        "exact_two": "המערך חייב להכיל בדיוק {{count}} פריטים",
+        "exact_other": "המערך חייב להכיל בדיוק {{count}} פריטים",
+        "inclusive_one": "המערך חייב להכיל לפחות פריט אחד",
+        "inclusive_two": "המערך חייב להכיל לפחות {{count}} פריטים",
+        "inclusive_other": "המערך חייב להכיל לפחות {{count}} פריטים",
+        "not_inclusive_one": "המערך חייב להכיל יותר מפריט אחד",
+        "not_inclusive_two": "המערך חייב להכיל יותר מ-{{count}} פריטים",
+        "not_inclusive_other": "המערך חייב להכיל יותר מ-{{count}} פריטים"
+      },
+      "set": {
+        "exact_one": "הקבוצה חייבת להכיל בדיוק פריט אחד",
+        "exact_two": "הקבוצה חייבת להכיל בדיוק {{count}} פריטים",
+        "exact_other": "הקבוצה חייבת להכיל בדיוק {{count}} פריטים",
+        "inclusive_one": "הקבוצה חייבת להכיל לפחות פריט אחד",
+        "inclusive_two": "הקבוצה חייבת להכיל לפחות {{count}} פריטים",
+        "inclusive_other": "הקבוצה חייבת להכיל לפחות {{count}} פריטים",
+        "not_inclusive_one": "הקבוצה חייבת להכיל יותר מפריט אחד",
+        "not_inclusive_two": "הקבוצה חייבת להכיל יותר מ-{{count}} פריטים",
+        "not_inclusive_other": "הקבוצה חייבת להכיל יותר מ-{{count}} פריטים"
+      },
+      "map": {
+        "exact_one": "המפה חייבת להכיל בדיוק פריט אחד",
+        "exact_two": "המפה חייבת להכיל בדיוק {{count}} פריטים",
+        "exact_other": "המפה חייבת להכיל בדיוק {{count}} פריטים",
+        "inclusive_one": "המפה חייבת להכיל לפחות פריט אחד",
+        "inclusive_two": "המפה חייבת להכיל לפחות {{count}} פריטים",
+        "inclusive_other": "המפה חייבת להכיל לפחות {{count}} פריטים",
+        "not_inclusive_one": "המפה חייבת להכיל יותר מפריט אחד",
+        "not_inclusive_two": "המפה חייבת להכיל יותר מ-{{count}} פריטים",
+        "not_inclusive_other": "המפה חייבת להכיל יותר מ-{{count}} פריטים"
+      },
+      "file": {
+        "exact_one": "גודל הקובץ חייב להיות בדיוק בייט אחד",
+        "exact_two": "גודל הקובץ חייב להיות בדיוק {{count}} בייטים",
+        "exact_other": "גודל הקובץ חייב להיות בדיוק {{count}} בייטים",
+        "inclusive_one": "גודל הקובץ חייב להיות לפחות בייט אחד",
+        "inclusive_two": "גודל הקובץ חייב להיות לפחות {{count}} בייטים",
+        "inclusive_other": "גודל הקובץ חייב להיות לפחות {{count}} בייטים",
+        "not_inclusive_one": "גודל הקובץ חייב להיות יותר מבייט אחד",
+        "not_inclusive_two": "גודל הקובץ חייב להיות יותר מ-{{count}} בייטים",
+        "not_inclusive_other": "גודל הקובץ חייב להיות יותר מ-{{count}} בייטים"
+      },
+      "date": {
+        "exact": "התאריך חייב להיות בדיוק {{- minimum, datetime}}",
+        "inclusive": "התאריך חייב להיות {{- minimum, datetime}} או מאוחר יותר",
+        "not_inclusive": "התאריך חייב להיות אחרי {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact_one": "הטקסט חייב להכיל בדיוק תו אחד",
+        "exact_two": "הטקסט חייב להכיל בדיוק {{count}} תווים",
+        "exact_other": "הטקסט חייב להכיל בדיוק {{count}} תווים",
+        "inclusive_one": "הטקסט חייב להכיל לכל היותר תו אחד",
+        "inclusive_two": "הטקסט חייב להכיל לכל היותר {{count}} תווים",
+        "inclusive_other": "הטקסט חייב להכיל לכל היותר {{count}} תווים",
+        "not_inclusive_one": "הטקסט חייב להכיל פחות מתו אחד",
+        "not_inclusive_two": "הטקסט חייב להכיל פחות מ-{{count}} תווים",
+        "not_inclusive_other": "הטקסט חייב להכיל פחות מ-{{count}} תווים"
+      },
+      "number": {
+        "exact": "המספר חייב להיות בדיוק {{maximum}}",
+        "inclusive": "המספר חייב להיות לכל היותר {{maximum}}",
+        "not_inclusive": "המספר חייב להיות קטן מ-{{maximum}}"
+      },
+      "array": {
+        "exact_one": "המערך חייב להכיל בדיוק פריט אחד",
+        "exact_two": "המערך חייב להכיל בדיוק {{count}} פריטים",
+        "exact_other": "המערך חייב להכיל בדיוק {{count}} פריטים",
+        "inclusive_one": "המערך חייב להכיל לכל היותר פריט אחד",
+        "inclusive_two": "המערך חייב להכיל לכל היותר {{count}} פריטים",
+        "inclusive_other": "המערך חייב להכיל לכל היותר {{count}} פריטים",
+        "not_inclusive_one": "המערך חייב להכיל פחות מפריט אחד",
+        "not_inclusive_two": "המערך חייב להכיל פחות מ-{{count}} פריטים",
+        "not_inclusive_other": "המערך חייב להכיל פחות מ-{{count}} פריטים"
+      },
+      "set": {
+        "exact_one": "הקבוצה חייבת להכיל בדיוק פריט אחד",
+        "exact_two": "הקבוצה חייבת להכיל בדיוק {{count}} פריטים",
+        "exact_other": "הקבוצה חייבת להכיל בדיוק {{count}} פריטים",
+        "inclusive_one": "הקבוצה חייבת להכיל לכל היותר פריט אחד",
+        "inclusive_two": "הקבוצה חייבת להכיל לכל היותר {{count}} פריטים",
+        "inclusive_other": "הקבוצה חייבת להכיל לכל היותר {{count}} פריטים",
+        "not_inclusive_one": "הקבוצה חייבת להכיל פחות מפריט אחד",
+        "not_inclusive_two": "הקבוצה חייבת להכיל פחות מ-{{count}} פריטים",
+        "not_inclusive_other": "הקבוצה חייבת להכיל פחות מ-{{count}} פריטים"
+      },
+      "map": {
+        "exact_one": "המפה חייבת להכיל בדיוק פריט אחד",
+        "exact_two": "המפה חייבת להכיל בדיוק {{count}} פריטים",
+        "exact_other": "המפה חייבת להכיל בדיוק {{count}} פריטים",
+        "inclusive_one": "המפה חייבת להכיל לכל היותר פריט אחד",
+        "inclusive_two": "המפה חייבת להכיל לכל היותר {{count}} פריטים",
+        "inclusive_other": "המפה חייבת להכיל לכל היותר {{count}} פריטים",
+        "not_inclusive_one": "המפה חייבת להכיל פחות מפריט אחד",
+        "not_inclusive_two": "המפה חייבת להכיל פחות מ-{{count}} פריטים",
+        "not_inclusive_other": "המפה חייבת להכיל פחות מ-{{count}} פריטים"
+      },
+      "file": {
+        "exact_one": "גודל הקובץ חייב להיות בדיוק בייט אחד",
+        "exact_two": "גודל הקובץ חייב להיות בדיוק {{count}} בייטים",
+        "exact_other": "גודל הקובץ חייב להיות בדיוק {{count}} בייטים",
+        "inclusive_one": "גודל הקובץ חייב להיות לכל היותר בייט אחד",
+        "inclusive_two": "גודל הקובץ חייב להיות לכל היותר {{count}} בייטים",
+        "inclusive_other": "גודל הקובץ חייב להיות לכל היותר {{count}} בייטים",
+        "not_inclusive_one": "גודל הקובץ חייב להיות פחות מבייט אחד",
+        "not_inclusive_two": "גודל הקובץ חייב להיות פחות מ-{{count}} בייטים",
+        "not_inclusive_other": "גודל הקובץ חייב להיות פחות מ-{{count}} בייטים"
+      },
+      "date": {
+        "exact": "התאריך חייב להיות בדיוק {{- maximum, datetime}}",
+        "inclusive": "התאריך חייב להיות {{- maximum, datetime}} או מוקדם יותר",
+        "not_inclusive": "התאריך חייב להיות לפני {{- maximum, datetime}}"
+      }
+    }
+  },
+  "formats": {
+    "email": "כתובת אימייל",
+    "url": "כתובת URL",
+    "emoji": "אימוג'י",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "תאריך ושעה ISO",
+    "date": "תאריך ISO",
+    "time": "שעה ISO",
+    "duration": "משך זמן ISO",
+    "ipv4": "כתובת IPv4",
+    "ipv6": "כתובת IPv6",
+    "mac": "כתובת MAC",
+    "cidrv4": "טווח כתובות IPv4",
+    "cidrv6": "טווח כתובות IPv6",
+    "base64": "טקסט בקידוד base64",
+    "base64url": "טקסט בקידוד base64url",
+    "json_string": "טקסט JSON",
+    "e164": "מספר טלפון E.164",
+    "jwt": "JWT",
+    "hostname": "שם מארח",
+    "credit_card": "מספר כרטיס אשראי",
+    "iban": "IBAN",
+    "hex": "טקסט הקסדצימלי",
+    "hash": "ערך גיבוב",
+    "currency_code": "קוד מטבע",
+    "template_literal": "ערך"
+  },
+  "types": {
+    "string": "טקסט",
+    "number": "מספר",
+    "int": "מספר שלם",
+    "bigint": "מספר שלם גדול",
+    "boolean": "ערך בוליאני",
+    "symbol": "Symbol",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "תאריך",
+    "array": "מערך",
+    "tuple": "טאפל",
+    "object": "אובייקט",
+    "record": "רשומה",
+    "map": "מפה",
+    "set": "קבוצה",
+    "file": "קובץ",
+    "function": "פונקציה",
+    "promise": "Promise"
+  }
+}

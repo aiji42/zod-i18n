@@ -1,7 +1,0 @@
-{
-  "extends": "@tsconfig/node16/tsconfig.json",
-  "compilerOptions": {
-    "resolveJsonModule": true
-  },
-  "include": ["src/**/*.ts", "tests/**/*.ts", "tsup.config.ts"]
-}

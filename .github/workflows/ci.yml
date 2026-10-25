@@ -1,61 +1,59 @@
 name: CI
+
 on:
   push:
-    branches:
-      - main
-      - beta
+    branches: [main]
   pull_request:
-    branches:
-      - "*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  Test:
+  check:
+    name: Check (Node ${{ matrix.node }})
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [22, 24]
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: 18.x
-          registry-url: https://registry.npmjs.org
-      - uses: actions/cache@v3
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-      - name: Install dependencies 💿
-        run: yarn install --frozen-lockfile
-      - name: Run Tests 🧪
-        run: yarn coverage
-      - name: Report coverage 📏
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          working-directory: ./packages/core
-          flags: core
+          node-version: ${{ matrix.node }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm locales:check
+      - run: pnpm test
+      - run: pnpm build
+      - run: pnpm smoke
 
-  Publish:
+  compat:
+    name: Compat (zod ${{ matrix.zod }}, i18next ${{ matrix.i18next }})
     runs-on: ubuntu-latest
-    needs:
-      - Test
-    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Oldest supported: Zod v4 API via the zod/v4 subpath of zod 3.25
+          - { zod: "~3.25.0", i18next: "23", subpath: "1" }
+          - { zod: "4.0.0", i18next: "latest", subpath: "" }
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: 18.x
-          registry-url: https://registry.npmjs.org
-      - uses: actions/cache@v3
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-      - name: Install dependencies 💿
-        run: yarn install --frozen-lockfile
-      - name: Publish 🚀
-        run: |
-          rm .npmrc
-          cp ./README.md ./packages/core/README.md
-          yarn run release
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm add -D zod@${{ matrix.zod }} i18next@${{ matrix.i18next }}
+      # integrations.test.ts needs current react-i18next, which needs a current i18next
+      - run: pnpm vitest run tests/zodI18nMap.test.ts tests/icu.test.ts tests/cli.test.ts
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ZOD_V4_SUBPATH: ${{ matrix.subpath }}

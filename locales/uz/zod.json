@@ -1,0 +1,157 @@
+{
+  "errors": {
+    "invalid_type": "Notoʻgʻri tur: {{expected}} kutilgan, {{received}} kiritilgan",
+    "invalid_type_received_undefined": "Majburiy maydon",
+    "invalid_type_received_null": "Majburiy maydon",
+    "invalid_value": "Notoʻgʻri qiymat. Quyidagilardan biri boʻlishi kerak: {{- options}}",
+    "invalid_value_single": "Qiymat {{- expected}} boʻlishi kerak",
+    "invalid_format": {
+      "default": "Notoʻgʻri {{format}}",
+      "regex": "Notoʻgʻri format",
+      "starts_with": "\"{{- prefix}}\" bilan boshlanishi kerak",
+      "ends_with": "\"{{- suffix}}\" bilan tugashi kerak",
+      "includes": "Tarkibida \"{{- includes}}\" boʻlishi kerak",
+      "lowercase": "Faqat kichik harflardan iborat boʻlishi kerak",
+      "uppercase": "Faqat katta harflardan iborat boʻlishi kerak"
+    },
+    "not_multiple_of": "Son {{divisor}}-ga karrali boʻlishi kerak",
+    "unrecognized_keys_one": "Obyektda nomaʼlum kalit bor: {{- keys}}",
+    "unrecognized_keys_other": "Obyektda nomaʼlum kalitlar bor: {{- keys}}",
+    "invalid_key": "Notoʻgʻri kalit ({{origin}} ichida)",
+    "invalid_element": "Notoʻgʻri qiymat ({{origin}} ichida)",
+    "invalid_union": "Notoʻgʻri qiymat",
+    "invalid_union_discriminator": "Ajratuvchi maydon qiymati notoʻgʻri. Quyidagilardan biri boʻlishi kerak: {{- options}}",
+    "custom": "Notoʻgʻri qiymat",
+    "too_small": {
+      "string": {
+        "exact": "Matn aynan {{count}} ta belgidan iborat boʻlishi kerak",
+        "inclusive": "Matn kamida {{count}} ta belgidan iborat boʻlishi kerak",
+        "not_inclusive": "Matnda {{count}} tadan ortiq belgi boʻlishi kerak"
+      },
+      "number": {
+        "exact": "Son aynan {{minimum}} boʻlishi kerak",
+        "inclusive": "Son kamida {{minimum}} boʻlishi kerak",
+        "not_inclusive": "Son {{minimum}}-dan katta boʻlishi kerak"
+      },
+      "array": {
+        "exact": "Massivda aynan {{count}} ta element boʻlishi kerak",
+        "inclusive": "Massivda kamida {{count}} ta element boʻlishi kerak",
+        "not_inclusive": "Massivda {{count}} tadan ortiq element boʻlishi kerak"
+      },
+      "set": {
+        "exact": "Toʻplamda aynan {{count}} ta element boʻlishi kerak",
+        "inclusive": "Toʻplamda kamida {{count}} ta element boʻlishi kerak",
+        "not_inclusive": "Toʻplamda {{count}} tadan ortiq element boʻlishi kerak"
+      },
+      "map": {
+        "exact": "Map tarkibida aynan {{count}} ta element boʻlishi kerak",
+        "inclusive": "Map tarkibida kamida {{count}} ta element boʻlishi kerak",
+        "not_inclusive": "Map tarkibida {{count}} tadan ortiq element boʻlishi kerak"
+      },
+      "file": {
+        "exact": "Fayl hajmi aynan {{count}} bayt boʻlishi kerak",
+        "inclusive": "Fayl hajmi kamida {{count}} bayt boʻlishi kerak",
+        "not_inclusive": "Fayl hajmi {{count}} baytdan katta boʻlishi kerak"
+      },
+      "date": {
+        "exact": "Sana aynan {{- minimum, datetime}} boʻlishi kerak",
+        "inclusive": "Sana {{- minimum, datetime}} yoki undan keyin boʻlishi kerak",
+        "not_inclusive": "Sana {{- minimum, datetime}}-dan keyin boʻlishi kerak"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact": "Matn aynan {{count}} ta belgidan iborat boʻlishi kerak",
+        "inclusive": "Matn koʻpi bilan {{count}} ta belgidan iborat boʻlishi kerak",
+        "not_inclusive": "Matnda {{count}} tadan kam belgi boʻlishi kerak"
+      },
+      "number": {
+        "exact": "Son aynan {{maximum}} boʻlishi kerak",
+        "inclusive": "Son koʻpi bilan {{maximum}} boʻlishi kerak",
+        "not_inclusive": "Son {{maximum}}-dan kichik boʻlishi kerak"
+      },
+      "array": {
+        "exact": "Massivda aynan {{count}} ta element boʻlishi kerak",
+        "inclusive": "Massivda koʻpi bilan {{count}} ta element boʻlishi kerak",
+        "not_inclusive": "Massivda {{count}} tadan kam element boʻlishi kerak"
+      },
+      "set": {
+        "exact": "Toʻplamda aynan {{count}} ta element boʻlishi kerak",
+        "inclusive": "Toʻplamda koʻpi bilan {{count}} ta element boʻlishi kerak",
+        "not_inclusive": "Toʻplamda {{count}} tadan kam element boʻlishi kerak"
+      },
+      "map": {
+        "exact": "Map tarkibida aynan {{count}} ta element boʻlishi kerak",
+        "inclusive": "Map tarkibida koʻpi bilan {{count}} ta element boʻlishi kerak",
+        "not_inclusive": "Map tarkibida {{count}} tadan kam element boʻlishi kerak"
+      },
+      "file": {
+        "exact": "Fayl hajmi aynan {{count}} bayt boʻlishi kerak",
+        "inclusive": "Fayl hajmi koʻpi bilan {{count}} bayt boʻlishi kerak",
+        "not_inclusive": "Fayl hajmi {{count}} baytdan kichik boʻlishi kerak"
+      },
+      "date": {
+        "exact": "Sana aynan {{- maximum, datetime}} boʻlishi kerak",
+        "inclusive": "Sana {{- maximum, datetime}} yoki undan oldin boʻlishi kerak",
+        "not_inclusive": "Sana {{- maximum, datetime}}-dan oldin boʻlishi kerak"
+      }
+    }
+  },
+  "formats": {
+    "email": "elektron pochta manzili",
+    "url": "URL manzil",
+    "emoji": "emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO sana va vaqt",
+    "date": "ISO sana",
+    "time": "ISO vaqt",
+    "duration": "ISO davomiylik",
+    "ipv4": "IPv4 manzil",
+    "ipv6": "IPv6 manzil",
+    "mac": "MAC manzil",
+    "cidrv4": "IPv4 manzillar diapazoni",
+    "cidrv6": "IPv6 manzillar diapazoni",
+    "base64": "base64 kodlangan matn",
+    "base64url": "base64url kodlangan matn",
+    "json_string": "JSON matn",
+    "e164": "E.164 telefon raqami",
+    "jwt": "JWT",
+    "hostname": "xost nomi",
+    "credit_card": "kredit karta raqami",
+    "iban": "IBAN",
+    "hex": "oʻn oltilik matn",
+    "hash": "xesh",
+    "currency_code": "valyuta kodi",
+    "template_literal": "qiymat"
+  },
+  "types": {
+    "string": "matn",
+    "number": "son",
+    "int": "butun son",
+    "bigint": "katta butun son",
+    "boolean": "mantiqiy qiymat",
+    "symbol": "simvol",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "sana",
+    "array": "massiv",
+    "tuple": "kortej",
+    "object": "obyekt",
+    "record": "lugʻat",
+    "map": "Map",
+    "set": "toʻplam",
+    "file": "fayl",
+    "function": "funksiya",
+    "promise": "Promise"
+  }
+}

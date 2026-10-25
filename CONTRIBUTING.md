@@ -1,45 +1,52 @@
-# Contributions
+# Contributing
 
-:crystal_ball: Thanks for considering contributing to this project! :crystal_ball:
+Thanks for helping! Most contributions are translation fixes or new locales, and they don't require any JavaScript.
 
-These guidelines will help you send a pull request.
-
-If you're submitting an issue instead, please skip this document.
-
-If your pull request is related to a typo or the documentation being unclear, please click on the relevant page's `Edit`
-button (pencil icon) and directly suggest a correction instead.
-
-This project was made with your goodwill. The simplest way to give back is by starring and sharing it online.
-
-Everyone is welcome regardless of personal background.
-
-## Development process
-
-First fork and clone the repository.
-
-Run:
+## Setup
 
 ```bash
-yarn
+corepack enable    # provides the pinned pnpm version
+pnpm install
+pnpm check         # lint, typecheck, locale validation, tests and build
 ```
 
-Make sure everything is correctly setup with:
+## Translations
 
-```bash
-yarn test
-```
+`locales/en/zod.json` is the reference file. Every other `locales/<code>/zod.json` must have the same keys.
 
-## Create a new translation file
+- **Fix a translation:** edit the file and open a pull request. Please explain why the new wording is better. Native speakers are the best reviewers.
+- **Add a locale:**
+  1. Run `node src/cli.ts scaffold <code> --ref main`, or copy `locales/en/zod.json` to `locales/<code>/zod.json`, using an [i18next language code](https://www.i18next.com/how-to/faq#how-should-the-language-codes-be-formatted), e.g. `pt-BR`.
+  2. Translate it.
+  3. Run `pnpm locales:check --write`. This validates the file and registers the code in `locales/index.json`.
 
-When creating a new translation file, copy `packages/core/src/locales/en/zod.json` and name the file with the locale code.
+The translations are shown to the end users of forms and APIs, so prefer clear, polite wording over technical jargon.
 
-After creation and customization is complete, copy `packages/core/tests/integrations/en.test.ts` and create a new test file.
+`pnpm locales:check` verifies that:
 
-## How to write commit messages
+- the file is valid JSON and has exactly the keys of the English file
+- it uses only variables that exist for each key (e.g. `{{count}}`, `{{- options}}`)
+- plural keys (`_one`, `_few`, `_other`, ...) match the plural categories of that language. If your language doesn't inflect, use the plain key without a suffix.
 
-We use [Conventional Commit messages](https://www.conventionalcommits.org/) to automate version management.
+If the generic `errors.invalid_format.default` ("Invalid {{format}}") can't be grammatical for every format label in your language, add specific keys for the common formats, e.g. `errors.invalid_format.email`. Every key under `formats.*` can have one of these.
 
-Most common commit message prefixes are:
+Messages are plain text: the library turns off i18next's HTML escaping, so `{{name}}` and `{{- name}}` behave the same. Keep the English file's form for consistency.
 
-* `fix:` which represents bug fixes, and generate a patch release.
-* `feat:` which represents a new feature, and generate a minor release.
+## Code
+
+- `src/index.ts`: the error map. It maps each Zod v4 issue to a translation key and its variables.
+- `src/cli.ts`: the `npx zod-i18n-map` CLI. It has no dependencies and uses `fetch` and `node:util`'s `parseArgs`.
+- `tests/`: tests run with the English file only. Translations are validated by `scripts/check-locales.ts`.
+
+If you add or rename a key, update `locales/en/zod.json`, every other locale (at least with English text plus a note in the PR), the key table in `README.md`, and `llms.txt`.
+
+## Commit messages and releases
+
+Pull requests are squash-merged, and the **PR title** becomes the commit message. Please use [Conventional Commits](https://www.conventionalcommits.org/):
+
+- `fix: ...` / `fix(ja): ...`: bug or translation fix, released as a patch version
+- `feat: ...` / `feat(locale): add pt-BR`: new feature or locale, released as a minor version
+- `feat!: ...` or a `BREAKING CHANGE:` footer: released as a major version
+- `docs:`, `chore:`, `test:`, `refactor:`: no release
+
+Releases are automated with [release-please](https://github.com/googleapis/release-please). It keeps a release PR open. Merging that PR stages the version on npm, and a maintainer approves it with 2FA to make it public.

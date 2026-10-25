@@ -1,0 +1,156 @@
+{
+  "errors": {
+    "invalid_type": "{{expected}} 유형이어야 하지만 {{received}} 유형이 입력되었습니다.",
+    "invalid_type_received_undefined": "필수 입력 항목입니다.",
+    "invalid_type_received_null": "필수 입력 항목입니다.",
+    "invalid_value": "허용되지 않은 값입니다. {{- options}} 중 하나여야 합니다.",
+    "invalid_value_single": "허용되지 않은 값입니다. 입력 가능한 값은 {{- expected}}입니다.",
+    "invalid_format": {
+      "default": "올바른 {{format}} 형식이 아닙니다.",
+      "regex": "올바른 형식이 아닙니다.",
+      "starts_with": "\"{{- prefix}}\" 문구로 시작해야 합니다.",
+      "ends_with": "\"{{- suffix}}\" 문구로 끝나야 합니다.",
+      "includes": "\"{{- includes}}\" 문구를 포함해야 합니다.",
+      "lowercase": "소문자로 입력해야 합니다.",
+      "uppercase": "대문자로 입력해야 합니다."
+    },
+    "not_multiple_of": "{{divisor}}의 배수여야 합니다.",
+    "unrecognized_keys": "객체에 허용되지 않은 키가 있습니다: {{- keys}}",
+    "invalid_key": "{{origin}}에 잘못된 키가 있습니다.",
+    "invalid_element": "{{origin}}에 잘못된 값이 있습니다.",
+    "invalid_union": "입력 값이 올바르지 않습니다.",
+    "invalid_union_discriminator": "허용되지 않은 구분 값입니다. {{- options}} 중 하나여야 합니다.",
+    "custom": "입력 값이 올바르지 않습니다.",
+    "too_small": {
+      "string": {
+        "exact": "정확히 {{count}}자여야 합니다.",
+        "inclusive": "{{count}}자 이상이어야 합니다.",
+        "not_inclusive": "{{count}}자보다 길어야 합니다."
+      },
+      "number": {
+        "exact": "{{minimum}}만 입력할 수 있습니다.",
+        "inclusive": "{{minimum}} 이상의 값이어야 합니다.",
+        "not_inclusive": "{{minimum}}보다 큰 값이어야 합니다."
+      },
+      "array": {
+        "exact": "항목이 정확히 {{count}}개여야 합니다.",
+        "inclusive": "항목이 {{count}}개 이상이어야 합니다.",
+        "not_inclusive": "항목이 {{count}}개보다 많아야 합니다."
+      },
+      "set": {
+        "exact": "항목이 정확히 {{count}}개여야 합니다.",
+        "inclusive": "항목이 {{count}}개 이상이어야 합니다.",
+        "not_inclusive": "항목이 {{count}}개보다 많아야 합니다."
+      },
+      "map": {
+        "exact": "항목이 정확히 {{count}}개여야 합니다.",
+        "inclusive": "항목이 {{count}}개 이상이어야 합니다.",
+        "not_inclusive": "항목이 {{count}}개보다 많아야 합니다."
+      },
+      "file": {
+        "exact": "파일 크기는 정확히 {{count}}바이트여야 합니다.",
+        "inclusive": "파일 크기는 {{count}}바이트 이상이어야 합니다.",
+        "not_inclusive": "파일 크기는 {{count}}바이트보다 커야 합니다."
+      },
+      "date": {
+        "exact": "{{- minimum, datetime}}만 입력할 수 있습니다.",
+        "inclusive": "{{- minimum, datetime}} 또는 그 이후의 날짜여야 합니다.",
+        "not_inclusive": "{{- minimum, datetime}}보다 늦은 날짜여야 합니다."
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact": "정확히 {{count}}자여야 합니다.",
+        "inclusive": "{{count}}자 이하여야 합니다.",
+        "not_inclusive": "{{count}}자 미만이어야 합니다."
+      },
+      "number": {
+        "exact": "{{maximum}}만 입력할 수 있습니다.",
+        "inclusive": "{{maximum}} 이하의 값이어야 합니다.",
+        "not_inclusive": "{{maximum}}보다 작은 값이어야 합니다."
+      },
+      "array": {
+        "exact": "항목이 정확히 {{count}}개여야 합니다.",
+        "inclusive": "항목이 {{count}}개 이하여야 합니다.",
+        "not_inclusive": "항목이 {{count}}개 미만이어야 합니다."
+      },
+      "set": {
+        "exact": "항목이 정확히 {{count}}개여야 합니다.",
+        "inclusive": "항목이 {{count}}개 이하여야 합니다.",
+        "not_inclusive": "항목이 {{count}}개 미만이어야 합니다."
+      },
+      "map": {
+        "exact": "항목이 정확히 {{count}}개여야 합니다.",
+        "inclusive": "항목이 {{count}}개 이하여야 합니다.",
+        "not_inclusive": "항목이 {{count}}개 미만이어야 합니다."
+      },
+      "file": {
+        "exact": "파일 크기는 정확히 {{count}}바이트여야 합니다.",
+        "inclusive": "파일 크기는 {{count}}바이트 이하여야 합니다.",
+        "not_inclusive": "파일 크기는 {{count}}바이트 미만이어야 합니다."
+      },
+      "date": {
+        "exact": "{{- maximum, datetime}}만 입력할 수 있습니다.",
+        "inclusive": "{{- maximum, datetime}} 또는 그 이전의 날짜여야 합니다.",
+        "not_inclusive": "{{- maximum, datetime}}보다 이른 날짜여야 합니다."
+      }
+    }
+  },
+  "formats": {
+    "email": "이메일 주소",
+    "url": "URL",
+    "emoji": "이모지",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO 날짜 및 시간",
+    "date": "ISO 날짜",
+    "time": "ISO 시간",
+    "duration": "ISO 기간",
+    "ipv4": "IPv4 주소",
+    "ipv6": "IPv6 주소",
+    "mac": "MAC 주소",
+    "cidrv4": "IPv4 주소 범위",
+    "cidrv6": "IPv6 주소 범위",
+    "base64": "base64 인코딩 문자열",
+    "base64url": "base64url 인코딩 문자열",
+    "json_string": "JSON 문자열",
+    "e164": "E.164 전화번호",
+    "jwt": "JWT",
+    "hostname": "호스트 이름",
+    "credit_card": "신용카드 번호",
+    "iban": "IBAN",
+    "hex": "16진수 문자열",
+    "hash": "해시",
+    "currency_code": "통화 코드",
+    "template_literal": "입력 값"
+  },
+  "types": {
+    "string": "텍스트",
+    "number": "숫자",
+    "int": "정수",
+    "bigint": "BigInt",
+    "boolean": "논리값",
+    "symbol": "심볼",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "날짜",
+    "array": "배열",
+    "tuple": "튜플",
+    "object": "객체",
+    "record": "레코드",
+    "map": "맵",
+    "set": "세트",
+    "file": "파일",
+    "function": "함수",
+    "promise": "Promise"
+  }
+}

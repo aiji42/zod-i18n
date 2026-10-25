@@ -1,0 +1,207 @@
+{
+  "errors": {
+    "invalid_type": "Erwartet: {{expected}}, erhalten: {{received}}",
+    "invalid_type_received_undefined": "Pflichtfeld",
+    "invalid_type_received_null": "Pflichtfeld",
+    "invalid_value": "Ungültige Auswahl: erlaubt sind {{- options}}",
+    "invalid_value_single": "Ungültiger Wert: erwartet wird {{- expected}}",
+    "invalid_format": {
+      "default": "Ungültiges Format: {{format}} erwartet",
+      "email": "Ungültige E-Mail-Adresse",
+      "url": "Ungültige URL",
+      "emoji": "Darf nur Emojis enthalten",
+      "uuid": "Ungültige UUID",
+      "guid": "Ungültige GUID",
+      "datetime": "Ungültige Datums- und Uhrzeitangabe (ISO-Format erwartet)",
+      "date": "Ungültiges Datum (ISO-Format erwartet)",
+      "time": "Ungültige Uhrzeit (ISO-Format erwartet)",
+      "duration": "Ungültige Dauer (ISO-Format erwartet)",
+      "ipv4": "Ungültige IPv4-Adresse",
+      "ipv6": "Ungültige IPv6-Adresse",
+      "mac": "Ungültige MAC-Adresse",
+      "cidrv4": "Ungültiger IPv4-Adressbereich",
+      "cidrv6": "Ungültiger IPv6-Adressbereich",
+      "json_string": "Ungültiges JSON",
+      "e164": "Ungültige Telefonnummer (E.164-Format erwartet)",
+      "jwt": "Ungültiges JWT",
+      "hostname": "Ungültiger Hostname",
+      "credit_card": "Ungültige Kreditkartennummer",
+      "iban": "Ungültige IBAN",
+      "regex": "Ungültiges Format",
+      "starts_with": "Muss mit \"{{- prefix}}\" beginnen",
+      "ends_with": "Muss auf \"{{- suffix}}\" enden",
+      "includes": "Muss \"{{- includes}}\" enthalten",
+      "lowercase": "Muss in Kleinbuchstaben geschrieben sein",
+      "uppercase": "Muss in Großbuchstaben geschrieben sein"
+    },
+    "not_multiple_of": "Zahl muss ein Vielfaches von {{divisor}} sein",
+    "unrecognized_keys_one": "Unbekannter Schlüssel im Objekt: {{- keys}}",
+    "unrecognized_keys_other": "Unbekannte Schlüssel im Objekt: {{- keys}}",
+    "invalid_key": "{{origin}} enthält einen ungültigen Schlüssel",
+    "invalid_element": "{{origin}} enthält einen ungültigen Wert",
+    "invalid_union": "Ungültige Eingabe",
+    "invalid_union_discriminator": "Ungültiger Diskriminatorwert: erwartet wird {{- options}}",
+    "custom": "Ungültige Eingabe",
+    "too_small": {
+      "string": {
+        "exact_one": "Text muss genau {{count}} Zeichen enthalten",
+        "exact_other": "Text muss genau {{count}} Zeichen enthalten",
+        "inclusive_one": "Text muss mindestens {{count}} Zeichen enthalten",
+        "inclusive_other": "Text muss mindestens {{count}} Zeichen enthalten",
+        "not_inclusive_one": "Text muss mehr als {{count}} Zeichen enthalten",
+        "not_inclusive_other": "Text muss mehr als {{count}} Zeichen enthalten"
+      },
+      "number": {
+        "exact": "Zahl muss genau {{minimum}} sein",
+        "inclusive": "Zahl muss mindestens {{minimum}} sein",
+        "not_inclusive": "Zahl muss größer als {{minimum}} sein"
+      },
+      "array": {
+        "exact_one": "Liste muss genau {{count}} Element enthalten",
+        "exact_other": "Liste muss genau {{count}} Elemente enthalten",
+        "inclusive_one": "Liste muss mindestens {{count}} Element enthalten",
+        "inclusive_other": "Liste muss mindestens {{count}} Elemente enthalten",
+        "not_inclusive_one": "Liste muss mehr als {{count}} Element enthalten",
+        "not_inclusive_other": "Liste muss mehr als {{count}} Elemente enthalten"
+      },
+      "set": {
+        "exact_one": "Menge muss genau {{count}} Element enthalten",
+        "exact_other": "Menge muss genau {{count}} Elemente enthalten",
+        "inclusive_one": "Menge muss mindestens {{count}} Element enthalten",
+        "inclusive_other": "Menge muss mindestens {{count}} Elemente enthalten",
+        "not_inclusive_one": "Menge muss mehr als {{count}} Element enthalten",
+        "not_inclusive_other": "Menge muss mehr als {{count}} Elemente enthalten"
+      },
+      "map": {
+        "exact_one": "Map muss genau {{count}} Eintrag enthalten",
+        "exact_other": "Map muss genau {{count}} Einträge enthalten",
+        "inclusive_one": "Map muss mindestens {{count}} Eintrag enthalten",
+        "inclusive_other": "Map muss mindestens {{count}} Einträge enthalten",
+        "not_inclusive_one": "Map muss mehr als {{count}} Eintrag enthalten",
+        "not_inclusive_other": "Map muss mehr als {{count}} Einträge enthalten"
+      },
+      "file": {
+        "exact_one": "Datei muss genau {{count}} Byte groß sein",
+        "exact_other": "Datei muss genau {{count}} Byte groß sein",
+        "inclusive_one": "Datei muss mindestens {{count}} Byte groß sein",
+        "inclusive_other": "Datei muss mindestens {{count}} Byte groß sein",
+        "not_inclusive_one": "Datei muss größer als {{count}} Byte sein",
+        "not_inclusive_other": "Datei muss größer als {{count}} Byte sein"
+      },
+      "date": {
+        "exact": "Datum muss genau {{- minimum, datetime}} sein",
+        "inclusive": "Datum darf nicht vor {{- minimum, datetime}} liegen",
+        "not_inclusive": "Datum muss nach {{- minimum, datetime}} liegen"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact_one": "Text muss genau {{count}} Zeichen enthalten",
+        "exact_other": "Text muss genau {{count}} Zeichen enthalten",
+        "inclusive_one": "Text darf höchstens {{count}} Zeichen enthalten",
+        "inclusive_other": "Text darf höchstens {{count}} Zeichen enthalten",
+        "not_inclusive_one": "Text muss weniger als {{count}} Zeichen enthalten",
+        "not_inclusive_other": "Text muss weniger als {{count}} Zeichen enthalten"
+      },
+      "number": {
+        "exact": "Zahl muss genau {{maximum}} sein",
+        "inclusive": "Zahl darf höchstens {{maximum}} sein",
+        "not_inclusive": "Zahl muss kleiner als {{maximum}} sein"
+      },
+      "array": {
+        "exact_one": "Liste muss genau {{count}} Element enthalten",
+        "exact_other": "Liste muss genau {{count}} Elemente enthalten",
+        "inclusive_one": "Liste darf höchstens {{count}} Element enthalten",
+        "inclusive_other": "Liste darf höchstens {{count}} Elemente enthalten",
+        "not_inclusive_one": "Liste muss weniger als {{count}} Element enthalten",
+        "not_inclusive_other": "Liste muss weniger als {{count}} Elemente enthalten"
+      },
+      "set": {
+        "exact_one": "Menge muss genau {{count}} Element enthalten",
+        "exact_other": "Menge muss genau {{count}} Elemente enthalten",
+        "inclusive_one": "Menge darf höchstens {{count}} Element enthalten",
+        "inclusive_other": "Menge darf höchstens {{count}} Elemente enthalten",
+        "not_inclusive_one": "Menge muss weniger als {{count}} Element enthalten",
+        "not_inclusive_other": "Menge muss weniger als {{count}} Elemente enthalten"
+      },
+      "map": {
+        "exact_one": "Map muss genau {{count}} Eintrag enthalten",
+        "exact_other": "Map muss genau {{count}} Einträge enthalten",
+        "inclusive_one": "Map darf höchstens {{count}} Eintrag enthalten",
+        "inclusive_other": "Map darf höchstens {{count}} Einträge enthalten",
+        "not_inclusive_one": "Map muss weniger als {{count}} Eintrag enthalten",
+        "not_inclusive_other": "Map muss weniger als {{count}} Einträge enthalten"
+      },
+      "file": {
+        "exact_one": "Datei muss genau {{count}} Byte groß sein",
+        "exact_other": "Datei muss genau {{count}} Byte groß sein",
+        "inclusive_one": "Datei darf höchstens {{count}} Byte groß sein",
+        "inclusive_other": "Datei darf höchstens {{count}} Byte groß sein",
+        "not_inclusive_one": "Datei muss kleiner als {{count}} Byte sein",
+        "not_inclusive_other": "Datei muss kleiner als {{count}} Byte sein"
+      },
+      "date": {
+        "exact": "Datum muss genau {{- maximum, datetime}} sein",
+        "inclusive": "Datum darf nicht nach {{- maximum, datetime}} liegen",
+        "not_inclusive": "Datum muss vor {{- maximum, datetime}} liegen"
+      }
+    }
+  },
+  "formats": {
+    "email": "E-Mail-Adresse",
+    "url": "URL",
+    "emoji": "Emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "Nano ID",
+    "cuid": "CUID",
+    "cuid2": "CUID2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO-Datum mit Uhrzeit",
+    "date": "ISO-Datum",
+    "time": "ISO-Uhrzeit",
+    "duration": "ISO-Dauer",
+    "ipv4": "IPv4-Adresse",
+    "ipv6": "IPv6-Adresse",
+    "mac": "MAC-Adresse",
+    "cidrv4": "IPv4-Adressbereich",
+    "cidrv6": "IPv6-Adressbereich",
+    "base64": "Base64-codierter Text",
+    "base64url": "Base64url-codierter Text",
+    "json_string": "JSON-Text",
+    "e164": "Telefonnummer im E.164-Format",
+    "jwt": "JWT",
+    "hostname": "Hostname",
+    "credit_card": "Kreditkartennummer",
+    "iban": "IBAN",
+    "hex": "Hexadezimaltext",
+    "hash": "Hash",
+    "currency_code": "Währungscode",
+    "template_literal": "Eingabe"
+  },
+  "types": {
+    "string": "Text",
+    "number": "Zahl",
+    "int": "Ganzzahl",
+    "bigint": "BigInt",
+    "boolean": "Wahrheitswert",
+    "symbol": "Symbol",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "Datum",
+    "array": "Liste",
+    "tuple": "Tupel",
+    "object": "Objekt",
+    "record": "Record",
+    "map": "Map",
+    "set": "Menge",
+    "file": "Datei",
+    "function": "Funktion",
+    "promise": "Promise"
+  }
+}

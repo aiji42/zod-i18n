@@ -1,0 +1,187 @@
+{
+  "errors": {
+    "invalid_type": "Expected {{expected}}, received {{received}}",
+    "invalid_type_received_undefined": "Required",
+    "invalid_type_received_null": "Required",
+    "invalid_value": "Invalid option: expected one of {{- options}}",
+    "invalid_value_single": "Invalid input: expected {{- expected}}",
+    "invalid_format": {
+      "default": "Invalid {{format}}",
+      "regex": "Invalid format",
+      "starts_with": "Must start with \"{{- prefix}}\"",
+      "ends_with": "Must end with \"{{- suffix}}\"",
+      "includes": "Must include \"{{- includes}}\"",
+      "lowercase": "Must be lowercase",
+      "uppercase": "Must be uppercase"
+    },
+    "not_multiple_of": "Number must be a multiple of {{divisor}}",
+    "unrecognized_keys_one": "Unrecognized key in object: {{- keys}}",
+    "unrecognized_keys_other": "Unrecognized keys in object: {{- keys}}",
+    "invalid_key": "Invalid key in {{origin}}",
+    "invalid_element": "Invalid value in {{origin}}",
+    "invalid_union": "Invalid input",
+    "invalid_union_discriminator": "Invalid discriminator value. Expected {{- options}}",
+    "custom": "Invalid input",
+    "too_small": {
+      "string": {
+        "exact_one": "String must contain exactly {{count}} character",
+        "exact_other": "String must contain exactly {{count}} characters",
+        "inclusive_one": "String must contain at least {{count}} character",
+        "inclusive_other": "String must contain at least {{count}} characters",
+        "not_inclusive_one": "String must contain more than {{count}} character",
+        "not_inclusive_other": "String must contain more than {{count}} characters"
+      },
+      "number": {
+        "exact": "Number must be exactly {{minimum}}",
+        "inclusive": "Number must be greater than or equal to {{minimum}}",
+        "not_inclusive": "Number must be greater than {{minimum}}"
+      },
+      "array": {
+        "exact_one": "Array must contain exactly {{count}} element",
+        "exact_other": "Array must contain exactly {{count}} elements",
+        "inclusive_one": "Array must contain at least {{count}} element",
+        "inclusive_other": "Array must contain at least {{count}} elements",
+        "not_inclusive_one": "Array must contain more than {{count}} element",
+        "not_inclusive_other": "Array must contain more than {{count}} elements"
+      },
+      "set": {
+        "exact_one": "Set must contain exactly {{count}} item",
+        "exact_other": "Set must contain exactly {{count}} items",
+        "inclusive_one": "Set must contain at least {{count}} item",
+        "inclusive_other": "Set must contain at least {{count}} items",
+        "not_inclusive_one": "Set must contain more than {{count}} item",
+        "not_inclusive_other": "Set must contain more than {{count}} items"
+      },
+      "map": {
+        "exact_one": "Map must contain exactly {{count}} entry",
+        "exact_other": "Map must contain exactly {{count}} entries",
+        "inclusive_one": "Map must contain at least {{count}} entry",
+        "inclusive_other": "Map must contain at least {{count}} entries",
+        "not_inclusive_one": "Map must contain more than {{count}} entry",
+        "not_inclusive_other": "Map must contain more than {{count}} entries"
+      },
+      "file": {
+        "exact_one": "File must be exactly {{count}} byte",
+        "exact_other": "File must be exactly {{count}} bytes",
+        "inclusive_one": "File must be at least {{count}} byte",
+        "inclusive_other": "File must be at least {{count}} bytes",
+        "not_inclusive_one": "File must be larger than {{count}} byte",
+        "not_inclusive_other": "File must be larger than {{count}} bytes"
+      },
+      "date": {
+        "exact": "Date must be exactly {{- minimum, datetime}}",
+        "inclusive": "Date must be on or after {{- minimum, datetime}}",
+        "not_inclusive": "Date must be after {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact_one": "String must contain exactly {{count}} character",
+        "exact_other": "String must contain exactly {{count}} characters",
+        "inclusive_one": "String must contain at most {{count}} character",
+        "inclusive_other": "String must contain at most {{count}} characters",
+        "not_inclusive_one": "String must contain fewer than {{count}} character",
+        "not_inclusive_other": "String must contain fewer than {{count}} characters"
+      },
+      "number": {
+        "exact": "Number must be exactly {{maximum}}",
+        "inclusive": "Number must be less than or equal to {{maximum}}",
+        "not_inclusive": "Number must be less than {{maximum}}"
+      },
+      "array": {
+        "exact_one": "Array must contain exactly {{count}} element",
+        "exact_other": "Array must contain exactly {{count}} elements",
+        "inclusive_one": "Array must contain at most {{count}} element",
+        "inclusive_other": "Array must contain at most {{count}} elements",
+        "not_inclusive_one": "Array must contain fewer than {{count}} element",
+        "not_inclusive_other": "Array must contain fewer than {{count}} elements"
+      },
+      "set": {
+        "exact_one": "Set must contain exactly {{count}} item",
+        "exact_other": "Set must contain exactly {{count}} items",
+        "inclusive_one": "Set must contain at most {{count}} item",
+        "inclusive_other": "Set must contain at most {{count}} items",
+        "not_inclusive_one": "Set must contain fewer than {{count}} item",
+        "not_inclusive_other": "Set must contain fewer than {{count}} items"
+      },
+      "map": {
+        "exact_one": "Map must contain exactly {{count}} entry",
+        "exact_other": "Map must contain exactly {{count}} entries",
+        "inclusive_one": "Map must contain at most {{count}} entry",
+        "inclusive_other": "Map must contain at most {{count}} entries",
+        "not_inclusive_one": "Map must contain fewer than {{count}} entry",
+        "not_inclusive_other": "Map must contain fewer than {{count}} entries"
+      },
+      "file": {
+        "exact_one": "File must be exactly {{count}} byte",
+        "exact_other": "File must be exactly {{count}} bytes",
+        "inclusive_one": "File must be at most {{count}} byte",
+        "inclusive_other": "File must be at most {{count}} bytes",
+        "not_inclusive_one": "File must be smaller than {{count}} byte",
+        "not_inclusive_other": "File must be smaller than {{count}} bytes"
+      },
+      "date": {
+        "exact": "Date must be exactly {{- maximum, datetime}}",
+        "inclusive": "Date must be on or before {{- maximum, datetime}}",
+        "not_inclusive": "Date must be before {{- maximum, datetime}}"
+      }
+    }
+  },
+  "formats": {
+    "email": "email address",
+    "url": "URL",
+    "emoji": "emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO datetime",
+    "date": "ISO date",
+    "time": "ISO time",
+    "duration": "ISO duration",
+    "ipv4": "IPv4 address",
+    "ipv6": "IPv6 address",
+    "mac": "MAC address",
+    "cidrv4": "IPv4 range",
+    "cidrv6": "IPv6 range",
+    "base64": "base64-encoded string",
+    "base64url": "base64url-encoded string",
+    "json_string": "JSON string",
+    "e164": "E.164 phone number",
+    "jwt": "JWT",
+    "hostname": "hostname",
+    "credit_card": "credit card number",
+    "iban": "IBAN",
+    "hex": "hexadecimal string",
+    "hash": "hash",
+    "currency_code": "currency code",
+    "template_literal": "input"
+  },
+  "types": {
+    "string": "string",
+    "number": "number",
+    "int": "integer",
+    "bigint": "bigint",
+    "boolean": "boolean",
+    "symbol": "symbol",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "date",
+    "array": "array",
+    "tuple": "tuple",
+    "object": "object",
+    "record": "record",
+    "map": "map",
+    "set": "set",
+    "file": "file",
+    "function": "function",
+    "promise": "promise"
+  }
+}

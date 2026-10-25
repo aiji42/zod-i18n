@@ -1,53 +1,71 @@
 {
-  "name": "zod-i18n",
-  "version": "0.0.0",
-  "description": "A library for localizing zod error messages.",
-  "repository": "git@github.com:aiji42/zod-i18n.git",
-  "author": "aiji42 <aiji42@gmail.com> (https://twitter.com/aiji42_dev)",
-  "license": "MIT",
-  "private": true,
-  "scripts": {
-    "dev": "run-p dev:*",
-    "dev:core": "yarn workspace zod-i18n-map dev",
-    "dev:with-next-i18next": "yarn workspace with-next-i18next dev",
-    "build": "yarn workspace zod-i18n-map build",
-    "coverage": "yarn workspace zod-i18n-map test:coverage",
-    "test": "yarn workspace zod-i18n-map test",
-    "release": "yarn workspace zod-i18n-map release",
-    "prepare": "husky install"
-  },
-  "workspaces": [
-    "packages/*",
-    "examples/*"
+  "name": "zod-i18n-map",
+  "version": "2.27.0",
+  "description": "Translate Zod error messages with i18next. Bring your own translation files.",
+  "keywords": [
+    "zod",
+    "i18next",
+    "i18n",
+    "validation",
+    "error-messages",
+    "localization"
   ],
+  "homepage": "https://github.com/aiji42/zod-i18n#readme",
+  "bugs": "https://github.com/aiji42/zod-i18n/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aiji42/zod-i18n.git"
+  },
+  "license": "MIT",
+  "author": "aiji42 <aiji42@gmail.com> (https://twitter.com/aiji42_dev)",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "zod-i18n-map": "./dist/cli.mjs"
+  },
+  "files": [
+    "dist",
+    "llms.txt"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "locales:check": "node scripts/check-locales.ts",
+    "check": "pnpm lint && pnpm typecheck && pnpm locales:check && pnpm test && pnpm build",
+    "prepack": "pnpm build",
+    "smoke": "node scripts/smoke.ts"
+  },
+  "peerDependencies": {
+    "i18next": ">=23.0.0",
+    "zod": "^3.25.0 || ^4.0.0"
+  },
   "devDependencies": {
-    "@commitlint/cli": "^17.4.2",
-    "@commitlint/config-conventional": "^17.4.2",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.1.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.8.3",
-    "semantic-release": "^20.1.0",
-    "semantic-release-monorepo": "^7.0.5"
+    "@biomejs/biome": "^2.5.15",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "i18next": "^26.5.10",
+    "i18next-http-backend": "^4.0.5",
+    "i18next-icu": "^2.5.0",
+    "i18next-resources-to-backend": "^1.2.3",
+    "intl-messageformat": "^12.1.3",
+    "publint": "^0.3.25",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-i18next": "^17.1.8",
+    "tsdown": "^0.23.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5",
+    "zod": "^4.6.7"
   },
-  "lint-staged": {
-    "*.{js,ts,jsx,tsx,json}": [
-      "prettier --write"
-    ]
-  },
-  "engines": {
-    "node": ">=18",
-    "npm": "please_use_yarn_instead",
-    "yarn": ">=1.22"
-  },
-  "release": {
-    "extends": "semantic-release-monorepo",
-    "branches": [
-      "main",
-      {
-        "name": "beta",
-        "prerelease": true
-      }
-    ]
-  }
+  "packageManager": "pnpm@10.28.0"
 }

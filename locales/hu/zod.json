@@ -1,0 +1,161 @@
+{
+  "errors": {
+    "invalid_type": "Az értéknek {{expected}} típusúnak kell lennie (kapott típus: {{received}})",
+    "invalid_type_received_undefined": "Kötelező mező",
+    "invalid_type_received_null": "Kötelező mező",
+    "invalid_value": "Az értéknek a következők egyikének kell lennie: {{- options}}",
+    "invalid_value_single": "Az értéknek a következőnek kell lennie: {{- expected}}",
+    "invalid_format": {
+      "default": "Érvénytelen {{format}}",
+      "datetime": "Érvénytelen dátum és idő (elvárt formátum: ISO 8601)",
+      "date": "Érvénytelen dátum (elvárt formátum: ÉÉÉÉ-HH-NN)",
+      "time": "Érvénytelen időpont (elvárt formátum: ISO 8601)",
+      "e164": "Érvénytelen telefonszám (elvárt formátum: nemzetközi E.164)",
+      "regex": "Érvénytelen formátum",
+      "starts_with": "A következővel kell kezdődnie: \"{{- prefix}}\"",
+      "ends_with": "A következőre kell végződnie: \"{{- suffix}}\"",
+      "includes": "Tartalmaznia kell a következőt: \"{{- includes}}\"",
+      "lowercase": "Nem tartalmazhat nagybetűt",
+      "uppercase": "Nem tartalmazhat kisbetűt"
+    },
+    "not_multiple_of": "A számnak a(z) {{divisor}} többszörösének kell lennie",
+    "unrecognized_keys_one": "Ismeretlen kulcs az objektumban: {{- keys}}",
+    "unrecognized_keys_other": "Ismeretlen kulcsok az objektumban: {{- keys}}",
+    "invalid_key": "Érvénytelen kulcs a(z) {{origin}} típusú értékben",
+    "invalid_element": "Érvénytelen elem a(z) {{origin}} típusú értékben",
+    "invalid_union": "Érvénytelen érték",
+    "invalid_union_discriminator": "Az értéknek a következők egyikének kell lennie: {{- options}}",
+    "custom": "Érvénytelen érték",
+    "too_small": {
+      "string": {
+        "exact": "A szövegnek pontosan {{count}} karakterből kell állnia",
+        "inclusive": "A szövegnek legalább {{count}} karakterből kell állnia",
+        "not_inclusive": "A szövegnek több mint {{count}} karakterből kell állnia"
+      },
+      "number": {
+        "exact": "A számnak pontosan {{minimum}} értékűnek kell lennie",
+        "inclusive": "A szám nem lehet kisebb, mint {{minimum}}",
+        "not_inclusive": "A számnak nagyobbnak kell lennie, mint {{minimum}}"
+      },
+      "array": {
+        "exact": "A listának pontosan {{count}} elemet kell tartalmaznia",
+        "inclusive": "A listának legalább {{count}} elemet kell tartalmaznia",
+        "not_inclusive": "A listának több mint {{count}} elemet kell tartalmaznia"
+      },
+      "set": {
+        "exact": "A halmaznak pontosan {{count}} elemet kell tartalmaznia",
+        "inclusive": "A halmaznak legalább {{count}} elemet kell tartalmaznia",
+        "not_inclusive": "A halmaznak több mint {{count}} elemet kell tartalmaznia"
+      },
+      "map": {
+        "exact": "A leképezésnek pontosan {{count}} bejegyzést kell tartalmaznia",
+        "inclusive": "A leképezésnek legalább {{count}} bejegyzést kell tartalmaznia",
+        "not_inclusive": "A leképezésnek több mint {{count}} bejegyzést kell tartalmaznia"
+      },
+      "file": {
+        "exact": "A fájl méretének pontosan {{count}} bájtnak kell lennie",
+        "inclusive": "A fájl mérete nem lehet kisebb {{count}} bájtnál",
+        "not_inclusive": "A fájl méretének több mint {{count}} bájtnak kell lennie"
+      },
+      "date": {
+        "exact": "A dátumnak a következőnek kell lennie: {{- minimum, datetime}}",
+        "inclusive": "A dátum nem lehet korábbi, mint {{- minimum, datetime}}",
+        "not_inclusive": "A dátumnak későbbinek kell lennie, mint {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact": "A szövegnek pontosan {{count}} karakterből kell állnia",
+        "inclusive": "A szöveg legfeljebb {{count}} karakterből állhat",
+        "not_inclusive": "A szövegnek kevesebb mint {{count}} karakterből kell állnia"
+      },
+      "number": {
+        "exact": "A számnak pontosan {{maximum}} értékűnek kell lennie",
+        "inclusive": "A szám nem lehet nagyobb, mint {{maximum}}",
+        "not_inclusive": "A számnak kisebbnek kell lennie, mint {{maximum}}"
+      },
+      "array": {
+        "exact": "A listának pontosan {{count}} elemet kell tartalmaznia",
+        "inclusive": "A lista legfeljebb {{count}} elemet tartalmazhat",
+        "not_inclusive": "A listának kevesebb mint {{count}} elemet kell tartalmaznia"
+      },
+      "set": {
+        "exact": "A halmaznak pontosan {{count}} elemet kell tartalmaznia",
+        "inclusive": "A halmaz legfeljebb {{count}} elemet tartalmazhat",
+        "not_inclusive": "A halmaznak kevesebb mint {{count}} elemet kell tartalmaznia"
+      },
+      "map": {
+        "exact": "A leképezésnek pontosan {{count}} bejegyzést kell tartalmaznia",
+        "inclusive": "A leképezés legfeljebb {{count}} bejegyzést tartalmazhat",
+        "not_inclusive": "A leképezésnek kevesebb mint {{count}} bejegyzést kell tartalmaznia"
+      },
+      "file": {
+        "exact": "A fájl méretének pontosan {{count}} bájtnak kell lennie",
+        "inclusive": "A fájl mérete legfeljebb {{count}} bájt lehet",
+        "not_inclusive": "A fájl méretének kevesebb mint {{count}} bájtnak kell lennie"
+      },
+      "date": {
+        "exact": "A dátumnak a következőnek kell lennie: {{- maximum, datetime}}",
+        "inclusive": "A dátum nem lehet későbbi, mint {{- maximum, datetime}}",
+        "not_inclusive": "A dátumnak korábbinak kell lennie, mint {{- maximum, datetime}}"
+      }
+    }
+  },
+  "formats": {
+    "email": "e-mail-cím",
+    "url": "URL",
+    "emoji": "emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO dátum és idő",
+    "date": "ISO dátum",
+    "time": "ISO időpont",
+    "duration": "ISO időtartam",
+    "ipv4": "IPv4-cím",
+    "ipv6": "IPv6-cím",
+    "mac": "MAC-cím",
+    "cidrv4": "IPv4-címtartomány",
+    "cidrv6": "IPv6-címtartomány",
+    "base64": "base64 kódolású szöveg",
+    "base64url": "base64url kódolású szöveg",
+    "json_string": "JSON szöveg",
+    "e164": "E.164 formátumú telefonszám",
+    "jwt": "JWT",
+    "hostname": "hosztnév",
+    "credit_card": "bankkártyaszám",
+    "iban": "IBAN",
+    "hex": "hexadecimális szöveg",
+    "hash": "hash",
+    "currency_code": "pénznemkód",
+    "template_literal": "érték"
+  },
+  "types": {
+    "string": "szöveg",
+    "number": "szám",
+    "int": "egész szám",
+    "bigint": "nagy egész szám",
+    "boolean": "logikai érték",
+    "symbol": "szimbólum",
+    "undefined": "nem definiált",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "dátum",
+    "array": "lista",
+    "tuple": "rendezett n-es",
+    "object": "objektum",
+    "record": "objektum",
+    "map": "leképezés",
+    "set": "halmaz",
+    "file": "fájl",
+    "function": "függvény",
+    "promise": "Promise"
+  }
+}

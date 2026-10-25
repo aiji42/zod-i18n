@@ -1,0 +1,207 @@
+{
+  "errors": {
+    "invalid_type": "Ugyldig type: forventede {{expected}}, modtog {{received}}",
+    "invalid_type_received_undefined": "Påkrævet",
+    "invalid_type_received_null": "Påkrævet",
+    "invalid_value": "Ugyldigt valg: forventede én af {{- options}}",
+    "invalid_value_single": "Ugyldig værdi: forventede {{- expected}}",
+    "invalid_format": {
+      "default": "Ugyldigt format: forventede {{format}}",
+      "email": "Ugyldig e-mailadresse",
+      "url": "Ugyldig URL",
+      "emoji": "Må kun indeholde emojis",
+      "uuid": "Ugyldigt UUID",
+      "guid": "Ugyldigt GUID",
+      "datetime": "Ugyldig dato og tid (forventede ISO 8601-format)",
+      "date": "Ugyldig dato (forventede formatet ÅÅÅÅ-MM-DD)",
+      "time": "Ugyldigt klokkeslæt (forventede ISO 8601-format)",
+      "duration": "Ugyldig varighed (forventede ISO 8601-format)",
+      "ipv4": "Ugyldig IPv4-adresse",
+      "ipv6": "Ugyldig IPv6-adresse",
+      "mac": "Ugyldig MAC-adresse",
+      "cidrv4": "Ugyldigt IPv4-interval",
+      "cidrv6": "Ugyldigt IPv6-interval",
+      "json_string": "Ugyldig JSON",
+      "e164": "Ugyldigt telefonnummer (forventede E.164-format)",
+      "jwt": "Ugyldig JWT",
+      "hostname": "Ugyldigt værtsnavn",
+      "credit_card": "Ugyldigt kreditkortnummer",
+      "iban": "Ugyldigt IBAN",
+      "regex": "Ugyldigt format",
+      "starts_with": "Skal starte med \"{{- prefix}}\"",
+      "ends_with": "Skal slutte med \"{{- suffix}}\"",
+      "includes": "Skal indeholde \"{{- includes}}\"",
+      "lowercase": "Skal skrives med små bogstaver",
+      "uppercase": "Skal skrives med store bogstaver"
+    },
+    "not_multiple_of": "Tallet skal være et multiplum af {{divisor}}",
+    "unrecognized_keys_one": "Ukendt nøgle i objektet: {{- keys}}",
+    "unrecognized_keys_other": "Ukendte nøgler i objektet: {{- keys}}",
+    "invalid_key": "Ugyldig nøgle i værdi af typen {{origin}}",
+    "invalid_element": "Ugyldigt element i værdi af typen {{origin}}",
+    "invalid_union": "Ugyldig værdi",
+    "invalid_union_discriminator": "Ugyldig diskriminatorværdi: forventede én af {{- options}}",
+    "custom": "Ugyldig værdi",
+    "too_small": {
+      "string": {
+        "exact_one": "Teksten skal indeholde præcis {{count}} tegn",
+        "exact_other": "Teksten skal indeholde præcis {{count}} tegn",
+        "inclusive_one": "Teksten skal indeholde mindst {{count}} tegn",
+        "inclusive_other": "Teksten skal indeholde mindst {{count}} tegn",
+        "not_inclusive_one": "Teksten skal indeholde mere end {{count}} tegn",
+        "not_inclusive_other": "Teksten skal indeholde mere end {{count}} tegn"
+      },
+      "number": {
+        "exact": "Tallet skal være præcis {{minimum}}",
+        "inclusive": "Tallet skal være større end eller lig med {{minimum}}",
+        "not_inclusive": "Tallet skal være større end {{minimum}}"
+      },
+      "array": {
+        "exact_one": "Listen skal indeholde præcis {{count}} element",
+        "exact_other": "Listen skal indeholde præcis {{count}} elementer",
+        "inclusive_one": "Listen skal indeholde mindst {{count}} element",
+        "inclusive_other": "Listen skal indeholde mindst {{count}} elementer",
+        "not_inclusive_one": "Listen skal indeholde mere end {{count}} element",
+        "not_inclusive_other": "Listen skal indeholde mere end {{count}} elementer"
+      },
+      "set": {
+        "exact_one": "Sættet skal indeholde præcis {{count}} element",
+        "exact_other": "Sættet skal indeholde præcis {{count}} elementer",
+        "inclusive_one": "Sættet skal indeholde mindst {{count}} element",
+        "inclusive_other": "Sættet skal indeholde mindst {{count}} elementer",
+        "not_inclusive_one": "Sættet skal indeholde mere end {{count}} element",
+        "not_inclusive_other": "Sættet skal indeholde mere end {{count}} elementer"
+      },
+      "map": {
+        "exact_one": "Opslagstabellen skal indeholde præcis {{count}} post",
+        "exact_other": "Opslagstabellen skal indeholde præcis {{count}} poster",
+        "inclusive_one": "Opslagstabellen skal indeholde mindst {{count}} post",
+        "inclusive_other": "Opslagstabellen skal indeholde mindst {{count}} poster",
+        "not_inclusive_one": "Opslagstabellen skal indeholde mere end {{count}} post",
+        "not_inclusive_other": "Opslagstabellen skal indeholde mere end {{count}} poster"
+      },
+      "file": {
+        "exact_one": "Filen skal være præcis {{count}} byte",
+        "exact_other": "Filen skal være præcis {{count}} bytes",
+        "inclusive_one": "Filen skal være mindst {{count}} byte",
+        "inclusive_other": "Filen skal være mindst {{count}} bytes",
+        "not_inclusive_one": "Filen skal være større end {{count}} byte",
+        "not_inclusive_other": "Filen skal være større end {{count}} bytes"
+      },
+      "date": {
+        "exact": "Datoen skal være præcis {{- minimum, datetime}}",
+        "inclusive": "Datoen må ikke være før {{- minimum, datetime}}",
+        "not_inclusive": "Datoen skal være efter {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact_one": "Teksten skal indeholde præcis {{count}} tegn",
+        "exact_other": "Teksten skal indeholde præcis {{count}} tegn",
+        "inclusive_one": "Teksten skal indeholde højst {{count}} tegn",
+        "inclusive_other": "Teksten skal indeholde højst {{count}} tegn",
+        "not_inclusive_one": "Teksten skal indeholde færre end {{count}} tegn",
+        "not_inclusive_other": "Teksten skal indeholde færre end {{count}} tegn"
+      },
+      "number": {
+        "exact": "Tallet skal være præcis {{maximum}}",
+        "inclusive": "Tallet skal være mindre end eller lig med {{maximum}}",
+        "not_inclusive": "Tallet skal være mindre end {{maximum}}"
+      },
+      "array": {
+        "exact_one": "Listen skal indeholde præcis {{count}} element",
+        "exact_other": "Listen skal indeholde præcis {{count}} elementer",
+        "inclusive_one": "Listen skal indeholde højst {{count}} element",
+        "inclusive_other": "Listen skal indeholde højst {{count}} elementer",
+        "not_inclusive_one": "Listen skal indeholde færre end {{count}} element",
+        "not_inclusive_other": "Listen skal indeholde færre end {{count}} elementer"
+      },
+      "set": {
+        "exact_one": "Sættet skal indeholde præcis {{count}} element",
+        "exact_other": "Sættet skal indeholde præcis {{count}} elementer",
+        "inclusive_one": "Sættet skal indeholde højst {{count}} element",
+        "inclusive_other": "Sættet skal indeholde højst {{count}} elementer",
+        "not_inclusive_one": "Sættet skal indeholde færre end {{count}} element",
+        "not_inclusive_other": "Sættet skal indeholde færre end {{count}} elementer"
+      },
+      "map": {
+        "exact_one": "Opslagstabellen skal indeholde præcis {{count}} post",
+        "exact_other": "Opslagstabellen skal indeholde præcis {{count}} poster",
+        "inclusive_one": "Opslagstabellen skal indeholde højst {{count}} post",
+        "inclusive_other": "Opslagstabellen skal indeholde højst {{count}} poster",
+        "not_inclusive_one": "Opslagstabellen skal indeholde færre end {{count}} post",
+        "not_inclusive_other": "Opslagstabellen skal indeholde færre end {{count}} poster"
+      },
+      "file": {
+        "exact_one": "Filen skal være præcis {{count}} byte",
+        "exact_other": "Filen skal være præcis {{count}} bytes",
+        "inclusive_one": "Filen må højst være {{count}} byte",
+        "inclusive_other": "Filen må højst være {{count}} bytes",
+        "not_inclusive_one": "Filen skal være mindre end {{count}} byte",
+        "not_inclusive_other": "Filen skal være mindre end {{count}} bytes"
+      },
+      "date": {
+        "exact": "Datoen skal være præcis {{- maximum, datetime}}",
+        "inclusive": "Datoen må ikke være efter {{- maximum, datetime}}",
+        "not_inclusive": "Datoen skal være før {{- maximum, datetime}}"
+      }
+    }
+  },
+  "formats": {
+    "email": "e-mailadresse",
+    "url": "URL",
+    "emoji": "emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO-dato og -tid",
+    "date": "ISO-dato",
+    "time": "ISO-klokkeslæt",
+    "duration": "ISO-varighed",
+    "ipv4": "IPv4-adresse",
+    "ipv6": "IPv6-adresse",
+    "mac": "MAC-adresse",
+    "cidrv4": "IPv4-interval",
+    "cidrv6": "IPv6-interval",
+    "base64": "base64-kodet tekst",
+    "base64url": "base64url-kodet tekst",
+    "json_string": "JSON-tekst",
+    "e164": "E.164-telefonnummer",
+    "jwt": "JWT",
+    "hostname": "værtsnavn",
+    "credit_card": "kreditkortnummer",
+    "iban": "IBAN",
+    "hex": "hexadecimal tekst",
+    "hash": "hash",
+    "currency_code": "valutakode",
+    "template_literal": "værdi"
+  },
+  "types": {
+    "string": "tekst",
+    "number": "tal",
+    "int": "heltal",
+    "bigint": "stort heltal",
+    "boolean": "boolesk værdi",
+    "symbol": "symbol",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "dato",
+    "array": "liste",
+    "tuple": "tupel",
+    "object": "objekt",
+    "record": "objekt",
+    "map": "opslagstabel",
+    "set": "sæt",
+    "file": "fil",
+    "function": "funktion",
+    "promise": "promise"
+  }
+}

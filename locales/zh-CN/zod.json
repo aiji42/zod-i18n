@@ -1,0 +1,156 @@
+{
+  "errors": {
+    "invalid_type": "应为{{expected}}，实际为{{received}}",
+    "invalid_type_received_undefined": "此项为必填项",
+    "invalid_type_received_null": "此项为必填项",
+    "invalid_value": "选项无效，请选择以下值之一：{{- options}}",
+    "invalid_value_single": "输入无效，应为 {{- expected}}",
+    "invalid_format": {
+      "default": "{{format}}格式不正确",
+      "regex": "格式不正确",
+      "starts_with": "文本必须以 \"{{- prefix}}\" 开头",
+      "ends_with": "文本必须以 \"{{- suffix}}\" 结尾",
+      "includes": "文本必须包含 \"{{- includes}}\"",
+      "lowercase": "文本必须为小写",
+      "uppercase": "文本必须为大写"
+    },
+    "not_multiple_of": "数值必须是 {{divisor}} 的倍数",
+    "unrecognized_keys": "对象中包含无法识别的键：{{- keys}}",
+    "invalid_key": "{{origin}}中的键无效",
+    "invalid_element": "{{origin}}中的值无效",
+    "invalid_union": "输入无效",
+    "invalid_union_discriminator": "标识值无效，请输入以下值之一：{{- options}}",
+    "custom": "输入无效",
+    "too_small": {
+      "string": {
+        "exact": "文本长度必须为 {{count}} 个字符",
+        "inclusive": "文本长度不得少于 {{count}} 个字符",
+        "not_inclusive": "文本长度必须超过 {{count}} 个字符"
+      },
+      "number": {
+        "exact": "数值必须为 {{minimum}}",
+        "inclusive": "数值不得小于 {{minimum}}",
+        "not_inclusive": "数值必须大于 {{minimum}}"
+      },
+      "array": {
+        "exact": "数组元素必须为 {{count}} 个",
+        "inclusive": "数组元素不得少于 {{count}} 个",
+        "not_inclusive": "数组元素必须超过 {{count}} 个"
+      },
+      "set": {
+        "exact": "集合元素必须为 {{count}} 个",
+        "inclusive": "集合元素不得少于 {{count}} 个",
+        "not_inclusive": "集合元素必须超过 {{count}} 个"
+      },
+      "map": {
+        "exact": "映射条目必须为 {{count}} 个",
+        "inclusive": "映射条目不得少于 {{count}} 个",
+        "not_inclusive": "映射条目必须超过 {{count}} 个"
+      },
+      "file": {
+        "exact": "文件大小必须为 {{count}} 字节",
+        "inclusive": "文件大小不得小于 {{count}} 字节",
+        "not_inclusive": "文件大小必须大于 {{count}} 字节"
+      },
+      "date": {
+        "exact": "日期必须为 {{- minimum, datetime}}",
+        "inclusive": "日期不得早于 {{- minimum, datetime}}",
+        "not_inclusive": "日期必须晚于 {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact": "文本长度必须为 {{count}} 个字符",
+        "inclusive": "文本长度不得多于 {{count}} 个字符",
+        "not_inclusive": "文本长度必须少于 {{count}} 个字符"
+      },
+      "number": {
+        "exact": "数值必须为 {{maximum}}",
+        "inclusive": "数值不得大于 {{maximum}}",
+        "not_inclusive": "数值必须小于 {{maximum}}"
+      },
+      "array": {
+        "exact": "数组元素必须为 {{count}} 个",
+        "inclusive": "数组元素不得多于 {{count}} 个",
+        "not_inclusive": "数组元素必须少于 {{count}} 个"
+      },
+      "set": {
+        "exact": "集合元素必须为 {{count}} 个",
+        "inclusive": "集合元素不得多于 {{count}} 个",
+        "not_inclusive": "集合元素必须少于 {{count}} 个"
+      },
+      "map": {
+        "exact": "映射条目必须为 {{count}} 个",
+        "inclusive": "映射条目不得多于 {{count}} 个",
+        "not_inclusive": "映射条目必须少于 {{count}} 个"
+      },
+      "file": {
+        "exact": "文件大小必须为 {{count}} 字节",
+        "inclusive": "文件大小不得大于 {{count}} 字节",
+        "not_inclusive": "文件大小必须小于 {{count}} 字节"
+      },
+      "date": {
+        "exact": "日期必须为 {{- maximum, datetime}}",
+        "inclusive": "日期不得晚于 {{- maximum, datetime}}",
+        "not_inclusive": "日期必须早于 {{- maximum, datetime}}"
+      }
+    }
+  },
+  "formats": {
+    "email": "邮箱",
+    "url": "网址",
+    "emoji": "表情符号",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO日期时间",
+    "date": "ISO日期",
+    "time": "ISO时间",
+    "duration": "ISO时长",
+    "ipv4": "IPv4地址",
+    "ipv6": "IPv6地址",
+    "mac": "MAC地址",
+    "cidrv4": "IPv4网段",
+    "cidrv6": "IPv6网段",
+    "base64": "base64编码字符串",
+    "base64url": "base64url编码字符串",
+    "json_string": "JSON字符串",
+    "e164": "E.164电话号码",
+    "jwt": "JWT",
+    "hostname": "主机名",
+    "credit_card": "信用卡号",
+    "iban": "IBAN",
+    "hex": "十六进制字符串",
+    "hash": "哈希值",
+    "currency_code": "货币代码",
+    "template_literal": "输入"
+  },
+  "types": {
+    "string": "文本",
+    "number": "数字",
+    "int": "整数",
+    "bigint": "大整数",
+    "boolean": "布尔值",
+    "symbol": "符号",
+    "undefined": "未定义",
+    "null": "空值(null)",
+    "nan": "NaN",
+    "void": "空(void)",
+    "never": "never",
+    "date": "日期",
+    "array": "数组",
+    "tuple": "元组",
+    "object": "对象",
+    "record": "记录",
+    "map": "映射",
+    "set": "集合",
+    "file": "文件",
+    "function": "函数",
+    "promise": "Promise"
+  }
+}

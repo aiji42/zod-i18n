@@ -1,0 +1,158 @@
+{
+  "errors": {
+    "invalid_type": "Giá trị phải là {{expected}}, nhưng nhận được {{received}}",
+    "invalid_type_received_undefined": "Trường này là bắt buộc",
+    "invalid_type_received_null": "Trường này là bắt buộc",
+    "invalid_value": "Lựa chọn không hợp lệ: phải là một trong {{- options}}",
+    "invalid_value_single": "Giá trị không hợp lệ: phải là {{- expected}}",
+    "invalid_format": {
+      "default": "Định dạng {{format}} không hợp lệ",
+      "email": "Địa chỉ email không hợp lệ",
+      "url": "URL không hợp lệ",
+      "regex": "Định dạng không hợp lệ",
+      "starts_with": "Phải bắt đầu bằng \"{{- prefix}}\"",
+      "ends_with": "Phải kết thúc bằng \"{{- suffix}}\"",
+      "includes": "Phải chứa \"{{- includes}}\"",
+      "lowercase": "Phải là chữ thường",
+      "uppercase": "Phải là chữ hoa"
+    },
+    "not_multiple_of": "Số phải là bội số của {{divisor}}",
+    "unrecognized_keys": "Đối tượng chứa khóa không được nhận dạng: {{- keys}}",
+    "invalid_key": "Khóa không hợp lệ trong {{origin}}",
+    "invalid_element": "Giá trị không hợp lệ trong {{origin}}",
+    "invalid_union": "Giá trị không hợp lệ",
+    "invalid_union_discriminator": "Giá trị phân biệt (discriminator) không hợp lệ: phải là một trong {{- options}}",
+    "custom": "Giá trị không hợp lệ",
+    "too_small": {
+      "string": {
+        "exact": "Phải có đúng {{count}} ký tự",
+        "inclusive": "Phải có ít nhất {{count}} ký tự",
+        "not_inclusive": "Phải có nhiều hơn {{count}} ký tự"
+      },
+      "number": {
+        "exact": "Số phải bằng {{minimum}}",
+        "inclusive": "Số phải lớn hơn hoặc bằng {{minimum}}",
+        "not_inclusive": "Số phải lớn hơn {{minimum}}"
+      },
+      "array": {
+        "exact": "Mảng phải có đúng {{count}} phần tử",
+        "inclusive": "Mảng phải có ít nhất {{count}} phần tử",
+        "not_inclusive": "Mảng phải có nhiều hơn {{count}} phần tử"
+      },
+      "set": {
+        "exact": "Tập hợp phải có đúng {{count}} phần tử",
+        "inclusive": "Tập hợp phải có ít nhất {{count}} phần tử",
+        "not_inclusive": "Tập hợp phải có nhiều hơn {{count}} phần tử"
+      },
+      "map": {
+        "exact": "Map phải có đúng {{count}} mục",
+        "inclusive": "Map phải có ít nhất {{count}} mục",
+        "not_inclusive": "Map phải có nhiều hơn {{count}} mục"
+      },
+      "file": {
+        "exact": "Tệp phải có kích thước đúng {{count}} byte",
+        "inclusive": "Tệp phải có kích thước ít nhất {{count}} byte",
+        "not_inclusive": "Tệp phải có kích thước lớn hơn {{count}} byte"
+      },
+      "date": {
+        "exact": "Ngày phải là {{- minimum, datetime}}",
+        "inclusive": "Ngày phải là {{- minimum, datetime}} hoặc muộn hơn",
+        "not_inclusive": "Ngày phải sau {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact": "Phải có đúng {{count}} ký tự",
+        "inclusive": "Phải có tối đa {{count}} ký tự",
+        "not_inclusive": "Phải có ít hơn {{count}} ký tự"
+      },
+      "number": {
+        "exact": "Số phải bằng {{maximum}}",
+        "inclusive": "Số phải nhỏ hơn hoặc bằng {{maximum}}",
+        "not_inclusive": "Số phải nhỏ hơn {{maximum}}"
+      },
+      "array": {
+        "exact": "Mảng phải có đúng {{count}} phần tử",
+        "inclusive": "Mảng phải có tối đa {{count}} phần tử",
+        "not_inclusive": "Mảng phải có ít hơn {{count}} phần tử"
+      },
+      "set": {
+        "exact": "Tập hợp phải có đúng {{count}} phần tử",
+        "inclusive": "Tập hợp phải có tối đa {{count}} phần tử",
+        "not_inclusive": "Tập hợp phải có ít hơn {{count}} phần tử"
+      },
+      "map": {
+        "exact": "Map phải có đúng {{count}} mục",
+        "inclusive": "Map phải có tối đa {{count}} mục",
+        "not_inclusive": "Map phải có ít hơn {{count}} mục"
+      },
+      "file": {
+        "exact": "Tệp phải có kích thước đúng {{count}} byte",
+        "inclusive": "Tệp phải có kích thước tối đa {{count}} byte",
+        "not_inclusive": "Tệp phải có kích thước nhỏ hơn {{count}} byte"
+      },
+      "date": {
+        "exact": "Ngày phải là {{- maximum, datetime}}",
+        "inclusive": "Ngày phải là {{- maximum, datetime}} hoặc sớm hơn",
+        "not_inclusive": "Ngày phải trước {{- maximum, datetime}}"
+      }
+    }
+  },
+  "formats": {
+    "email": "địa chỉ email",
+    "url": "URL",
+    "emoji": "emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ngày giờ ISO",
+    "date": "ngày ISO",
+    "time": "giờ ISO",
+    "duration": "khoảng thời gian ISO",
+    "ipv4": "địa chỉ IPv4",
+    "ipv6": "địa chỉ IPv6",
+    "mac": "địa chỉ MAC",
+    "cidrv4": "dải địa chỉ IPv4",
+    "cidrv6": "dải địa chỉ IPv6",
+    "base64": "văn bản mã hóa base64",
+    "base64url": "văn bản mã hóa base64url",
+    "json_string": "văn bản JSON",
+    "e164": "số điện thoại E.164",
+    "jwt": "JWT",
+    "hostname": "tên máy chủ",
+    "credit_card": "số thẻ tín dụng",
+    "iban": "IBAN",
+    "hex": "văn bản thập lục phân",
+    "hash": "mã băm",
+    "currency_code": "mã tiền tệ",
+    "template_literal": "giá trị"
+  },
+  "types": {
+    "string": "văn bản",
+    "number": "số",
+    "int": "số nguyên",
+    "bigint": "số nguyên lớn (bigint)",
+    "boolean": "boolean",
+    "symbol": "symbol",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "ngày",
+    "array": "mảng",
+    "tuple": "tuple",
+    "object": "đối tượng",
+    "record": "record",
+    "map": "map",
+    "set": "tập hợp",
+    "file": "tệp",
+    "function": "hàm",
+    "promise": "promise"
+  }
+}

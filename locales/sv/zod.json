@@ -1,0 +1,207 @@
+{
+  "errors": {
+    "invalid_type": "Ogiltig typ: förväntat {{expected}}, fick {{received}}",
+    "invalid_type_received_undefined": "Obligatoriskt",
+    "invalid_type_received_null": "Obligatoriskt",
+    "invalid_value": "Ogiltigt val: förväntat ett av {{- options}}",
+    "invalid_value_single": "Ogiltigt värde: förväntat {{- expected}}",
+    "invalid_format": {
+      "default": "Ogiltigt format: förväntat {{format}}",
+      "template_literal": "Ogiltig inmatning",
+      "email": "Ogiltig e-postadress",
+      "url": "Ogiltig URL",
+      "emoji": "Får bara innehålla emojier",
+      "uuid": "Ogiltigt UUID",
+      "guid": "Ogiltigt GUID",
+      "datetime": "Ogiltig tidsstämpel (förväntat ISO-format)",
+      "date": "Ogiltigt datum (förväntat ISO-format)",
+      "time": "Ogiltigt klockslag (förväntat ISO-format)",
+      "duration": "Ogiltig varaktighet (förväntat ISO-format)",
+      "ipv4": "Ogiltig IPv4-adress",
+      "ipv6": "Ogiltig IPv6-adress",
+      "mac": "Ogiltig MAC-adress",
+      "cidrv4": "Ogiltigt IPv4-intervall",
+      "cidrv6": "Ogiltigt IPv6-intervall",
+      "json_string": "Ogiltig JSON",
+      "e164": "Ogiltigt telefonnummer (förväntat E.164-format)",
+      "hostname": "Ogiltigt värdnamn",
+      "credit_card": "Ogiltigt kreditkortsnummer",
+      "iban": "Ogiltigt IBAN",
+      "regex": "Ogiltigt format",
+      "starts_with": "Måste börja med \"{{- prefix}}\"",
+      "ends_with": "Måste sluta med \"{{- suffix}}\"",
+      "includes": "Måste innehålla \"{{- includes}}\"",
+      "lowercase": "Måste skrivas med små bokstäver",
+      "uppercase": "Måste skrivas med stora bokstäver"
+    },
+    "not_multiple_of": "Talet måste vara en multipel av {{divisor}}",
+    "unrecognized_keys_one": "Okänd nyckel i objektet: {{- keys}}",
+    "unrecognized_keys_other": "Okända nycklar i objektet: {{- keys}}",
+    "invalid_key": "Ogiltig nyckel i {{origin}}",
+    "invalid_element": "Ogiltigt värde i {{origin}}",
+    "invalid_union": "Ogiltig inmatning",
+    "invalid_union_discriminator": "Ogiltigt diskriminatorvärde: förväntat {{- options}}",
+    "custom": "Ogiltig inmatning",
+    "too_small": {
+      "string": {
+        "exact_one": "Texten måste innehålla exakt {{count}} tecken",
+        "exact_other": "Texten måste innehålla exakt {{count}} tecken",
+        "inclusive_one": "Texten måste innehålla minst {{count}} tecken",
+        "inclusive_other": "Texten måste innehålla minst {{count}} tecken",
+        "not_inclusive_one": "Texten måste innehålla fler än {{count}} tecken",
+        "not_inclusive_other": "Texten måste innehålla fler än {{count}} tecken"
+      },
+      "number": {
+        "exact": "Talet måste vara exakt {{minimum}}",
+        "inclusive": "Talet måste vara minst {{minimum}}",
+        "not_inclusive": "Talet måste vara större än {{minimum}}"
+      },
+      "array": {
+        "exact_one": "Listan måste innehålla exakt {{count}} element",
+        "exact_other": "Listan måste innehålla exakt {{count}} element",
+        "inclusive_one": "Listan måste innehålla minst {{count}} element",
+        "inclusive_other": "Listan måste innehålla minst {{count}} element",
+        "not_inclusive_one": "Listan måste innehålla fler än {{count}} element",
+        "not_inclusive_other": "Listan måste innehålla fler än {{count}} element"
+      },
+      "set": {
+        "exact_one": "Mängden måste innehålla exakt {{count}} element",
+        "exact_other": "Mängden måste innehålla exakt {{count}} element",
+        "inclusive_one": "Mängden måste innehålla minst {{count}} element",
+        "inclusive_other": "Mängden måste innehålla minst {{count}} element",
+        "not_inclusive_one": "Mängden måste innehålla fler än {{count}} element",
+        "not_inclusive_other": "Mängden måste innehålla fler än {{count}} element"
+      },
+      "map": {
+        "exact_one": "Mappningen måste innehålla exakt {{count}} post",
+        "exact_other": "Mappningen måste innehålla exakt {{count}} poster",
+        "inclusive_one": "Mappningen måste innehålla minst {{count}} post",
+        "inclusive_other": "Mappningen måste innehålla minst {{count}} poster",
+        "not_inclusive_one": "Mappningen måste innehålla fler än {{count}} post",
+        "not_inclusive_other": "Mappningen måste innehålla fler än {{count}} poster"
+      },
+      "file": {
+        "exact_one": "Filen måste vara exakt {{count}} byte",
+        "exact_other": "Filen måste vara exakt {{count}} byte",
+        "inclusive_one": "Filen måste vara minst {{count}} byte",
+        "inclusive_other": "Filen måste vara minst {{count}} byte",
+        "not_inclusive_one": "Filen måste vara större än {{count}} byte",
+        "not_inclusive_other": "Filen måste vara större än {{count}} byte"
+      },
+      "date": {
+        "exact": "Datumet måste vara exakt {{- minimum, datetime}}",
+        "inclusive": "Datumet får inte vara före {{- minimum, datetime}}",
+        "not_inclusive": "Datumet måste vara efter {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact_one": "Texten måste innehålla exakt {{count}} tecken",
+        "exact_other": "Texten måste innehålla exakt {{count}} tecken",
+        "inclusive_one": "Texten får innehålla högst {{count}} tecken",
+        "inclusive_other": "Texten får innehålla högst {{count}} tecken",
+        "not_inclusive_one": "Texten måste innehålla färre än {{count}} tecken",
+        "not_inclusive_other": "Texten måste innehålla färre än {{count}} tecken"
+      },
+      "number": {
+        "exact": "Talet måste vara exakt {{maximum}}",
+        "inclusive": "Talet får vara högst {{maximum}}",
+        "not_inclusive": "Talet måste vara mindre än {{maximum}}"
+      },
+      "array": {
+        "exact_one": "Listan måste innehålla exakt {{count}} element",
+        "exact_other": "Listan måste innehålla exakt {{count}} element",
+        "inclusive_one": "Listan får innehålla högst {{count}} element",
+        "inclusive_other": "Listan får innehålla högst {{count}} element",
+        "not_inclusive_one": "Listan måste innehålla färre än {{count}} element",
+        "not_inclusive_other": "Listan måste innehålla färre än {{count}} element"
+      },
+      "set": {
+        "exact_one": "Mängden måste innehålla exakt {{count}} element",
+        "exact_other": "Mängden måste innehålla exakt {{count}} element",
+        "inclusive_one": "Mängden får innehålla högst {{count}} element",
+        "inclusive_other": "Mängden får innehålla högst {{count}} element",
+        "not_inclusive_one": "Mängden måste innehålla färre än {{count}} element",
+        "not_inclusive_other": "Mängden måste innehålla färre än {{count}} element"
+      },
+      "map": {
+        "exact_one": "Mappningen måste innehålla exakt {{count}} post",
+        "exact_other": "Mappningen måste innehålla exakt {{count}} poster",
+        "inclusive_one": "Mappningen får innehålla högst {{count}} post",
+        "inclusive_other": "Mappningen får innehålla högst {{count}} poster",
+        "not_inclusive_one": "Mappningen måste innehålla färre än {{count}} post",
+        "not_inclusive_other": "Mappningen måste innehålla färre än {{count}} poster"
+      },
+      "file": {
+        "exact_one": "Filen måste vara exakt {{count}} byte",
+        "exact_other": "Filen måste vara exakt {{count}} byte",
+        "inclusive_one": "Filen får vara högst {{count}} byte",
+        "inclusive_other": "Filen får vara högst {{count}} byte",
+        "not_inclusive_one": "Filen måste vara mindre än {{count}} byte",
+        "not_inclusive_other": "Filen måste vara mindre än {{count}} byte"
+      },
+      "date": {
+        "exact": "Datumet måste vara exakt {{- maximum, datetime}}",
+        "inclusive": "Datumet får inte vara efter {{- maximum, datetime}}",
+        "not_inclusive": "Datumet måste vara före {{- maximum, datetime}}"
+      }
+    }
+  },
+  "formats": {
+    "email": "e-postadress",
+    "url": "URL",
+    "emoji": "emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO-datum och tid",
+    "date": "ISO-datum",
+    "time": "ISO-tid",
+    "duration": "ISO-varaktighet",
+    "ipv4": "IPv4-adress",
+    "ipv6": "IPv6-adress",
+    "mac": "MAC-adress",
+    "cidrv4": "IPv4-intervall",
+    "cidrv6": "IPv6-intervall",
+    "base64": "base64-kodad text",
+    "base64url": "base64url-kodad text",
+    "json_string": "JSON-text",
+    "e164": "E.164-telefonnummer",
+    "jwt": "JWT",
+    "hostname": "värdnamn",
+    "credit_card": "kreditkortsnummer",
+    "iban": "IBAN",
+    "hex": "hexadecimal text",
+    "hash": "hash",
+    "currency_code": "valutakod",
+    "template_literal": "inmatning"
+  },
+  "types": {
+    "string": "text",
+    "number": "tal",
+    "int": "heltal",
+    "bigint": "bigint",
+    "boolean": "booleskt värde",
+    "symbol": "symbol",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "datum",
+    "array": "lista",
+    "tuple": "tupel",
+    "object": "objekt",
+    "record": "record",
+    "map": "mappning",
+    "set": "mängd",
+    "file": "fil",
+    "function": "funktion",
+    "promise": "promise"
+  }
+}

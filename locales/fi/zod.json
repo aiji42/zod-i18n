@@ -1,0 +1,194 @@
+{
+  "errors": {
+    "invalid_type": "Virheellinen tyyppi (odotettu: {{expected}}, saatu: {{received}})",
+    "invalid_type_received_undefined": "Pakollinen",
+    "invalid_type_received_null": "Pakollinen",
+    "invalid_value": "Virheellinen arvo (sallitut arvot: {{- options}})",
+    "invalid_value_single": "Virheellinen arvo (odotettu: {{- expected}})",
+    "invalid_format": {
+      "default": "Virheellinen {{format}}",
+      "emoji": "Arvossa saa olla vain emojeja",
+      "datetime": "Virheellinen aikaleima (odotettiin ISO-muotoa)",
+      "date": "Virheellinen päivämäärä (odotettiin ISO-muotoa)",
+      "time": "Virheellinen kellonaika (odotettiin ISO-muotoa)",
+      "duration": "Virheellinen kesto (odotettiin ISO-muotoa)",
+      "json_string": "Virheellinen JSON",
+      "e164": "Virheellinen puhelinnumero (odotettiin E.164-muotoa)",
+      "regex": "Virheellinen muoto",
+      "starts_with": "Arvon alussa on oltava \"{{- prefix}}\"",
+      "ends_with": "Arvon lopussa on oltava \"{{- suffix}}\"",
+      "includes": "Arvossa on oltava \"{{- includes}}\"",
+      "lowercase": "Arvossa ei saa olla isoja kirjaimia",
+      "uppercase": "Arvossa ei saa olla pieniä kirjaimia"
+    },
+    "not_multiple_of": "Luvun on oltava luvun {{divisor}} monikerta",
+    "unrecognized_keys_one": "Tuntematon avain objektissa: {{- keys}}",
+    "unrecognized_keys_other": "Tuntemattomat avaimet objektissa: {{- keys}}",
+    "invalid_key": "Virheellinen avain ({{origin}})",
+    "invalid_element": "Virheellinen arvo ({{origin}})",
+    "invalid_union": "Virheellinen syöte",
+    "invalid_union_discriminator": "Virheellinen erottimen arvo (sallitut arvot: {{- options}})",
+    "custom": "Virheellinen syöte",
+    "too_small": {
+      "string": {
+        "exact_one": "Tekstin pituuden on oltava täsmälleen {{count}} merkki",
+        "exact_other": "Tekstin pituuden on oltava täsmälleen {{count}} merkkiä",
+        "inclusive_one": "Tekstin pituuden on oltava vähintään {{count}} merkki",
+        "inclusive_other": "Tekstin pituuden on oltava vähintään {{count}} merkkiä",
+        "not_inclusive_one": "Tekstin pituuden on oltava yli {{count}} merkki",
+        "not_inclusive_other": "Tekstin pituuden on oltava yli {{count}} merkkiä"
+      },
+      "number": {
+        "exact": "Luvun on oltava täsmälleen {{minimum}}",
+        "inclusive": "Luvun on oltava vähintään {{minimum}}",
+        "not_inclusive": "Luvun on oltava suurempi kuin {{minimum}}"
+      },
+      "array": {
+        "exact_one": "Listassa on oltava täsmälleen {{count}} alkio",
+        "exact_other": "Listassa on oltava täsmälleen {{count}} alkiota",
+        "inclusive_one": "Listassa on oltava vähintään {{count}} alkio",
+        "inclusive_other": "Listassa on oltava vähintään {{count}} alkiota",
+        "not_inclusive_one": "Listassa on oltava yli {{count}} alkio",
+        "not_inclusive_other": "Listassa on oltava yli {{count}} alkiota"
+      },
+      "set": {
+        "exact_one": "Joukossa on oltava täsmälleen {{count}} alkio",
+        "exact_other": "Joukossa on oltava täsmälleen {{count}} alkiota",
+        "inclusive_one": "Joukossa on oltava vähintään {{count}} alkio",
+        "inclusive_other": "Joukossa on oltava vähintään {{count}} alkiota",
+        "not_inclusive_one": "Joukossa on oltava yli {{count}} alkio",
+        "not_inclusive_other": "Joukossa on oltava yli {{count}} alkiota"
+      },
+      "map": {
+        "exact_one": "Hakutaulussa on oltava täsmälleen {{count}} merkintä",
+        "exact_other": "Hakutaulussa on oltava täsmälleen {{count}} merkintää",
+        "inclusive_one": "Hakutaulussa on oltava vähintään {{count}} merkintä",
+        "inclusive_other": "Hakutaulussa on oltava vähintään {{count}} merkintää",
+        "not_inclusive_one": "Hakutaulussa on oltava yli {{count}} merkintä",
+        "not_inclusive_other": "Hakutaulussa on oltava yli {{count}} merkintää"
+      },
+      "file": {
+        "exact_one": "Tiedoston koon on oltava täsmälleen {{count}} tavu",
+        "exact_other": "Tiedoston koon on oltava täsmälleen {{count}} tavua",
+        "inclusive_one": "Tiedoston koon on oltava vähintään {{count}} tavu",
+        "inclusive_other": "Tiedoston koon on oltava vähintään {{count}} tavua",
+        "not_inclusive_one": "Tiedoston koon on oltava yli {{count}} tavu",
+        "not_inclusive_other": "Tiedoston koon on oltava yli {{count}} tavua"
+      },
+      "date": {
+        "exact": "Päivämäärän on oltava täsmälleen {{- minimum, datetime}}",
+        "inclusive": "Päivämäärän on oltava aikaisintaan {{- minimum, datetime}}",
+        "not_inclusive": "Päivämäärän on oltava myöhäisempi kuin {{- minimum, datetime}}"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact_one": "Tekstin pituuden on oltava täsmälleen {{count}} merkki",
+        "exact_other": "Tekstin pituuden on oltava täsmälleen {{count}} merkkiä",
+        "inclusive_one": "Tekstin pituus saa olla enintään {{count}} merkki",
+        "inclusive_other": "Tekstin pituus saa olla enintään {{count}} merkkiä",
+        "not_inclusive_one": "Tekstin pituuden on oltava alle {{count}} merkki",
+        "not_inclusive_other": "Tekstin pituuden on oltava alle {{count}} merkkiä"
+      },
+      "number": {
+        "exact": "Luvun on oltava täsmälleen {{maximum}}",
+        "inclusive": "Luku saa olla enintään {{maximum}}",
+        "not_inclusive": "Luvun on oltava pienempi kuin {{maximum}}"
+      },
+      "array": {
+        "exact_one": "Listassa on oltava täsmälleen {{count}} alkio",
+        "exact_other": "Listassa on oltava täsmälleen {{count}} alkiota",
+        "inclusive_one": "Listassa saa olla enintään {{count}} alkio",
+        "inclusive_other": "Listassa saa olla enintään {{count}} alkiota",
+        "not_inclusive_one": "Listassa on oltava alle {{count}} alkio",
+        "not_inclusive_other": "Listassa on oltava alle {{count}} alkiota"
+      },
+      "set": {
+        "exact_one": "Joukossa on oltava täsmälleen {{count}} alkio",
+        "exact_other": "Joukossa on oltava täsmälleen {{count}} alkiota",
+        "inclusive_one": "Joukossa saa olla enintään {{count}} alkio",
+        "inclusive_other": "Joukossa saa olla enintään {{count}} alkiota",
+        "not_inclusive_one": "Joukossa on oltava alle {{count}} alkio",
+        "not_inclusive_other": "Joukossa on oltava alle {{count}} alkiota"
+      },
+      "map": {
+        "exact_one": "Hakutaulussa on oltava täsmälleen {{count}} merkintä",
+        "exact_other": "Hakutaulussa on oltava täsmälleen {{count}} merkintää",
+        "inclusive_one": "Hakutaulussa saa olla enintään {{count}} merkintä",
+        "inclusive_other": "Hakutaulussa saa olla enintään {{count}} merkintää",
+        "not_inclusive_one": "Hakutaulussa on oltava alle {{count}} merkintä",
+        "not_inclusive_other": "Hakutaulussa on oltava alle {{count}} merkintää"
+      },
+      "file": {
+        "exact_one": "Tiedoston koon on oltava täsmälleen {{count}} tavu",
+        "exact_other": "Tiedoston koon on oltava täsmälleen {{count}} tavua",
+        "inclusive_one": "Tiedoston koko saa olla enintään {{count}} tavu",
+        "inclusive_other": "Tiedoston koko saa olla enintään {{count}} tavua",
+        "not_inclusive_one": "Tiedoston koon on oltava alle {{count}} tavu",
+        "not_inclusive_other": "Tiedoston koon on oltava alle {{count}} tavua"
+      },
+      "date": {
+        "exact": "Päivämäärän on oltava täsmälleen {{- maximum, datetime}}",
+        "inclusive": "Päivämäärän on oltava viimeistään {{- maximum, datetime}}",
+        "not_inclusive": "Päivämäärän on oltava aikaisempi kuin {{- maximum, datetime}}"
+      }
+    }
+  },
+  "formats": {
+    "email": "sähköpostiosoite",
+    "url": "URL-osoite",
+    "emoji": "emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO-aikaleima",
+    "date": "ISO-päivämäärä",
+    "time": "ISO-kellonaika",
+    "duration": "ISO-kesto",
+    "ipv4": "IPv4-osoite",
+    "ipv6": "IPv6-osoite",
+    "mac": "MAC-osoite",
+    "cidrv4": "IPv4-osoitealue",
+    "cidrv6": "IPv6-osoitealue",
+    "base64": "base64-koodattu teksti",
+    "base64url": "base64url-koodattu teksti",
+    "json_string": "JSON-teksti",
+    "e164": "E.164-puhelinnumero",
+    "jwt": "JWT",
+    "hostname": "isäntänimi",
+    "credit_card": "luottokortin numero",
+    "iban": "IBAN",
+    "hex": "heksadesimaaliteksti",
+    "hash": "tiiviste",
+    "currency_code": "valuuttakoodi",
+    "template_literal": "syöte"
+  },
+  "types": {
+    "string": "teksti",
+    "number": "luku",
+    "int": "kokonaisluku",
+    "bigint": "iso kokonaisluku",
+    "boolean": "totuusarvo",
+    "symbol": "symboli",
+    "undefined": "määrittelemätön",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "päivämäärä",
+    "array": "lista",
+    "tuple": "monikko",
+    "object": "objekti",
+    "record": "tietue",
+    "map": "hakutaulu",
+    "set": "joukko",
+    "file": "tiedosto",
+    "function": "funktio",
+    "promise": "promise"
+  }
+}

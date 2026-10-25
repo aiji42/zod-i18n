@@ -1,0 +1,157 @@
+{
+  "errors": {
+    "invalid_type": "{{received}}ではなく{{expected}}を入力してください。",
+    "invalid_type_received_undefined": "必須項目です。",
+    "invalid_type_received_null": "必須項目です。",
+    "invalid_value": "{{- options}}のいずれかを指定してください。",
+    "invalid_value_single": "{{- expected}}を指定してください。",
+    "invalid_format": {
+      "default": "{{format}}の形式で入力してください。",
+      "template_literal": "入力内容が正しくありません。",
+      "regex": "入力形式が正しくありません。",
+      "starts_with": "\"{{- prefix}}\"で始まる値を入力してください。",
+      "ends_with": "\"{{- suffix}}\"で終わる値を入力してください。",
+      "includes": "\"{{- includes}}\"を含む値を入力してください。",
+      "lowercase": "小文字で入力してください。",
+      "uppercase": "大文字で入力してください。"
+    },
+    "not_multiple_of": "{{divisor}}の倍数を入力してください。",
+    "unrecognized_keys": "不明なキー（{{- keys}}）が含まれています。",
+    "invalid_key": "{{origin}}に無効なキーが含まれています。",
+    "invalid_element": "{{origin}}に無効な値が含まれています。",
+    "invalid_union": "入力内容が正しくありません。",
+    "invalid_union_discriminator": "{{- options}}のいずれかを指定してください。",
+    "custom": "入力内容が正しくありません。",
+    "too_small": {
+      "string": {
+        "exact": "{{count}}文字で入力してください。",
+        "inclusive": "{{count}}文字以上で入力してください。",
+        "not_inclusive": "{{count}}文字を超える長さで入力してください。"
+      },
+      "number": {
+        "exact": "{{minimum}}を入力してください。",
+        "inclusive": "{{minimum}}以上の数値を入力してください。",
+        "not_inclusive": "{{minimum}}より大きい数値を入力してください。"
+      },
+      "array": {
+        "exact": "項目を{{count}}個指定してください。",
+        "inclusive": "項目を{{count}}個以上指定してください。",
+        "not_inclusive": "項目を{{count}}個より多く指定してください。"
+      },
+      "set": {
+        "exact": "項目を{{count}}個指定してください。",
+        "inclusive": "項目を{{count}}個以上指定してください。",
+        "not_inclusive": "項目を{{count}}個より多く指定してください。"
+      },
+      "map": {
+        "exact": "エントリを{{count}}件指定してください。",
+        "inclusive": "エントリを{{count}}件以上指定してください。",
+        "not_inclusive": "エントリを{{count}}件より多く指定してください。"
+      },
+      "file": {
+        "exact": "ファイルサイズを{{count}}バイトにしてください。",
+        "inclusive": "ファイルサイズを{{count}}バイト以上にしてください。",
+        "not_inclusive": "ファイルサイズを{{count}}バイトより大きくしてください。"
+      },
+      "date": {
+        "exact": "{{- minimum, datetime}}を指定してください。",
+        "inclusive": "{{- minimum, datetime}}以降の日付を指定してください。",
+        "not_inclusive": "{{- minimum, datetime}}より後の日付を指定してください。"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact": "{{count}}文字で入力してください。",
+        "inclusive": "{{count}}文字以下で入力してください。",
+        "not_inclusive": "{{count}}文字未満で入力してください。"
+      },
+      "number": {
+        "exact": "{{maximum}}を入力してください。",
+        "inclusive": "{{maximum}}以下の数値を入力してください。",
+        "not_inclusive": "{{maximum}}より小さい数値を入力してください。"
+      },
+      "array": {
+        "exact": "項目を{{count}}個指定してください。",
+        "inclusive": "項目は{{count}}個以下にしてください。",
+        "not_inclusive": "項目は{{count}}個未満にしてください。"
+      },
+      "set": {
+        "exact": "項目を{{count}}個指定してください。",
+        "inclusive": "項目は{{count}}個以下にしてください。",
+        "not_inclusive": "項目は{{count}}個未満にしてください。"
+      },
+      "map": {
+        "exact": "エントリを{{count}}件指定してください。",
+        "inclusive": "エントリは{{count}}件以下にしてください。",
+        "not_inclusive": "エントリは{{count}}件未満にしてください。"
+      },
+      "file": {
+        "exact": "ファイルサイズを{{count}}バイトにしてください。",
+        "inclusive": "ファイルサイズを{{count}}バイト以下にしてください。",
+        "not_inclusive": "ファイルサイズを{{count}}バイト未満にしてください。"
+      },
+      "date": {
+        "exact": "{{- maximum, datetime}}を指定してください。",
+        "inclusive": "{{- maximum, datetime}}以前の日付を指定してください。",
+        "not_inclusive": "{{- maximum, datetime}}より前の日付を指定してください。"
+      }
+    }
+  },
+  "formats": {
+    "email": "メールアドレス",
+    "url": "URL",
+    "emoji": "絵文字",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO日時",
+    "date": "ISO日付",
+    "time": "ISO時刻",
+    "duration": "ISO期間",
+    "ipv4": "IPv4アドレス",
+    "ipv6": "IPv6アドレス",
+    "mac": "MACアドレス",
+    "cidrv4": "IPv4アドレス範囲",
+    "cidrv6": "IPv6アドレス範囲",
+    "base64": "base64エンコード文字列",
+    "base64url": "base64urlエンコード文字列",
+    "json_string": "JSON文字列",
+    "e164": "E.164電話番号",
+    "jwt": "JWT",
+    "hostname": "ホスト名",
+    "credit_card": "クレジットカード番号",
+    "iban": "IBAN",
+    "hex": "16進数文字列",
+    "hash": "ハッシュ値",
+    "currency_code": "通貨コード",
+    "template_literal": "入力内容"
+  },
+  "types": {
+    "string": "文字列",
+    "number": "数値",
+    "int": "整数",
+    "bigint": "BigInt",
+    "boolean": "真偽値",
+    "symbol": "シンボル",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "日付",
+    "array": "配列",
+    "tuple": "タプル",
+    "object": "オブジェクト",
+    "record": "レコード",
+    "map": "マップ",
+    "set": "セット",
+    "file": "ファイル",
+    "function": "関数",
+    "promise": "Promise"
+  }
+}

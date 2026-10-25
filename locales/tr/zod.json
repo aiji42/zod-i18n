@@ -1,0 +1,161 @@
+{
+  "errors": {
+    "invalid_type": "Değer {{expected}} türünde olmalıdır (alınan tür: {{received}})",
+    "invalid_type_received_undefined": "Bu alan zorunludur",
+    "invalid_type_received_null": "Bu alan zorunludur",
+    "invalid_value": "Değer şunlardan biri olmalıdır: {{- options}}",
+    "invalid_value_single": "Değer {{- expected}} olmalıdır",
+    "invalid_format": {
+      "default": "Geçersiz {{format}}",
+      "datetime": "Geçersiz tarih ve saat (beklenen biçim: ISO 8601)",
+      "date": "Geçersiz tarih (beklenen biçim: YYYY-AA-GG)",
+      "time": "Geçersiz saat (beklenen biçim: ISO 8601)",
+      "e164": "Geçersiz telefon numarası (beklenen biçim: uluslararası E.164)",
+      "regex": "Geçersiz biçim",
+      "starts_with": "\"{{- prefix}}\" ile başlamalıdır",
+      "ends_with": "\"{{- suffix}}\" ile bitmelidir",
+      "includes": "\"{{- includes}}\" içermelidir",
+      "lowercase": "Küçük harflerle yazılmalıdır",
+      "uppercase": "Büyük harflerle yazılmalıdır"
+    },
+    "not_multiple_of": "Sayı, {{divisor}} sayısının katı olmalıdır",
+    "unrecognized_keys_one": "Nesnede tanınmayan anahtar: {{- keys}}",
+    "unrecognized_keys_other": "Nesnede tanınmayan anahtarlar: {{- keys}}",
+    "invalid_key": "Bu {{origin}} içinde geçersiz bir anahtar var",
+    "invalid_element": "Bu {{origin}} içinde geçersiz bir değer var",
+    "invalid_union": "Geçersiz değer",
+    "invalid_union_discriminator": "Değer şunlardan biri olmalıdır: {{- options}}",
+    "custom": "Geçersiz değer",
+    "too_small": {
+      "string": {
+        "exact": "Metin tam olarak {{count}} karakter olmalıdır",
+        "inclusive": "Metin en az {{count}} karakter olmalıdır",
+        "not_inclusive": "Metin {{count}} karakterden uzun olmalıdır"
+      },
+      "number": {
+        "exact": "Sayı tam olarak {{minimum}} olmalıdır",
+        "inclusive": "Sayı {{minimum}} veya daha büyük olmalıdır",
+        "not_inclusive": "Sayı {{minimum}} değerinden büyük olmalıdır"
+      },
+      "array": {
+        "exact": "Liste tam olarak {{count}} öğe içermelidir",
+        "inclusive": "Liste en az {{count}} öğe içermelidir",
+        "not_inclusive": "Liste {{count}} öğeden fazla öğe içermelidir"
+      },
+      "set": {
+        "exact": "Küme tam olarak {{count}} öğe içermelidir",
+        "inclusive": "Küme en az {{count}} öğe içermelidir",
+        "not_inclusive": "Küme {{count}} öğeden fazla öğe içermelidir"
+      },
+      "map": {
+        "exact": "Eşleme tam olarak {{count}} kayıt içermelidir",
+        "inclusive": "Eşleme en az {{count}} kayıt içermelidir",
+        "not_inclusive": "Eşleme {{count}} kayıttan fazla kayıt içermelidir"
+      },
+      "file": {
+        "exact": "Dosya tam olarak {{count}} bayt olmalıdır",
+        "inclusive": "Dosya en az {{count}} bayt olmalıdır",
+        "not_inclusive": "Dosya {{count}} bayttan büyük olmalıdır"
+      },
+      "date": {
+        "exact": "Tarih {{- minimum, datetime}} olmalıdır",
+        "inclusive": "Tarih {{- minimum, datetime}} veya sonrası olmalıdır",
+        "not_inclusive": "Tarih {{- minimum, datetime}} tarihinden sonra olmalıdır"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact": "Metin tam olarak {{count}} karakter olmalıdır",
+        "inclusive": "Metin en fazla {{count}} karakter olmalıdır",
+        "not_inclusive": "Metin {{count}} karakterden kısa olmalıdır"
+      },
+      "number": {
+        "exact": "Sayı tam olarak {{maximum}} olmalıdır",
+        "inclusive": "Sayı {{maximum}} veya daha küçük olmalıdır",
+        "not_inclusive": "Sayı {{maximum}} değerinden küçük olmalıdır"
+      },
+      "array": {
+        "exact": "Liste tam olarak {{count}} öğe içermelidir",
+        "inclusive": "Liste en fazla {{count}} öğe içermelidir",
+        "not_inclusive": "Liste {{count}} öğeden az öğe içermelidir"
+      },
+      "set": {
+        "exact": "Küme tam olarak {{count}} öğe içermelidir",
+        "inclusive": "Küme en fazla {{count}} öğe içermelidir",
+        "not_inclusive": "Küme {{count}} öğeden az öğe içermelidir"
+      },
+      "map": {
+        "exact": "Eşleme tam olarak {{count}} kayıt içermelidir",
+        "inclusive": "Eşleme en fazla {{count}} kayıt içermelidir",
+        "not_inclusive": "Eşleme {{count}} kayıttan az kayıt içermelidir"
+      },
+      "file": {
+        "exact": "Dosya tam olarak {{count}} bayt olmalıdır",
+        "inclusive": "Dosya en fazla {{count}} bayt olmalıdır",
+        "not_inclusive": "Dosya {{count}} bayttan küçük olmalıdır"
+      },
+      "date": {
+        "exact": "Tarih {{- maximum, datetime}} olmalıdır",
+        "inclusive": "Tarih {{- maximum, datetime}} veya öncesi olmalıdır",
+        "not_inclusive": "Tarih {{- maximum, datetime}} tarihinden önce olmalıdır"
+      }
+    }
+  },
+  "formats": {
+    "email": "e-posta adresi",
+    "url": "URL",
+    "emoji": "emoji",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO tarih ve saat",
+    "date": "ISO tarih",
+    "time": "ISO saat",
+    "duration": "ISO süre",
+    "ipv4": "IPv4 adresi",
+    "ipv6": "IPv6 adresi",
+    "mac": "MAC adresi",
+    "cidrv4": "IPv4 aralığı",
+    "cidrv6": "IPv6 aralığı",
+    "base64": "base64 metni",
+    "base64url": "base64url metni",
+    "json_string": "JSON metni",
+    "e164": "E.164 telefon numarası",
+    "jwt": "JWT",
+    "hostname": "ana bilgisayar adı",
+    "credit_card": "kredi kartı numarası",
+    "iban": "IBAN",
+    "hex": "onaltılık metin",
+    "hash": "hash",
+    "currency_code": "para birimi kodu",
+    "template_literal": "değer"
+  },
+  "types": {
+    "string": "metin",
+    "number": "sayı",
+    "int": "tam sayı",
+    "bigint": "büyük tam sayı",
+    "boolean": "mantıksal değer",
+    "symbol": "sembol",
+    "undefined": "tanımsız",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "tarih",
+    "array": "liste",
+    "tuple": "demet",
+    "object": "nesne",
+    "record": "nesne",
+    "map": "eşleme",
+    "set": "küme",
+    "file": "dosya",
+    "function": "fonksiyon",
+    "promise": "Promise"
+  }
+}

@@ -1,0 +1,82 @@
+# zod-i18n-map
+
+> Translates Zod v4 error messages through i18next. The npm package contains only the error map and a CLI. Translation JSON files are copied into the user's project with `npx zod-i18n-map add <locale>`, and the project owns them from then on.
+
+Requirements: zod ^4 (or `zod/v4` from zod 3.25), i18next >= 23. ESM only. For Zod v3, use zod-i18n-map@2. That version has a different API (`z.setErrorMap`) and different keys.
+
+## Setup (do this in order)
+
+1. `npm install zod-i18n-map i18next zod`
+2. `npx zod-i18n-map add <locale...>` writes `locales/<locale>/zod.json`.
+   - Use `--out "<path with {locale}>"` to match the project's existing i18n layout, e.g. `public/locales/{locale}/zod.json` for next-i18next or http-backend.
+   - Use `--force` to overwrite and `--json` for machine-readable output.
+   - If the project uses `i18next-icu`, add `--format icu` (ICU MessageFormat). `_with_path` contexts don't work with i18next-icu.
+3. Register the files as the `zod` namespace in i18next.
+4. Register the error map with `z.config({ customError: zodI18nMap })`. Use `customError`, not `localeError`, so that missing keys fall back to Zod's built-in message.
+
+```ts
+import i18next from "i18next";
+import * as z from "zod";
+import { zodI18nMap } from "zod-i18n-map";
+import en from "./locales/en/zod.json";
+import ja from "./locales/ja/zod.json";
+
+await i18next.init({ lng: "ja", resources: { en: { zod: en }, ja: { zod: ja } } });
+z.config({ customError: zodI18nMap });
+```
+
+## Per-request language (servers)
+
+Don't mutate global state per request. Pass an error map to the parse call instead:
+
+```ts
+import { makeZodI18nMap } from "zod-i18n-map";
+schema.safeParse(input, { error: makeZodI18nMap({ t: i18next.getFixedT(locale) }) });
+```
+
+## Language switch with errors already on screen
+
+Render `translateIssue(issue)` (or `map.translate(issue)`) instead of `issue.message`. It re-translates in the current language using the `zodI18n` metadata the map stores on each issue. Requires Zod >= 4.4; on older versions it returns `issue.message` unchanged.
+
+## Custom messages
+
+- Built-in schema or check: `z.string().min(8, { error: i18nKey("password.too_short") })`.
+  - The key gets the issue's values: `{{count}}`, `{{minimum}}`, `{{maximum}}`, `{{path}}` and so on.
+  - Use `i18nKey("ns:key", { extra: "values" })` for another namespace.
+  - With a custom `makeZodI18nMap(...)`, use `map.key(...)` instead of `i18nKey`.
+- Refinement: `.refine(fn, { params: { i18n: "key" } })` or `{ params: { i18n: { key, values } } }`.
+- If a custom key is missing, the default message for that issue is used.
+
+## Field names
+
+When an issue has a path, a `_with_path` context variant is used if it exists, e.g. `errors.invalid_type_received_undefined_with_path: "{{- path}} is required"`.
+
+- `{{path}}` is the translation of the dotted path, e.g. `user.email`. If that key is missing, the path without array indices is tried, then the raw path.
+- Options: `makeZodI18nMap({ handlePath: { ns, keyPrefix, context } })`, or `handlePath: false` to turn this off.
+
+## Options
+
+`makeZodI18nMap({ t?, ns? = "zod", handlePath? })`. `ns` can be an array. `t` is any i18next-compatible translate function.
+
+## Keys (see locales/en/zod.json in the repo for the full file)
+
+- `errors.invalid_type`, `errors.invalid_type_received_undefined`, `errors.invalid_type_received_null`
+- `errors.invalid_value` (several allowed values), `errors.invalid_value_single` (one allowed value)
+- `errors.invalid_format.<format>`, otherwise `errors.invalid_format.default` with `{{format}}`. Format labels are under `formats.*`.
+- `errors.too_small|too_big.<string|number|array|set|map|file|date>.<exact|inclusive|not_inclusive>`. These use i18next plural suffixes with `{{count}}`.
+- `errors.not_multiple_of`, `errors.unrecognized_keys`, `errors.invalid_key`, `errors.invalid_element`, `errors.invalid_union`, `errors.invalid_union_discriminator`, `errors.custom`
+- `types.*`: type names inserted into messages.
+
+## CLI
+
+- `npx zod-i18n-map list [--json]`
+- `npx zod-i18n-map add <locale...> [--out pattern] [--ref git-ref] [--format i18next|icu] [--force] [--json]`
+- `npx zod-i18n-map check <file> [--locale code] [--json]`: validates a translation file against the upstream English file. It reports missing keys, unknown keys and variables, empty messages, and plural suffixes that don't match the language. It exits with code 1 on any finding. The locale is inferred from paths like `locales/<code>/zod.json`.
+- `npx zod-i18n-map scaffold <locale> [--out pattern] [--json]`: for a language that isn't available. It copies the English file to the output path and prints translation rules. Translate the file, then run `check` until it passes.
+- `npx zod-i18n-map skill [--out path]`: installs an Agent Skill (SKILL.md) for this library. The default location is `.claude/skills/zod-i18n-map/SKILL.md`.
+
+## Pitfalls
+
+- Don't import `zod-i18n-map/locales/...`. Those paths existed only in v2.
+- Messages are plain text. The map turns off i18next HTML escaping, so render them as text (React does), never as HTML.
+- With React/Next.js, initialise i18next before any schema is parsed, and register the map once at module scope.
