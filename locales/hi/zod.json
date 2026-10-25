@@ -1,0 +1,190 @@
+{
+  "errors": {
+    "invalid_type": "अपेक्षित: {{expected}}, प्राप्त: {{received}}",
+    "invalid_type_received_undefined": "यह फ़ील्ड आवश्यक है",
+    "invalid_type_received_null": "यह फ़ील्ड आवश्यक है",
+    "invalid_value": "अमान्य विकल्प: {{- options}} में से कोई एक होना चाहिए",
+    "invalid_value_single": "अमान्य मान: {{- expected}} होना चाहिए",
+    "invalid_format": {
+      "default": "अमान्य {{format}}",
+      "emoji": "केवल इमोजी होने चाहिए",
+      "datetime": "अमान्य तारीख और समय (ISO फ़ॉर्मैट अपेक्षित)",
+      "date": "अमान्य तारीख (ISO फ़ॉर्मैट अपेक्षित)",
+      "time": "अमान्य समय (ISO फ़ॉर्मैट अपेक्षित)",
+      "duration": "अमान्य अवधि (ISO फ़ॉर्मैट अपेक्षित)",
+      "json_string": "अमान्य JSON",
+      "e164": "अमान्य फ़ोन नंबर (E.164 फ़ॉर्मैट अपेक्षित)",
+      "regex": "अमान्य फ़ॉर्मैट",
+      "starts_with": "\"{{- prefix}}\" से शुरू होना चाहिए",
+      "ends_with": "\"{{- suffix}}\" पर समाप्त होना चाहिए",
+      "includes": "इसमें \"{{- includes}}\" शामिल होना चाहिए",
+      "lowercase": "छोटे अक्षरों (lowercase) में होना चाहिए",
+      "uppercase": "बड़े अक्षरों (uppercase) में होना चाहिए"
+    },
+    "not_multiple_of": "संख्या {{divisor}} का गुणज होनी चाहिए",
+    "unrecognized_keys_one": "ऑब्जेक्ट में अज्ञात कुंजी: {{- keys}}",
+    "unrecognized_keys_other": "ऑब्जेक्ट में अज्ञात कुंजियाँ: {{- keys}}",
+    "invalid_key": "{{origin}} में अमान्य कुंजी है",
+    "invalid_element": "{{origin}} में अमान्य मान है",
+    "invalid_union": "अमान्य इनपुट",
+    "invalid_union_discriminator": "अमान्य डिस्क्रिमिनेटर मान: {{- options}} में से कोई एक होना चाहिए",
+    "custom": "अमान्य इनपुट",
+    "too_small": {
+      "string": {
+        "exact_one": "टेक्स्ट में ठीक {{count}} अक्षर होना चाहिए",
+        "exact_other": "टेक्स्ट में ठीक {{count}} अक्षर होने चाहिए",
+        "inclusive_one": "टेक्स्ट में कम से कम {{count}} अक्षर होना चाहिए",
+        "inclusive_other": "टेक्स्ट में कम से कम {{count}} अक्षर होने चाहिए",
+        "not_inclusive_one": "टेक्स्ट में {{count}} से अधिक अक्षर होने चाहिए",
+        "not_inclusive_other": "टेक्स्ट में {{count}} से अधिक अक्षर होने चाहिए"
+      },
+      "number": {
+        "exact": "संख्या {{minimum}} के बराबर होनी चाहिए",
+        "inclusive": "संख्या कम से कम {{minimum}} होनी चाहिए",
+        "not_inclusive": "संख्या {{minimum}} से बड़ी होनी चाहिए"
+      },
+      "array": {
+        "exact_one": "सूची में ठीक {{count}} आइटम होना चाहिए",
+        "exact_other": "सूची में ठीक {{count}} आइटम होने चाहिए",
+        "inclusive_one": "सूची में कम से कम {{count}} आइटम होना चाहिए",
+        "inclusive_other": "सूची में कम से कम {{count}} आइटम होने चाहिए",
+        "not_inclusive_one": "सूची में {{count}} से अधिक आइटम होने चाहिए",
+        "not_inclusive_other": "सूची में {{count}} से अधिक आइटम होने चाहिए"
+      },
+      "set": {
+        "exact_one": "सेट में ठीक {{count}} आइटम होना चाहिए",
+        "exact_other": "सेट में ठीक {{count}} आइटम होने चाहिए",
+        "inclusive_one": "सेट में कम से कम {{count}} आइटम होना चाहिए",
+        "inclusive_other": "सेट में कम से कम {{count}} आइटम होने चाहिए",
+        "not_inclusive_one": "सेट में {{count}} से अधिक आइटम होने चाहिए",
+        "not_inclusive_other": "सेट में {{count}} से अधिक आइटम होने चाहिए"
+      },
+      "map": {
+        "exact_one": "मैप में ठीक {{count}} एंट्री होनी चाहिए",
+        "exact_other": "मैप में ठीक {{count}} एंट्रियाँ होनी चाहिए",
+        "inclusive_one": "मैप में कम से कम {{count}} एंट्री होनी चाहिए",
+        "inclusive_other": "मैप में कम से कम {{count}} एंट्रियाँ होनी चाहिए",
+        "not_inclusive_one": "मैप में {{count}} से अधिक एंट्रियाँ होनी चाहिए",
+        "not_inclusive_other": "मैप में {{count}} से अधिक एंट्रियाँ होनी चाहिए"
+      },
+      "file": {
+        "exact_one": "फ़ाइल का साइज़ ठीक {{count}} बाइट होना चाहिए",
+        "exact_other": "फ़ाइल का साइज़ ठीक {{count}} बाइट होना चाहिए",
+        "inclusive_one": "फ़ाइल का साइज़ कम से कम {{count}} बाइट होना चाहिए",
+        "inclusive_other": "फ़ाइल का साइज़ कम से कम {{count}} बाइट होना चाहिए",
+        "not_inclusive_one": "फ़ाइल का साइज़ {{count}} बाइट से अधिक होना चाहिए",
+        "not_inclusive_other": "फ़ाइल का साइज़ {{count}} बाइट से अधिक होना चाहिए"
+      },
+      "date": {
+        "exact": "तारीख {{- minimum, datetime}} होनी चाहिए",
+        "inclusive": "तारीख {{- minimum, datetime}} या उसके बाद की होनी चाहिए",
+        "not_inclusive": "तारीख {{- minimum, datetime}} के बाद की होनी चाहिए"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact_one": "टेक्स्ट में ठीक {{count}} अक्षर होना चाहिए",
+        "exact_other": "टेक्स्ट में ठीक {{count}} अक्षर होने चाहिए",
+        "inclusive_one": "टेक्स्ट में अधिकतम {{count}} अक्षर हो सकता है",
+        "inclusive_other": "टेक्स्ट में अधिकतम {{count}} अक्षर हो सकते हैं",
+        "not_inclusive_one": "टेक्स्ट में {{count}} से कम अक्षर होने चाहिए",
+        "not_inclusive_other": "टेक्स्ट में {{count}} से कम अक्षर होने चाहिए"
+      },
+      "number": {
+        "exact": "संख्या {{maximum}} के बराबर होनी चाहिए",
+        "inclusive": "संख्या अधिकतम {{maximum}} हो सकती है",
+        "not_inclusive": "संख्या {{maximum}} से छोटी होनी चाहिए"
+      },
+      "array": {
+        "exact_one": "सूची में ठीक {{count}} आइटम होना चाहिए",
+        "exact_other": "सूची में ठीक {{count}} आइटम होने चाहिए",
+        "inclusive_one": "सूची में अधिकतम {{count}} आइटम हो सकता है",
+        "inclusive_other": "सूची में अधिकतम {{count}} आइटम हो सकते हैं",
+        "not_inclusive_one": "सूची में {{count}} से कम आइटम होने चाहिए",
+        "not_inclusive_other": "सूची में {{count}} से कम आइटम होने चाहिए"
+      },
+      "set": {
+        "exact_one": "सेट में ठीक {{count}} आइटम होना चाहिए",
+        "exact_other": "सेट में ठीक {{count}} आइटम होने चाहिए",
+        "inclusive_one": "सेट में अधिकतम {{count}} आइटम हो सकता है",
+        "inclusive_other": "सेट में अधिकतम {{count}} आइटम हो सकते हैं",
+        "not_inclusive_one": "सेट में {{count}} से कम आइटम होने चाहिए",
+        "not_inclusive_other": "सेट में {{count}} से कम आइटम होने चाहिए"
+      },
+      "map": {
+        "exact_one": "मैप में ठीक {{count}} एंट्री होनी चाहिए",
+        "exact_other": "मैप में ठीक {{count}} एंट्रियाँ होनी चाहिए",
+        "inclusive_one": "मैप में अधिकतम {{count}} एंट्री हो सकती है",
+        "inclusive_other": "मैप में अधिकतम {{count}} एंट्रियाँ हो सकती हैं",
+        "not_inclusive_one": "मैप में {{count}} से कम एंट्रियाँ होनी चाहिए",
+        "not_inclusive_other": "मैप में {{count}} से कम एंट्रियाँ होनी चाहिए"
+      },
+      "file": {
+        "exact_one": "फ़ाइल का साइज़ ठीक {{count}} बाइट होना चाहिए",
+        "exact_other": "फ़ाइल का साइज़ ठीक {{count}} बाइट होना चाहिए",
+        "inclusive_one": "फ़ाइल का साइज़ अधिकतम {{count}} बाइट हो सकता है",
+        "inclusive_other": "फ़ाइल का साइज़ अधिकतम {{count}} बाइट हो सकता है",
+        "not_inclusive_one": "फ़ाइल का साइज़ {{count}} बाइट से कम होना चाहिए",
+        "not_inclusive_other": "फ़ाइल का साइज़ {{count}} बाइट से कम होना चाहिए"
+      },
+      "date": {
+        "exact": "तारीख {{- maximum, datetime}} होनी चाहिए",
+        "inclusive": "तारीख {{- maximum, datetime}} या उससे पहले की होनी चाहिए",
+        "not_inclusive": "तारीख {{- maximum, datetime}} से पहले की होनी चाहिए"
+      }
+    }
+  },
+  "formats": {
+    "email": "ईमेल पता",
+    "url": "URL",
+    "emoji": "इमोजी",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO तारीख और समय",
+    "date": "ISO तारीख",
+    "time": "ISO समय",
+    "duration": "ISO अवधि",
+    "ipv4": "IPv4 पता",
+    "ipv6": "IPv6 पता",
+    "mac": "MAC पता",
+    "cidrv4": "IPv4 रेंज",
+    "cidrv6": "IPv6 रेंज",
+    "base64": "base64-एन्कोडेड टेक्स्ट",
+    "base64url": "base64url-एन्कोडेड टेक्स्ट",
+    "json_string": "JSON टेक्स्ट",
+    "e164": "E.164 फ़ोन नंबर",
+    "jwt": "JWT",
+    "hostname": "होस्टनेम",
+    "credit_card": "क्रेडिट कार्ड नंबर",
+    "iban": "IBAN"
+  },
+  "types": {
+    "string": "टेक्स्ट",
+    "number": "संख्या",
+    "int": "पूर्णांक",
+    "bigint": "बड़ा पूर्णांक",
+    "boolean": "बूलियन",
+    "symbol": "सिंबल",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "तारीख",
+    "array": "सूची",
+    "tuple": "ट्यूपल",
+    "object": "ऑब्जेक्ट",
+    "record": "ऑब्जेक्ट",
+    "map": "मैप",
+    "set": "सेट",
+    "file": "फ़ाइल",
+    "function": "फ़ंक्शन",
+    "promise": "प्रॉमिस"
+  }
+}

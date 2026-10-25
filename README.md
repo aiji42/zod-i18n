@@ -61,7 +61,7 @@ npx zod-i18n-map add de --format icu     # ICU MessageFormat, for i18next-icu
 
 - If your app uses [i18next-icu](https://github.com/i18next/i18next-icu), use `--format icu`. The files are converted to ICU MessageFormat: `{name}`, `{minimum, date}`, and plurals merged into `{count, plural, ...}`. i18next contexts don't work with i18next-icu, so the `_with_path` variants are not used. `{path}` is still passed to every message.
 
-**Available locales:** ar, bg, cs, de, en, es, fa, fi, fr, he, hr, hu, id, is, it, ja, ka, ko, lt, nb, nl, pl, pt-BR, ro, ru, sk, sv, th, tr, uk, uz, vi, zh-CN, zh-TW.
+**Available locales:** ar, bg, bn, ca, cs, da, de, el, en, es, et, fa, fi, fr, he, hi, hr, hu, id, is, it, ja, ka, ko, lt, lv, ms, nb, nl, pl, pt-BR, pt-PT, ro, ru, sk, sl, sr, sr-Latn, sv, th, tr, uk, uz, vi, zh-CN, zh-TW.
 Something wrong or missing? Pull requests are welcome, see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## Usage

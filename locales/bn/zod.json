@@ -1,0 +1,159 @@
+{
+  "errors": {
+    "invalid_type": "{{received}} নয়, {{expected}} হতে হবে",
+    "invalid_type_received_undefined": "এই ফিল্ডটি আবশ্যক",
+    "invalid_type_received_null": "এই ফিল্ডটি আবশ্যক",
+    "invalid_value": "অবৈধ বিকল্প। এগুলোর যেকোনো একটি হতে হবে: {{- options}}",
+    "invalid_value_single": "অবৈধ মান। {{- expected}} হতে হবে",
+    "invalid_format": {
+      "default": "অবৈধ {{format}}",
+      "emoji": "শুধু ইমোজি থাকতে পারবে",
+      "datetime": "অবৈধ তারিখ ও সময় (ISO ফরম্যাটে হতে হবে)",
+      "date": "অবৈধ তারিখ (ISO ফরম্যাটে হতে হবে)",
+      "time": "অবৈধ সময় (ISO ফরম্যাটে হতে হবে)",
+      "duration": "অবৈধ সময়কাল (ISO ফরম্যাটে হতে হবে)",
+      "json_string": "অবৈধ JSON",
+      "e164": "অবৈধ ফোন নম্বর (E.164 ফরম্যাটে হতে হবে)",
+      "regex": "অবৈধ ফরম্যাট",
+      "starts_with": "\"{{- prefix}}\" দিয়ে শুরু হতে হবে",
+      "ends_with": "\"{{- suffix}}\" দিয়ে শেষ হতে হবে",
+      "includes": "\"{{- includes}}\" থাকতে হবে",
+      "lowercase": "ছোট হাতের অক্ষরে (lowercase) হতে হবে",
+      "uppercase": "বড় হাতের অক্ষরে (uppercase) হতে হবে"
+    },
+    "not_multiple_of": "সংখ্যাটি {{divisor}}-এর গুণিতক হতে হবে",
+    "unrecognized_keys": "অবজেক্টে অচেনা কী: {{- keys}}",
+    "invalid_key": "{{origin}}-এ অবৈধ কী রয়েছে",
+    "invalid_element": "{{origin}}-এ অবৈধ মান রয়েছে",
+    "invalid_union": "অবৈধ ইনপুট",
+    "invalid_union_discriminator": "অবৈধ ডিসক্রিমিনেটর মান। এগুলোর যেকোনো একটি হতে হবে: {{- options}}",
+    "custom": "অবৈধ ইনপুট",
+    "too_small": {
+      "string": {
+        "exact": "টেক্সটে ঠিক {{count}}টি অক্ষর থাকতে হবে",
+        "inclusive": "টেক্সটে কমপক্ষে {{count}}টি অক্ষর থাকতে হবে",
+        "not_inclusive": "টেক্সটে {{count}}টির বেশি অক্ষর থাকতে হবে"
+      },
+      "number": {
+        "exact": "সংখ্যাটি {{minimum}}-এর সমান হতে হবে",
+        "inclusive": "সংখ্যাটি কমপক্ষে {{minimum}} হতে হবে",
+        "not_inclusive": "সংখ্যাটি {{minimum}}-এর চেয়ে বড় হতে হবে"
+      },
+      "array": {
+        "exact": "তালিকায় ঠিক {{count}}টি আইটেম থাকতে হবে",
+        "inclusive": "তালিকায় কমপক্ষে {{count}}টি আইটেম থাকতে হবে",
+        "not_inclusive": "তালিকায় {{count}}টির বেশি আইটেম থাকতে হবে"
+      },
+      "set": {
+        "exact": "সেটে ঠিক {{count}}টি আইটেম থাকতে হবে",
+        "inclusive": "সেটে কমপক্ষে {{count}}টি আইটেম থাকতে হবে",
+        "not_inclusive": "সেটে {{count}}টির বেশি আইটেম থাকতে হবে"
+      },
+      "map": {
+        "exact": "ম্যাপে ঠিক {{count}}টি এন্ট্রি থাকতে হবে",
+        "inclusive": "ম্যাপে কমপক্ষে {{count}}টি এন্ট্রি থাকতে হবে",
+        "not_inclusive": "ম্যাপে {{count}}টির বেশি এন্ট্রি থাকতে হবে"
+      },
+      "file": {
+        "exact": "ফাইলের সাইজ ঠিক {{count}} বাইট হতে হবে",
+        "inclusive": "ফাইলের সাইজ কমপক্ষে {{count}} বাইট হতে হবে",
+        "not_inclusive": "ফাইলের সাইজ {{count}} বাইটের বেশি হতে হবে"
+      },
+      "date": {
+        "exact": "তারিখ {{- minimum, datetime}} হতে হবে",
+        "inclusive": "তারিখ {{- minimum, datetime}} বা তার পরে হতে হবে",
+        "not_inclusive": "তারিখ {{- minimum, datetime}}-এর পরে হতে হবে"
+      }
+    },
+    "too_big": {
+      "string": {
+        "exact": "টেক্সটে ঠিক {{count}}টি অক্ষর থাকতে হবে",
+        "inclusive": "টেক্সটে সর্বোচ্চ {{count}}টি অক্ষর থাকতে পারবে",
+        "not_inclusive": "টেক্সটে {{count}}টির কম অক্ষর থাকতে হবে"
+      },
+      "number": {
+        "exact": "সংখ্যাটি {{maximum}}-এর সমান হতে হবে",
+        "inclusive": "সংখ্যাটি সর্বোচ্চ {{maximum}} হতে পারবে",
+        "not_inclusive": "সংখ্যাটি {{maximum}}-এর চেয়ে ছোট হতে হবে"
+      },
+      "array": {
+        "exact": "তালিকায় ঠিক {{count}}টি আইটেম থাকতে হবে",
+        "inclusive": "তালিকায় সর্বোচ্চ {{count}}টি আইটেম থাকতে পারবে",
+        "not_inclusive": "তালিকায় {{count}}টির কম আইটেম থাকতে হবে"
+      },
+      "set": {
+        "exact": "সেটে ঠিক {{count}}টি আইটেম থাকতে হবে",
+        "inclusive": "সেটে সর্বোচ্চ {{count}}টি আইটেম থাকতে পারবে",
+        "not_inclusive": "সেটে {{count}}টির কম আইটেম থাকতে হবে"
+      },
+      "map": {
+        "exact": "ম্যাপে ঠিক {{count}}টি এন্ট্রি থাকতে হবে",
+        "inclusive": "ম্যাপে সর্বোচ্চ {{count}}টি এন্ট্রি থাকতে পারবে",
+        "not_inclusive": "ম্যাপে {{count}}টির কম এন্ট্রি থাকতে হবে"
+      },
+      "file": {
+        "exact": "ফাইলের সাইজ ঠিক {{count}} বাইট হতে হবে",
+        "inclusive": "ফাইলের সাইজ সর্বোচ্চ {{count}} বাইট হতে পারবে",
+        "not_inclusive": "ফাইলের সাইজ {{count}} বাইটের কম হতে হবে"
+      },
+      "date": {
+        "exact": "তারিখ {{- maximum, datetime}} হতে হবে",
+        "inclusive": "তারিখ {{- maximum, datetime}} বা তার আগে হতে হবে",
+        "not_inclusive": "তারিখ {{- maximum, datetime}}-এর আগে হতে হবে"
+      }
+    }
+  },
+  "formats": {
+    "email": "ইমেইল ঠিকানা",
+    "url": "URL",
+    "emoji": "ইমোজি",
+    "uuid": "UUID",
+    "guid": "GUID",
+    "nanoid": "nanoid",
+    "cuid": "cuid",
+    "cuid2": "cuid2",
+    "ulid": "ULID",
+    "xid": "XID",
+    "ksuid": "KSUID",
+    "datetime": "ISO তারিখ ও সময়",
+    "date": "ISO তারিখ",
+    "time": "ISO সময়",
+    "duration": "ISO সময়কাল",
+    "ipv4": "IPv4 ঠিকানা",
+    "ipv6": "IPv6 ঠিকানা",
+    "mac": "MAC ঠিকানা",
+    "cidrv4": "IPv4 রেঞ্জ",
+    "cidrv6": "IPv6 রেঞ্জ",
+    "base64": "base64-এনকোড করা টেক্সট",
+    "base64url": "base64url-এনকোড করা টেক্সট",
+    "json_string": "JSON টেক্সট",
+    "e164": "E.164 ফোন নম্বর",
+    "jwt": "JWT",
+    "hostname": "হোস্টনেম",
+    "credit_card": "ক্রেডিট কার্ড নম্বর",
+    "iban": "IBAN"
+  },
+  "types": {
+    "string": "টেক্সট",
+    "number": "সংখ্যা",
+    "int": "পূর্ণসংখ্যা",
+    "bigint": "বড় পূর্ণসংখ্যা",
+    "boolean": "বুলিয়ান",
+    "symbol": "সিম্বল",
+    "undefined": "undefined",
+    "null": "null",
+    "nan": "NaN",
+    "void": "void",
+    "never": "never",
+    "date": "তারিখ",
+    "array": "তালিকা",
+    "tuple": "টাপল",
+    "object": "অবজেক্ট",
+    "record": "অবজেক্ট",
+    "map": "ম্যাপ",
+    "set": "সেট",
+    "file": "ফাইল",
+    "function": "ফাংশন",
+    "promise": "প্রমিস"
+  }
+}
